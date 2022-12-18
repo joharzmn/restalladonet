@@ -50,5 +50,4 @@
                 metaProvider.GenerateEntityDescriptor(entityDescriptor);
             }
 ```
-It generates XML files schemas to be used for designed entity like `Salesforce` in this example i am working
-on
+It generates XML files schemas to be used for designed entity like `Salesforce` in this example
