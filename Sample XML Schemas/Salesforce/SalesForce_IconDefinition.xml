@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="IconDefinition" Description="Icon Definition" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="DurableId" DataType="String" Path="DurableId" MaxLength="0" Key="false" />
+    <Column Name="TabDefinitionId" DataType="String" Path="TabDefinitionId" MaxLength="0" Key="false" />
+    <Column Name="Url" DataType="String" Path="Url" MaxLength="0" Key="false" />
+    <Column Name="ContentType" DataType="String" Path="ContentType" MaxLength="0" Key="false" />
+    <Column Name="Theme" DataType="String" Path="Theme" MaxLength="0" Key="false" />
+    <Column Name="Height" DataType="String" Path="Height" MaxLength="0" Key="false" />
+    <Column Name="Width" DataType="String" Path="Width" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From IconDefinition LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

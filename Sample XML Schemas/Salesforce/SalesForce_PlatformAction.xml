@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="PlatformAction" Description="Platform Action" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="ExternalId" DataType="String" Path="ExternalId" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="Label" DataType="String" Path="Label" MaxLength="0" Key="false" />
+    <Column Name="Type" DataType="String" Path="Type" MaxLength="0" Key="false" />
+    <Column Name="Subtype" DataType="String" Path="Subtype" MaxLength="0" Key="false" />
+    <Column Name="ApiName" DataType="String" Path="ApiName" MaxLength="0" Key="false" />
+    <Column Name="ActionTarget" DataType="String" Path="ActionTarget" MaxLength="0" Key="false" />
+    <Column Name="ActionTargetType" DataType="String" Path="ActionTargetType" MaxLength="0" Key="false" />
+    <Column Name="ConfirmationMessage" DataType="String" Path="ConfirmationMessage" MaxLength="0" Key="false" />
+    <Column Name="GroupId" DataType="String" Path="GroupId" MaxLength="0" Key="false" />
+    <Column Name="IsGroupDefault" DataType="Boolean" Path="IsGroupDefault" MaxLength="0" Key="false" />
+    <Column Name="Category" DataType="String" Path="Category" MaxLength="0" Key="false" />
+    <Column Name="InvocationStatus" DataType="String" Path="InvocationStatus" MaxLength="0" Key="false" />
+    <Column Name="InvokedByUserId" DataType="String" Path="InvokedByUserId" MaxLength="0" Key="false" />
+    <Column Name="SourceEntity" DataType="String" Path="SourceEntity" MaxLength="0" Key="false" />
+    <Column Name="ActionListContext" DataType="String" Path="ActionListContext" MaxLength="0" Key="false" />
+    <Column Name="DeviceFormat" DataType="String" Path="DeviceFormat" MaxLength="0" Key="false" />
+    <Column Name="RetrievalMode" DataType="String" Path="RetrievalMode" MaxLength="0" Key="false" />
+    <Column Name="IconContentType" DataType="String" Path="IconContentType" MaxLength="0" Key="false" />
+    <Column Name="IconHeight" DataType="String" Path="IconHeight" MaxLength="0" Key="false" />
+    <Column Name="IconWidth" DataType="String" Path="IconWidth" MaxLength="0" Key="false" />
+    <Column Name="IconUrl" DataType="String" Path="IconUrl" MaxLength="0" Key="false" />
+    <Column Name="IsMassAction" DataType="Boolean" Path="IsMassAction" MaxLength="0" Key="false" />
+    <Column Name="PrimaryColor" DataType="String" Path="PrimaryColor" MaxLength="0" Key="false" />
+    <Column Name="RelatedSourceEntity" DataType="String" Path="RelatedSourceEntity" MaxLength="0" Key="false" />
+    <Column Name="Section" DataType="String" Path="Section" MaxLength="0" Key="false" />
+    <Column Name="RelatedListRecordId" DataType="String" Path="RelatedListRecordId" MaxLength="0" Key="false" />
+    <Column Name="TargetUrl" DataType="String" Path="TargetUrl" MaxLength="0" Key="false" />
+    <Column Name="TargetObject" DataType="String" Path="TargetObject" MaxLength="0" Key="false" />
+    <Column Name="OpenType" DataType="String" Path="OpenType" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From PlatformAction LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

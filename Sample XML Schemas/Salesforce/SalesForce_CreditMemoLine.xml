@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="CreditMemoLine" Description="Credit Memo Line" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="CreditMemoId" DataType="String" Path="CreditMemoId" MaxLength="0" Key="false" />
+    <Column Name="ReferenceEntityItemId" DataType="String" Path="ReferenceEntityItemId" MaxLength="0" Key="false" />
+    <Column Name="StartDate" DataType="String" Path="StartDate" MaxLength="0" Key="false" />
+    <Column Name="EndDate" DataType="String" Path="EndDate" MaxLength="0" Key="false" />
+    <Column Name="TaxEffectiveDate" DataType="String" Path="TaxEffectiveDate" MaxLength="0" Key="false" />
+    <Column Name="Type" DataType="String" Path="Type" MaxLength="0" Key="false" />
+    <Column Name="TaxCode" DataType="String" Path="TaxCode" MaxLength="0" Key="false" />
+    <Column Name="TaxRate" DataType="String" Path="TaxRate" MaxLength="0" Key="false" />
+    <Column Name="Status" DataType="String" Path="Status" MaxLength="0" Key="false" />
+    <Column Name="ChargeAmount" DataType="String" Path="ChargeAmount" MaxLength="0" Key="false" />
+    <Column Name="TaxAmount" DataType="String" Path="TaxAmount" MaxLength="0" Key="false" />
+    <Column Name="AdjustmentAmount" DataType="String" Path="AdjustmentAmount" MaxLength="0" Key="false" />
+    <Column Name="LineAmount" DataType="String" Path="LineAmount" MaxLength="0" Key="false" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Column Name="ReferenceEntityItemTypeCode" DataType="String" Path="ReferenceEntityItemTypeCode" MaxLength="0" Key="false" />
+    <Column Name="ReferenceEntityItemType" DataType="String" Path="ReferenceEntityItemType" MaxLength="0" Key="false" />
+    <Column Name="RelatedLineId" DataType="String" Path="RelatedLineId" MaxLength="0" Key="false" />
+    <Column Name="Product2Id" DataType="String" Path="Product2Id" MaxLength="0" Key="false" />
+    <Column Name="TaxName" DataType="String" Path="TaxName" MaxLength="0" Key="false" />
+    <Column Name="ChargeTaxAmount" DataType="String" Path="ChargeTaxAmount" MaxLength="0" Key="false" />
+    <Column Name="ChargeAmountWithTax" DataType="String" Path="ChargeAmountWithTax" MaxLength="0" Key="false" />
+    <Column Name="AdjustmentTaxAmount" DataType="String" Path="AdjustmentTaxAmount" MaxLength="0" Key="false" />
+    <Column Name="AdjustmentAmountWithTax" DataType="String" Path="AdjustmentAmountWithTax" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From CreditMemoLine LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

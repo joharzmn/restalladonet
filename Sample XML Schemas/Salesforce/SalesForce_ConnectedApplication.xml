@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="ConnectedApplication" Description="Connected App" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="OptionsAllowAdminApprovedUsersOnly" DataType="Boolean" Path="OptionsAllowAdminApprovedUsersOnly" MaxLength="0" Key="false" />
+    <Column Name="OptionsRefreshTokenValidityMetric" DataType="Boolean" Path="OptionsRefreshTokenValidityMetric" MaxLength="0" Key="false" />
+    <Column Name="OptionsHasSessionLevelPolicy" DataType="Boolean" Path="OptionsHasSessionLevelPolicy" MaxLength="0" Key="false" />
+    <Column Name="OptionsIsInternal" DataType="Boolean" Path="OptionsIsInternal" MaxLength="0" Key="false" />
+    <Column Name="OptionsFullContentPushNotifications" DataType="Boolean" Path="OptionsFullContentPushNotifications" MaxLength="0" Key="false" />
+    <Column Name="MobileSessionTimeout" DataType="String" Path="MobileSessionTimeout" MaxLength="0" Key="false" />
+    <Column Name="PinLength" DataType="String" Path="PinLength" MaxLength="0" Key="false" />
+    <Column Name="StartUrl" DataType="String" Path="StartUrl" MaxLength="0" Key="false" />
+    <Column Name="MobileStartUrl" DataType="String" Path="MobileStartUrl" MaxLength="0" Key="false" />
+    <Column Name="RefreshTokenValidityPeriod" DataType="String" Path="RefreshTokenValidityPeriod" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From ConnectedApplication LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="MacroChangeEvent" Description="Macro Change Event" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="ReplayId" DataType="String" Path="ReplayId" MaxLength="0" Key="false" />
+    <Column Name="ChangeEventHeader" DataType="String" Path="ChangeEventHeader" MaxLength="0" Key="false" />
+    <Column Name="OwnerId" DataType="String" Path="OwnerId" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Column Name="IsAlohaSupported" DataType="Boolean" Path="IsAlohaSupported" MaxLength="0" Key="false" />
+    <Column Name="IsLightningSupported" DataType="Boolean" Path="IsLightningSupported" MaxLength="0" Key="false" />
+    <Column Name="StartingContext" DataType="String" Path="StartingContext" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From MacroChangeEvent LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

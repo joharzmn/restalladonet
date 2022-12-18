@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="AsyncApexJob" Description="Apex Job" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="JobType" DataType="String" Path="JobType" MaxLength="0" Key="false" />
+    <Column Name="ApexClassId" DataType="String" Path="ApexClassId" MaxLength="0" Key="false" />
+    <Column Name="Status" DataType="String" Path="Status" MaxLength="0" Key="false" />
+    <Column Name="JobItemsProcessed" DataType="String" Path="JobItemsProcessed" MaxLength="0" Key="false" />
+    <Column Name="TotalJobItems" DataType="String" Path="TotalJobItems" MaxLength="0" Key="false" />
+    <Column Name="NumberOfErrors" DataType="String" Path="NumberOfErrors" MaxLength="0" Key="false" />
+    <Column Name="CompletedDate" DataType="DateTime" Path="CompletedDate" MaxLength="0" Key="false" />
+    <Column Name="MethodName" DataType="String" Path="MethodName" MaxLength="0" Key="false" />
+    <Column Name="ExtendedStatus" DataType="String" Path="ExtendedStatus" MaxLength="0" Key="false" />
+    <Column Name="ParentJobId" DataType="String" Path="ParentJobId" MaxLength="0" Key="false" />
+    <Column Name="LastProcessed" DataType="String" Path="LastProcessed" MaxLength="0" Key="false" />
+    <Column Name="LastProcessedOffset" DataType="String" Path="LastProcessedOffset" MaxLength="0" Key="false" />
+    <Column Name="CronTriggerId" DataType="String" Path="CronTriggerId" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From AsyncApexJob LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="AssetAction" Description="Asset Action" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="AssetActionNumber" DataType="String" Path="AssetActionNumber" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="AssetId" DataType="String" Path="AssetId" MaxLength="0" Key="false" />
+    <Column Name="Type" DataType="String" Path="Type" MaxLength="0" Key="false" />
+    <Column Name="Category" DataType="String" Path="Category" MaxLength="0" Key="false" />
+    <Column Name="CategoryEnum" DataType="String" Path="CategoryEnum" MaxLength="0" Key="false" />
+    <Column Name="ActionDate" DataType="DateTime" Path="ActionDate" MaxLength="0" Key="false" />
+    <Column Name="ProductAmountChange" DataType="String" Path="ProductAmountChange" MaxLength="0" Key="false" />
+    <Column Name="AdjustmentAmountChange" DataType="String" Path="AdjustmentAmountChange" MaxLength="0" Key="false" />
+    <Column Name="EstimatedTaxChange" DataType="String" Path="EstimatedTaxChange" MaxLength="0" Key="false" />
+    <Column Name="ActualTaxChange" DataType="String" Path="ActualTaxChange" MaxLength="0" Key="false" />
+    <Column Name="SubtotalChange" DataType="String" Path="SubtotalChange" MaxLength="0" Key="false" />
+    <Column Name="QuantityChange" DataType="Double" Path="QuantityChange" MaxLength="0" Key="false" />
+    <Column Name="MrrChange" DataType="String" Path="MrrChange" MaxLength="0" Key="false" />
+    <Column Name="Amount" DataType="String" Path="Amount" MaxLength="0" Key="false" />
+    <Column Name="TotalInitialSaleAmount" DataType="String" Path="TotalInitialSaleAmount" MaxLength="0" Key="false" />
+    <Column Name="TotalRenewalsAmount" DataType="String" Path="TotalRenewalsAmount" MaxLength="0" Key="false" />
+    <Column Name="TotalUpsellsAmount" DataType="String" Path="TotalUpsellsAmount" MaxLength="0" Key="false" />
+    <Column Name="TotalDownsellsAmount" DataType="String" Path="TotalDownsellsAmount" MaxLength="0" Key="false" />
+    <Column Name="TotalCrossSellsAmount" DataType="String" Path="TotalCrossSellsAmount" MaxLength="0" Key="false" />
+    <Column Name="TotalCancellationsAmount" DataType="String" Path="TotalCancellationsAmount" MaxLength="0" Key="false" />
+    <Column Name="TotalTransfersAmount" DataType="String" Path="TotalTransfersAmount" MaxLength="0" Key="false" />
+    <Column Name="TotalTermsAndConditionsAmount" DataType="String" Path="TotalTermsAndConditionsAmount" MaxLength="0" Key="false" />
+    <Column Name="TotalOtherAmount" DataType="String" Path="TotalOtherAmount" MaxLength="0" Key="false" />
+    <Column Name="TotalAmount" DataType="String" Path="TotalAmount" MaxLength="0" Key="false" />
+    <Column Name="TotalQuantity" DataType="Double" Path="TotalQuantity" MaxLength="0" Key="false" />
+    <Column Name="TotalMrr" DataType="String" Path="TotalMrr" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From AssetAction LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

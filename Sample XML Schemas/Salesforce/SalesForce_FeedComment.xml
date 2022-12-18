@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="FeedComment" Description="Feed Comment" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="FeedItemId" DataType="String" Path="FeedItemId" MaxLength="0" Key="false" />
+    <Column Name="ParentId" DataType="String" Path="ParentId" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="Revision" DataType="String" Path="Revision" MaxLength="0" Key="false" />
+    <Column Name="LastEditById" DataType="String" Path="LastEditById" MaxLength="0" Key="false" />
+    <Column Name="LastEditDate" DataType="DateTime" Path="LastEditDate" MaxLength="0" Key="false" />
+    <Column Name="CommentBody" DataType="String" Path="CommentBody" MaxLength="0" Key="false" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="InsertedById" DataType="String" Path="InsertedById" MaxLength="0" Key="false" />
+    <Column Name="CommentType" DataType="String" Path="CommentType" MaxLength="0" Key="false" />
+    <Column Name="RelatedRecordId" DataType="String" Path="RelatedRecordId" MaxLength="0" Key="false" />
+    <Column Name="IsRichText" DataType="Boolean" Path="IsRichText" MaxLength="0" Key="false" />
+    <Column Name="IsVerified" DataType="Boolean" Path="IsVerified" MaxLength="0" Key="false" />
+    <Column Name="HasEntityLinks" DataType="Boolean" Path="HasEntityLinks" MaxLength="0" Key="false" />
+    <Column Name="Status" DataType="String" Path="Status" MaxLength="0" Key="false" />
+    <Column Name="ThreadParentId" DataType="String" Path="ThreadParentId" MaxLength="0" Key="false" />
+    <Column Name="ThreadLevel" DataType="String" Path="ThreadLevel" MaxLength="0" Key="false" />
+    <Column Name="ThreadChildrenCount" DataType="String" Path="ThreadChildrenCount" MaxLength="0" Key="false" />
+    <Column Name="ThreadLastUpdatedDate" DataType="DateTime" Path="ThreadLastUpdatedDate" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From FeedComment LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

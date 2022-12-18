@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="Case" Description="Case" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="MasterRecordId" DataType="String" Path="MasterRecordId" MaxLength="0" Key="false" />
+    <Column Name="CaseNumber" DataType="String" Path="CaseNumber" MaxLength="0" Key="false" />
+    <Column Name="ContactId" DataType="String" Path="ContactId" MaxLength="0" Key="false" />
+    <Column Name="AccountId" DataType="String" Path="AccountId" MaxLength="0" Key="false" />
+    <Column Name="AssetId" DataType="String" Path="AssetId" MaxLength="0" Key="false" />
+    <Column Name="SourceId" DataType="String" Path="SourceId" MaxLength="0" Key="false" />
+    <Column Name="ParentId" DataType="String" Path="ParentId" MaxLength="0" Key="false" />
+    <Column Name="SuppliedName" DataType="String" Path="SuppliedName" MaxLength="0" Key="false" />
+    <Column Name="SuppliedEmail" DataType="String" Path="SuppliedEmail" MaxLength="0" Key="false" />
+    <Column Name="SuppliedPhone" DataType="String" Path="SuppliedPhone" MaxLength="0" Key="false" />
+    <Column Name="SuppliedCompany" DataType="String" Path="SuppliedCompany" MaxLength="0" Key="false" />
+    <Column Name="Type" DataType="String" Path="Type" MaxLength="0" Key="false" />
+    <Column Name="Status" DataType="String" Path="Status" MaxLength="0" Key="false" />
+    <Column Name="Reason" DataType="String" Path="Reason" MaxLength="0" Key="false" />
+    <Column Name="Origin" DataType="String" Path="Origin" MaxLength="0" Key="false" />
+    <Column Name="Subject" DataType="String" Path="Subject" MaxLength="0" Key="false" />
+    <Column Name="Priority" DataType="String" Path="Priority" MaxLength="0" Key="false" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Column Name="IsClosed" DataType="Boolean" Path="IsClosed" MaxLength="0" Key="false" />
+    <Column Name="ClosedDate" DataType="DateTime" Path="ClosedDate" MaxLength="0" Key="false" />
+    <Column Name="IsEscalated" DataType="Boolean" Path="IsEscalated" MaxLength="0" Key="false" />
+    <Column Name="OwnerId" DataType="String" Path="OwnerId" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="ContactPhone" DataType="String" Path="ContactPhone" MaxLength="0" Key="false" />
+    <Column Name="ContactMobile" DataType="String" Path="ContactMobile" MaxLength="0" Key="false" />
+    <Column Name="ContactEmail" DataType="String" Path="ContactEmail" MaxLength="0" Key="false" />
+    <Column Name="ContactFax" DataType="String" Path="ContactFax" MaxLength="0" Key="false" />
+    <Column Name="Comments" DataType="String" Path="Comments" MaxLength="0" Key="false" />
+    <Column Name="LastViewedDate" DataType="DateTime" Path="LastViewedDate" MaxLength="0" Key="false" />
+    <Column Name="LastReferencedDate" DataType="DateTime" Path="LastReferencedDate" MaxLength="0" Key="false" />
+    <Column Name="EngineeringReqNumber__c" DataType="String" Path="EngineeringReqNumber__c" MaxLength="0" Key="false" />
+    <Column Name="SLAViolation__c" DataType="String" Path="SLAViolation__c" MaxLength="0" Key="false" />
+    <Column Name="Product__c" DataType="String" Path="Product__c" MaxLength="0" Key="false" />
+    <Column Name="PotentialLiability__c" DataType="String" Path="PotentialLiability__c" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From Case LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="OpportunityStage" Description="Opportunity Stage" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="MasterLabel" DataType="String" Path="MasterLabel" MaxLength="0" Key="false" />
+    <Column Name="ApiName" DataType="String" Path="ApiName" MaxLength="0" Key="false" />
+    <Column Name="IsActive" DataType="Boolean" Path="IsActive" MaxLength="0" Key="false" />
+    <Column Name="SortOrder" DataType="String" Path="SortOrder" MaxLength="0" Key="false" />
+    <Column Name="IsClosed" DataType="Boolean" Path="IsClosed" MaxLength="0" Key="false" />
+    <Column Name="IsWon" DataType="Boolean" Path="IsWon" MaxLength="0" Key="false" />
+    <Column Name="ForecastCategory" DataType="String" Path="ForecastCategory" MaxLength="0" Key="false" />
+    <Column Name="ForecastCategoryName" DataType="String" Path="ForecastCategoryName" MaxLength="0" Key="false" />
+    <Column Name="DefaultProbability" DataType="String" Path="DefaultProbability" MaxLength="0" Key="false" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From OpportunityStage LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

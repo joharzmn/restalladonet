@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="OwnerChangeOptionInfo" Description="Change Owner Option Info" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="DurableId" DataType="String" Path="DurableId" MaxLength="0" Key="false" />
+    <Column Name="EntityDefinitionId" DataType="String" Path="EntityDefinitionId" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="Label" DataType="String" Path="Label" MaxLength="0" Key="false" />
+    <Column Name="IsEditable" DataType="Boolean" Path="IsEditable" MaxLength="0" Key="false" />
+    <Column Name="DefaultValue" DataType="Boolean" Path="DefaultValue" MaxLength="0" Key="false" />
+    <Column Name="ParentId" DataType="String" Path="ParentId" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From OwnerChangeOptionInfo LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

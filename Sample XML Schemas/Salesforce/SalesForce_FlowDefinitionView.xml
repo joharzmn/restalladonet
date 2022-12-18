@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="FlowDefinitionView" Description="Flow Definition" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="DurableId" DataType="String" Path="DurableId" MaxLength="0" Key="false" />
+    <Column Name="ApiName" DataType="String" Path="ApiName" MaxLength="0" Key="false" />
+    <Column Name="Label" DataType="String" Path="Label" MaxLength="0" Key="false" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Column Name="ProcessType" DataType="String" Path="ProcessType" MaxLength="0" Key="false" />
+    <Column Name="TriggerType" DataType="String" Path="TriggerType" MaxLength="0" Key="false" />
+    <Column Name="NamespacePrefix" DataType="String" Path="NamespacePrefix" MaxLength="0" Key="false" />
+    <Column Name="ActiveVersionId" DataType="String" Path="ActiveVersionId" MaxLength="0" Key="false" />
+    <Column Name="LatestVersionId" DataType="String" Path="LatestVersionId" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedBy" DataType="String" Path="LastModifiedBy" MaxLength="0" Key="false" />
+    <Column Name="IsActive" DataType="Boolean" Path="IsActive" MaxLength="0" Key="false" />
+    <Column Name="IsOutOfDate" DataType="Boolean" Path="IsOutOfDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="IsTemplate" DataType="Boolean" Path="IsTemplate" MaxLength="0" Key="false" />
+    <Column Name="IsOverridable" DataType="Boolean" Path="IsOverridable" MaxLength="0" Key="false" />
+    <Column Name="OverriddenById" DataType="String" Path="OverriddenById" MaxLength="0" Key="false" />
+    <Column Name="SourceTemplateId" DataType="String" Path="SourceTemplateId" MaxLength="0" Key="false" />
+    <Column Name="OverriddenFlowId" DataType="String" Path="OverriddenFlowId" MaxLength="0" Key="false" />
+    <Column Name="IsSwingFlow" DataType="Boolean" Path="IsSwingFlow" MaxLength="0" Key="false" />
+    <Column Name="Builder" DataType="String" Path="Builder" MaxLength="0" Key="false" />
+    <Column Name="ManageableState" DataType="String" Path="ManageableState" MaxLength="0" Key="false" />
+    <Column Name="InstalledPackageName" DataType="String" Path="InstalledPackageName" MaxLength="0" Key="false" />
+    <Column Name="TriggerObjectOrEventLabel" DataType="String" Path="TriggerObjectOrEventLabel" MaxLength="0" Key="false" />
+    <Column Name="TriggerObjectOrEventId" DataType="String" Path="TriggerObjectOrEventId" MaxLength="0" Key="false" />
+    <Column Name="RecordTriggerType" DataType="String" Path="RecordTriggerType" MaxLength="0" Key="false" />
+    <Column Name="HasAsyncAfterCommitPath" DataType="Boolean" Path="HasAsyncAfterCommitPath" MaxLength="0" Key="false" />
+    <Column Name="VersionNumber" DataType="String" Path="VersionNumber" MaxLength="0" Key="false" />
+    <Column Name="TriggerOrder" DataType="String" Path="TriggerOrder" MaxLength="0" Key="false" />
+    <Column Name="Environments" DataType="String" Path="Environments" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From FlowDefinitionView LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

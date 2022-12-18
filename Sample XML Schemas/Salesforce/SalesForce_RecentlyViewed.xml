@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="RecentlyViewed" Description="Recently Viewed" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="LastName" DataType="String" Path="LastName" MaxLength="0" Key="false" />
+    <Column Name="FirstName" DataType="String" Path="FirstName" MaxLength="0" Key="false" />
+    <Column Name="Type" DataType="String" Path="Type" MaxLength="0" Key="false" />
+    <Column Name="Alias" DataType="String" Path="Alias" MaxLength="0" Key="false" />
+    <Column Name="UserRoleId" DataType="String" Path="UserRoleId" MaxLength="0" Key="false" />
+    <Column Name="RecordTypeId" DataType="String" Path="RecordTypeId" MaxLength="0" Key="false" />
+    <Column Name="IsActive" DataType="Boolean" Path="IsActive" MaxLength="0" Key="false" />
+    <Column Name="ProfileId" DataType="String" Path="ProfileId" MaxLength="0" Key="false" />
+    <Column Name="Title" DataType="String" Path="Title" MaxLength="0" Key="false" />
+    <Column Name="Email" DataType="String" Path="Email" MaxLength="0" Key="false" />
+    <Column Name="Phone" DataType="String" Path="Phone" MaxLength="0" Key="false" />
+    <Column Name="NameOrAlias" DataType="String" Path="NameOrAlias" MaxLength="0" Key="false" />
+    <Column Name="LastViewedDate" DataType="DateTime" Path="LastViewedDate" MaxLength="0" Key="false" />
+    <Column Name="LastReferencedDate" DataType="DateTime" Path="LastReferencedDate" MaxLength="0" Key="false" />
+    <Column Name="Language" DataType="String" Path="Language" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From RecentlyViewed LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

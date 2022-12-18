@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="RelationshipDomain" Description="Relationship Domain" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="DurableId" DataType="String" Path="DurableId" MaxLength="0" Key="false" />
+    <Column Name="ParentSobjectId" DataType="String" Path="ParentSobjectId" MaxLength="0" Key="false" />
+    <Column Name="ChildSobjectId" DataType="String" Path="ChildSobjectId" MaxLength="0" Key="false" />
+    <Column Name="FieldId" DataType="String" Path="FieldId" MaxLength="0" Key="false" />
+    <Column Name="RelationshipInfoId" DataType="String" Path="RelationshipInfoId" MaxLength="0" Key="false" />
+    <Column Name="RelationshipName" DataType="String" Path="RelationshipName" MaxLength="0" Key="false" />
+    <Column Name="IsCascadeDelete" DataType="Boolean" Path="IsCascadeDelete" MaxLength="0" Key="false" />
+    <Column Name="IsDeprecatedAndHidden" DataType="Boolean" Path="IsDeprecatedAndHidden" MaxLength="0" Key="false" />
+    <Column Name="IsRestrictedDelete" DataType="Boolean" Path="IsRestrictedDelete" MaxLength="0" Key="false" />
+    <Column Name="JunctionIdListNames" DataType="String" Path="JunctionIdListNames" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From RelationshipDomain LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

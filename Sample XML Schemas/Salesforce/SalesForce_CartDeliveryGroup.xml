@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="CartDeliveryGroup" Description="Cart Delivery Group" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="CartId" DataType="String" Path="CartId" MaxLength="0" Key="false" />
+    <Column Name="DesiredDeliveryDate" DataType="DateTime" Path="DesiredDeliveryDate" MaxLength="0" Key="false" />
+    <Column Name="ShippingInstructions" DataType="String" Path="ShippingInstructions" MaxLength="0" Key="false" />
+    <Column Name="DeliverToName" DataType="String" Path="DeliverToName" MaxLength="0" Key="false" />
+    <Column Name="DeliverToStreet" DataType="String" Path="DeliverToStreet" MaxLength="0" Key="false" />
+    <Column Name="DeliverToCity" DataType="String" Path="DeliverToCity" MaxLength="0" Key="false" />
+    <Column Name="DeliverToState" DataType="String" Path="DeliverToState" MaxLength="0" Key="false" />
+    <Column Name="DeliverToPostalCode" DataType="String" Path="DeliverToPostalCode" MaxLength="0" Key="false" />
+    <Column Name="DeliverToCountry" DataType="String" Path="DeliverToCountry" MaxLength="0" Key="false" />
+    <Column Name="DeliverToLatitude" DataType="Double" Path="DeliverToLatitude" MaxLength="0" Key="false" />
+    <Column Name="DeliverToLongitude" DataType="Double" Path="DeliverToLongitude" MaxLength="0" Key="false" />
+    <Column Name="DeliverToGeocodeAccuracy" DataType="String" Path="DeliverToGeocodeAccuracy" MaxLength="0" Key="false" />
+    <Column Name="DeliverToAddress" DataType="String" Path="DeliverToAddress" MaxLength="0" Key="false" />
+    <Column Name="TotalProductAmount" DataType="String" Path="TotalProductAmount" MaxLength="0" Key="false" />
+    <Column Name="TotalChargeAmount" DataType="String" Path="TotalChargeAmount" MaxLength="0" Key="false" />
+    <Column Name="TotalAmount" DataType="String" Path="TotalAmount" MaxLength="0" Key="false" />
+    <Column Name="TotalProductTaxAmount" DataType="String" Path="TotalProductTaxAmount" MaxLength="0" Key="false" />
+    <Column Name="TotalChargeTaxAmount" DataType="String" Path="TotalChargeTaxAmount" MaxLength="0" Key="false" />
+    <Column Name="TotalTaxAmount" DataType="String" Path="TotalTaxAmount" MaxLength="0" Key="false" />
+    <Column Name="GrandTotalAmount" DataType="String" Path="GrandTotalAmount" MaxLength="0" Key="false" />
+    <Column Name="TotalAdjustmentAmount" DataType="String" Path="TotalAdjustmentAmount" MaxLength="0" Key="false" />
+    <Column Name="TotalAdjustmentTaxAmount" DataType="String" Path="TotalAdjustmentTaxAmount" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From CartDeliveryGroup LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

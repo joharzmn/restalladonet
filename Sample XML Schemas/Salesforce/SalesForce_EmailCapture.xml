@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="EmailCapture" Description="EmailCapture" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="IsActive" DataType="Boolean" Path="IsActive" MaxLength="0" Key="false" />
+    <Column Name="ToPattern" DataType="String" Path="ToPattern" MaxLength="0" Key="false" />
+    <Column Name="FromPattern" DataType="String" Path="FromPattern" MaxLength="0" Key="false" />
+    <Column Name="Sender" DataType="String" Path="Sender" MaxLength="0" Key="false" />
+    <Column Name="Recipient" DataType="String" Path="Recipient" MaxLength="0" Key="false" />
+    <Column Name="CaptureDate" DataType="DateTime" Path="CaptureDate" MaxLength="0" Key="false" />
+    <Column Name="RawMessageLength" DataType="String" Path="RawMessageLength" MaxLength="0" Key="false" />
+    <Column Name="RawMessage" DataType="String" Path="RawMessage" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From EmailCapture LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

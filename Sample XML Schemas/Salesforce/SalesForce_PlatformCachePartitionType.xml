@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="PlatformCachePartitionType" Description="Platform Cache Partition Type" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="PlatformCachePartitionId" DataType="String" Path="PlatformCachePartitionId" MaxLength="0" Key="false" />
+    <Column Name="CacheType" DataType="String" Path="CacheType" MaxLength="0" Key="false" />
+    <Column Name="AllocatedCapacity" DataType="String" Path="AllocatedCapacity" MaxLength="0" Key="false" />
+    <Column Name="AllocatedPurchasedCapacity" DataType="String" Path="AllocatedPurchasedCapacity" MaxLength="0" Key="false" />
+    <Column Name="AllocatedTrialCapacity" DataType="String" Path="AllocatedTrialCapacity" MaxLength="0" Key="false" />
+    <Column Name="AllocatedPartnerCapacity" DataType="String" Path="AllocatedPartnerCapacity" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From PlatformCachePartitionType LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="ConversationEntry" Description="Conversation Entry" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="ConversationId" DataType="String" Path="ConversationId" MaxLength="0" Key="false" />
+    <Column Name="Seq" DataType="String" Path="Seq" MaxLength="0" Key="false" />
+    <Column Name="EntryTime" DataType="DateTime" Path="EntryTime" MaxLength="0" Key="false" />
+    <Column Name="EntryTimeMilliSecs" DataType="String" Path="EntryTimeMilliSecs" MaxLength="0" Key="false" />
+    <Column Name="EntryType" DataType="String" Path="EntryType" MaxLength="0" Key="false" />
+    <Column Name="ActorType" DataType="String" Path="ActorType" MaxLength="0" Key="false" />
+    <Column Name="ActorId" DataType="String" Path="ActorId" MaxLength="0" Key="false" />
+    <Column Name="ActorName" DataType="String" Path="ActorName" MaxLength="0" Key="false" />
+    <Column Name="Message" DataType="String" Path="Message" MaxLength="0" Key="false" />
+    <Column Name="MessageStatus" DataType="String" Path="MessageStatus" MaxLength="0" Key="false" />
+    <Column Name="MessageStatusCode" DataType="String" Path="MessageStatusCode" MaxLength="0" Key="false" />
+    <Column Name="MessageSendTime" DataType="DateTime" Path="MessageSendTime" MaxLength="0" Key="false" />
+    <Column Name="MessageDeliverTime" DataType="DateTime" Path="MessageDeliverTime" MaxLength="0" Key="false" />
+    <Column Name="MessageReadTime" DataType="DateTime" Path="MessageReadTime" MaxLength="0" Key="false" />
+    <Column Name="MessageIdentifier" DataType="String" Path="MessageIdentifier" MaxLength="0" Key="false" />
+    <Column Name="HasAttachments" DataType="Boolean" Path="HasAttachments" MaxLength="0" Key="false" />
+    <Column Name="EntryEndTime" DataType="DateTime" Path="EntryEndTime" MaxLength="0" Key="false" />
+    <Column Name="ClientTimestamp" DataType="DateTime" Path="ClientTimestamp" MaxLength="0" Key="false" />
+    <Column Name="ClientDuration" DataType="String" Path="ClientDuration" MaxLength="0" Key="false" />
+    <Column Name="ServerReceivedTimestamp" DataType="DateTime" Path="ServerReceivedTimestamp" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From ConversationEntry LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

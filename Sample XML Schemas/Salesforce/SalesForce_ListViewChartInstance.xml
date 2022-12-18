@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="ListViewChartInstance" Description="List View Chart Instance" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="ExternalId" DataType="String" Path="ExternalId" MaxLength="0" Key="false" />
+    <Column Name="ListViewChartId" DataType="String" Path="ListViewChartId" MaxLength="0" Key="false" />
+    <Column Name="Label" DataType="String" Path="Label" MaxLength="0" Key="false" />
+    <Column Name="DeveloperName" DataType="String" Path="DeveloperName" MaxLength="0" Key="false" />
+    <Column Name="SourceEntity" DataType="String" Path="SourceEntity" MaxLength="0" Key="false" />
+    <Column Name="ListViewContextId" DataType="String" Path="ListViewContextId" MaxLength="0" Key="false" />
+    <Column Name="ChartType" DataType="String" Path="ChartType" MaxLength="0" Key="false" />
+    <Column Name="IsLastViewed" DataType="Boolean" Path="IsLastViewed" MaxLength="0" Key="false" />
+    <Column Name="DataQuery" DataType="String" Path="DataQuery" MaxLength="0" Key="false" />
+    <Column Name="DataQueryWithoutUserFilters" DataType="String" Path="DataQueryWithoutUserFilters" MaxLength="0" Key="false" />
+    <Column Name="IsEditable" DataType="Boolean" Path="IsEditable" MaxLength="0" Key="false" />
+    <Column Name="IsDeletable" DataType="Boolean" Path="IsDeletable" MaxLength="0" Key="false" />
+    <Column Name="GroupingField" DataType="String" Path="GroupingField" MaxLength="0" Key="false" />
+    <Column Name="AggregateField" DataType="String" Path="AggregateField" MaxLength="0" Key="false" />
+    <Column Name="AggregateType" DataType="String" Path="AggregateType" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From ListViewChartInstance LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

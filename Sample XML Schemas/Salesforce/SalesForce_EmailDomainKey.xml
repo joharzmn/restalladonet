@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="EmailDomainKey" Description="Email Domain Key" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="Selector" DataType="String" Path="Selector" MaxLength="0" Key="false" />
+    <Column Name="Domain" DataType="String" Path="Domain" MaxLength="0" Key="false" />
+    <Column Name="DomainMatch" DataType="String" Path="DomainMatch" MaxLength="0" Key="false" />
+    <Column Name="IsActive" DataType="Boolean" Path="IsActive" MaxLength="0" Key="false" />
+    <Column Name="AlternateSelector" DataType="String" Path="AlternateSelector" MaxLength="0" Key="false" />
+    <Column Name="TxtRecordName" DataType="String" Path="TxtRecordName" MaxLength="0" Key="false" />
+    <Column Name="AlternateTxtRecordName" DataType="String" Path="AlternateTxtRecordName" MaxLength="0" Key="false" />
+    <Column Name="TxtRecordsPublishState" DataType="String" Path="TxtRecordsPublishState" MaxLength="0" Key="false" />
+    <Column Name="KeySize" DataType="String" Path="KeySize" MaxLength="0" Key="false" />
+    <Column Name="PublicKey" DataType="String" Path="PublicKey" MaxLength="0" Key="false" />
+    <Column Name="AlternatePublicKey" DataType="String" Path="AlternatePublicKey" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From EmailDomainKey LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

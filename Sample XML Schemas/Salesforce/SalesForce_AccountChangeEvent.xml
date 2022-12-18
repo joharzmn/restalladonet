@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="AccountChangeEvent" Description="Account Change Event" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="ReplayId" DataType="String" Path="ReplayId" MaxLength="0" Key="false" />
+    <Column Name="ChangeEventHeader" DataType="String" Path="ChangeEventHeader" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="LastName" DataType="String" Path="LastName" MaxLength="0" Key="false" />
+    <Column Name="FirstName" DataType="String" Path="FirstName" MaxLength="0" Key="false" />
+    <Column Name="Salutation" DataType="String" Path="Salutation" MaxLength="0" Key="false" />
+    <Column Name="Type" DataType="String" Path="Type" MaxLength="0" Key="false" />
+    <Column Name="ParentId" DataType="String" Path="ParentId" MaxLength="0" Key="false" />
+    <Column Name="BillingStreet" DataType="String" Path="BillingStreet" MaxLength="0" Key="false" />
+    <Column Name="BillingCity" DataType="String" Path="BillingCity" MaxLength="0" Key="false" />
+    <Column Name="BillingState" DataType="String" Path="BillingState" MaxLength="0" Key="false" />
+    <Column Name="BillingPostalCode" DataType="String" Path="BillingPostalCode" MaxLength="0" Key="false" />
+    <Column Name="BillingCountry" DataType="String" Path="BillingCountry" MaxLength="0" Key="false" />
+    <Column Name="BillingLatitude" DataType="Double" Path="BillingLatitude" MaxLength="0" Key="false" />
+    <Column Name="BillingLongitude" DataType="Double" Path="BillingLongitude" MaxLength="0" Key="false" />
+    <Column Name="BillingGeocodeAccuracy" DataType="String" Path="BillingGeocodeAccuracy" MaxLength="0" Key="false" />
+    <Column Name="BillingAddress" DataType="String" Path="BillingAddress" MaxLength="0" Key="false" />
+    <Column Name="ShippingStreet" DataType="String" Path="ShippingStreet" MaxLength="0" Key="false" />
+    <Column Name="ShippingCity" DataType="String" Path="ShippingCity" MaxLength="0" Key="false" />
+    <Column Name="ShippingState" DataType="String" Path="ShippingState" MaxLength="0" Key="false" />
+    <Column Name="ShippingPostalCode" DataType="String" Path="ShippingPostalCode" MaxLength="0" Key="false" />
+    <Column Name="ShippingCountry" DataType="String" Path="ShippingCountry" MaxLength="0" Key="false" />
+    <Column Name="ShippingLatitude" DataType="Double" Path="ShippingLatitude" MaxLength="0" Key="false" />
+    <Column Name="ShippingLongitude" DataType="Double" Path="ShippingLongitude" MaxLength="0" Key="false" />
+    <Column Name="ShippingGeocodeAccuracy" DataType="String" Path="ShippingGeocodeAccuracy" MaxLength="0" Key="false" />
+    <Column Name="ShippingAddress" DataType="String" Path="ShippingAddress" MaxLength="0" Key="false" />
+    <Column Name="Phone" DataType="String" Path="Phone" MaxLength="0" Key="false" />
+    <Column Name="Fax" DataType="String" Path="Fax" MaxLength="0" Key="false" />
+    <Column Name="AccountNumber" DataType="String" Path="AccountNumber" MaxLength="0" Key="false" />
+    <Column Name="Website" DataType="String" Path="Website" MaxLength="0" Key="false" />
+    <Column Name="Sic" DataType="String" Path="Sic" MaxLength="0" Key="false" />
+    <Column Name="Industry" DataType="String" Path="Industry" MaxLength="0" Key="false" />
+    <Column Name="AnnualRevenue" DataType="String" Path="AnnualRevenue" MaxLength="0" Key="false" />
+    <Column Name="NumberOfEmployees" DataType="String" Path="NumberOfEmployees" MaxLength="0" Key="false" />
+    <Column Name="Ownership" DataType="String" Path="Ownership" MaxLength="0" Key="false" />
+    <Column Name="TickerSymbol" DataType="String" Path="TickerSymbol" MaxLength="0" Key="false" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Column Name="Rating" DataType="String" Path="Rating" MaxLength="0" Key="false" />
+    <Column Name="Site" DataType="String" Path="Site" MaxLength="0" Key="false" />
+    <Column Name="OwnerId" DataType="String" Path="OwnerId" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="Jigsaw" DataType="String" Path="Jigsaw" MaxLength="0" Key="false" />
+    <Column Name="JigsawCompanyId" DataType="String" Path="JigsawCompanyId" MaxLength="0" Key="false" />
+    <Column Name="CleanStatus" DataType="String" Path="CleanStatus" MaxLength="0" Key="false" />
+    <Column Name="AccountSource" DataType="String" Path="AccountSource" MaxLength="0" Key="false" />
+    <Column Name="DunsNumber" DataType="String" Path="DunsNumber" MaxLength="0" Key="false" />
+    <Column Name="Tradestyle" DataType="String" Path="Tradestyle" MaxLength="0" Key="false" />
+    <Column Name="NaicsCode" DataType="String" Path="NaicsCode" MaxLength="0" Key="false" />
+    <Column Name="NaicsDesc" DataType="String" Path="NaicsDesc" MaxLength="0" Key="false" />
+    <Column Name="YearStarted" DataType="String" Path="YearStarted" MaxLength="0" Key="false" />
+    <Column Name="SicDesc" DataType="String" Path="SicDesc" MaxLength="0" Key="false" />
+    <Column Name="DandbCompanyId" DataType="String" Path="DandbCompanyId" MaxLength="0" Key="false" />
+    <Column Name="OperatingHoursId" DataType="String" Path="OperatingHoursId" MaxLength="0" Key="false" />
+    <Column Name="CustomerPriority__c" DataType="String" Path="CustomerPriority__c" MaxLength="0" Key="false" />
+    <Column Name="SLA__c" DataType="String" Path="SLA__c" MaxLength="0" Key="false" />
+    <Column Name="Active__c" DataType="String" Path="Active__c" MaxLength="0" Key="false" />
+    <Column Name="NumberofLocations__c" DataType="Double" Path="NumberofLocations__c" MaxLength="0" Key="false" />
+    <Column Name="UpsellOpportunity__c" DataType="String" Path="UpsellOpportunity__c" MaxLength="0" Key="false" />
+    <Column Name="SLASerialNumber__c" DataType="String" Path="SLASerialNumber__c" MaxLength="0" Key="false" />
+    <Column Name="SLAExpirationDate__c" DataType="String" Path="SLAExpirationDate__c" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From AccountChangeEvent LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

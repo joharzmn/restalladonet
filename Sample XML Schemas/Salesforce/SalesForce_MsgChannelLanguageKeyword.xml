@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="MsgChannelLanguageKeyword" Description="Messaging Channel Language Keyword" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="MasterLanguage" DataType="String" Path="MasterLanguage" MaxLength="0" Key="false" />
+    <Column Name="OptInKeywords" DataType="String" Path="OptInKeywords" MaxLength="0" Key="false" />
+    <Column Name="DoubleOptInKeywords" DataType="String" Path="DoubleOptInKeywords" MaxLength="0" Key="false" />
+    <Column Name="OptInConfirmation" DataType="String" Path="OptInConfirmation" MaxLength="0" Key="false" />
+    <Column Name="HelpKeywords" DataType="String" Path="HelpKeywords" MaxLength="0" Key="false" />
+    <Column Name="HelpResponse" DataType="String" Path="HelpResponse" MaxLength="0" Key="false" />
+    <Column Name="OptOutKeywords" DataType="String" Path="OptOutKeywords" MaxLength="0" Key="false" />
+    <Column Name="OptOutConfirmation" DataType="String" Path="OptOutConfirmation" MaxLength="0" Key="false" />
+    <Column Name="MessagingChannelId" DataType="String" Path="MessagingChannelId" MaxLength="0" Key="false" />
+    <Column Name="CustomKeywords" DataType="String" Path="CustomKeywords" MaxLength="0" Key="false" />
+    <Column Name="CustomResponse" DataType="String" Path="CustomResponse" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From MsgChannelLanguageKeyword LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

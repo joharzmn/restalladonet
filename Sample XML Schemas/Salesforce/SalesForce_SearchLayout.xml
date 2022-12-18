@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="SearchLayout" Description="Search Layout" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="DurableId" DataType="String" Path="DurableId" MaxLength="0" Key="false" />
+    <Column Name="Label" DataType="String" Path="Label" MaxLength="0" Key="false" />
+    <Column Name="LayoutType" DataType="String" Path="LayoutType" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="EntityDefinitionId" DataType="String" Path="EntityDefinitionId" MaxLength="0" Key="false" />
+    <Column Name="FieldsDisplayed" DataType="String" Path="FieldsDisplayed" MaxLength="0" Key="false" />
+    <Column Name="ButtonsDisplayed" DataType="String" Path="ButtonsDisplayed" MaxLength="0" Key="false" />
+    <Column Name="Profile" DataType="String" Path="Profile" MaxLength="0" Key="false" />
+    <Column Name="ProfileName" DataType="String" Path="ProfileName" MaxLength="0" Key="false" />
+    <Column Name="ListLayout" DataType="String" Path="ListLayout" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From SearchLayout LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="MessagingEndUser" Description="Messaging User" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="OwnerId" DataType="String" Path="OwnerId" MaxLength="0" Key="false" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="LastViewedDate" DataType="DateTime" Path="LastViewedDate" MaxLength="0" Key="false" />
+    <Column Name="LastReferencedDate" DataType="DateTime" Path="LastReferencedDate" MaxLength="0" Key="false" />
+    <Column Name="MessagingChannelId" DataType="String" Path="MessagingChannelId" MaxLength="0" Key="false" />
+    <Column Name="MessageType" DataType="String" Path="MessageType" MaxLength="0" Key="false" />
+    <Column Name="MessagingPlatformKey" DataType="String" Path="MessagingPlatformKey" MaxLength="0" Key="false" />
+    <Column Name="Locale" DataType="String" Path="Locale" MaxLength="0" Key="false" />
+    <Column Name="ProfilePictureUrl" DataType="String" Path="ProfilePictureUrl" MaxLength="0" Key="false" />
+    <Column Name="IsoCountryCode" DataType="String" Path="IsoCountryCode" MaxLength="0" Key="false" />
+    <Column Name="MessagingConsentStatus" DataType="String" Path="MessagingConsentStatus" MaxLength="0" Key="false" />
+    <Column Name="IsFullyOptedIn" DataType="Boolean" Path="IsFullyOptedIn" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From MessagingEndUser LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

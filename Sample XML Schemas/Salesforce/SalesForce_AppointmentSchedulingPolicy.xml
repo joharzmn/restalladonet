@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="AppointmentSchedulingPolicy" Description="Appointment Scheduling Policy" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="DeveloperName" DataType="String" Path="DeveloperName" MaxLength="0" Key="false" />
+    <Column Name="Language" DataType="String" Path="Language" MaxLength="0" Key="false" />
+    <Column Name="MasterLabel" DataType="String" Path="MasterLabel" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="IsOrgDefault" DataType="Boolean" Path="IsOrgDefault" MaxLength="0" Key="false" />
+    <Column Name="ShouldEnforceExcludedResource" DataType="Boolean" Path="ShouldEnforceExcludedResource" MaxLength="0" Key="false" />
+    <Column Name="ShouldEnforceRequiredResource" DataType="Boolean" Path="ShouldEnforceRequiredResource" MaxLength="0" Key="false" />
+    <Column Name="ShouldUsePrimaryMembers" DataType="Boolean" Path="ShouldUsePrimaryMembers" MaxLength="0" Key="false" />
+    <Column Name="ShouldUseSecondaryMembers" DataType="Boolean" Path="ShouldUseSecondaryMembers" MaxLength="0" Key="false" />
+    <Column Name="ShouldMatchSkill" DataType="Boolean" Path="ShouldMatchSkill" MaxLength="0" Key="false" />
+    <Column Name="ShouldMatchSkillLevel" DataType="Boolean" Path="ShouldMatchSkillLevel" MaxLength="0" Key="false" />
+    <Column Name="ShouldRespectVisitingHours" DataType="Boolean" Path="ShouldRespectVisitingHours" MaxLength="0" Key="false" />
+    <Column Name="AppointmentStartTimeInterval" DataType="String" Path="AppointmentStartTimeInterval" MaxLength="0" Key="false" />
+    <Column Name="ShouldConsiderCalendarEvents" DataType="Boolean" Path="ShouldConsiderCalendarEvents" MaxLength="0" Key="false" />
+    <Column Name="ExtCalEventHandlerId" DataType="String" Path="ExtCalEventHandlerId" MaxLength="0" Key="false" />
+    <Column Name="IsSvcTerritoryMemberShiftUsed" DataType="Boolean" Path="IsSvcTerritoryMemberShiftUsed" MaxLength="0" Key="false" />
+    <Column Name="IsSvcTerrOpHoursWithShiftsUsed" DataType="Boolean" Path="IsSvcTerrOpHoursWithShiftsUsed" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From AppointmentSchedulingPolicy LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

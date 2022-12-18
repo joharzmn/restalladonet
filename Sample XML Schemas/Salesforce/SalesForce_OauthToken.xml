@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="OauthToken" Description="Oauth Token" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="AccessToken" DataType="String" Path="AccessToken" MaxLength="0" Key="false" />
+    <Column Name="UserId" DataType="String" Path="UserId" MaxLength="0" Key="false" />
+    <Column Name="RequestToken" DataType="String" Path="RequestToken" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="AppName" DataType="String" Path="AppName" MaxLength="0" Key="false" />
+    <Column Name="LastUsedDate" DataType="DateTime" Path="LastUsedDate" MaxLength="0" Key="false" />
+    <Column Name="UseCount" DataType="String" Path="UseCount" MaxLength="0" Key="false" />
+    <Column Name="DeleteToken" DataType="String" Path="DeleteToken" MaxLength="0" Key="false" />
+    <Column Name="AppMenuItemId" DataType="String" Path="AppMenuItemId" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From OauthToken LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

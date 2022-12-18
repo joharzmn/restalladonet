@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="EmbeddedServiceDetail" Description="Embedded Service" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="DurableId" DataType="String" Path="DurableId" MaxLength="0" Key="false" />
+    <Column Name="Site" DataType="String" Path="Site" MaxLength="0" Key="false" />
+    <Column Name="PrimaryColor" DataType="String" Path="PrimaryColor" MaxLength="0" Key="false" />
+    <Column Name="SecondaryColor" DataType="String" Path="SecondaryColor" MaxLength="0" Key="false" />
+    <Column Name="ContrastPrimaryColor" DataType="String" Path="ContrastPrimaryColor" MaxLength="0" Key="false" />
+    <Column Name="ContrastInvertedColor" DataType="String" Path="ContrastInvertedColor" MaxLength="0" Key="false" />
+    <Column Name="NavBarColor" DataType="String" Path="NavBarColor" MaxLength="0" Key="false" />
+    <Column Name="NavBarTextColor" DataType="String" Path="NavBarTextColor" MaxLength="0" Key="false" />
+    <Column Name="SecondaryNavBarColor" DataType="String" Path="SecondaryNavBarColor" MaxLength="0" Key="false" />
+    <Column Name="Font" DataType="String" Path="Font" MaxLength="0" Key="false" />
+    <Column Name="IsLiveAgentEnabled" DataType="Boolean" Path="IsLiveAgentEnabled" MaxLength="0" Key="false" />
+    <Column Name="IsFieldServiceEnabled" DataType="Boolean" Path="IsFieldServiceEnabled" MaxLength="0" Key="false" />
+    <Column Name="Width" DataType="String" Path="Width" MaxLength="0" Key="false" />
+    <Column Name="Height" DataType="String" Path="Height" MaxLength="0" Key="false" />
+    <Column Name="IsPrechatEnabled" DataType="Boolean" Path="IsPrechatEnabled" MaxLength="0" Key="false" />
+    <Column Name="CustomPrechatComponent" DataType="String" Path="CustomPrechatComponent" MaxLength="0" Key="false" />
+    <Column Name="AvatarImg" DataType="String" Path="AvatarImg" MaxLength="0" Key="false" />
+    <Column Name="SmallCompanyLogoImg" DataType="String" Path="SmallCompanyLogoImg" MaxLength="0" Key="false" />
+    <Column Name="PrechatBackgroundImg" DataType="String" Path="PrechatBackgroundImg" MaxLength="0" Key="false" />
+    <Column Name="WaitingStateBackgroundImg" DataType="String" Path="WaitingStateBackgroundImg" MaxLength="0" Key="false" />
+    <Column Name="FontSize" DataType="String" Path="FontSize" MaxLength="0" Key="false" />
+    <Column Name="OfflineCaseBackgroundImg" DataType="String" Path="OfflineCaseBackgroundImg" MaxLength="0" Key="false" />
+    <Column Name="IsOfflineCaseEnabled" DataType="Boolean" Path="IsOfflineCaseEnabled" MaxLength="0" Key="false" />
+    <Column Name="IsQueuePositionEnabled" DataType="Boolean" Path="IsQueuePositionEnabled" MaxLength="0" Key="false" />
+    <Column Name="ShouldShowNewAppointment" DataType="Boolean" Path="ShouldShowNewAppointment" MaxLength="0" Key="false" />
+    <Column Name="ShouldShowExistingAppointment" DataType="Boolean" Path="ShouldShowExistingAppointment" MaxLength="0" Key="false" />
+    <Column Name="FieldServiceHomeImg" DataType="String" Path="FieldServiceHomeImg" MaxLength="0" Key="false" />
+    <Column Name="FieldServiceLogoImg" DataType="String" Path="FieldServiceLogoImg" MaxLength="0" Key="false" />
+    <Column Name="FieldServiceConfirmCardImg" DataType="String" Path="FieldServiceConfirmCardImg" MaxLength="0" Key="false" />
+    <Column Name="ShouldHideAuthDialog" DataType="Boolean" Path="ShouldHideAuthDialog" MaxLength="0" Key="false" />
+    <Column Name="CustomMinimizedComponent" DataType="String" Path="CustomMinimizedComponent" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From EmbeddedServiceDetail LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

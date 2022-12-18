@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="RecordAction" Description="RecordAction" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="RecordId" DataType="String" Path="RecordId" MaxLength="0" Key="false" />
+    <Column Name="FlowDefinition" DataType="String" Path="FlowDefinition" MaxLength="0" Key="false" />
+    <Column Name="FlowInterviewId" DataType="String" Path="FlowInterviewId" MaxLength="0" Key="false" />
+    <Column Name="Order" DataType="String" Path="Order" MaxLength="0" Key="false" />
+    <Column Name="Status" DataType="String" Path="Status" MaxLength="0" Key="false" />
+    <Column Name="Pinned" DataType="String" Path="Pinned" MaxLength="0" Key="false" />
+    <Column Name="ActionType" DataType="String" Path="ActionType" MaxLength="0" Key="false" />
+    <Column Name="ActionDefinition" DataType="String" Path="ActionDefinition" MaxLength="0" Key="false" />
+    <Column Name="IsMandatory" DataType="Boolean" Path="IsMandatory" MaxLength="0" Key="false" />
+    <Column Name="IsUiRemoveHidden" DataType="Boolean" Path="IsUiRemoveHidden" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From RecordAction LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

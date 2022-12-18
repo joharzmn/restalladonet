@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="BusinessHours" Description="Business Hours" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="IsActive" DataType="Boolean" Path="IsActive" MaxLength="0" Key="false" />
+    <Column Name="IsDefault" DataType="Boolean" Path="IsDefault" MaxLength="0" Key="false" />
+    <Column Name="SundayStartTime" DataType="String" Path="SundayStartTime" MaxLength="0" Key="false" />
+    <Column Name="SundayEndTime" DataType="String" Path="SundayEndTime" MaxLength="0" Key="false" />
+    <Column Name="MondayStartTime" DataType="String" Path="MondayStartTime" MaxLength="0" Key="false" />
+    <Column Name="MondayEndTime" DataType="String" Path="MondayEndTime" MaxLength="0" Key="false" />
+    <Column Name="TuesdayStartTime" DataType="String" Path="TuesdayStartTime" MaxLength="0" Key="false" />
+    <Column Name="TuesdayEndTime" DataType="String" Path="TuesdayEndTime" MaxLength="0" Key="false" />
+    <Column Name="WednesdayStartTime" DataType="String" Path="WednesdayStartTime" MaxLength="0" Key="false" />
+    <Column Name="WednesdayEndTime" DataType="String" Path="WednesdayEndTime" MaxLength="0" Key="false" />
+    <Column Name="ThursdayStartTime" DataType="String" Path="ThursdayStartTime" MaxLength="0" Key="false" />
+    <Column Name="ThursdayEndTime" DataType="String" Path="ThursdayEndTime" MaxLength="0" Key="false" />
+    <Column Name="FridayStartTime" DataType="String" Path="FridayStartTime" MaxLength="0" Key="false" />
+    <Column Name="FridayEndTime" DataType="String" Path="FridayEndTime" MaxLength="0" Key="false" />
+    <Column Name="SaturdayStartTime" DataType="String" Path="SaturdayStartTime" MaxLength="0" Key="false" />
+    <Column Name="SaturdayEndTime" DataType="String" Path="SaturdayEndTime" MaxLength="0" Key="false" />
+    <Column Name="TimeZoneSidKey" DataType="String" Path="TimeZoneSidKey" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="LastViewedDate" DataType="DateTime" Path="LastViewedDate" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From BusinessHours LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

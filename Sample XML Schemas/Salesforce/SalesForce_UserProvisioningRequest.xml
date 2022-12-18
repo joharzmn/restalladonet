@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="UserProvisioningRequest" Description="User Provisioning Request" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="OwnerId" DataType="String" Path="OwnerId" MaxLength="0" Key="false" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="SalesforceUserId" DataType="String" Path="SalesforceUserId" MaxLength="0" Key="false" />
+    <Column Name="ExternalUserId" DataType="String" Path="ExternalUserId" MaxLength="0" Key="false" />
+    <Column Name="AppName" DataType="String" Path="AppName" MaxLength="0" Key="false" />
+    <Column Name="State" DataType="String" Path="State" MaxLength="0" Key="false" />
+    <Column Name="Operation" DataType="String" Path="Operation" MaxLength="0" Key="false" />
+    <Column Name="ScheduleDate" DataType="DateTime" Path="ScheduleDate" MaxLength="0" Key="false" />
+    <Column Name="ConnectedAppId" DataType="String" Path="ConnectedAppId" MaxLength="0" Key="false" />
+    <Column Name="UserProvConfigId" DataType="String" Path="UserProvConfigId" MaxLength="0" Key="false" />
+    <Column Name="UserProvAccountId" DataType="String" Path="UserProvAccountId" MaxLength="0" Key="false" />
+    <Column Name="ApprovalStatus" DataType="String" Path="ApprovalStatus" MaxLength="0" Key="false" />
+    <Column Name="ManagerId" DataType="String" Path="ManagerId" MaxLength="0" Key="false" />
+    <Column Name="RetryCount" DataType="String" Path="RetryCount" MaxLength="0" Key="false" />
+    <Column Name="ParentId" DataType="String" Path="ParentId" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From UserProvisioningRequest LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

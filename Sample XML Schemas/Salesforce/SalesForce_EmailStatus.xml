@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="EmailStatus" Description="Email Status" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="TaskId" DataType="String" Path="TaskId" MaxLength="0" Key="false" />
+    <Column Name="WhoId" DataType="String" Path="WhoId" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="TimesOpened" DataType="String" Path="TimesOpened" MaxLength="0" Key="false" />
+    <Column Name="FirstOpenDate" DataType="DateTime" Path="FirstOpenDate" MaxLength="0" Key="false" />
+    <Column Name="LastOpenDate" DataType="DateTime" Path="LastOpenDate" MaxLength="0" Key="false" />
+    <Column Name="EmailTemplateName" DataType="String" Path="EmailTemplateName" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From EmailStatus LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="WebCart" Description="Cart" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="OwnerId" DataType="String" Path="OwnerId" MaxLength="0" Key="false" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="WebStoreId" DataType="String" Path="WebStoreId" MaxLength="0" Key="false" />
+    <Column Name="AccountId" DataType="String" Path="AccountId" MaxLength="0" Key="false" />
+    <Column Name="PaymentMethodId" DataType="String" Path="PaymentMethodId" MaxLength="0" Key="false" />
+    <Column Name="PaymentGroupId" DataType="String" Path="PaymentGroupId" MaxLength="0" Key="false" />
+    <Column Name="Status" DataType="String" Path="Status" MaxLength="0" Key="false" />
+    <Column Name="Type" DataType="String" Path="Type" MaxLength="0" Key="false" />
+    <Column Name="IsSecondary" DataType="Boolean" Path="IsSecondary" MaxLength="0" Key="false" />
+    <Column Name="IsRepricingNeeded" DataType="Boolean" Path="IsRepricingNeeded" MaxLength="0" Key="false" />
+    <Column Name="LastRepricingDate" DataType="DateTime" Path="LastRepricingDate" MaxLength="0" Key="false" />
+    <Column Name="PoNumber" DataType="String" Path="PoNumber" MaxLength="0" Key="false" />
+    <Column Name="BillingStreet" DataType="String" Path="BillingStreet" MaxLength="0" Key="false" />
+    <Column Name="BillingCity" DataType="String" Path="BillingCity" MaxLength="0" Key="false" />
+    <Column Name="BillingState" DataType="String" Path="BillingState" MaxLength="0" Key="false" />
+    <Column Name="BillingPostalCode" DataType="String" Path="BillingPostalCode" MaxLength="0" Key="false" />
+    <Column Name="BillingCountry" DataType="String" Path="BillingCountry" MaxLength="0" Key="false" />
+    <Column Name="BillingLatitude" DataType="Double" Path="BillingLatitude" MaxLength="0" Key="false" />
+    <Column Name="BillingLongitude" DataType="Double" Path="BillingLongitude" MaxLength="0" Key="false" />
+    <Column Name="BillingGeocodeAccuracy" DataType="String" Path="BillingGeocodeAccuracy" MaxLength="0" Key="false" />
+    <Column Name="BillingAddress" DataType="String" Path="BillingAddress" MaxLength="0" Key="false" />
+    <Column Name="TaxType" DataType="String" Path="TaxType" MaxLength="0" Key="false" />
+    <Column Name="TotalListAmount" DataType="String" Path="TotalListAmount" MaxLength="0" Key="false" />
+    <Column Name="TotalProductAmount" DataType="String" Path="TotalProductAmount" MaxLength="0" Key="false" />
+    <Column Name="TotalProductTaxAmount" DataType="String" Path="TotalProductTaxAmount" MaxLength="0" Key="false" />
+    <Column Name="TotalChargeAmount" DataType="String" Path="TotalChargeAmount" MaxLength="0" Key="false" />
+    <Column Name="TotalChargeTaxAmount" DataType="String" Path="TotalChargeTaxAmount" MaxLength="0" Key="false" />
+    <Column Name="TotalPromoAdjustmentAmount" DataType="String" Path="TotalPromoAdjustmentAmount" MaxLength="0" Key="false" />
+    <Column Name="TotalPromoAdjustmentTaxAmount" DataType="String" Path="TotalPromoAdjustmentTaxAmount" MaxLength="0" Key="false" />
+    <Column Name="TotalAdjustmentAmount" DataType="String" Path="TotalAdjustmentAmount" MaxLength="0" Key="false" />
+    <Column Name="TotalAmount" DataType="String" Path="TotalAmount" MaxLength="0" Key="false" />
+    <Column Name="TotalTaxAmount" DataType="String" Path="TotalTaxAmount" MaxLength="0" Key="false" />
+    <Column Name="TotalAmountAfterAllAdjustments" DataType="String" Path="TotalAmountAfterAllAdjustments" MaxLength="0" Key="false" />
+    <Column Name="GrandTotalAmount" DataType="String" Path="GrandTotalAmount" MaxLength="0" Key="false" />
+    <Column Name="TotalProductCount" DataType="Double" Path="TotalProductCount" MaxLength="0" Key="false" />
+    <Column Name="UniqueProductCount" DataType="String" Path="UniqueProductCount" MaxLength="0" Key="false" />
+    <Column Name="TotalLineItemsWithErrors" DataType="String" Path="TotalLineItemsWithErrors" MaxLength="0" Key="false" />
+    <Column Name="GuestPhoneNumber" DataType="String" Path="GuestPhoneNumber" MaxLength="0" Key="false" />
+    <Column Name="GuestEmailAddress" DataType="String" Path="GuestEmailAddress" MaxLength="0" Key="false" />
+    <Column Name="GuestFirstName" DataType="String" Path="GuestFirstName" MaxLength="0" Key="false" />
+    <Column Name="GuestLastName" DataType="String" Path="GuestLastName" MaxLength="0" Key="false" />
+    <Column Name="GuestSecondName" DataType="String" Path="GuestSecondName" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From WebCart LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

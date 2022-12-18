@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="Budgets" Description="Quickbooks Bill Payments Data" Schema="QBO">
+    <Column Name="Id" DataType="Int32" Path="Id" MaxLength="0" Key="true" />
+	<Column Name="SyncToken" DataType="Int16" Path="SyncToken" MaxLength="0" Key="false" />
+	<Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="BudgetEntryType" DataType="String" Path="BudgetEntryType" MaxLength="0" Key="false" />
+    <Column Name="BudgetType" DataType="String" Path="BudgetType" MaxLength="0" Key="false" />
+	<Column Name="StartDate" DataType="String" Path="StartDate" MaxLength="0" Key="false" />
+    <Column Name="EndDate" DataType="String" Path="EndDate" MaxLength="0" Key="false" />
+    <Column Name="Active" DataType="Boolean" Path="Active" MaxLength="0" Key="false" />
+    <Column Name="BudgetDetail" DataType="String" Path="BudgetDetail" MaxLength="0" Key="false" />
+    <Column Name="Domain" DataType="String" Path="domain" MaxLength="0" Key="false" />
+	<Column Name="MetaData_CreateTime" DataType="DateTime" Path="MetaData.CreateTime" MaxLength="0" Key="false" />
+	<Column Name="MetaData_LastUpdatedTime" DataType="DateTime" Path="MetaData.LastUpdatedTime" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select">
+	<Url>^[Connection.URL]^/v3/company/^[Token.realmid]^/query?minorversion=65&amp;query=Select * from Budget</Url>
+	</DataAction>
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.QueryResponse.Budget</RepeatElement>
+</EntityDescriptor>

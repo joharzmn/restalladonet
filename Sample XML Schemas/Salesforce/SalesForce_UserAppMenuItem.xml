@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="UserAppMenuItem" Description="Application" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="AppMenuItemId" DataType="String" Path="AppMenuItemId" MaxLength="0" Key="false" />
+    <Column Name="ApplicationId" DataType="String" Path="ApplicationId" MaxLength="0" Key="false" />
+    <Column Name="Label" DataType="String" Path="Label" MaxLength="0" Key="false" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="UserSortOrder" DataType="String" Path="UserSortOrder" MaxLength="0" Key="false" />
+    <Column Name="SortOrder" DataType="String" Path="SortOrder" MaxLength="0" Key="false" />
+    <Column Name="Type" DataType="String" Path="Type" MaxLength="0" Key="false" />
+    <Column Name="LogoUrl" DataType="String" Path="LogoUrl" MaxLength="0" Key="false" />
+    <Column Name="IconUrl" DataType="String" Path="IconUrl" MaxLength="0" Key="false" />
+    <Column Name="InfoUrl" DataType="String" Path="InfoUrl" MaxLength="0" Key="false" />
+    <Column Name="StartUrl" DataType="String" Path="StartUrl" MaxLength="0" Key="false" />
+    <Column Name="MobileStartUrl" DataType="String" Path="MobileStartUrl" MaxLength="0" Key="false" />
+    <Column Name="IsVisible" DataType="Boolean" Path="IsVisible" MaxLength="0" Key="false" />
+    <Column Name="IsUsingAdminAuthorization" DataType="Boolean" Path="IsUsingAdminAuthorization" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From UserAppMenuItem LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

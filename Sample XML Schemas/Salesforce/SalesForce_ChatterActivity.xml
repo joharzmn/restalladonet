@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="ChatterActivity" Description="Chatter Activity" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="ParentId" DataType="String" Path="ParentId" MaxLength="0" Key="false" />
+    <Column Name="PostCount" DataType="String" Path="PostCount" MaxLength="0" Key="false" />
+    <Column Name="CommentCount" DataType="String" Path="CommentCount" MaxLength="0" Key="false" />
+    <Column Name="CommentReceivedCount" DataType="String" Path="CommentReceivedCount" MaxLength="0" Key="false" />
+    <Column Name="LikeReceivedCount" DataType="String" Path="LikeReceivedCount" MaxLength="0" Key="false" />
+    <Column Name="InfluenceRawRank" DataType="String" Path="InfluenceRawRank" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From ChatterActivity LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

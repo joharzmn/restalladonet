@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="EventLogFile" Description="Event Log File" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="EventType" DataType="String" Path="EventType" MaxLength="0" Key="false" />
+    <Column Name="LogDate" DataType="DateTime" Path="LogDate" MaxLength="0" Key="false" />
+    <Column Name="LogFileLength" DataType="Double" Path="LogFileLength" MaxLength="0" Key="false" />
+    <Column Name="LogFileContentType" DataType="String" Path="LogFileContentType" MaxLength="0" Key="false" />
+    <Column Name="ApiVersion" DataType="Double" Path="ApiVersion" MaxLength="0" Key="false" />
+    <Column Name="Sequence" DataType="String" Path="Sequence" MaxLength="0" Key="false" />
+    <Column Name="Interval" DataType="String" Path="Interval" MaxLength="0" Key="false" />
+    <Column Name="LogFileFieldNames" DataType="String" Path="LogFileFieldNames" MaxLength="0" Key="false" />
+    <Column Name="LogFileFieldTypes" DataType="String" Path="LogFileFieldTypes" MaxLength="0" Key="false" />
+    <Column Name="LogFile" DataType="String" Path="LogFile" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From EventLogFile LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

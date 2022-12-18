@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="DeleteEvent" Description="Recycle Bin Item" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="Record" DataType="String" Path="Record" MaxLength="0" Key="false" />
+    <Column Name="RecordName" DataType="String" Path="RecordName" MaxLength="0" Key="false" />
+    <Column Name="DeletedById" DataType="String" Path="DeletedById" MaxLength="0" Key="false" />
+    <Column Name="DeletedDate" DataType="DateTime" Path="DeletedDate" MaxLength="0" Key="false" />
+    <Column Name="SobjectName" DataType="String" Path="SobjectName" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From DeleteEvent LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

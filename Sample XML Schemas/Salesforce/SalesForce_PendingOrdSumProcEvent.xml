@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="PendingOrdSumProcEvent" Description="Pending Order Summary Processed Event" Schema="SalesForce">
+    <Column Name="ReplayId" DataType="String" Path="ReplayId" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="EventUuid" DataType="String" Path="EventUuid" MaxLength="0" Key="false" />
+    <Column Name="ExternalReferenceIdentifier" DataType="String" Path="ExternalReferenceIdentifier" MaxLength="0" Key="false" />
+    <Column Name="IsSuccess" DataType="Boolean" Path="IsSuccess" MaxLength="0" Key="false" />
+    <Column Name="ErrorCode" DataType="String" Path="ErrorCode" MaxLength="0" Key="false" />
+    <Column Name="ErrorMessage" DataType="String" Path="ErrorMessage" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From PendingOrdSumProcEvent LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

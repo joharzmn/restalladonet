@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="InvoiceFeed" Description="Invoice Feed" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="ParentId" DataType="String" Path="ParentId" MaxLength="0" Key="false" />
+    <Column Name="Type" DataType="String" Path="Type" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="CommentCount" DataType="String" Path="CommentCount" MaxLength="0" Key="false" />
+    <Column Name="LikeCount" DataType="String" Path="LikeCount" MaxLength="0" Key="false" />
+    <Column Name="Title" DataType="String" Path="Title" MaxLength="0" Key="false" />
+    <Column Name="Body" DataType="String" Path="Body" MaxLength="0" Key="false" />
+    <Column Name="LinkUrl" DataType="String" Path="LinkUrl" MaxLength="0" Key="false" />
+    <Column Name="IsRichText" DataType="Boolean" Path="IsRichText" MaxLength="0" Key="false" />
+    <Column Name="RelatedRecordId" DataType="String" Path="RelatedRecordId" MaxLength="0" Key="false" />
+    <Column Name="InsertedById" DataType="String" Path="InsertedById" MaxLength="0" Key="false" />
+    <Column Name="BestCommentId" DataType="String" Path="BestCommentId" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From InvoiceFeed LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

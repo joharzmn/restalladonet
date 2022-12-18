@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="AsyncOperationStatus" Description="Async Operation Status" Schema="SalesForce">
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="EventUuid" DataType="String" Path="EventUuid" MaxLength="0" Key="false" />
+    <Column Name="Fields" DataType="String" Path="Fields" MaxLength="0" Key="false" />
+    <Column Name="Status" DataType="String" Path="Status" MaxLength="0" Key="false" />
+    <Column Name="Category" DataType="String" Path="Category" MaxLength="0" Key="false" />
+    <Column Name="Message" DataType="String" Path="Message" MaxLength="0" Key="false" />
+    <Column Name="StatusCode" DataType="String" Path="StatusCode" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From AsyncOperationStatus LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

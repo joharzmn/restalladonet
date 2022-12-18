@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="ContractChangeEvent" Description="Contract Change Event" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="ReplayId" DataType="String" Path="ReplayId" MaxLength="0" Key="false" />
+    <Column Name="ChangeEventHeader" DataType="String" Path="ChangeEventHeader" MaxLength="0" Key="false" />
+    <Column Name="AccountId" DataType="String" Path="AccountId" MaxLength="0" Key="false" />
+    <Column Name="Pricebook2Id" DataType="String" Path="Pricebook2Id" MaxLength="0" Key="false" />
+    <Column Name="OwnerExpirationNotice" DataType="String" Path="OwnerExpirationNotice" MaxLength="0" Key="false" />
+    <Column Name="StartDate" DataType="String" Path="StartDate" MaxLength="0" Key="false" />
+    <Column Name="EndDate" DataType="String" Path="EndDate" MaxLength="0" Key="false" />
+    <Column Name="BillingStreet" DataType="String" Path="BillingStreet" MaxLength="0" Key="false" />
+    <Column Name="BillingCity" DataType="String" Path="BillingCity" MaxLength="0" Key="false" />
+    <Column Name="BillingState" DataType="String" Path="BillingState" MaxLength="0" Key="false" />
+    <Column Name="BillingPostalCode" DataType="String" Path="BillingPostalCode" MaxLength="0" Key="false" />
+    <Column Name="BillingCountry" DataType="String" Path="BillingCountry" MaxLength="0" Key="false" />
+    <Column Name="BillingLatitude" DataType="Double" Path="BillingLatitude" MaxLength="0" Key="false" />
+    <Column Name="BillingLongitude" DataType="Double" Path="BillingLongitude" MaxLength="0" Key="false" />
+    <Column Name="BillingGeocodeAccuracy" DataType="String" Path="BillingGeocodeAccuracy" MaxLength="0" Key="false" />
+    <Column Name="BillingAddress" DataType="String" Path="BillingAddress" MaxLength="0" Key="false" />
+    <Column Name="ContractTerm" DataType="String" Path="ContractTerm" MaxLength="0" Key="false" />
+    <Column Name="OwnerId" DataType="String" Path="OwnerId" MaxLength="0" Key="false" />
+    <Column Name="Status" DataType="String" Path="Status" MaxLength="0" Key="false" />
+    <Column Name="CompanySignedId" DataType="String" Path="CompanySignedId" MaxLength="0" Key="false" />
+    <Column Name="CompanySignedDate" DataType="String" Path="CompanySignedDate" MaxLength="0" Key="false" />
+    <Column Name="CustomerSignedId" DataType="String" Path="CustomerSignedId" MaxLength="0" Key="false" />
+    <Column Name="CustomerSignedTitle" DataType="String" Path="CustomerSignedTitle" MaxLength="0" Key="false" />
+    <Column Name="CustomerSignedDate" DataType="String" Path="CustomerSignedDate" MaxLength="0" Key="false" />
+    <Column Name="SpecialTerms" DataType="String" Path="SpecialTerms" MaxLength="0" Key="false" />
+    <Column Name="ActivatedById" DataType="String" Path="ActivatedById" MaxLength="0" Key="false" />
+    <Column Name="ActivatedDate" DataType="DateTime" Path="ActivatedDate" MaxLength="0" Key="false" />
+    <Column Name="StatusCode" DataType="String" Path="StatusCode" MaxLength="0" Key="false" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Column Name="ContractNumber" DataType="String" Path="ContractNumber" MaxLength="0" Key="false" />
+    <Column Name="LastApprovedDate" DataType="DateTime" Path="LastApprovedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From ContractChangeEvent LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

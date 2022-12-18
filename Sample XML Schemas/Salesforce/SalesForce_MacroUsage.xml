@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="MacroUsage" Description="Macro Usage" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="OwnerId" DataType="String" Path="OwnerId" MaxLength="0" Key="false" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="MacroId" DataType="String" Path="MacroId" MaxLength="0" Key="false" />
+    <Column Name="ContextRecord" DataType="String" Path="ContextRecord" MaxLength="0" Key="false" />
+    <Column Name="ExecutedInstructionCount" DataType="String" Path="ExecutedInstructionCount" MaxLength="0" Key="false" />
+    <Column Name="InstructionCount" DataType="String" Path="InstructionCount" MaxLength="0" Key="false" />
+    <Column Name="ExecutionEndTime" DataType="DateTime" Path="ExecutionEndTime" MaxLength="0" Key="false" />
+    <Column Name="UserId" DataType="String" Path="UserId" MaxLength="0" Key="false" />
+    <Column Name="IsFromBulk" DataType="Boolean" Path="IsFromBulk" MaxLength="0" Key="false" />
+    <Column Name="AppContext" DataType="String" Path="AppContext" MaxLength="0" Key="false" />
+    <Column Name="ConditionCount" DataType="String" Path="ConditionCount" MaxLength="0" Key="false" />
+    <Column Name="ExecutionState" DataType="String" Path="ExecutionState" MaxLength="0" Key="false" />
+    <Column Name="DurationInMs" DataType="String" Path="DurationInMs" MaxLength="0" Key="false" />
+    <Column Name="FailureReason" DataType="String" Path="FailureReason" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From MacroUsage LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

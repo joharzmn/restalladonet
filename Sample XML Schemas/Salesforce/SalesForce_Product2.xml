@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="Product2" Description="Product" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="ProductCode" DataType="String" Path="ProductCode" MaxLength="0" Key="false" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Column Name="IsActive" DataType="Boolean" Path="IsActive" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="Family" DataType="String" Path="Family" MaxLength="0" Key="false" />
+    <Column Name="ExternalDataSourceId" DataType="String" Path="ExternalDataSourceId" MaxLength="0" Key="false" />
+    <Column Name="ExternalId" DataType="String" Path="ExternalId" MaxLength="0" Key="false" />
+    <Column Name="DisplayUrl" DataType="String" Path="DisplayUrl" MaxLength="0" Key="false" />
+    <Column Name="QuantityUnitOfMeasure" DataType="String" Path="QuantityUnitOfMeasure" MaxLength="0" Key="false" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="IsArchived" DataType="Boolean" Path="IsArchived" MaxLength="0" Key="false" />
+    <Column Name="LastViewedDate" DataType="DateTime" Path="LastViewedDate" MaxLength="0" Key="false" />
+    <Column Name="LastReferencedDate" DataType="DateTime" Path="LastReferencedDate" MaxLength="0" Key="false" />
+    <Column Name="StockKeepingUnit" DataType="String" Path="StockKeepingUnit" MaxLength="0" Key="false" />
+    <Column Name="Type" DataType="String" Path="Type" MaxLength="0" Key="false" />
+    <Column Name="ProductClass" DataType="String" Path="ProductClass" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From Product2 LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

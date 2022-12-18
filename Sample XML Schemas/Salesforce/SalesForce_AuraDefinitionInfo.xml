@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="AuraDefinitionInfo" Description="AuraDefinition Info" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="DurableId" DataType="String" Path="DurableId" MaxLength="0" Key="false" />
+    <Column Name="AuraDefinitionBundleInfoId" DataType="String" Path="AuraDefinitionBundleInfoId" MaxLength="0" Key="false" />
+    <Column Name="AuraDefinitionId" DataType="String" Path="AuraDefinitionId" MaxLength="0" Key="false" />
+    <Column Name="DefType" DataType="String" Path="DefType" MaxLength="0" Key="false" />
+    <Column Name="Format" DataType="String" Path="Format" MaxLength="0" Key="false" />
+    <Column Name="Source" DataType="String" Path="Source" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="DeveloperName" DataType="String" Path="DeveloperName" MaxLength="0" Key="false" />
+    <Column Name="NamespacePrefix" DataType="String" Path="NamespacePrefix" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From AuraDefinitionInfo LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

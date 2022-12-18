@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="PaymentAuthAdjustment" Description="Payment Authorization Adjustment" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="PaymentAuthAdjustmentNumber" DataType="String" Path="PaymentAuthAdjustmentNumber" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="LastViewedDate" DataType="DateTime" Path="LastViewedDate" MaxLength="0" Key="false" />
+    <Column Name="LastReferencedDate" DataType="DateTime" Path="LastReferencedDate" MaxLength="0" Key="false" />
+    <Column Name="PaymentAuthorizationId" DataType="String" Path="PaymentAuthorizationId" MaxLength="0" Key="false" />
+    <Column Name="ProcessingMode" DataType="String" Path="ProcessingMode" MaxLength="0" Key="false" />
+    <Column Name="Amount" DataType="String" Path="Amount" MaxLength="0" Key="false" />
+    <Column Name="Status" DataType="String" Path="Status" MaxLength="0" Key="false" />
+    <Column Name="Type" DataType="String" Path="Type" MaxLength="0" Key="false" />
+    <Column Name="Date" DataType="DateTime" Path="Date" MaxLength="0" Key="false" />
+    <Column Name="GatewayDate" DataType="DateTime" Path="GatewayDate" MaxLength="0" Key="false" />
+    <Column Name="EffectiveDate" DataType="DateTime" Path="EffectiveDate" MaxLength="0" Key="false" />
+    <Column Name="Comments" DataType="String" Path="Comments" MaxLength="0" Key="false" />
+    <Column Name="GatewayRefNumber" DataType="String" Path="GatewayRefNumber" MaxLength="0" Key="false" />
+    <Column Name="GatewayResultCode" DataType="String" Path="GatewayResultCode" MaxLength="0" Key="false" />
+    <Column Name="SfResultCode" DataType="String" Path="SfResultCode" MaxLength="0" Key="false" />
+    <Column Name="AccountId" DataType="String" Path="AccountId" MaxLength="0" Key="false" />
+    <Column Name="GatewayRefDetails" DataType="String" Path="GatewayRefDetails" MaxLength="0" Key="false" />
+    <Column Name="GatewayResultCodeDescription" DataType="String" Path="GatewayResultCodeDescription" MaxLength="0" Key="false" />
+    <Column Name="IpAddress" DataType="String" Path="IpAddress" MaxLength="0" Key="false" />
+    <Column Name="MacAddress" DataType="String" Path="MacAddress" MaxLength="0" Key="false" />
+    <Column Name="Phone" DataType="String" Path="Phone" MaxLength="0" Key="false" />
+    <Column Name="Email" DataType="String" Path="Email" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From PaymentAuthAdjustment LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

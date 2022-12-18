@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="MailmergeTemplate" Description="Mail Merge Template" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Column Name="Filename" DataType="String" Path="Filename" MaxLength="0" Key="false" />
+    <Column Name="BodyLength" DataType="String" Path="BodyLength" MaxLength="0" Key="false" />
+    <Column Name="Body" DataType="String" Path="Body" MaxLength="0" Key="false" />
+    <Column Name="LastUsedDate" DataType="DateTime" Path="LastUsedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="SecurityOptionsAttachmentScannedForXSS" DataType="Boolean" Path="SecurityOptionsAttachmentScannedForXSS" MaxLength="0" Key="false" />
+    <Column Name="SecurityOptionsAttachmentHasXSSThreat" DataType="Boolean" Path="SecurityOptionsAttachmentHasXSSThreat" MaxLength="0" Key="false" />
+    <Column Name="SecurityOptionsAttachmentScannedforFlash" DataType="Boolean" Path="SecurityOptionsAttachmentScannedforFlash" MaxLength="0" Key="false" />
+    <Column Name="SecurityOptionsAttachmentHasFlash" DataType="Boolean" Path="SecurityOptionsAttachmentHasFlash" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From MailmergeTemplate LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

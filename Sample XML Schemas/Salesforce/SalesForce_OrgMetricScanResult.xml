@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="OrgMetricScanResult" Description="Org Metric Scan Result" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="OrgMetricScanSummaryId" DataType="String" Path="OrgMetricScanSummaryId" MaxLength="0" Key="false" />
+    <Column Name="Url" DataType="String" Path="Url" MaxLength="0" Key="false" />
+    <Column Name="Object" DataType="String" Path="Object" MaxLength="0" Key="false" />
+    <Column Name="Date" DataType="DateTime" Path="Date" MaxLength="0" Key="false" />
+    <Column Name="Type" DataType="String" Path="Type" MaxLength="0" Key="false" />
+    <Column Name="Profile" DataType="String" Path="Profile" MaxLength="0" Key="false" />
+    <Column Name="User" DataType="String" Path="User" MaxLength="0" Key="false" />
+    <Column Name="Quantity" DataType="String" Path="Quantity" MaxLength="0" Key="false" />
+    <Column Name="ItemStatus" DataType="String" Path="ItemStatus" MaxLength="0" Key="false" />
+    <Column Name="Flags" DataType="String" Path="Flags" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From OrgMetricScanResult LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

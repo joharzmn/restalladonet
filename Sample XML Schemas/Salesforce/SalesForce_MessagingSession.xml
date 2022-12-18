@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="MessagingSession" Description="Messaging Session" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="OwnerId" DataType="String" Path="OwnerId" MaxLength="0" Key="false" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="LastViewedDate" DataType="DateTime" Path="LastViewedDate" MaxLength="0" Key="false" />
+    <Column Name="LastReferencedDate" DataType="DateTime" Path="LastReferencedDate" MaxLength="0" Key="false" />
+    <Column Name="MessagingChannelId" DataType="String" Path="MessagingChannelId" MaxLength="0" Key="false" />
+    <Column Name="MessagingEndUserId" DataType="String" Path="MessagingEndUserId" MaxLength="0" Key="false" />
+    <Column Name="Status" DataType="String" Path="Status" MaxLength="0" Key="false" />
+    <Column Name="AcceptTime" DataType="DateTime" Path="AcceptTime" MaxLength="0" Key="false" />
+    <Column Name="StartTime" DataType="DateTime" Path="StartTime" MaxLength="0" Key="false" />
+    <Column Name="EndTime" DataType="DateTime" Path="EndTime" MaxLength="0" Key="false" />
+    <Column Name="Origin" DataType="String" Path="Origin" MaxLength="0" Key="false" />
+    <Column Name="AgentType" DataType="String" Path="AgentType" MaxLength="0" Key="false" />
+    <Column Name="SessionKey" DataType="String" Path="SessionKey" MaxLength="0" Key="false" />
+    <Column Name="TargetUserId" DataType="String" Path="TargetUserId" MaxLength="0" Key="false" />
+    <Column Name="ChannelGroup" DataType="String" Path="ChannelGroup" MaxLength="0" Key="false" />
+    <Column Name="ChannelIntent" DataType="String" Path="ChannelIntent" MaxLength="0" Key="false" />
+    <Column Name="ChannelLocale" DataType="String" Path="ChannelLocale" MaxLength="0" Key="false" />
+    <Column Name="EndUserAccountId" DataType="String" Path="EndUserAccountId" MaxLength="0" Key="false" />
+    <Column Name="EndUserContactId" DataType="String" Path="EndUserContactId" MaxLength="0" Key="false" />
+    <Column Name="ChannelType" DataType="String" Path="ChannelType" MaxLength="0" Key="false" />
+    <Column Name="ChannelName" DataType="String" Path="ChannelName" MaxLength="0" Key="false" />
+    <Column Name="ChannelKey" DataType="String" Path="ChannelKey" MaxLength="0" Key="false" />
+    <Column Name="PreviewDetails" DataType="String" Path="PreviewDetails" MaxLength="0" Key="false" />
+    <Column Name="EndUserMessageCount" DataType="String" Path="EndUserMessageCount" MaxLength="0" Key="false" />
+    <Column Name="AgentMessageCount" DataType="String" Path="AgentMessageCount" MaxLength="0" Key="false" />
+    <Column Name="ChannelEndUserFormula" DataType="String" Path="ChannelEndUserFormula" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From MessagingSession LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

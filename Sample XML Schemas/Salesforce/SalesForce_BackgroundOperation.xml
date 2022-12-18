@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="BackgroundOperation" Description="Background Operation" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="SubmittedAt" DataType="DateTime" Path="SubmittedAt" MaxLength="0" Key="false" />
+    <Column Name="Status" DataType="String" Path="Status" MaxLength="0" Key="false" />
+    <Column Name="ExecutionGroup" DataType="String" Path="ExecutionGroup" MaxLength="0" Key="false" />
+    <Column Name="SequenceGroup" DataType="String" Path="SequenceGroup" MaxLength="0" Key="false" />
+    <Column Name="SequenceNumber" DataType="String" Path="SequenceNumber" MaxLength="0" Key="false" />
+    <Column Name="GroupLeaderId" DataType="String" Path="GroupLeaderId" MaxLength="0" Key="false" />
+    <Column Name="StartedAt" DataType="DateTime" Path="StartedAt" MaxLength="0" Key="false" />
+    <Column Name="FinishedAt" DataType="DateTime" Path="FinishedAt" MaxLength="0" Key="false" />
+    <Column Name="WorkerUri" DataType="String" Path="WorkerUri" MaxLength="0" Key="false" />
+    <Column Name="Timeout" DataType="String" Path="Timeout" MaxLength="0" Key="false" />
+    <Column Name="ExpiresAt" DataType="DateTime" Path="ExpiresAt" MaxLength="0" Key="false" />
+    <Column Name="NumFollowers" DataType="String" Path="NumFollowers" MaxLength="0" Key="false" />
+    <Column Name="ProcessAfter" DataType="DateTime" Path="ProcessAfter" MaxLength="0" Key="false" />
+    <Column Name="ParentKey" DataType="String" Path="ParentKey" MaxLength="0" Key="false" />
+    <Column Name="RetryLimit" DataType="String" Path="RetryLimit" MaxLength="0" Key="false" />
+    <Column Name="RetryCount" DataType="String" Path="RetryCount" MaxLength="0" Key="false" />
+    <Column Name="RetryBackoff" DataType="String" Path="RetryBackoff" MaxLength="0" Key="false" />
+    <Column Name="Error" DataType="String" Path="Error" MaxLength="0" Key="false" />
+    <Column Name="Type" DataType="String" Path="Type" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From BackgroundOperation LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="EmailMessageChangeEvent" Description="Email Message Change Event" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="ReplayId" DataType="String" Path="ReplayId" MaxLength="0" Key="false" />
+    <Column Name="ChangeEventHeader" DataType="String" Path="ChangeEventHeader" MaxLength="0" Key="false" />
+    <Column Name="ParentId" DataType="String" Path="ParentId" MaxLength="0" Key="false" />
+    <Column Name="ActivityId" DataType="String" Path="ActivityId" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="TextBody" DataType="String" Path="TextBody" MaxLength="0" Key="false" />
+    <Column Name="HtmlBody" DataType="String" Path="HtmlBody" MaxLength="0" Key="false" />
+    <Column Name="Headers" DataType="String" Path="Headers" MaxLength="0" Key="false" />
+    <Column Name="Subject" DataType="String" Path="Subject" MaxLength="0" Key="false" />
+    <Column Name="FromName" DataType="String" Path="FromName" MaxLength="0" Key="false" />
+    <Column Name="FromAddress" DataType="String" Path="FromAddress" MaxLength="0" Key="false" />
+    <Column Name="ToAddress" DataType="String" Path="ToAddress" MaxLength="0" Key="false" />
+    <Column Name="CcAddress" DataType="String" Path="CcAddress" MaxLength="0" Key="false" />
+    <Column Name="BccAddress" DataType="String" Path="BccAddress" MaxLength="0" Key="false" />
+    <Column Name="Incoming" DataType="Boolean" Path="Incoming" MaxLength="0" Key="false" />
+    <Column Name="HasAttachment" DataType="Boolean" Path="HasAttachment" MaxLength="0" Key="false" />
+    <Column Name="Status" DataType="String" Path="Status" MaxLength="0" Key="false" />
+    <Column Name="MessageDate" DataType="DateTime" Path="MessageDate" MaxLength="0" Key="false" />
+    <Column Name="ReplyToEmailMessageId" DataType="String" Path="ReplyToEmailMessageId" MaxLength="0" Key="false" />
+    <Column Name="IsExternallyVisible" DataType="Boolean" Path="IsExternallyVisible" MaxLength="0" Key="false" />
+    <Column Name="MessageIdentifier" DataType="String" Path="MessageIdentifier" MaxLength="0" Key="false" />
+    <Column Name="ThreadIdentifier" DataType="String" Path="ThreadIdentifier" MaxLength="0" Key="false" />
+    <Column Name="ClientThreadIdentifier" DataType="String" Path="ClientThreadIdentifier" MaxLength="0" Key="false" />
+    <Column Name="IsClientManaged" DataType="Boolean" Path="IsClientManaged" MaxLength="0" Key="false" />
+    <Column Name="RelatedToId" DataType="String" Path="RelatedToId" MaxLength="0" Key="false" />
+    <Column Name="IsTracked" DataType="Boolean" Path="IsTracked" MaxLength="0" Key="false" />
+    <Column Name="FirstOpenedDate" DataType="DateTime" Path="FirstOpenedDate" MaxLength="0" Key="false" />
+    <Column Name="LastOpenedDate" DataType="DateTime" Path="LastOpenedDate" MaxLength="0" Key="false" />
+    <Column Name="IsBounced" DataType="Boolean" Path="IsBounced" MaxLength="0" Key="false" />
+    <Column Name="EmailTemplateId" DataType="String" Path="EmailTemplateId" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From EmailMessageChangeEvent LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="AssetActionSource" Description="Asset Action Source" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="AssetActionSourceNumber" DataType="String" Path="AssetActionSourceNumber" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="AssetActionId" DataType="String" Path="AssetActionId" MaxLength="0" Key="false" />
+    <Column Name="ReferenceEntityItemId" DataType="String" Path="ReferenceEntityItemId" MaxLength="0" Key="false" />
+    <Column Name="ProductAmount" DataType="String" Path="ProductAmount" MaxLength="0" Key="false" />
+    <Column Name="AdjustmentAmount" DataType="String" Path="AdjustmentAmount" MaxLength="0" Key="false" />
+    <Column Name="EstimatedTax" DataType="String" Path="EstimatedTax" MaxLength="0" Key="false" />
+    <Column Name="ActualTax" DataType="String" Path="ActualTax" MaxLength="0" Key="false" />
+    <Column Name="Subtotal" DataType="String" Path="Subtotal" MaxLength="0" Key="false" />
+    <Column Name="StartDate" DataType="DateTime" Path="StartDate" MaxLength="0" Key="false" />
+    <Column Name="EndDate" DataType="DateTime" Path="EndDate" MaxLength="0" Key="false" />
+    <Column Name="Quantity" DataType="Double" Path="Quantity" MaxLength="0" Key="false" />
+    <Column Name="TransactionDate" DataType="DateTime" Path="TransactionDate" MaxLength="0" Key="false" />
+    <Column Name="ExternalReference" DataType="String" Path="ExternalReference" MaxLength="0" Key="false" />
+    <Column Name="ExternalReferenceDataSource" DataType="String" Path="ExternalReferenceDataSource" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From AssetActionSource LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

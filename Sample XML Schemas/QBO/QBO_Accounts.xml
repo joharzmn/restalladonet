@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="Accounts" Description="Quickbooks Accounts Data" Schema="QBO">
+    <Column Name="Id" DataType="Int32" Path="Id" MaxLength="0" Key="true" />
+	<Column Name="SyncToken" DataType="Int16" Path="SyncToken" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="SubAccount" DataType="Boolean" Path="SubAccount" MaxLength="0" Key="false" />
+    <Column Name="Active" DataType="Boolean" Path="Active" MaxLength="0" Key="false" />
+    <Column Name="Classification" DataType="String" Path="Classification" MaxLength="0" Key="false" />
+    <Column Name="AccountType" DataType="String" Path="AccountType" MaxLength="0" Key="false" />
+    <Column Name="AccountSubType" DataType="String" Path="AccountSubType" MaxLength="0" Key="false" />
+    <Column Name="CurrentBalance" DataType="Double" Path="CurrentBalance" MaxLength="0" Key="false" />
+    <Column Name="CurrentBalanceWithSubAccounts" DataType="Double" Path="CurrentBalanceWithSubAccounts" MaxLength="0" Key="false" />
+    <Column Name="Domain" DataType="String" Path="domain" MaxLength="0" Key="false" />
+	<Column Name="CurrencyRef_Value" DataType="String" Path="CurrencyRef.value" MaxLength="0" Key="false" />
+	<Column Name="CurrencyRef_Name" DataType="String" Path="CurrencyRef.name" MaxLength="0" Key="false" />
+	<Column Name="MetaData_CreateTime" DataType="DateTime" Path="MetaData.CreateTime" MaxLength="0" Key="false" />
+	<Column Name="MetaData_LastUpdatedTime" DataType="DateTime" Path="MetaData.LastUpdatedTime" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select">
+	<Url>^[Connection.URL]^/v3/company/^[Token.realmid]^/query?minorversion=65&amp;query=select * from account</Url>
+	</DataAction>
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.QueryResponse.Account</RepeatElement>
+  <EntityElement>Account</EntityElement>
+</EntityDescriptor>

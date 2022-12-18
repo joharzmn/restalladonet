@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="PlatformStatusAlertEvent" Description="Platform Status Alert Event" Schema="SalesForce">
+    <Column Name="ReplayId" DataType="String" Path="ReplayId" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="EventUuid" DataType="String" Path="EventUuid" MaxLength="0" Key="false" />
+    <Column Name="EventIdentifier" DataType="String" Path="EventIdentifier" MaxLength="0" Key="false" />
+    <Column Name="UserId" DataType="String" Path="UserId" MaxLength="0" Key="false" />
+    <Column Name="Username" DataType="String" Path="Username" MaxLength="0" Key="false" />
+    <Column Name="EventDate" DataType="DateTime" Path="EventDate" MaxLength="0" Key="false" />
+    <Column Name="RelatedEventIdentifier" DataType="String" Path="RelatedEventIdentifier" MaxLength="0" Key="false" />
+    <Column Name="RequestId" DataType="String" Path="RequestId" MaxLength="0" Key="false" />
+    <Column Name="ServiceName" DataType="String" Path="ServiceName" MaxLength="0" Key="false" />
+    <Column Name="ServiceJobId" DataType="String" Path="ServiceJobId" MaxLength="0" Key="false" />
+    <Column Name="StatusType" DataType="String" Path="StatusType" MaxLength="0" Key="false" />
+    <Column Name="ComponentName" DataType="String" Path="ComponentName" MaxLength="0" Key="false" />
+    <Column Name="SubComponentName" DataType="String" Path="SubComponentName" MaxLength="0" Key="false" />
+    <Column Name="Subject" DataType="String" Path="Subject" MaxLength="0" Key="false" />
+    <Column Name="ApiErrorCode" DataType="String" Path="ApiErrorCode" MaxLength="0" Key="false" />
+    <Column Name="ExtendedErrorCode" DataType="String" Path="ExtendedErrorCode" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From PlatformStatusAlertEvent LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

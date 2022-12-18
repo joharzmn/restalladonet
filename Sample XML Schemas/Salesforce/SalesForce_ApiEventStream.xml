@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="ApiEventStream" Description="API Event Stream" Schema="SalesForce">
+    <Column Name="ReplayId" DataType="String" Path="ReplayId" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="EventUuid" DataType="String" Path="EventUuid" MaxLength="0" Key="false" />
+    <Column Name="EventIdentifier" DataType="String" Path="EventIdentifier" MaxLength="0" Key="false" />
+    <Column Name="UserId" DataType="String" Path="UserId" MaxLength="0" Key="false" />
+    <Column Name="Username" DataType="String" Path="Username" MaxLength="0" Key="false" />
+    <Column Name="EventDate" DataType="DateTime" Path="EventDate" MaxLength="0" Key="false" />
+    <Column Name="RelatedEventIdentifier" DataType="String" Path="RelatedEventIdentifier" MaxLength="0" Key="false" />
+    <Column Name="LoginHistoryId" DataType="String" Path="LoginHistoryId" MaxLength="0" Key="false" />
+    <Column Name="RowsProcessed" DataType="Double" Path="RowsProcessed" MaxLength="0" Key="false" />
+    <Column Name="RowsReturned" DataType="Double" Path="RowsReturned" MaxLength="0" Key="false" />
+    <Column Name="Operation" DataType="String" Path="Operation" MaxLength="0" Key="false" />
+    <Column Name="QueriedEntities" DataType="String" Path="QueriedEntities" MaxLength="0" Key="false" />
+    <Column Name="PolicyId" DataType="String" Path="PolicyId" MaxLength="0" Key="false" />
+    <Column Name="PolicyOutcome" DataType="String" Path="PolicyOutcome" MaxLength="0" Key="false" />
+    <Column Name="EvaluationTime" DataType="Double" Path="EvaluationTime" MaxLength="0" Key="false" />
+    <Column Name="SessionKey" DataType="String" Path="SessionKey" MaxLength="0" Key="false" />
+    <Column Name="LoginKey" DataType="String" Path="LoginKey" MaxLength="0" Key="false" />
+    <Column Name="SessionLevel" DataType="String" Path="SessionLevel" MaxLength="0" Key="false" />
+    <Column Name="SourceIp" DataType="String" Path="SourceIp" MaxLength="0" Key="false" />
+    <Column Name="AdditionalInfo" DataType="String" Path="AdditionalInfo" MaxLength="0" Key="false" />
+    <Column Name="ApiType" DataType="String" Path="ApiType" MaxLength="0" Key="false" />
+    <Column Name="ApiVersion" DataType="Double" Path="ApiVersion" MaxLength="0" Key="false" />
+    <Column Name="Application" DataType="String" Path="Application" MaxLength="0" Key="false" />
+    <Column Name="Client" DataType="String" Path="Client" MaxLength="0" Key="false" />
+    <Column Name="ConnectedAppId" DataType="String" Path="ConnectedAppId" MaxLength="0" Key="false" />
+    <Column Name="ElapsedTime" DataType="String" Path="ElapsedTime" MaxLength="0" Key="false" />
+    <Column Name="Platform" DataType="String" Path="Platform" MaxLength="0" Key="false" />
+    <Column Name="Query" DataType="String" Path="Query" MaxLength="0" Key="false" />
+    <Column Name="Records" DataType="String" Path="Records" MaxLength="0" Key="false" />
+    <Column Name="UserAgent" DataType="String" Path="UserAgent" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From ApiEventStream LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="CampaignMember" Description="Campaign Member" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="CampaignId" DataType="String" Path="CampaignId" MaxLength="0" Key="false" />
+    <Column Name="LeadId" DataType="String" Path="LeadId" MaxLength="0" Key="false" />
+    <Column Name="ContactId" DataType="String" Path="ContactId" MaxLength="0" Key="false" />
+    <Column Name="Status" DataType="String" Path="Status" MaxLength="0" Key="false" />
+    <Column Name="HasResponded" DataType="Boolean" Path="HasResponded" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="FirstRespondedDate" DataType="String" Path="FirstRespondedDate" MaxLength="0" Key="false" />
+    <Column Name="Salutation" DataType="String" Path="Salutation" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="FirstName" DataType="String" Path="FirstName" MaxLength="0" Key="false" />
+    <Column Name="LastName" DataType="String" Path="LastName" MaxLength="0" Key="false" />
+    <Column Name="Title" DataType="String" Path="Title" MaxLength="0" Key="false" />
+    <Column Name="Street" DataType="String" Path="Street" MaxLength="0" Key="false" />
+    <Column Name="City" DataType="String" Path="City" MaxLength="0" Key="false" />
+    <Column Name="State" DataType="String" Path="State" MaxLength="0" Key="false" />
+    <Column Name="PostalCode" DataType="String" Path="PostalCode" MaxLength="0" Key="false" />
+    <Column Name="Country" DataType="String" Path="Country" MaxLength="0" Key="false" />
+    <Column Name="Email" DataType="String" Path="Email" MaxLength="0" Key="false" />
+    <Column Name="Phone" DataType="String" Path="Phone" MaxLength="0" Key="false" />
+    <Column Name="Fax" DataType="String" Path="Fax" MaxLength="0" Key="false" />
+    <Column Name="MobilePhone" DataType="String" Path="MobilePhone" MaxLength="0" Key="false" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Column Name="DoNotCall" DataType="Boolean" Path="DoNotCall" MaxLength="0" Key="false" />
+    <Column Name="HasOptedOutOfEmail" DataType="Boolean" Path="HasOptedOutOfEmail" MaxLength="0" Key="false" />
+    <Column Name="HasOptedOutOfFax" DataType="Boolean" Path="HasOptedOutOfFax" MaxLength="0" Key="false" />
+    <Column Name="LeadSource" DataType="String" Path="LeadSource" MaxLength="0" Key="false" />
+    <Column Name="CompanyOrAccount" DataType="String" Path="CompanyOrAccount" MaxLength="0" Key="false" />
+    <Column Name="Type" DataType="String" Path="Type" MaxLength="0" Key="false" />
+    <Column Name="LeadOrContactId" DataType="String" Path="LeadOrContactId" MaxLength="0" Key="false" />
+    <Column Name="LeadOrContactOwnerId" DataType="String" Path="LeadOrContactOwnerId" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From CampaignMember LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

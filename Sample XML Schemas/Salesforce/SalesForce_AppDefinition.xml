@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="AppDefinition" Description="App Definition" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="DurableId" DataType="String" Path="DurableId" MaxLength="0" Key="false" />
+    <Column Name="Label" DataType="String" Path="Label" MaxLength="0" Key="false" />
+    <Column Name="MasterLabel" DataType="String" Path="MasterLabel" MaxLength="0" Key="false" />
+    <Column Name="NamespacePrefix" DataType="String" Path="NamespacePrefix" MaxLength="0" Key="false" />
+    <Column Name="DeveloperName" DataType="String" Path="DeveloperName" MaxLength="0" Key="false" />
+    <Column Name="LogoUrl" DataType="String" Path="LogoUrl" MaxLength="0" Key="false" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Column Name="UiType" DataType="String" Path="UiType" MaxLength="0" Key="false" />
+    <Column Name="NavType" DataType="String" Path="NavType" MaxLength="0" Key="false" />
+    <Column Name="UtilityBar" DataType="String" Path="UtilityBar" MaxLength="0" Key="false" />
+    <Column Name="HeaderColor" DataType="String" Path="HeaderColor" MaxLength="0" Key="false" />
+    <Column Name="IsOverrideOrgTheme" DataType="Boolean" Path="IsOverrideOrgTheme" MaxLength="0" Key="false" />
+    <Column Name="IsSmallFormFactorSupported" DataType="Boolean" Path="IsSmallFormFactorSupported" MaxLength="0" Key="false" />
+    <Column Name="IsMediumFormFactorSupported" DataType="Boolean" Path="IsMediumFormFactorSupported" MaxLength="0" Key="false" />
+    <Column Name="IsLargeFormFactorSupported" DataType="Boolean" Path="IsLargeFormFactorSupported" MaxLength="0" Key="false" />
+    <Column Name="IsNavPersonalizationDisabled" DataType="Boolean" Path="IsNavPersonalizationDisabled" MaxLength="0" Key="false" />
+    <Column Name="IsNavAutoTempTabsDisabled" DataType="Boolean" Path="IsNavAutoTempTabsDisabled" MaxLength="0" Key="false" />
+    <Column Name="IsNavTabPersistenceDisabled" DataType="Boolean" Path="IsNavTabPersistenceDisabled" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From AppDefinition LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

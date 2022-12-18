@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="ApexTestQueueItem" Description="Apex Test Queue Item" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="ApexClassId" DataType="String" Path="ApexClassId" MaxLength="0" Key="false" />
+    <Column Name="Status" DataType="String" Path="Status" MaxLength="0" Key="false" />
+    <Column Name="ExtendedStatus" DataType="String" Path="ExtendedStatus" MaxLength="0" Key="false" />
+    <Column Name="ParentJobId" DataType="String" Path="ParentJobId" MaxLength="0" Key="false" />
+    <Column Name="TestRunResultId" DataType="String" Path="TestRunResultId" MaxLength="0" Key="false" />
+    <Column Name="ShouldSkipCodeCoverage" DataType="Boolean" Path="ShouldSkipCodeCoverage" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From ApexTestQueueItem LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

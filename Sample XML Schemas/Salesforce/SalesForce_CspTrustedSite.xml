@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="CspTrustedSite" Description="Content Security Policy Trusted Site" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="DeveloperName" DataType="String" Path="DeveloperName" MaxLength="0" Key="false" />
+    <Column Name="Language" DataType="String" Path="Language" MaxLength="0" Key="false" />
+    <Column Name="MasterLabel" DataType="String" Path="MasterLabel" MaxLength="0" Key="false" />
+    <Column Name="NamespacePrefix" DataType="String" Path="NamespacePrefix" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="EndpointUrl" DataType="String" Path="EndpointUrl" MaxLength="0" Key="false" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Column Name="IsActive" DataType="Boolean" Path="IsActive" MaxLength="0" Key="false" />
+    <Column Name="Context" DataType="String" Path="Context" MaxLength="0" Key="false" />
+    <Column Name="IsApplicableToConnectSrc" DataType="Boolean" Path="IsApplicableToConnectSrc" MaxLength="0" Key="false" />
+    <Column Name="IsApplicableToFrameSrc" DataType="Boolean" Path="IsApplicableToFrameSrc" MaxLength="0" Key="false" />
+    <Column Name="IsApplicableToImgSrc" DataType="Boolean" Path="IsApplicableToImgSrc" MaxLength="0" Key="false" />
+    <Column Name="IsApplicableToStyleSrc" DataType="Boolean" Path="IsApplicableToStyleSrc" MaxLength="0" Key="false" />
+    <Column Name="IsApplicableToFontSrc" DataType="Boolean" Path="IsApplicableToFontSrc" MaxLength="0" Key="false" />
+    <Column Name="IsApplicableToMediaSrc" DataType="Boolean" Path="IsApplicableToMediaSrc" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From CspTrustedSite LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

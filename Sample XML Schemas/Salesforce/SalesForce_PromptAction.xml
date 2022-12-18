@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="PromptAction" Description="Prompt Action" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="OwnerId" DataType="String" Path="OwnerId" MaxLength="0" Key="false" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="PromptVersionId" DataType="String" Path="PromptVersionId" MaxLength="0" Key="false" />
+    <Column Name="UserId" DataType="String" Path="UserId" MaxLength="0" Key="false" />
+    <Column Name="TimesDisplayed" DataType="String" Path="TimesDisplayed" MaxLength="0" Key="false" />
+    <Column Name="TimesActionTaken" DataType="String" Path="TimesActionTaken" MaxLength="0" Key="false" />
+    <Column Name="TimesDismissed" DataType="String" Path="TimesDismissed" MaxLength="0" Key="false" />
+    <Column Name="LastDisplayDate" DataType="DateTime" Path="LastDisplayDate" MaxLength="0" Key="false" />
+    <Column Name="LastResult" DataType="String" Path="LastResult" MaxLength="0" Key="false" />
+    <Column Name="LastResultDate" DataType="DateTime" Path="LastResultDate" MaxLength="0" Key="false" />
+    <Column Name="StepNumber" DataType="String" Path="StepNumber" MaxLength="0" Key="false" />
+    <Column Name="StepCount" DataType="String" Path="StepCount" MaxLength="0" Key="false" />
+    <Column Name="SnoozeUntil" DataType="DateTime" Path="SnoozeUntil" MaxLength="0" Key="false" />
+    <Column Name="TimesSnoozed" DataType="String" Path="TimesSnoozed" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From PromptAction LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

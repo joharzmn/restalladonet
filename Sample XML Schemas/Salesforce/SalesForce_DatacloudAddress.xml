@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="DatacloudAddress" Description="Data.com Address" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="ExternalId" DataType="String" Path="ExternalId" MaxLength="0" Key="false" />
+    <Column Name="AddressLine1" DataType="String" Path="AddressLine1" MaxLength="0" Key="false" />
+    <Column Name="AddressLine2" DataType="String" Path="AddressLine2" MaxLength="0" Key="false" />
+    <Column Name="City" DataType="String" Path="City" MaxLength="0" Key="false" />
+    <Column Name="State" DataType="String" Path="State" MaxLength="0" Key="false" />
+    <Column Name="Country" DataType="String" Path="Country" MaxLength="0" Key="false" />
+    <Column Name="PostalCode" DataType="String" Path="PostalCode" MaxLength="0" Key="false" />
+    <Column Name="Latitude" DataType="String" Path="Latitude" MaxLength="0" Key="false" />
+    <Column Name="Longitude" DataType="String" Path="Longitude" MaxLength="0" Key="false" />
+    <Column Name="GeoAccuracyCode" DataType="String" Path="GeoAccuracyCode" MaxLength="0" Key="false" />
+    <Column Name="GeoAccuracyNum" DataType="String" Path="GeoAccuracyNum" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From DatacloudAddress LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

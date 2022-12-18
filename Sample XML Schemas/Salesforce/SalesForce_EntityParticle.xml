@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="EntityParticle" Description="Entity Particle" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="DurableId" DataType="String" Path="DurableId" MaxLength="0" Key="false" />
+    <Column Name="QualifiedApiName" DataType="String" Path="QualifiedApiName" MaxLength="0" Key="false" />
+    <Column Name="EntityDefinitionId" DataType="String" Path="EntityDefinitionId" MaxLength="0" Key="false" />
+    <Column Name="FieldDefinitionId" DataType="String" Path="FieldDefinitionId" MaxLength="0" Key="false" />
+    <Column Name="NamespacePrefix" DataType="String" Path="NamespacePrefix" MaxLength="0" Key="false" />
+    <Column Name="DeveloperName" DataType="String" Path="DeveloperName" MaxLength="0" Key="false" />
+    <Column Name="MasterLabel" DataType="String" Path="MasterLabel" MaxLength="0" Key="false" />
+    <Column Name="Label" DataType="String" Path="Label" MaxLength="0" Key="false" />
+    <Column Name="Length" DataType="String" Path="Length" MaxLength="0" Key="false" />
+    <Column Name="DataType" DataType="String" Path="DataType" MaxLength="0" Key="false" />
+    <Column Name="ServiceDataTypeId" DataType="String" Path="ServiceDataTypeId" MaxLength="0" Key="false" />
+    <Column Name="ValueTypeId" DataType="String" Path="ValueTypeId" MaxLength="0" Key="false" />
+    <Column Name="ExtraTypeInfo" DataType="String" Path="ExtraTypeInfo" MaxLength="0" Key="false" />
+    <Column Name="IsAutonumber" DataType="Boolean" Path="IsAutonumber" MaxLength="0" Key="false" />
+    <Column Name="ByteLength" DataType="String" Path="ByteLength" MaxLength="0" Key="false" />
+    <Column Name="IsCaseSensitive" DataType="Boolean" Path="IsCaseSensitive" MaxLength="0" Key="false" />
+    <Column Name="IsUnique" DataType="Boolean" Path="IsUnique" MaxLength="0" Key="false" />
+    <Column Name="IsCreatable" DataType="Boolean" Path="IsCreatable" MaxLength="0" Key="false" />
+    <Column Name="IsUpdatable" DataType="Boolean" Path="IsUpdatable" MaxLength="0" Key="false" />
+    <Column Name="IsDefaultedOnCreate" DataType="Boolean" Path="IsDefaultedOnCreate" MaxLength="0" Key="false" />
+    <Column Name="IsWriteRequiresMasterRead" DataType="Boolean" Path="IsWriteRequiresMasterRead" MaxLength="0" Key="false" />
+    <Column Name="IsCalculated" DataType="Boolean" Path="IsCalculated" MaxLength="0" Key="false" />
+    <Column Name="IsHighScaleNumber" DataType="Boolean" Path="IsHighScaleNumber" MaxLength="0" Key="false" />
+    <Column Name="IsHtmlFormatted" DataType="Boolean" Path="IsHtmlFormatted" MaxLength="0" Key="false" />
+    <Column Name="IsNameField" DataType="Boolean" Path="IsNameField" MaxLength="0" Key="false" />
+    <Column Name="IsNillable" DataType="Boolean" Path="IsNillable" MaxLength="0" Key="false" />
+    <Column Name="IsPermissionable" DataType="Boolean" Path="IsPermissionable" MaxLength="0" Key="false" />
+    <Column Name="IsEncrypted" DataType="Boolean" Path="IsEncrypted" MaxLength="0" Key="false" />
+    <Column Name="Digits" DataType="String" Path="Digits" MaxLength="0" Key="false" />
+    <Column Name="InlineHelpText" DataType="String" Path="InlineHelpText" MaxLength="0" Key="false" />
+    <Column Name="RelationshipName" DataType="String" Path="RelationshipName" MaxLength="0" Key="false" />
+    <Column Name="ReferenceTargetField" DataType="String" Path="ReferenceTargetField" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="Mask" DataType="String" Path="Mask" MaxLength="0" Key="false" />
+    <Column Name="MaskType" DataType="String" Path="MaskType" MaxLength="0" Key="false" />
+    <Column Name="IsWorkflowFilterable" DataType="Boolean" Path="IsWorkflowFilterable" MaxLength="0" Key="false" />
+    <Column Name="IsCompactLayoutable" DataType="Boolean" Path="IsCompactLayoutable" MaxLength="0" Key="false" />
+    <Column Name="Precision" DataType="String" Path="Precision" MaxLength="0" Key="false" />
+    <Column Name="Scale" DataType="String" Path="Scale" MaxLength="0" Key="false" />
+    <Column Name="IsFieldHistoryTracked" DataType="Boolean" Path="IsFieldHistoryTracked" MaxLength="0" Key="false" />
+    <Column Name="IsApiFilterable" DataType="Boolean" Path="IsApiFilterable" MaxLength="0" Key="false" />
+    <Column Name="IsApiSortable" DataType="Boolean" Path="IsApiSortable" MaxLength="0" Key="false" />
+    <Column Name="IsApiGroupable" DataType="Boolean" Path="IsApiGroupable" MaxLength="0" Key="false" />
+    <Column Name="IsListVisible" DataType="Boolean" Path="IsListVisible" MaxLength="0" Key="false" />
+    <Column Name="IsLayoutable" DataType="Boolean" Path="IsLayoutable" MaxLength="0" Key="false" />
+    <Column Name="IsDependentPicklist" DataType="Boolean" Path="IsDependentPicklist" MaxLength="0" Key="false" />
+    <Column Name="IsDeprecatedAndHidden" DataType="Boolean" Path="IsDeprecatedAndHidden" MaxLength="0" Key="false" />
+    <Column Name="IsDisplayLocationInDecimal" DataType="Boolean" Path="IsDisplayLocationInDecimal" MaxLength="0" Key="false" />
+    <Column Name="DefaultValueFormula" DataType="String" Path="DefaultValueFormula" MaxLength="0" Key="false" />
+    <Column Name="IsIdLookup" DataType="Boolean" Path="IsIdLookup" MaxLength="0" Key="false" />
+    <Column Name="IsNamePointing" DataType="Boolean" Path="IsNamePointing" MaxLength="0" Key="false" />
+    <Column Name="RelationshipOrder" DataType="String" Path="RelationshipOrder" MaxLength="0" Key="false" />
+    <Column Name="ReferenceTo" DataType="String" Path="ReferenceTo" MaxLength="0" Key="false" />
+    <Column Name="IsComponent" DataType="Boolean" Path="IsComponent" MaxLength="0" Key="false" />
+    <Column Name="IsCompound" DataType="Boolean" Path="IsCompound" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From EntityParticle LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

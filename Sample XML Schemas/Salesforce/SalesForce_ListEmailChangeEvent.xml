@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="ListEmailChangeEvent" Description="List Email Change Event" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="ReplayId" DataType="String" Path="ReplayId" MaxLength="0" Key="false" />
+    <Column Name="ChangeEventHeader" DataType="String" Path="ChangeEventHeader" MaxLength="0" Key="false" />
+    <Column Name="OwnerId" DataType="String" Path="OwnerId" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="Subject" DataType="String" Path="Subject" MaxLength="0" Key="false" />
+    <Column Name="HtmlBody" DataType="String" Path="HtmlBody" MaxLength="0" Key="false" />
+    <Column Name="TextBody" DataType="String" Path="TextBody" MaxLength="0" Key="false" />
+    <Column Name="FromName" DataType="String" Path="FromName" MaxLength="0" Key="false" />
+    <Column Name="FromAddress" DataType="String" Path="FromAddress" MaxLength="0" Key="false" />
+    <Column Name="Status" DataType="String" Path="Status" MaxLength="0" Key="false" />
+    <Column Name="HasAttachment" DataType="Boolean" Path="HasAttachment" MaxLength="0" Key="false" />
+    <Column Name="ScheduledDate" DataType="DateTime" Path="ScheduledDate" MaxLength="0" Key="false" />
+    <Column Name="TotalSent" DataType="String" Path="TotalSent" MaxLength="0" Key="false" />
+    <Column Name="CampaignId" DataType="String" Path="CampaignId" MaxLength="0" Key="false" />
+    <Column Name="IsTracked" DataType="Boolean" Path="IsTracked" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From ListEmailChangeEvent LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

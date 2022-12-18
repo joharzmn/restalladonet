@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="Dashboard" Description="Dashboard" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="FolderId" DataType="String" Path="FolderId" MaxLength="0" Key="false" />
+    <Column Name="FolderName" DataType="String" Path="FolderName" MaxLength="0" Key="false" />
+    <Column Name="Title" DataType="String" Path="Title" MaxLength="0" Key="false" />
+    <Column Name="DeveloperName" DataType="String" Path="DeveloperName" MaxLength="0" Key="false" />
+    <Column Name="NamespacePrefix" DataType="String" Path="NamespacePrefix" MaxLength="0" Key="false" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Column Name="LeftSize" DataType="String" Path="LeftSize" MaxLength="0" Key="false" />
+    <Column Name="MiddleSize" DataType="String" Path="MiddleSize" MaxLength="0" Key="false" />
+    <Column Name="RightSize" DataType="String" Path="RightSize" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="RunningUserId" DataType="String" Path="RunningUserId" MaxLength="0" Key="false" />
+    <Column Name="TitleColor" DataType="String" Path="TitleColor" MaxLength="0" Key="false" />
+    <Column Name="TitleSize" DataType="String" Path="TitleSize" MaxLength="0" Key="false" />
+    <Column Name="TextColor" DataType="String" Path="TextColor" MaxLength="0" Key="false" />
+    <Column Name="BackgroundStart" DataType="String" Path="BackgroundStart" MaxLength="0" Key="false" />
+    <Column Name="BackgroundEnd" DataType="String" Path="BackgroundEnd" MaxLength="0" Key="false" />
+    <Column Name="BackgroundDirection" DataType="String" Path="BackgroundDirection" MaxLength="0" Key="false" />
+    <Column Name="Type" DataType="String" Path="Type" MaxLength="0" Key="false" />
+    <Column Name="LastViewedDate" DataType="DateTime" Path="LastViewedDate" MaxLength="0" Key="false" />
+    <Column Name="LastReferencedDate" DataType="DateTime" Path="LastReferencedDate" MaxLength="0" Key="false" />
+    <Column Name="DashboardResultRefreshedDate" DataType="String" Path="DashboardResultRefreshedDate" MaxLength="0" Key="false" />
+    <Column Name="DashboardResultRunningUser" DataType="String" Path="DashboardResultRunningUser" MaxLength="0" Key="false" />
+    <Column Name="ColorPalette" DataType="String" Path="ColorPalette" MaxLength="0" Key="false" />
+    <Column Name="ChartTheme" DataType="String" Path="ChartTheme" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From Dashboard LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

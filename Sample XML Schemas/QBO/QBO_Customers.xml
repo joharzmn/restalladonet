@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="Customers" Description="Quickbooks Customers Data" Schema="QBO">
+    <Column Name="Id" DataType="Int32" Path="Id" MaxLength="0" Key="true" />
+	<Column Name="SyncToken" DataType="Int16" Path="SyncToken" MaxLength="0" Key="false" />
+	<Column Name="DisplayName" DataType="String" Path="DisplayName" MaxLength="0" Key="false" />
+	<Column Name="FamilyName" DataType="String" Path="FamilyName" MaxLength="0" Key="false" />
+    <Column Name="GivenName" DataType="String" Path="GivenName" MaxLength="0" Key="false" />
+    <Column Name="MiddleName" DataType="String" Path="MiddleName" MaxLength="0" Key="false" />
+	<Column Name="FullyQualifiedName" DataType="String" Path="FullyQualifiedName" MaxLength="0" Key="false" />
+	<Column Name="CompanyName" DataType="String" Path="CompanyName" MaxLength="0" Key="false" />
+	<Column Name="Balance" DataType="Double" Path="Balance" MaxLength="0" Key="false" />
+	<Column Name="BalanceWithJobs" DataType="Double" Path="BalanceWithJobs" MaxLength="0" Key="false" />
+    <Column Name="Domain" DataType="String" Path="domain" MaxLength="0" Key="false" />
+	<Column Name="BillWithParent" DataType="Boolean" Path="BillWithParent" MaxLength="0" Key="false" />
+	<Column Name="Job" DataType="Boolean" Path="Job" MaxLength="0" Key="false" />
+	<Column Name="Notes" DataType="String" Path="Notes" MaxLength="0" Key="false" />
+	<Column Name="PreferredDeliveryMethod" DataType="String" Path="PreferredDeliveryMethod" MaxLength="0" Key="false" />
+	<Column Name="PrintOnCheckName" DataType="String" Path="PrintOnCheckName" MaxLength="0" Key="false" />
+	<Column Name="Taxable" DataType="Boolean" Path="Taxable" MaxLength="0" Key="false" />
+	<Column Name="DefaultTaxCodeRef_Value" DataType="String" Path="DefaultTaxCodeRef.value" MaxLength="0" Key="false" />
+	<Column Name="PrimaryEmailAddr_Value" DataType="String" Path="PrimaryEmailAddr.value" MaxLength="0" Key="false" />
+	<Column Name="PrimaryPhone_FreeFormNumber" DataType="String" Path="PrimaryPhone.FreeFormNumber" MaxLength="0" Key="false" />
+	<Column Name="BillAddr_Line1" DataType="String" Path="BillAddr.Line1" MaxLength="0" Key="false" />
+	<Column Name="BillAddr_PostalCode" DataType="String" Path="BillAddr.PostalCode" MaxLength="0" Key="false" />
+	<Column Name="BillAddr_City" DataType="String" Path="BillAddr.City" MaxLength="0" Key="false" />
+	<Column Name="BillAddr_CountrySubDivisionCode" DataType="String" Path="BillAddr.CountrySubDivisionCode" MaxLength="0" Key="false" />
+	<Column Name="BillAddr_Lat" DataType="String" Path="BillAddr.Lat" MaxLength="0" Key="false" />
+	<Column Name="BillAddr_Long" DataType="String" Path="BillAddr.Long" MaxLength="0" Key="false" />
+	<Column Name="ShipAddr_Line1" DataType="String" Path="ShipAddr.Line1" MaxLength="0" Key="false" />
+	<Column Name="ShipAddr_PostalCode" DataType="String" Path="ShipAddr.PostalCode" MaxLength="0" Key="false" />
+	<Column Name="ShipAddr_City" DataType="String" Path="ShipAddr.City" MaxLength="0" Key="false" />
+	<Column Name="ShipAddr_CountrySubDivisionCode" DataType="String" Path="ShipAddr.CountrySubDivisionCode" MaxLength="0" Key="false" />
+	<Column Name="ShipAddr_Lat" DataType="String" Path="ShipAddr.Lat" MaxLength="0" Key="false" />
+	<Column Name="ShipAddr_Long" DataType="String" Path="ShipAddr.Long" MaxLength="0" Key="false" />
+	<Column Name="MetaData_CreateTime" DataType="DateTime" Path="MetaData.CreateTime" MaxLength="0" Key="false" />
+	<Column Name="MetaData_LastUpdatedTime" DataType="DateTime" Path="MetaData.LastUpdatedTime" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select">
+	<Url>^[Connection.URL]^/v3/company/^[Token.realmid]^/query?minorversion=65&amp;query=select * from Customer</Url>
+	</DataAction>
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.QueryResponse.Customer</RepeatElement>
+</EntityDescriptor>

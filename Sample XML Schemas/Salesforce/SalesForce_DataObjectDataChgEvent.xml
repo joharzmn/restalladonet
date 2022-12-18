@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="DataObjectDataChgEvent" Description="Data Object Data Change Event" Schema="SalesForce">
+    <Column Name="ReplayId" DataType="String" Path="ReplayId" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="EventUuid" DataType="String" Path="EventUuid" MaxLength="0" Key="false" />
+    <Column Name="EventType" DataType="String" Path="EventType" MaxLength="0" Key="false" />
+    <Column Name="EventSchemaVersion" DataType="String" Path="EventSchemaVersion" MaxLength="0" Key="false" />
+    <Column Name="EventCreationDateTime" DataType="DateTime" Path="EventCreationDateTime" MaxLength="0" Key="false" />
+    <Column Name="EventPublishDateTime" DataType="DateTime" Path="EventPublishDateTime" MaxLength="0" Key="false" />
+    <Column Name="SourceObjectDeveloperName" DataType="String" Path="SourceObjectDeveloperName" MaxLength="0" Key="false" />
+    <Column Name="ActionDeveloperName" DataType="String" Path="ActionDeveloperName" MaxLength="0" Key="false" />
+    <Column Name="EventPrompt" DataType="String" Path="EventPrompt" MaxLength="0" Key="false" />
+    <Column Name="PayloadPrevValue" DataType="String" Path="PayloadPrevValue" MaxLength="0" Key="false" />
+    <Column Name="PayloadCurrentValue" DataType="String" Path="PayloadCurrentValue" MaxLength="0" Key="false" />
+    <Column Name="PayloadSchema" DataType="String" Path="PayloadSchema" MaxLength="0" Key="false" />
+    <Column Name="Offset" DataType="String" Path="Offset" MaxLength="0" Key="false" />
+    <Column Name="PayloadMetadata" DataType="String" Path="PayloadMetadata" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From DataObjectDataChgEvent LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

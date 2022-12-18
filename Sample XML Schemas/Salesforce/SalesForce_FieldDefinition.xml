@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="FieldDefinition" Description="Field Definition" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="DurableId" DataType="String" Path="DurableId" MaxLength="0" Key="false" />
+    <Column Name="QualifiedApiName" DataType="String" Path="QualifiedApiName" MaxLength="0" Key="false" />
+    <Column Name="EntityDefinitionId" DataType="String" Path="EntityDefinitionId" MaxLength="0" Key="false" />
+    <Column Name="NamespacePrefix" DataType="String" Path="NamespacePrefix" MaxLength="0" Key="false" />
+    <Column Name="DeveloperName" DataType="String" Path="DeveloperName" MaxLength="0" Key="false" />
+    <Column Name="MasterLabel" DataType="String" Path="MasterLabel" MaxLength="0" Key="false" />
+    <Column Name="Label" DataType="String" Path="Label" MaxLength="0" Key="false" />
+    <Column Name="Length" DataType="String" Path="Length" MaxLength="0" Key="false" />
+    <Column Name="DataType" DataType="String" Path="DataType" MaxLength="0" Key="false" />
+    <Column Name="ServiceDataTypeId" DataType="String" Path="ServiceDataTypeId" MaxLength="0" Key="false" />
+    <Column Name="ValueTypeId" DataType="String" Path="ValueTypeId" MaxLength="0" Key="false" />
+    <Column Name="ExtraTypeInfo" DataType="String" Path="ExtraTypeInfo" MaxLength="0" Key="false" />
+    <Column Name="IsCalculated" DataType="Boolean" Path="IsCalculated" MaxLength="0" Key="false" />
+    <Column Name="IsHighScaleNumber" DataType="Boolean" Path="IsHighScaleNumber" MaxLength="0" Key="false" />
+    <Column Name="IsHtmlFormatted" DataType="Boolean" Path="IsHtmlFormatted" MaxLength="0" Key="false" />
+    <Column Name="IsNameField" DataType="Boolean" Path="IsNameField" MaxLength="0" Key="false" />
+    <Column Name="IsNillable" DataType="Boolean" Path="IsNillable" MaxLength="0" Key="false" />
+    <Column Name="IsWorkflowFilterable" DataType="Boolean" Path="IsWorkflowFilterable" MaxLength="0" Key="false" />
+    <Column Name="IsCompactLayoutable" DataType="Boolean" Path="IsCompactLayoutable" MaxLength="0" Key="false" />
+    <Column Name="Precision" DataType="String" Path="Precision" MaxLength="0" Key="false" />
+    <Column Name="Scale" DataType="String" Path="Scale" MaxLength="0" Key="false" />
+    <Column Name="IsFieldHistoryTracked" DataType="Boolean" Path="IsFieldHistoryTracked" MaxLength="0" Key="false" />
+    <Column Name="IsIndexed" DataType="Boolean" Path="IsIndexed" MaxLength="0" Key="false" />
+    <Column Name="IsApiFilterable" DataType="Boolean" Path="IsApiFilterable" MaxLength="0" Key="false" />
+    <Column Name="IsApiSortable" DataType="Boolean" Path="IsApiSortable" MaxLength="0" Key="false" />
+    <Column Name="IsListFilterable" DataType="Boolean" Path="IsListFilterable" MaxLength="0" Key="false" />
+    <Column Name="IsListSortable" DataType="Boolean" Path="IsListSortable" MaxLength="0" Key="false" />
+    <Column Name="IsApiGroupable" DataType="Boolean" Path="IsApiGroupable" MaxLength="0" Key="false" />
+    <Column Name="IsListVisible" DataType="Boolean" Path="IsListVisible" MaxLength="0" Key="false" />
+    <Column Name="ControllingFieldDefinitionId" DataType="String" Path="ControllingFieldDefinitionId" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="PublisherId" DataType="String" Path="PublisherId" MaxLength="0" Key="false" />
+    <Column Name="RunningUserFieldAccessId" DataType="String" Path="RunningUserFieldAccessId" MaxLength="0" Key="false" />
+    <Column Name="RelationshipName" DataType="String" Path="RelationshipName" MaxLength="0" Key="false" />
+    <Column Name="ReferenceTo" DataType="String" Path="ReferenceTo" MaxLength="0" Key="false" />
+    <Column Name="ReferenceTargetField" DataType="String" Path="ReferenceTargetField" MaxLength="0" Key="false" />
+    <Column Name="IsCompound" DataType="Boolean" Path="IsCompound" MaxLength="0" Key="false" />
+    <Column Name="IsSearchPrefilterable" DataType="Boolean" Path="IsSearchPrefilterable" MaxLength="0" Key="false" />
+    <Column Name="IsPolymorphicForeignKey" DataType="Boolean" Path="IsPolymorphicForeignKey" MaxLength="0" Key="false" />
+    <Column Name="IsAiPredictionField" DataType="Boolean" Path="IsAiPredictionField" MaxLength="0" Key="false" />
+    <Column Name="BusinessOwnerId" DataType="String" Path="BusinessOwnerId" MaxLength="0" Key="false" />
+    <Column Name="BusinessStatus" DataType="String" Path="BusinessStatus" MaxLength="0" Key="false" />
+    <Column Name="SecurityClassification" DataType="String" Path="SecurityClassification" MaxLength="0" Key="false" />
+    <Column Name="ComplianceGroup" DataType="String" Path="ComplianceGroup" MaxLength="0" Key="false" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From FieldDefinition LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

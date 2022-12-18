@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="RelatedListDefinition" Description="Related List Definition" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="DurableId" DataType="String" Path="DurableId" MaxLength="0" Key="false" />
+    <Column Name="EntityDefinitionId" DataType="String" Path="EntityDefinitionId" MaxLength="0" Key="false" />
+    <Column Name="ParentEntityDefinitionId" DataType="String" Path="ParentEntityDefinitionId" MaxLength="0" Key="false" />
+    <Column Name="Label" DataType="String" Path="Label" MaxLength="0" Key="false" />
+    <Column Name="RelatedListId" DataType="String" Path="RelatedListId" MaxLength="0" Key="false" />
+    <Column Name="RelatedListName" DataType="String" Path="RelatedListName" MaxLength="0" Key="false" />
+    <Column Name="DefaultSort" DataType="String" Path="DefaultSort" MaxLength="0" Key="false" />
+    <Column Name="IsLayoutable" DataType="Boolean" Path="IsLayoutable" MaxLength="0" Key="false" />
+    <Column Name="IsDescribable" DataType="Boolean" Path="IsDescribable" MaxLength="0" Key="false" />
+    <Column Name="IsCustomizable" DataType="Boolean" Path="IsCustomizable" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From RelatedListDefinition LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="AssetTokenEvent" Description="Asset Token Event" Schema="SalesForce">
+    <Column Name="ReplayId" DataType="String" Path="ReplayId" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="EventUuid" DataType="String" Path="EventUuid" MaxLength="0" Key="false" />
+    <Column Name="ConnectedAppId" DataType="String" Path="ConnectedAppId" MaxLength="0" Key="false" />
+    <Column Name="UserId" DataType="String" Path="UserId" MaxLength="0" Key="false" />
+    <Column Name="AssetId" DataType="String" Path="AssetId" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="DeviceId" DataType="String" Path="DeviceId" MaxLength="0" Key="false" />
+    <Column Name="DeviceKey" DataType="String" Path="DeviceKey" MaxLength="0" Key="false" />
+    <Column Name="Expiration" DataType="DateTime" Path="Expiration" MaxLength="0" Key="false" />
+    <Column Name="AssetSerialNumber" DataType="String" Path="AssetSerialNumber" MaxLength="0" Key="false" />
+    <Column Name="AssetName" DataType="String" Path="AssetName" MaxLength="0" Key="false" />
+    <Column Name="ActorTokenPayload" DataType="String" Path="ActorTokenPayload" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From AssetTokenEvent LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

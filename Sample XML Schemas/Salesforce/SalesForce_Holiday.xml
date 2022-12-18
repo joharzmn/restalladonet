@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="Holiday" Description="Holiday" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Column Name="IsAllDay" DataType="Boolean" Path="IsAllDay" MaxLength="0" Key="false" />
+    <Column Name="ActivityDate" DataType="String" Path="ActivityDate" MaxLength="0" Key="false" />
+    <Column Name="StartTimeInMinutes" DataType="String" Path="StartTimeInMinutes" MaxLength="0" Key="false" />
+    <Column Name="EndTimeInMinutes" DataType="String" Path="EndTimeInMinutes" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="IsRecurrence" DataType="Boolean" Path="IsRecurrence" MaxLength="0" Key="false" />
+    <Column Name="RecurrenceStartDate" DataType="String" Path="RecurrenceStartDate" MaxLength="0" Key="false" />
+    <Column Name="RecurrenceEndDateOnly" DataType="String" Path="RecurrenceEndDateOnly" MaxLength="0" Key="false" />
+    <Column Name="RecurrenceType" DataType="String" Path="RecurrenceType" MaxLength="0" Key="false" />
+    <Column Name="RecurrenceInterval" DataType="String" Path="RecurrenceInterval" MaxLength="0" Key="false" />
+    <Column Name="RecurrenceDayOfWeekMask" DataType="String" Path="RecurrenceDayOfWeekMask" MaxLength="0" Key="false" />
+    <Column Name="RecurrenceDayOfMonth" DataType="String" Path="RecurrenceDayOfMonth" MaxLength="0" Key="false" />
+    <Column Name="RecurrenceInstance" DataType="String" Path="RecurrenceInstance" MaxLength="0" Key="false" />
+    <Column Name="RecurrenceMonthOfYear" DataType="String" Path="RecurrenceMonthOfYear" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From Holiday LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="ProcessInstanceStep" Description="Process Instance Step" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="ProcessInstanceId" DataType="String" Path="ProcessInstanceId" MaxLength="0" Key="false" />
+    <Column Name="StepStatus" DataType="String" Path="StepStatus" MaxLength="0" Key="false" />
+    <Column Name="OriginalActorId" DataType="String" Path="OriginalActorId" MaxLength="0" Key="false" />
+    <Column Name="ActorId" DataType="String" Path="ActorId" MaxLength="0" Key="false" />
+    <Column Name="Comments" DataType="String" Path="Comments" MaxLength="0" Key="false" />
+    <Column Name="StepNodeId" DataType="String" Path="StepNodeId" MaxLength="0" Key="false" />
+    <Column Name="ElapsedTimeInDays" DataType="Double" Path="ElapsedTimeInDays" MaxLength="0" Key="false" />
+    <Column Name="ElapsedTimeInHours" DataType="Double" Path="ElapsedTimeInHours" MaxLength="0" Key="false" />
+    <Column Name="ElapsedTimeInMinutes" DataType="Double" Path="ElapsedTimeInMinutes" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From ProcessInstanceStep LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="FlexQueueItem" Description="Flex Queue Item" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="FlexQueueItemId" DataType="String" Path="FlexQueueItemId" MaxLength="0" Key="false" />
+    <Column Name="JobType" DataType="String" Path="JobType" MaxLength="0" Key="false" />
+    <Column Name="AsyncApexJobId" DataType="String" Path="AsyncApexJobId" MaxLength="0" Key="false" />
+    <Column Name="JobPosition" DataType="String" Path="JobPosition" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From FlexQueueItem LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

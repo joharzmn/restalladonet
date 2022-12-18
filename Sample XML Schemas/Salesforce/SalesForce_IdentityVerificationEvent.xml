@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="IdentityVerificationEvent" Description="Identity Verification Event" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="EventIdentifier" DataType="String" Path="EventIdentifier" MaxLength="0" Key="false" />
+    <Column Name="UserId" DataType="String" Path="UserId" MaxLength="0" Key="false" />
+    <Column Name="Username" DataType="String" Path="Username" MaxLength="0" Key="false" />
+    <Column Name="EventDate" DataType="DateTime" Path="EventDate" MaxLength="0" Key="false" />
+    <Column Name="SessionKey" DataType="String" Path="SessionKey" MaxLength="0" Key="false" />
+    <Column Name="LoginKey" DataType="String" Path="LoginKey" MaxLength="0" Key="false" />
+    <Column Name="SessionLevel" DataType="String" Path="SessionLevel" MaxLength="0" Key="false" />
+    <Column Name="SourceIp" DataType="String" Path="SourceIp" MaxLength="0" Key="false" />
+    <Column Name="LoginHistoryId" DataType="String" Path="LoginHistoryId" MaxLength="0" Key="false" />
+    <Column Name="VerificationMethod" DataType="String" Path="VerificationMethod" MaxLength="0" Key="false" />
+    <Column Name="Activity" DataType="String" Path="Activity" MaxLength="0" Key="false" />
+    <Column Name="Status" DataType="String" Path="Status" MaxLength="0" Key="false" />
+    <Column Name="Remarks" DataType="String" Path="Remarks" MaxLength="0" Key="false" />
+    <Column Name="ResourceId" DataType="String" Path="ResourceId" MaxLength="0" Key="false" />
+    <Column Name="Policy" DataType="String" Path="Policy" MaxLength="0" Key="false" />
+    <Column Name="EventGroup" DataType="String" Path="EventGroup" MaxLength="0" Key="false" />
+    <Column Name="CountryIso" DataType="String" Path="CountryIso" MaxLength="0" Key="false" />
+    <Column Name="Country" DataType="String" Path="Country" MaxLength="0" Key="false" />
+    <Column Name="Latitude" DataType="Double" Path="Latitude" MaxLength="0" Key="false" />
+    <Column Name="Longitude" DataType="Double" Path="Longitude" MaxLength="0" Key="false" />
+    <Column Name="City" DataType="String" Path="City" MaxLength="0" Key="false" />
+    <Column Name="PostalCode" DataType="String" Path="PostalCode" MaxLength="0" Key="false" />
+    <Column Name="Subdivision" DataType="String" Path="Subdivision" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From IdentityVerificationEvent LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

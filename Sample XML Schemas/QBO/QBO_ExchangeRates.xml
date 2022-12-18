@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="ExchangeRates" Description="QuickBooks ExchangeRates" Schema="QBO">
+    <Column Name="SourceCurrencyCode" DataType="String" Path="SourceCurrencyCode" MaxLength="0" Key="false" />
+    <Column Name="TargetCurrencyCode" DataType="String" Path="TargetCurrencyCode" MaxLength="0" Key="false" />
+    <Column Name="Rate" DataType="Double" Path="Rate" MaxLength="0" Key="false" />
+    <Column Name="AsOfDate" DataType="String" Path="AsOfDate" MaxLength="0" Key="false" />
+    <Column Name="MetaData_LastUpdatedTime" DataType="DateTime" Path="MetaData.LastUpdatedTime" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Method="POST" ContentType="application/text">
+      <Url>^[Connection.URL]^/v3/company/^[Token.realmid]^/query?minorversion=65</Url>
+      <Body>select * from exchangerate</Body>
+    </DataAction>
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.QueryResponse.ExchangeRate</RepeatElement>
+</EntityDescriptor>

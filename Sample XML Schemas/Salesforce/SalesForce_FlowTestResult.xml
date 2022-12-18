@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="FlowTestResult" Description="Flow Test Result" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="OwnerId" DataType="String" Path="OwnerId" MaxLength="0" Key="false" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="FlowVersionNumber" DataType="String" Path="FlowVersionNumber" MaxLength="0" Key="false" />
+    <Column Name="Result" DataType="String" Path="Result" MaxLength="0" Key="false" />
+    <Column Name="FlowTestViewId" DataType="String" Path="FlowTestViewId" MaxLength="0" Key="false" />
+    <Column Name="FlowVersionViewId" DataType="String" Path="FlowVersionViewId" MaxLength="0" Key="false" />
+    <Column Name="FlowDefinitionViewId" DataType="String" Path="FlowDefinitionViewId" MaxLength="0" Key="false" />
+    <Column Name="TestStartDateTime" DataType="DateTime" Path="TestStartDateTime" MaxLength="0" Key="false" />
+    <Column Name="TestEndDateTime" DataType="DateTime" Path="TestEndDateTime" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From FlowTestResult LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

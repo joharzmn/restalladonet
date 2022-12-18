@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="ProcessInstanceNode" Description="Process Instance Node" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="ProcessInstanceId" DataType="String" Path="ProcessInstanceId" MaxLength="0" Key="false" />
+    <Column Name="ProcessNodeId" DataType="String" Path="ProcessNodeId" MaxLength="0" Key="false" />
+    <Column Name="NodeStatus" DataType="String" Path="NodeStatus" MaxLength="0" Key="false" />
+    <Column Name="CompletedDate" DataType="DateTime" Path="CompletedDate" MaxLength="0" Key="false" />
+    <Column Name="LastActorId" DataType="String" Path="LastActorId" MaxLength="0" Key="false" />
+    <Column Name="ProcessNodeName" DataType="String" Path="ProcessNodeName" MaxLength="0" Key="false" />
+    <Column Name="ElapsedTimeInDays" DataType="Double" Path="ElapsedTimeInDays" MaxLength="0" Key="false" />
+    <Column Name="ElapsedTimeInHours" DataType="Double" Path="ElapsedTimeInHours" MaxLength="0" Key="false" />
+    <Column Name="ElapsedTimeInMinutes" DataType="Double" Path="ElapsedTimeInMinutes" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From ProcessInstanceNode LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

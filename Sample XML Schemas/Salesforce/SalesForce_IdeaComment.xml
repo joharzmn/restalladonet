@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="IdeaComment" Description="Idea Comment" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IdeaId" DataType="String" Path="IdeaId" MaxLength="0" Key="false" />
+    <Column Name="CommunityId" DataType="String" Path="CommunityId" MaxLength="0" Key="false" />
+    <Column Name="CommentBody" DataType="String" Path="CommentBody" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="IsHtml" DataType="Boolean" Path="IsHtml" MaxLength="0" Key="false" />
+    <Column Name="CreatorFullPhotoUrl" DataType="String" Path="CreatorFullPhotoUrl" MaxLength="0" Key="false" />
+    <Column Name="CreatorSmallPhotoUrl" DataType="String" Path="CreatorSmallPhotoUrl" MaxLength="0" Key="false" />
+    <Column Name="CreatorName" DataType="String" Path="CreatorName" MaxLength="0" Key="false" />
+    <Column Name="UpVotes" DataType="String" Path="UpVotes" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From IdeaComment LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

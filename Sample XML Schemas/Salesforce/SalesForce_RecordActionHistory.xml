@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="RecordActionHistory" Description="RecordActionHistory" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="ParentRecordId" DataType="String" Path="ParentRecordId" MaxLength="0" Key="false" />
+    <Column Name="ActionDefinitionApiName" DataType="String" Path="ActionDefinitionApiName" MaxLength="0" Key="false" />
+    <Column Name="ActionDefinitionLabel" DataType="String" Path="ActionDefinitionLabel" MaxLength="0" Key="false" />
+    <Column Name="ActionType" DataType="String" Path="ActionType" MaxLength="0" Key="false" />
+    <Column Name="State" DataType="String" Path="State" MaxLength="0" Key="false" />
+    <Column Name="UserId" DataType="String" Path="UserId" MaxLength="0" Key="false" />
+    <Column Name="RecordActionId" DataType="String" Path="RecordActionId" MaxLength="0" Key="false" />
+    <Column Name="LoggedTime" DataType="DateTime" Path="LoggedTime" MaxLength="0" Key="false" />
+    <Column Name="Pinned" DataType="String" Path="Pinned" MaxLength="0" Key="false" />
+    <Column Name="IsMandatory" DataType="Boolean" Path="IsMandatory" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From RecordActionHistory LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

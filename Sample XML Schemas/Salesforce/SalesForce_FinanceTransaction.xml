@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="FinanceTransaction" Description="Finance Transaction" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="OwnerId" DataType="String" Path="OwnerId" MaxLength="0" Key="false" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="FinanceTransactionNumber" DataType="String" Path="FinanceTransactionNumber" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="LastViewedDate" DataType="DateTime" Path="LastViewedDate" MaxLength="0" Key="false" />
+    <Column Name="LastReferencedDate" DataType="DateTime" Path="LastReferencedDate" MaxLength="0" Key="false" />
+    <Column Name="ReferenceEntityId" DataType="String" Path="ReferenceEntityId" MaxLength="0" Key="false" />
+    <Column Name="ReferenceEntityType" DataType="String" Path="ReferenceEntityType" MaxLength="0" Key="false" />
+    <Column Name="EventAction" DataType="String" Path="EventAction" MaxLength="0" Key="false" />
+    <Column Name="EventType" DataType="String" Path="EventType" MaxLength="0" Key="false" />
+    <Column Name="ChargeAmount" DataType="String" Path="ChargeAmount" MaxLength="0" Key="false" />
+    <Column Name="AdjustmentAmount" DataType="String" Path="AdjustmentAmount" MaxLength="0" Key="false" />
+    <Column Name="Subtotal" DataType="String" Path="Subtotal" MaxLength="0" Key="false" />
+    <Column Name="TaxAmount" DataType="String" Path="TaxAmount" MaxLength="0" Key="false" />
+    <Column Name="TotalAmountWithTax" DataType="String" Path="TotalAmountWithTax" MaxLength="0" Key="false" />
+    <Column Name="ImpactAmount" DataType="String" Path="ImpactAmount" MaxLength="0" Key="false" />
+    <Column Name="ResultingBalance" DataType="String" Path="ResultingBalance" MaxLength="0" Key="false" />
+    <Column Name="AccountId" DataType="String" Path="AccountId" MaxLength="0" Key="false" />
+    <Column Name="SourceEntityId" DataType="String" Path="SourceEntityId" MaxLength="0" Key="false" />
+    <Column Name="DestinationEntityId" DataType="String" Path="DestinationEntityId" MaxLength="0" Key="false" />
+    <Column Name="TransactionDate" DataType="DateTime" Path="TransactionDate" MaxLength="0" Key="false" />
+    <Column Name="EffectiveDate" DataType="DateTime" Path="EffectiveDate" MaxLength="0" Key="false" />
+    <Column Name="DueDate" DataType="DateTime" Path="DueDate" MaxLength="0" Key="false" />
+    <Column Name="BaseCurrencyIsoCode" DataType="String" Path="BaseCurrencyIsoCode" MaxLength="0" Key="false" />
+    <Column Name="BaseCurrencyFxRate" DataType="Double" Path="BaseCurrencyFxRate" MaxLength="0" Key="false" />
+    <Column Name="BaseCurrencyFxDate" DataType="String" Path="BaseCurrencyFxDate" MaxLength="0" Key="false" />
+    <Column Name="BaseCurrencyAmount" DataType="String" Path="BaseCurrencyAmount" MaxLength="0" Key="false" />
+    <Column Name="BaseCurrencyBalance" DataType="String" Path="BaseCurrencyBalance" MaxLength="0" Key="false" />
+    <Column Name="LegalEntityId" DataType="String" Path="LegalEntityId" MaxLength="0" Key="false" />
+    <Column Name="CreationMode" DataType="String" Path="CreationMode" MaxLength="0" Key="false" />
+    <Column Name="ParentReferenceEntityId" DataType="String" Path="ParentReferenceEntityId" MaxLength="0" Key="false" />
+    <Column Name="OriginalReferenceEntityType" DataType="String" Path="OriginalReferenceEntityType" MaxLength="0" Key="false" />
+    <Column Name="OriginalEventType" DataType="String" Path="OriginalEventType" MaxLength="0" Key="false" />
+    <Column Name="OriginalEventAction" DataType="String" Path="OriginalEventAction" MaxLength="0" Key="false" />
+    <Column Name="OriginalCreditGlAccountName" DataType="String" Path="OriginalCreditGlAccountName" MaxLength="0" Key="false" />
+    <Column Name="OriginalCreditGlAccountNumber" DataType="String" Path="OriginalCreditGlAccountNumber" MaxLength="0" Key="false" />
+    <Column Name="OriginalDebitGlAccountName" DataType="String" Path="OriginalDebitGlAccountName" MaxLength="0" Key="false" />
+    <Column Name="OriginalDebitGlAccountNumber" DataType="String" Path="OriginalDebitGlAccountNumber" MaxLength="0" Key="false" />
+    <Column Name="OriginalFinancePeriodName" DataType="String" Path="OriginalFinancePeriodName" MaxLength="0" Key="false" />
+    <Column Name="OriginalFinancePeriodStartDate" DataType="String" Path="OriginalFinancePeriodStartDate" MaxLength="0" Key="false" />
+    <Column Name="OriginalFinancePeriodEndDate" DataType="String" Path="OriginalFinancePeriodEndDate" MaxLength="0" Key="false" />
+    <Column Name="OriginalFinancePeriodStatus" DataType="String" Path="OriginalFinancePeriodStatus" MaxLength="0" Key="false" />
+    <Column Name="OriginalGlRuleName" DataType="String" Path="OriginalGlRuleName" MaxLength="0" Key="false" />
+    <Column Name="OriginalGlTreatmentName" DataType="String" Path="OriginalGlTreatmentName" MaxLength="0" Key="false" />
+    <Column Name="OriginalFinanceBookName" DataType="String" Path="OriginalFinanceBookName" MaxLength="0" Key="false" />
+    <Column Name="FinanceSystemTransactionNumber" DataType="String" Path="FinanceSystemTransactionNumber" MaxLength="0" Key="false" />
+    <Column Name="FinanceSystemName" DataType="String" Path="FinanceSystemName" MaxLength="0" Key="false" />
+    <Column Name="FinanceSystemIntegrationMode" DataType="String" Path="FinanceSystemIntegrationMode" MaxLength="0" Key="false" />
+    <Column Name="FinanceSystemIntegrationStatus" DataType="String" Path="FinanceSystemIntegrationStatus" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From FinanceTransaction LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

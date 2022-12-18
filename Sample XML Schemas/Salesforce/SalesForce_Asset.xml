@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="Asset" Description="Asset" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="ContactId" DataType="String" Path="ContactId" MaxLength="0" Key="false" />
+    <Column Name="AccountId" DataType="String" Path="AccountId" MaxLength="0" Key="false" />
+    <Column Name="ParentId" DataType="String" Path="ParentId" MaxLength="0" Key="false" />
+    <Column Name="RootAssetId" DataType="String" Path="RootAssetId" MaxLength="0" Key="false" />
+    <Column Name="Product2Id" DataType="String" Path="Product2Id" MaxLength="0" Key="false" />
+    <Column Name="ProductCode" DataType="String" Path="ProductCode" MaxLength="0" Key="false" />
+    <Column Name="IsCompetitorProduct" DataType="Boolean" Path="IsCompetitorProduct" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="SerialNumber" DataType="String" Path="SerialNumber" MaxLength="0" Key="false" />
+    <Column Name="InstallDate" DataType="String" Path="InstallDate" MaxLength="0" Key="false" />
+    <Column Name="PurchaseDate" DataType="String" Path="PurchaseDate" MaxLength="0" Key="false" />
+    <Column Name="UsageEndDate" DataType="String" Path="UsageEndDate" MaxLength="0" Key="false" />
+    <Column Name="LifecycleStartDate" DataType="DateTime" Path="LifecycleStartDate" MaxLength="0" Key="false" />
+    <Column Name="LifecycleEndDate" DataType="DateTime" Path="LifecycleEndDate" MaxLength="0" Key="false" />
+    <Column Name="Status" DataType="String" Path="Status" MaxLength="0" Key="false" />
+    <Column Name="Price" DataType="String" Path="Price" MaxLength="0" Key="false" />
+    <Column Name="Quantity" DataType="Double" Path="Quantity" MaxLength="0" Key="false" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Column Name="OwnerId" DataType="String" Path="OwnerId" MaxLength="0" Key="false" />
+    <Column Name="AssetProvidedById" DataType="String" Path="AssetProvidedById" MaxLength="0" Key="false" />
+    <Column Name="AssetServicedById" DataType="String" Path="AssetServicedById" MaxLength="0" Key="false" />
+    <Column Name="IsInternal" DataType="Boolean" Path="IsInternal" MaxLength="0" Key="false" />
+    <Column Name="AssetLevel" DataType="String" Path="AssetLevel" MaxLength="0" Key="false" />
+    <Column Name="StockKeepingUnit" DataType="String" Path="StockKeepingUnit" MaxLength="0" Key="false" />
+    <Column Name="HasLifecycleManagement" DataType="Boolean" Path="HasLifecycleManagement" MaxLength="0" Key="false" />
+    <Column Name="CurrentMrr" DataType="String" Path="CurrentMrr" MaxLength="0" Key="false" />
+    <Column Name="CurrentLifecycleEndDate" DataType="DateTime" Path="CurrentLifecycleEndDate" MaxLength="0" Key="false" />
+    <Column Name="CurrentQuantity" DataType="Double" Path="CurrentQuantity" MaxLength="0" Key="false" />
+    <Column Name="CurrentAmount" DataType="String" Path="CurrentAmount" MaxLength="0" Key="false" />
+    <Column Name="TotalLifecycleAmount" DataType="String" Path="TotalLifecycleAmount" MaxLength="0" Key="false" />
+    <Column Name="Street" DataType="String" Path="Street" MaxLength="0" Key="false" />
+    <Column Name="City" DataType="String" Path="City" MaxLength="0" Key="false" />
+    <Column Name="State" DataType="String" Path="State" MaxLength="0" Key="false" />
+    <Column Name="PostalCode" DataType="String" Path="PostalCode" MaxLength="0" Key="false" />
+    <Column Name="Country" DataType="String" Path="Country" MaxLength="0" Key="false" />
+    <Column Name="Latitude" DataType="Double" Path="Latitude" MaxLength="0" Key="false" />
+    <Column Name="Longitude" DataType="Double" Path="Longitude" MaxLength="0" Key="false" />
+    <Column Name="GeocodeAccuracy" DataType="String" Path="GeocodeAccuracy" MaxLength="0" Key="false" />
+    <Column Name="Address" DataType="String" Path="Address" MaxLength="0" Key="false" />
+    <Column Name="LastViewedDate" DataType="DateTime" Path="LastViewedDate" MaxLength="0" Key="false" />
+    <Column Name="LastReferencedDate" DataType="DateTime" Path="LastReferencedDate" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From Asset LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

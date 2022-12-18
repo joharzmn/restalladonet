@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="ContentWorkspaceMember" Description="Library Member" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="ContentWorkspaceId" DataType="String" Path="ContentWorkspaceId" MaxLength="0" Key="false" />
+    <Column Name="ContentWorkspacePermissionId" DataType="String" Path="ContentWorkspacePermissionId" MaxLength="0" Key="false" />
+    <Column Name="MemberId" DataType="String" Path="MemberId" MaxLength="0" Key="false" />
+    <Column Name="MemberType" DataType="String" Path="MemberType" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From ContentWorkspaceMember LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

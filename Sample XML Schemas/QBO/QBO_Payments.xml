@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="Payments" Description="QuickBooks Payment" Schema="QBO">
+    <Column Name="Id" DataType="Int64" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="SyncToken" DataType="Int16" Path="SyncToken" MaxLength="0" Key="false" />
+    <Column Name="domain" DataType="String" Path="domain" MaxLength="0" Key="false" />
+    <Column Name="DepositToAccountRef_value" DataType="String" Path="DepositToAccountRef.value" MaxLength="0" Key="false" />
+    <Column Name="UnappliedAmt" DataType="Double" Path="UnappliedAmt" MaxLength="0" Key="false" />
+    <Column Name="TxnDate" DataType="String" Path="TxnDate" MaxLength="0" Key="false" />
+    <Column Name="TotalAmt" DataType="Double" Path="TotalAmt" MaxLength="0" Key="false" />
+    <Column Name="ProcessPayment" DataType="Boolean" Path="ProcessPayment" MaxLength="0" Key="false" />
+    <Column Name="sparse" DataType="Boolean" Path="sparse" MaxLength="0" Key="false" />
+    <Column Name="CustomerRef_name" DataType="String" Path="CustomerRef.name" MaxLength="0" Key="false" />
+    <Column Name="CustomerRef_value" DataType="String" Path="CustomerRef.value" MaxLength="0" Key="false" />
+    <Column Name="MetaData_CreateTime" DataType="DateTime" Path="MetaData.CreateTime" MaxLength="0" Key="false" />
+    <Column Name="MetaData_LastUpdatedTime" DataType="DateTime" Path="MetaData.LastUpdatedTime" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Method="POST" ContentType="application/text">
+      <Url>^[Connection.URL]^/v3/company/^[Token.realmid]^/query?minorversion=65</Url>
+      <Body>select * from Payment</Body>
+    </DataAction>
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.QueryResponse.Payment</RepeatElement>
+</EntityDescriptor>

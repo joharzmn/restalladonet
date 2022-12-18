@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="EntityDefinition" Description="Entity Definition" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="DurableId" DataType="String" Path="DurableId" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="QualifiedApiName" DataType="String" Path="QualifiedApiName" MaxLength="0" Key="false" />
+    <Column Name="NamespacePrefix" DataType="String" Path="NamespacePrefix" MaxLength="0" Key="false" />
+    <Column Name="DeveloperName" DataType="String" Path="DeveloperName" MaxLength="0" Key="false" />
+    <Column Name="MasterLabel" DataType="String" Path="MasterLabel" MaxLength="0" Key="false" />
+    <Column Name="Label" DataType="String" Path="Label" MaxLength="0" Key="false" />
+    <Column Name="PluralLabel" DataType="String" Path="PluralLabel" MaxLength="0" Key="false" />
+    <Column Name="DefaultCompactLayoutId" DataType="String" Path="DefaultCompactLayoutId" MaxLength="0" Key="false" />
+    <Column Name="IsCustomizable" DataType="Boolean" Path="IsCustomizable" MaxLength="0" Key="false" />
+    <Column Name="IsApexTriggerable" DataType="Boolean" Path="IsApexTriggerable" MaxLength="0" Key="false" />
+    <Column Name="IsWorkflowEnabled" DataType="Boolean" Path="IsWorkflowEnabled" MaxLength="0" Key="false" />
+    <Column Name="IsProcessEnabled" DataType="Boolean" Path="IsProcessEnabled" MaxLength="0" Key="false" />
+    <Column Name="IsCompactLayoutable" DataType="Boolean" Path="IsCompactLayoutable" MaxLength="0" Key="false" />
+    <Column Name="DeploymentStatus" DataType="String" Path="DeploymentStatus" MaxLength="0" Key="false" />
+    <Column Name="KeyPrefix" DataType="String" Path="KeyPrefix" MaxLength="0" Key="false" />
+    <Column Name="IsCustomSetting" DataType="Boolean" Path="IsCustomSetting" MaxLength="0" Key="false" />
+    <Column Name="IsDeprecatedAndHidden" DataType="Boolean" Path="IsDeprecatedAndHidden" MaxLength="0" Key="false" />
+    <Column Name="IsReplicateable" DataType="Boolean" Path="IsReplicateable" MaxLength="0" Key="false" />
+    <Column Name="IsRetrieveable" DataType="Boolean" Path="IsRetrieveable" MaxLength="0" Key="false" />
+    <Column Name="IsSearchLayoutable" DataType="Boolean" Path="IsSearchLayoutable" MaxLength="0" Key="false" />
+    <Column Name="IsSearchable" DataType="Boolean" Path="IsSearchable" MaxLength="0" Key="false" />
+    <Column Name="IsTriggerable" DataType="Boolean" Path="IsTriggerable" MaxLength="0" Key="false" />
+    <Column Name="IsIdEnabled" DataType="Boolean" Path="IsIdEnabled" MaxLength="0" Key="false" />
+    <Column Name="IsEverCreatable" DataType="Boolean" Path="IsEverCreatable" MaxLength="0" Key="false" />
+    <Column Name="IsEverUpdatable" DataType="Boolean" Path="IsEverUpdatable" MaxLength="0" Key="false" />
+    <Column Name="IsEverDeletable" DataType="Boolean" Path="IsEverDeletable" MaxLength="0" Key="false" />
+    <Column Name="IsFeedEnabled" DataType="Boolean" Path="IsFeedEnabled" MaxLength="0" Key="false" />
+    <Column Name="IsQueryable" DataType="Boolean" Path="IsQueryable" MaxLength="0" Key="false" />
+    <Column Name="IsMruEnabled" DataType="Boolean" Path="IsMruEnabled" MaxLength="0" Key="false" />
+    <Column Name="DetailUrl" DataType="String" Path="DetailUrl" MaxLength="0" Key="false" />
+    <Column Name="EditUrl" DataType="String" Path="EditUrl" MaxLength="0" Key="false" />
+    <Column Name="NewUrl" DataType="String" Path="NewUrl" MaxLength="0" Key="false" />
+    <Column Name="EditDefinitionUrl" DataType="String" Path="EditDefinitionUrl" MaxLength="0" Key="false" />
+    <Column Name="HelpSettingPageName" DataType="String" Path="HelpSettingPageName" MaxLength="0" Key="false" />
+    <Column Name="HelpSettingPageUrl" DataType="String" Path="HelpSettingPageUrl" MaxLength="0" Key="false" />
+    <Column Name="RunningUserEntityAccessId" DataType="String" Path="RunningUserEntityAccessId" MaxLength="0" Key="false" />
+    <Column Name="PublisherId" DataType="String" Path="PublisherId" MaxLength="0" Key="false" />
+    <Column Name="IsLayoutable" DataType="Boolean" Path="IsLayoutable" MaxLength="0" Key="false" />
+    <Column Name="RecordTypesSupported" DataType="String" Path="RecordTypesSupported" MaxLength="0" Key="false" />
+    <Column Name="InternalSharingModel" DataType="String" Path="InternalSharingModel" MaxLength="0" Key="false" />
+    <Column Name="ExternalSharingModel" DataType="String" Path="ExternalSharingModel" MaxLength="0" Key="false" />
+    <Column Name="HasSubtypes" DataType="Boolean" Path="HasSubtypes" MaxLength="0" Key="false" />
+    <Column Name="IsSubtype" DataType="Boolean" Path="IsSubtype" MaxLength="0" Key="false" />
+    <Column Name="IsAutoActivityCaptureEnabled" DataType="Boolean" Path="IsAutoActivityCaptureEnabled" MaxLength="0" Key="false" />
+    <Column Name="IsInterface" DataType="Boolean" Path="IsInterface" MaxLength="0" Key="false" />
+    <Column Name="ImplementsInterfaces" DataType="String" Path="ImplementsInterfaces" MaxLength="0" Key="false" />
+    <Column Name="ImplementedBy" DataType="String" Path="ImplementedBy" MaxLength="0" Key="false" />
+    <Column Name="ExtendsInterfaces" DataType="String" Path="ExtendsInterfaces" MaxLength="0" Key="false" />
+    <Column Name="ExtendedBy" DataType="String" Path="ExtendedBy" MaxLength="0" Key="false" />
+    <Column Name="DefaultImplementation" DataType="String" Path="DefaultImplementation" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From EntityDefinition LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

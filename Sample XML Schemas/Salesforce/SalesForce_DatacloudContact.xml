@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="DatacloudContact" Description="Data.com Contact" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="ExternalId" DataType="String" Path="ExternalId" MaxLength="0" Key="false" />
+    <Column Name="CompanyId" DataType="String" Path="CompanyId" MaxLength="0" Key="false" />
+    <Column Name="ContactId" DataType="String" Path="ContactId" MaxLength="0" Key="false" />
+    <Column Name="CompanyName" DataType="String" Path="CompanyName" MaxLength="0" Key="false" />
+    <Column Name="Title" DataType="String" Path="Title" MaxLength="0" Key="false" />
+    <Column Name="IsInactive" DataType="Boolean" Path="IsInactive" MaxLength="0" Key="false" />
+    <Column Name="FirstName" DataType="String" Path="FirstName" MaxLength="0" Key="false" />
+    <Column Name="LastName" DataType="String" Path="LastName" MaxLength="0" Key="false" />
+    <Column Name="Phone" DataType="String" Path="Phone" MaxLength="0" Key="false" />
+    <Column Name="Email" DataType="String" Path="Email" MaxLength="0" Key="false" />
+    <Column Name="Street" DataType="String" Path="Street" MaxLength="0" Key="false" />
+    <Column Name="City" DataType="String" Path="City" MaxLength="0" Key="false" />
+    <Column Name="State" DataType="String" Path="State" MaxLength="0" Key="false" />
+    <Column Name="Country" DataType="String" Path="Country" MaxLength="0" Key="false" />
+    <Column Name="Zip" DataType="String" Path="Zip" MaxLength="0" Key="false" />
+    <Column Name="Department" DataType="String" Path="Department" MaxLength="0" Key="false" />
+    <Column Name="Level" DataType="String" Path="Level" MaxLength="0" Key="false" />
+    <Column Name="IsOwned" DataType="Boolean" Path="IsOwned" MaxLength="0" Key="false" />
+    <Column Name="UpdatedDate" DataType="DateTime" Path="UpdatedDate" MaxLength="0" Key="false" />
+    <Column Name="IsInCrm" DataType="Boolean" Path="IsInCrm" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From DatacloudContact LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

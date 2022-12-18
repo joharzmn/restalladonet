@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="AIPredictionEvent" Description="AI Prediction Event" Schema="SalesForce">
+    <Column Name="ReplayId" DataType="String" Path="ReplayId" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="EventUuid" DataType="String" Path="EventUuid" MaxLength="0" Key="false" />
+    <Column Name="PredictionEntityId" DataType="String" Path="PredictionEntityId" MaxLength="0" Key="false" />
+    <Column Name="InsightId" DataType="String" Path="InsightId" MaxLength="0" Key="false" />
+    <Column Name="TargetId" DataType="String" Path="TargetId" MaxLength="0" Key="false" />
+    <Column Name="Confidence" DataType="Double" Path="Confidence" MaxLength="0" Key="false" />
+    <Column Name="FieldName" DataType="String" Path="FieldName" MaxLength="0" Key="false" />
+    <Column Name="HasError" DataType="Boolean" Path="HasError" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From AIPredictionEvent LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

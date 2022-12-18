@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="WaveAutoInstallRequest" Description="Wave Auto Install Request" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="TemplateApiName" DataType="String" Path="TemplateApiName" MaxLength="0" Key="false" />
+    <Column Name="TemplateVersion" DataType="String" Path="TemplateVersion" MaxLength="0" Key="false" />
+    <Column Name="FolderId" DataType="String" Path="FolderId" MaxLength="0" Key="false" />
+    <Column Name="RequestType" DataType="String" Path="RequestType" MaxLength="0" Key="false" />
+    <Column Name="RequestStatus" DataType="String" Path="RequestStatus" MaxLength="0" Key="false" />
+    <Column Name="FailedReason" DataType="String" Path="FailedReason" MaxLength="0" Key="false" />
+    <Column Name="Configuration" DataType="String" Path="Configuration" MaxLength="0" Key="false" />
+    <Column Name="RequestLog" DataType="String" Path="RequestLog" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From WaveAutoInstallRequest LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="FeedTrackedChange" Description="Feed Tracked Change" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="FeedItemId" DataType="String" Path="FeedItemId" MaxLength="0" Key="false" />
+    <Column Name="FieldName" DataType="String" Path="FieldName" MaxLength="0" Key="false" />
+    <Column Name="OldValue" DataType="String" Path="OldValue" MaxLength="0" Key="false" />
+    <Column Name="NewValue" DataType="String" Path="NewValue" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From FeedTrackedChange LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

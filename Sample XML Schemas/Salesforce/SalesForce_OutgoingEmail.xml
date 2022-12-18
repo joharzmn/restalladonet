@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="OutgoingEmail" Description="Outgoing Email" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="ExternalId" DataType="String" Path="ExternalId" MaxLength="0" Key="false" />
+    <Column Name="ValidatedFromAddress" DataType="String" Path="ValidatedFromAddress" MaxLength="0" Key="false" />
+    <Column Name="ToAddress" DataType="String" Path="ToAddress" MaxLength="0" Key="false" />
+    <Column Name="CcAddress" DataType="String" Path="CcAddress" MaxLength="0" Key="false" />
+    <Column Name="BccAddress" DataType="String" Path="BccAddress" MaxLength="0" Key="false" />
+    <Column Name="Subject" DataType="String" Path="Subject" MaxLength="0" Key="false" />
+    <Column Name="TextBody" DataType="String" Path="TextBody" MaxLength="0" Key="false" />
+    <Column Name="HtmlBody" DataType="String" Path="HtmlBody" MaxLength="0" Key="false" />
+    <Column Name="RelatedToId" DataType="String" Path="RelatedToId" MaxLength="0" Key="false" />
+    <Column Name="WhoId" DataType="String" Path="WhoId" MaxLength="0" Key="false" />
+    <Column Name="EmailTemplateId" DataType="String" Path="EmailTemplateId" MaxLength="0" Key="false" />
+    <Column Name="InReplyTo" DataType="String" Path="InReplyTo" MaxLength="0" Key="false" />
+    <Column Name="References" DataType="String" Path="References" MaxLength="0" Key="false" />
+    <Column Name="MessageId" DataType="String" Path="MessageId" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From OutgoingEmail LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

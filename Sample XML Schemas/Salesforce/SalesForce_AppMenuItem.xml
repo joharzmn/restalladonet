@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="AppMenuItem" Description="AppMenuItem" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="SortOrder" DataType="String" Path="SortOrder" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="NamespacePrefix" DataType="String" Path="NamespacePrefix" MaxLength="0" Key="false" />
+    <Column Name="Label" DataType="String" Path="Label" MaxLength="0" Key="false" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Column Name="StartUrl" DataType="String" Path="StartUrl" MaxLength="0" Key="false" />
+    <Column Name="MobileStartUrl" DataType="String" Path="MobileStartUrl" MaxLength="0" Key="false" />
+    <Column Name="LogoUrl" DataType="String" Path="LogoUrl" MaxLength="0" Key="false" />
+    <Column Name="IconUrl" DataType="String" Path="IconUrl" MaxLength="0" Key="false" />
+    <Column Name="InfoUrl" DataType="String" Path="InfoUrl" MaxLength="0" Key="false" />
+    <Column Name="IsUsingAdminAuthorization" DataType="Boolean" Path="IsUsingAdminAuthorization" MaxLength="0" Key="false" />
+    <Column Name="MobilePlatform" DataType="String" Path="MobilePlatform" MaxLength="0" Key="false" />
+    <Column Name="MobileMinOsVer" DataType="String" Path="MobileMinOsVer" MaxLength="0" Key="false" />
+    <Column Name="MobileDeviceType" DataType="String" Path="MobileDeviceType" MaxLength="0" Key="false" />
+    <Column Name="IsRegisteredDeviceOnly" DataType="Boolean" Path="IsRegisteredDeviceOnly" MaxLength="0" Key="false" />
+    <Column Name="MobileAppVer" DataType="String" Path="MobileAppVer" MaxLength="0" Key="false" />
+    <Column Name="MobileAppInstalledDate" DataType="DateTime" Path="MobileAppInstalledDate" MaxLength="0" Key="false" />
+    <Column Name="MobileAppInstalledVersion" DataType="String" Path="MobileAppInstalledVersion" MaxLength="0" Key="false" />
+    <Column Name="MobileAppBinaryId" DataType="String" Path="MobileAppBinaryId" MaxLength="0" Key="false" />
+    <Column Name="MobileAppInstallUrl" DataType="String" Path="MobileAppInstallUrl" MaxLength="0" Key="false" />
+    <Column Name="CanvasEnabled" DataType="Boolean" Path="CanvasEnabled" MaxLength="0" Key="false" />
+    <Column Name="CanvasReferenceId" DataType="String" Path="CanvasReferenceId" MaxLength="0" Key="false" />
+    <Column Name="CanvasUrl" DataType="String" Path="CanvasUrl" MaxLength="0" Key="false" />
+    <Column Name="CanvasAccessMethod" DataType="String" Path="CanvasAccessMethod" MaxLength="0" Key="false" />
+    <Column Name="CanvasSelectedLocations" DataType="String" Path="CanvasSelectedLocations" MaxLength="0" Key="false" />
+    <Column Name="CanvasOptions" DataType="String" Path="CanvasOptions" MaxLength="0" Key="false" />
+    <Column Name="Type" DataType="String" Path="Type" MaxLength="0" Key="false" />
+    <Column Name="ApplicationId" DataType="String" Path="ApplicationId" MaxLength="0" Key="false" />
+    <Column Name="UserSortOrder" DataType="String" Path="UserSortOrder" MaxLength="0" Key="false" />
+    <Column Name="IsVisible" DataType="Boolean" Path="IsVisible" MaxLength="0" Key="false" />
+    <Column Name="IsAccessible" DataType="Boolean" Path="IsAccessible" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From AppMenuItem LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

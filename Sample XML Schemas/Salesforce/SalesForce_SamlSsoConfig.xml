@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="SamlSsoConfig" Description="SAML Single Sign-On Setting" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="DeveloperName" DataType="String" Path="DeveloperName" MaxLength="0" Key="false" />
+    <Column Name="Language" DataType="String" Path="Language" MaxLength="0" Key="false" />
+    <Column Name="MasterLabel" DataType="String" Path="MasterLabel" MaxLength="0" Key="false" />
+    <Column Name="NamespacePrefix" DataType="String" Path="NamespacePrefix" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="Version" DataType="String" Path="Version" MaxLength="0" Key="false" />
+    <Column Name="Issuer" DataType="String" Path="Issuer" MaxLength="0" Key="false" />
+    <Column Name="OptionsSpInitBinding" DataType="Boolean" Path="OptionsSpInitBinding" MaxLength="0" Key="false" />
+    <Column Name="OptionsUserProvisioning" DataType="Boolean" Path="OptionsUserProvisioning" MaxLength="0" Key="false" />
+    <Column Name="OptionsUseConfigRequestMethod" DataType="Boolean" Path="OptionsUseConfigRequestMethod" MaxLength="0" Key="false" />
+    <Column Name="OptionsUseSameDigestAlgoForSigning" DataType="Boolean" Path="OptionsUseSameDigestAlgoForSigning" MaxLength="0" Key="false" />
+    <Column Name="AttributeFormat" DataType="String" Path="AttributeFormat" MaxLength="0" Key="false" />
+    <Column Name="AttributeName" DataType="String" Path="AttributeName" MaxLength="0" Key="false" />
+    <Column Name="Audience" DataType="String" Path="Audience" MaxLength="0" Key="false" />
+    <Column Name="IdentityMapping" DataType="String" Path="IdentityMapping" MaxLength="0" Key="false" />
+    <Column Name="IdentityLocation" DataType="String" Path="IdentityLocation" MaxLength="0" Key="false" />
+    <Column Name="SamlJitHandlerId" DataType="String" Path="SamlJitHandlerId" MaxLength="0" Key="false" />
+    <Column Name="ExecutionUserId" DataType="String" Path="ExecutionUserId" MaxLength="0" Key="false" />
+    <Column Name="LoginUrl" DataType="String" Path="LoginUrl" MaxLength="0" Key="false" />
+    <Column Name="LogoutUrl" DataType="String" Path="LogoutUrl" MaxLength="0" Key="false" />
+    <Column Name="ErrorUrl" DataType="String" Path="ErrorUrl" MaxLength="0" Key="false" />
+    <Column Name="ValidationCert" DataType="String" Path="ValidationCert" MaxLength="0" Key="false" />
+    <Column Name="RequestSignatureMethod" DataType="String" Path="RequestSignatureMethod" MaxLength="0" Key="false" />
+    <Column Name="SingleLogoutUrl" DataType="String" Path="SingleLogoutUrl" MaxLength="0" Key="false" />
+    <Column Name="SingleLogoutBinding" DataType="String" Path="SingleLogoutBinding" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From SamlSsoConfig LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

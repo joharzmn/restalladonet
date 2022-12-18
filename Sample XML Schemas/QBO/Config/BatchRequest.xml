@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BatchRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" RootObject="BatchItemRequest" 
+Endpoint="^[Connection.URL]^/v3/company/^[Token.realmid]^/batch" Method="POST" ContentType="application/json" >
+  <RequestFormat>
+ {
+ "bId":"^[Input.BatchId]^",
+ "^[Input.Entity]^":^[Input.Data]^,
+ "operation":"create"
+ }
+  </RequestFormat>
+  <ErrorMapping RootElement="$.BatchItemResponse" ErrorElement="Fault" />
+  <SuccessMapping RootElement="$.BatchItemResponse" SuccessElement="^[Input.Entity]^" />
+</BatchRequest>

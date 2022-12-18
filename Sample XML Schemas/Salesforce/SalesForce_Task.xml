@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="Task" Description="Task" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="WhoId" DataType="String" Path="WhoId" MaxLength="0" Key="false" />
+    <Column Name="WhatId" DataType="String" Path="WhatId" MaxLength="0" Key="false" />
+    <Column Name="Subject" DataType="String" Path="Subject" MaxLength="0" Key="false" />
+    <Column Name="ActivityDate" DataType="String" Path="ActivityDate" MaxLength="0" Key="false" />
+    <Column Name="Status" DataType="String" Path="Status" MaxLength="0" Key="false" />
+    <Column Name="Priority" DataType="String" Path="Priority" MaxLength="0" Key="false" />
+    <Column Name="IsHighPriority" DataType="Boolean" Path="IsHighPriority" MaxLength="0" Key="false" />
+    <Column Name="OwnerId" DataType="String" Path="OwnerId" MaxLength="0" Key="false" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="AccountId" DataType="String" Path="AccountId" MaxLength="0" Key="false" />
+    <Column Name="IsClosed" DataType="Boolean" Path="IsClosed" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="IsArchived" DataType="Boolean" Path="IsArchived" MaxLength="0" Key="false" />
+    <Column Name="CallDurationInSeconds" DataType="String" Path="CallDurationInSeconds" MaxLength="0" Key="false" />
+    <Column Name="CallType" DataType="String" Path="CallType" MaxLength="0" Key="false" />
+    <Column Name="CallDisposition" DataType="String" Path="CallDisposition" MaxLength="0" Key="false" />
+    <Column Name="CallObject" DataType="String" Path="CallObject" MaxLength="0" Key="false" />
+    <Column Name="ReminderDateTime" DataType="DateTime" Path="ReminderDateTime" MaxLength="0" Key="false" />
+    <Column Name="IsReminderSet" DataType="Boolean" Path="IsReminderSet" MaxLength="0" Key="false" />
+    <Column Name="RecurrenceActivityId" DataType="String" Path="RecurrenceActivityId" MaxLength="0" Key="false" />
+    <Column Name="IsRecurrence" DataType="Boolean" Path="IsRecurrence" MaxLength="0" Key="false" />
+    <Column Name="RecurrenceStartDateOnly" DataType="String" Path="RecurrenceStartDateOnly" MaxLength="0" Key="false" />
+    <Column Name="RecurrenceEndDateOnly" DataType="String" Path="RecurrenceEndDateOnly" MaxLength="0" Key="false" />
+    <Column Name="RecurrenceTimeZoneSidKey" DataType="String" Path="RecurrenceTimeZoneSidKey" MaxLength="0" Key="false" />
+    <Column Name="RecurrenceType" DataType="String" Path="RecurrenceType" MaxLength="0" Key="false" />
+    <Column Name="RecurrenceInterval" DataType="String" Path="RecurrenceInterval" MaxLength="0" Key="false" />
+    <Column Name="RecurrenceDayOfWeekMask" DataType="String" Path="RecurrenceDayOfWeekMask" MaxLength="0" Key="false" />
+    <Column Name="RecurrenceDayOfMonth" DataType="String" Path="RecurrenceDayOfMonth" MaxLength="0" Key="false" />
+    <Column Name="RecurrenceInstance" DataType="String" Path="RecurrenceInstance" MaxLength="0" Key="false" />
+    <Column Name="RecurrenceMonthOfYear" DataType="String" Path="RecurrenceMonthOfYear" MaxLength="0" Key="false" />
+    <Column Name="RecurrenceRegeneratedType" DataType="String" Path="RecurrenceRegeneratedType" MaxLength="0" Key="false" />
+    <Column Name="TaskSubtype" DataType="String" Path="TaskSubtype" MaxLength="0" Key="false" />
+    <Column Name="CompletedDateTime" DataType="DateTime" Path="CompletedDateTime" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From Task LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

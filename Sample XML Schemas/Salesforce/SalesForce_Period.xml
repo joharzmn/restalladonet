@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="Period" Description="Period" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="FiscalYearSettingsId" DataType="String" Path="FiscalYearSettingsId" MaxLength="0" Key="false" />
+    <Column Name="Type" DataType="String" Path="Type" MaxLength="0" Key="false" />
+    <Column Name="StartDate" DataType="String" Path="StartDate" MaxLength="0" Key="false" />
+    <Column Name="EndDate" DataType="String" Path="EndDate" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="IsForecastPeriod" DataType="Boolean" Path="IsForecastPeriod" MaxLength="0" Key="false" />
+    <Column Name="QuarterLabel" DataType="String" Path="QuarterLabel" MaxLength="0" Key="false" />
+    <Column Name="PeriodLabel" DataType="String" Path="PeriodLabel" MaxLength="0" Key="false" />
+    <Column Name="Number" DataType="String" Path="Number" MaxLength="0" Key="false" />
+    <Column Name="FullyQualifiedLabel" DataType="String" Path="FullyQualifiedLabel" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From Period LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="ApexTestResult" Description="Apex Test Result" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="TestTimestamp" DataType="DateTime" Path="TestTimestamp" MaxLength="0" Key="false" />
+    <Column Name="Outcome" DataType="String" Path="Outcome" MaxLength="0" Key="false" />
+    <Column Name="ApexClassId" DataType="String" Path="ApexClassId" MaxLength="0" Key="false" />
+    <Column Name="MethodName" DataType="String" Path="MethodName" MaxLength="0" Key="false" />
+    <Column Name="Message" DataType="String" Path="Message" MaxLength="0" Key="false" />
+    <Column Name="StackTrace" DataType="String" Path="StackTrace" MaxLength="0" Key="false" />
+    <Column Name="AsyncApexJobId" DataType="String" Path="AsyncApexJobId" MaxLength="0" Key="false" />
+    <Column Name="QueueItemId" DataType="String" Path="QueueItemId" MaxLength="0" Key="false" />
+    <Column Name="ApexLogId" DataType="String" Path="ApexLogId" MaxLength="0" Key="false" />
+    <Column Name="ApexTestRunResultId" DataType="String" Path="ApexTestRunResultId" MaxLength="0" Key="false" />
+    <Column Name="RunTime" DataType="String" Path="RunTime" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From ApexTestResult LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

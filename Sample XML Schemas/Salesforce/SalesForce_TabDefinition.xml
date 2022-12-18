@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="TabDefinition" Description="Tab Definition" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="DurableId" DataType="String" Path="DurableId" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="Label" DataType="String" Path="Label" MaxLength="0" Key="false" />
+    <Column Name="IsCustom" DataType="Boolean" Path="IsCustom" MaxLength="0" Key="false" />
+    <Column Name="SobjectName" DataType="String" Path="SobjectName" MaxLength="0" Key="false" />
+    <Column Name="Url" DataType="String" Path="Url" MaxLength="0" Key="false" />
+    <Column Name="IsAvailableInAloha" DataType="Boolean" Path="IsAvailableInAloha" MaxLength="0" Key="false" />
+    <Column Name="IsAvailableInLightning" DataType="Boolean" Path="IsAvailableInLightning" MaxLength="0" Key="false" />
+    <Column Name="IsAvailableInMobile" DataType="Boolean" Path="IsAvailableInMobile" MaxLength="0" Key="false" />
+    <Column Name="IsAvailableInDesktop" DataType="Boolean" Path="IsAvailableInDesktop" MaxLength="0" Key="false" />
+    <Column Name="MobileUrl" DataType="String" Path="MobileUrl" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From TabDefinition LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="LoginEventStream" Description="Login Event Stream" Schema="SalesForce">
+    <Column Name="ReplayId" DataType="String" Path="ReplayId" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="EventUuid" DataType="String" Path="EventUuid" MaxLength="0" Key="false" />
+    <Column Name="EventIdentifier" DataType="String" Path="EventIdentifier" MaxLength="0" Key="false" />
+    <Column Name="UserId" DataType="String" Path="UserId" MaxLength="0" Key="false" />
+    <Column Name="Username" DataType="String" Path="Username" MaxLength="0" Key="false" />
+    <Column Name="EventDate" DataType="DateTime" Path="EventDate" MaxLength="0" Key="false" />
+    <Column Name="RelatedEventIdentifier" DataType="String" Path="RelatedEventIdentifier" MaxLength="0" Key="false" />
+    <Column Name="PolicyId" DataType="String" Path="PolicyId" MaxLength="0" Key="false" />
+    <Column Name="PolicyOutcome" DataType="String" Path="PolicyOutcome" MaxLength="0" Key="false" />
+    <Column Name="EvaluationTime" DataType="Double" Path="EvaluationTime" MaxLength="0" Key="false" />
+    <Column Name="SessionKey" DataType="String" Path="SessionKey" MaxLength="0" Key="false" />
+    <Column Name="LoginKey" DataType="String" Path="LoginKey" MaxLength="0" Key="false" />
+    <Column Name="SessionLevel" DataType="String" Path="SessionLevel" MaxLength="0" Key="false" />
+    <Column Name="SourceIp" DataType="String" Path="SourceIp" MaxLength="0" Key="false" />
+    <Column Name="AdditionalInfo" DataType="String" Path="AdditionalInfo" MaxLength="0" Key="false" />
+    <Column Name="ApiType" DataType="String" Path="ApiType" MaxLength="0" Key="false" />
+    <Column Name="ApiVersion" DataType="String" Path="ApiVersion" MaxLength="0" Key="false" />
+    <Column Name="Application" DataType="String" Path="Application" MaxLength="0" Key="false" />
+    <Column Name="AuthServiceId" DataType="String" Path="AuthServiceId" MaxLength="0" Key="false" />
+    <Column Name="Browser" DataType="String" Path="Browser" MaxLength="0" Key="false" />
+    <Column Name="CipherSuite" DataType="String" Path="CipherSuite" MaxLength="0" Key="false" />
+    <Column Name="ClientVersion" DataType="String" Path="ClientVersion" MaxLength="0" Key="false" />
+    <Column Name="LoginGeoId" DataType="String" Path="LoginGeoId" MaxLength="0" Key="false" />
+    <Column Name="LoginType" DataType="String" Path="LoginType" MaxLength="0" Key="false" />
+    <Column Name="LoginUrl" DataType="String" Path="LoginUrl" MaxLength="0" Key="false" />
+    <Column Name="Platform" DataType="String" Path="Platform" MaxLength="0" Key="false" />
+    <Column Name="Status" DataType="String" Path="Status" MaxLength="0" Key="false" />
+    <Column Name="TlsProtocol" DataType="String" Path="TlsProtocol" MaxLength="0" Key="false" />
+    <Column Name="LoginHistoryId" DataType="String" Path="LoginHistoryId" MaxLength="0" Key="false" />
+    <Column Name="UserType" DataType="String" Path="UserType" MaxLength="0" Key="false" />
+    <Column Name="CountryIso" DataType="String" Path="CountryIso" MaxLength="0" Key="false" />
+    <Column Name="HttpMethod" DataType="String" Path="HttpMethod" MaxLength="0" Key="false" />
+    <Column Name="Country" DataType="String" Path="Country" MaxLength="0" Key="false" />
+    <Column Name="LoginLatitude" DataType="Double" Path="LoginLatitude" MaxLength="0" Key="false" />
+    <Column Name="LoginLongitude" DataType="Double" Path="LoginLongitude" MaxLength="0" Key="false" />
+    <Column Name="City" DataType="String" Path="City" MaxLength="0" Key="false" />
+    <Column Name="PostalCode" DataType="String" Path="PostalCode" MaxLength="0" Key="false" />
+    <Column Name="Subdivision" DataType="String" Path="Subdivision" MaxLength="0" Key="false" />
+    <Column Name="AuthMethodReference" DataType="String" Path="AuthMethodReference" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From LoginEventStream LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

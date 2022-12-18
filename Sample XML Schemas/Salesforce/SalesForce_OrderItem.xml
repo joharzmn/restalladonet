@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="OrderItem" Description="Order Product" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="Product2Id" DataType="String" Path="Product2Id" MaxLength="0" Key="false" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="OrderId" DataType="String" Path="OrderId" MaxLength="0" Key="false" />
+    <Column Name="PricebookEntryId" DataType="String" Path="PricebookEntryId" MaxLength="0" Key="false" />
+    <Column Name="OriginalOrderItemId" DataType="String" Path="OriginalOrderItemId" MaxLength="0" Key="false" />
+    <Column Name="AvailableQuantity" DataType="Double" Path="AvailableQuantity" MaxLength="0" Key="false" />
+    <Column Name="Quantity" DataType="Double" Path="Quantity" MaxLength="0" Key="false" />
+    <Column Name="UnitPrice" DataType="String" Path="UnitPrice" MaxLength="0" Key="false" />
+    <Column Name="ListPrice" DataType="String" Path="ListPrice" MaxLength="0" Key="false" />
+    <Column Name="TotalPrice" DataType="String" Path="TotalPrice" MaxLength="0" Key="false" />
+    <Column Name="ServiceDate" DataType="String" Path="ServiceDate" MaxLength="0" Key="false" />
+    <Column Name="EndDate" DataType="String" Path="EndDate" MaxLength="0" Key="false" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="OrderItemNumber" DataType="String" Path="OrderItemNumber" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From OrderItem LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

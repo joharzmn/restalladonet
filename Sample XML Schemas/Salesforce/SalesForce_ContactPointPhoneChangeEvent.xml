@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="ContactPointPhoneChangeEvent" Description="Contact Point Phone Change Event" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="ReplayId" DataType="String" Path="ReplayId" MaxLength="0" Key="false" />
+    <Column Name="ChangeEventHeader" DataType="String" Path="ChangeEventHeader" MaxLength="0" Key="false" />
+    <Column Name="OwnerId" DataType="String" Path="OwnerId" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="ParentId" DataType="String" Path="ParentId" MaxLength="0" Key="false" />
+    <Column Name="ActiveFromDate" DataType="String" Path="ActiveFromDate" MaxLength="0" Key="false" />
+    <Column Name="ActiveToDate" DataType="String" Path="ActiveToDate" MaxLength="0" Key="false" />
+    <Column Name="BestTimeToContactEndTime" DataType="String" Path="BestTimeToContactEndTime" MaxLength="0" Key="false" />
+    <Column Name="BestTimeToContactStartTime" DataType="String" Path="BestTimeToContactStartTime" MaxLength="0" Key="false" />
+    <Column Name="BestTimeToContactTimezone" DataType="String" Path="BestTimeToContactTimezone" MaxLength="0" Key="false" />
+    <Column Name="IsPrimary" DataType="Boolean" Path="IsPrimary" MaxLength="0" Key="false" />
+    <Column Name="AreaCode" DataType="String" Path="AreaCode" MaxLength="0" Key="false" />
+    <Column Name="TelephoneNumber" DataType="String" Path="TelephoneNumber" MaxLength="0" Key="false" />
+    <Column Name="ExtensionNumber" DataType="String" Path="ExtensionNumber" MaxLength="0" Key="false" />
+    <Column Name="PhoneType" DataType="String" Path="PhoneType" MaxLength="0" Key="false" />
+    <Column Name="IsSmsCapable" DataType="Boolean" Path="IsSmsCapable" MaxLength="0" Key="false" />
+    <Column Name="FormattedInternationalPhoneNumber" DataType="String" Path="FormattedInternationalPhoneNumber" MaxLength="0" Key="false" />
+    <Column Name="FormattedNationalPhoneNumber" DataType="String" Path="FormattedNationalPhoneNumber" MaxLength="0" Key="false" />
+    <Column Name="IsFaxCapable" DataType="Boolean" Path="IsFaxCapable" MaxLength="0" Key="false" />
+    <Column Name="IsPersonalPhone" DataType="Boolean" Path="IsPersonalPhone" MaxLength="0" Key="false" />
+    <Column Name="IsBusinessPhone" DataType="Boolean" Path="IsBusinessPhone" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From ContactPointPhoneChangeEvent LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

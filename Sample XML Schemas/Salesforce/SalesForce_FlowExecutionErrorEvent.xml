@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="FlowExecutionErrorEvent" Description="Flow Execution Error Event" Schema="SalesForce">
+    <Column Name="ReplayId" DataType="String" Path="ReplayId" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="EventUuid" DataType="String" Path="EventUuid" MaxLength="0" Key="false" />
+    <Column Name="EventIdentifier" DataType="String" Path="EventIdentifier" MaxLength="0" Key="false" />
+    <Column Name="UserId" DataType="String" Path="UserId" MaxLength="0" Key="false" />
+    <Column Name="Username" DataType="String" Path="Username" MaxLength="0" Key="false" />
+    <Column Name="EventDate" DataType="DateTime" Path="EventDate" MaxLength="0" Key="false" />
+    <Column Name="InterviewStartDate" DataType="DateTime" Path="InterviewStartDate" MaxLength="0" Key="false" />
+    <Column Name="FlowExecutionStartDate" DataType="DateTime" Path="FlowExecutionStartDate" MaxLength="0" Key="false" />
+    <Column Name="FlowExecutionEndDate" DataType="DateTime" Path="FlowExecutionEndDate" MaxLength="0" Key="false" />
+    <Column Name="InterviewGuid" DataType="String" Path="InterviewGuid" MaxLength="0" Key="false" />
+    <Column Name="InterviewBatchId" DataType="String" Path="InterviewBatchId" MaxLength="0" Key="false" />
+    <Column Name="InterviewRequestId" DataType="String" Path="InterviewRequestId" MaxLength="0" Key="false" />
+    <Column Name="FlowNamespace" DataType="String" Path="FlowNamespace" MaxLength="0" Key="false" />
+    <Column Name="FlowApiName" DataType="String" Path="FlowApiName" MaxLength="0" Key="false" />
+    <Column Name="FlowVersionId" DataType="String" Path="FlowVersionId" MaxLength="0" Key="false" />
+    <Column Name="StageQualifiedApiName" DataType="String" Path="StageQualifiedApiName" MaxLength="0" Key="false" />
+    <Column Name="ProcessType" DataType="String" Path="ProcessType" MaxLength="0" Key="false" />
+    <Column Name="EventType" DataType="String" Path="EventType" MaxLength="0" Key="false" />
+    <Column Name="RelatedRecordId" DataType="String" Path="RelatedRecordId" MaxLength="0" Key="false" />
+    <Column Name="FlowVersionNumber" DataType="String" Path="FlowVersionNumber" MaxLength="0" Key="false" />
+    <Column Name="ContextRecordId" DataType="String" Path="ContextRecordId" MaxLength="0" Key="false" />
+    <Column Name="ContextObject" DataType="String" Path="ContextObject" MaxLength="0" Key="false" />
+    <Column Name="InterviewStartedById" DataType="String" Path="InterviewStartedById" MaxLength="0" Key="false" />
+    <Column Name="ErrorId" DataType="String" Path="ErrorId" MaxLength="0" Key="false" />
+    <Column Name="ExtendedErrorCode" DataType="String" Path="ExtendedErrorCode" MaxLength="0" Key="false" />
+    <Column Name="ErrorMessage" DataType="String" Path="ErrorMessage" MaxLength="0" Key="false" />
+    <Column Name="ElementApiName" DataType="String" Path="ElementApiName" MaxLength="0" Key="false" />
+    <Column Name="ElementType" DataType="String" Path="ElementType" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From FlowExecutionErrorEvent LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

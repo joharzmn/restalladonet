@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="CollaborationGroup" Description="Group" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="MemberCount" DataType="String" Path="MemberCount" MaxLength="0" Key="false" />
+    <Column Name="OwnerId" DataType="String" Path="OwnerId" MaxLength="0" Key="false" />
+    <Column Name="CollaborationType" DataType="String" Path="CollaborationType" MaxLength="0" Key="false" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="FullPhotoUrl" DataType="String" Path="FullPhotoUrl" MaxLength="0" Key="false" />
+    <Column Name="MediumPhotoUrl" DataType="String" Path="MediumPhotoUrl" MaxLength="0" Key="false" />
+    <Column Name="SmallPhotoUrl" DataType="String" Path="SmallPhotoUrl" MaxLength="0" Key="false" />
+    <Column Name="LastFeedModifiedDate" DataType="DateTime" Path="LastFeedModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="InformationTitle" DataType="String" Path="InformationTitle" MaxLength="0" Key="false" />
+    <Column Name="InformationBody" DataType="String" Path="InformationBody" MaxLength="0" Key="false" />
+    <Column Name="HasPrivateFieldsAccess" DataType="Boolean" Path="HasPrivateFieldsAccess" MaxLength="0" Key="false" />
+    <Column Name="CanHaveGuests" DataType="Boolean" Path="CanHaveGuests" MaxLength="0" Key="false" />
+    <Column Name="LastViewedDate" DataType="DateTime" Path="LastViewedDate" MaxLength="0" Key="false" />
+    <Column Name="LastReferencedDate" DataType="DateTime" Path="LastReferencedDate" MaxLength="0" Key="false" />
+    <Column Name="IsArchived" DataType="Boolean" Path="IsArchived" MaxLength="0" Key="false" />
+    <Column Name="IsAutoArchiveDisabled" DataType="Boolean" Path="IsAutoArchiveDisabled" MaxLength="0" Key="false" />
+    <Column Name="AnnouncementId" DataType="String" Path="AnnouncementId" MaxLength="0" Key="false" />
+    <Column Name="GroupEmail" DataType="String" Path="GroupEmail" MaxLength="0" Key="false" />
+    <Column Name="BannerPhotoUrl" DataType="String" Path="BannerPhotoUrl" MaxLength="0" Key="false" />
+    <Column Name="IsBroadcast" DataType="Boolean" Path="IsBroadcast" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From CollaborationGroup LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

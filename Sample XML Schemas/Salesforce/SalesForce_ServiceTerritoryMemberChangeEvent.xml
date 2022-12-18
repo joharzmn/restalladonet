@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="ServiceTerritoryMemberChangeEvent" Description="Service Territory Member Change Event" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="ReplayId" DataType="String" Path="ReplayId" MaxLength="0" Key="false" />
+    <Column Name="ChangeEventHeader" DataType="String" Path="ChangeEventHeader" MaxLength="0" Key="false" />
+    <Column Name="MemberNumber" DataType="String" Path="MemberNumber" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="ServiceTerritoryId" DataType="String" Path="ServiceTerritoryId" MaxLength="0" Key="false" />
+    <Column Name="ServiceResourceId" DataType="String" Path="ServiceResourceId" MaxLength="0" Key="false" />
+    <Column Name="TerritoryType" DataType="String" Path="TerritoryType" MaxLength="0" Key="false" />
+    <Column Name="EffectiveStartDate" DataType="DateTime" Path="EffectiveStartDate" MaxLength="0" Key="false" />
+    <Column Name="EffectiveEndDate" DataType="DateTime" Path="EffectiveEndDate" MaxLength="0" Key="false" />
+    <Column Name="Street" DataType="String" Path="Street" MaxLength="0" Key="false" />
+    <Column Name="City" DataType="String" Path="City" MaxLength="0" Key="false" />
+    <Column Name="State" DataType="String" Path="State" MaxLength="0" Key="false" />
+    <Column Name="PostalCode" DataType="String" Path="PostalCode" MaxLength="0" Key="false" />
+    <Column Name="Country" DataType="String" Path="Country" MaxLength="0" Key="false" />
+    <Column Name="Latitude" DataType="Double" Path="Latitude" MaxLength="0" Key="false" />
+    <Column Name="Longitude" DataType="Double" Path="Longitude" MaxLength="0" Key="false" />
+    <Column Name="GeocodeAccuracy" DataType="String" Path="GeocodeAccuracy" MaxLength="0" Key="false" />
+    <Column Name="Address" DataType="String" Path="Address" MaxLength="0" Key="false" />
+    <Column Name="OperatingHoursId" DataType="String" Path="OperatingHoursId" MaxLength="0" Key="false" />
+    <Column Name="Role" DataType="String" Path="Role" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From ServiceTerritoryMemberChangeEvent LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

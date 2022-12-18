@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="LoginHistory" Description="Login History" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="UserId" DataType="String" Path="UserId" MaxLength="0" Key="false" />
+    <Column Name="LoginTime" DataType="DateTime" Path="LoginTime" MaxLength="0" Key="false" />
+    <Column Name="LoginType" DataType="String" Path="LoginType" MaxLength="0" Key="false" />
+    <Column Name="SourceIp" DataType="String" Path="SourceIp" MaxLength="0" Key="false" />
+    <Column Name="LoginUrl" DataType="String" Path="LoginUrl" MaxLength="0" Key="false" />
+    <Column Name="AuthenticationServiceId" DataType="String" Path="AuthenticationServiceId" MaxLength="0" Key="false" />
+    <Column Name="LoginGeoId" DataType="String" Path="LoginGeoId" MaxLength="0" Key="false" />
+    <Column Name="TlsProtocol" DataType="String" Path="TlsProtocol" MaxLength="0" Key="false" />
+    <Column Name="CipherSuite" DataType="String" Path="CipherSuite" MaxLength="0" Key="false" />
+    <Column Name="OptionsIsGet" DataType="Boolean" Path="OptionsIsGet" MaxLength="0" Key="false" />
+    <Column Name="OptionsIsPost" DataType="Boolean" Path="OptionsIsPost" MaxLength="0" Key="false" />
+    <Column Name="Browser" DataType="String" Path="Browser" MaxLength="0" Key="false" />
+    <Column Name="Platform" DataType="String" Path="Platform" MaxLength="0" Key="false" />
+    <Column Name="Status" DataType="String" Path="Status" MaxLength="0" Key="false" />
+    <Column Name="Application" DataType="String" Path="Application" MaxLength="0" Key="false" />
+    <Column Name="ClientVersion" DataType="String" Path="ClientVersion" MaxLength="0" Key="false" />
+    <Column Name="ApiType" DataType="String" Path="ApiType" MaxLength="0" Key="false" />
+    <Column Name="ApiVersion" DataType="String" Path="ApiVersion" MaxLength="0" Key="false" />
+    <Column Name="CountryIso" DataType="String" Path="CountryIso" MaxLength="0" Key="false" />
+    <Column Name="AuthMethodReference" DataType="String" Path="AuthMethodReference" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From LoginHistory LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

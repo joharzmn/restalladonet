@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="ContentVersion" Description="Content Version" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="ContentDocumentId" DataType="String" Path="ContentDocumentId" MaxLength="0" Key="false" />
+    <Column Name="IsLatest" DataType="Boolean" Path="IsLatest" MaxLength="0" Key="false" />
+    <Column Name="ContentUrl" DataType="String" Path="ContentUrl" MaxLength="0" Key="false" />
+    <Column Name="ContentBodyId" DataType="String" Path="ContentBodyId" MaxLength="0" Key="false" />
+    <Column Name="VersionNumber" DataType="String" Path="VersionNumber" MaxLength="0" Key="false" />
+    <Column Name="Title" DataType="String" Path="Title" MaxLength="0" Key="false" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Column Name="ReasonForChange" DataType="String" Path="ReasonForChange" MaxLength="0" Key="false" />
+    <Column Name="SharingOption" DataType="String" Path="SharingOption" MaxLength="0" Key="false" />
+    <Column Name="SharingPrivacy" DataType="String" Path="SharingPrivacy" MaxLength="0" Key="false" />
+    <Column Name="PathOnClient" DataType="String" Path="PathOnClient" MaxLength="0" Key="false" />
+    <Column Name="RatingCount" DataType="String" Path="RatingCount" MaxLength="0" Key="false" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="ContentModifiedDate" DataType="DateTime" Path="ContentModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="ContentModifiedById" DataType="String" Path="ContentModifiedById" MaxLength="0" Key="false" />
+    <Column Name="PositiveRatingCount" DataType="String" Path="PositiveRatingCount" MaxLength="0" Key="false" />
+    <Column Name="NegativeRatingCount" DataType="String" Path="NegativeRatingCount" MaxLength="0" Key="false" />
+    <Column Name="FeaturedContentBoost" DataType="String" Path="FeaturedContentBoost" MaxLength="0" Key="false" />
+    <Column Name="FeaturedContentDate" DataType="String" Path="FeaturedContentDate" MaxLength="0" Key="false" />
+    <Column Name="OwnerId" DataType="String" Path="OwnerId" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="TagCsv" DataType="String" Path="TagCsv" MaxLength="0" Key="false" />
+    <Column Name="FileType" DataType="String" Path="FileType" MaxLength="0" Key="false" />
+    <Column Name="PublishStatus" DataType="String" Path="PublishStatus" MaxLength="0" Key="false" />
+    <Column Name="VersionData" DataType="String" Path="VersionData" MaxLength="0" Key="false" />
+    <Column Name="ContentSize" DataType="String" Path="ContentSize" MaxLength="0" Key="false" />
+    <Column Name="FileExtension" DataType="String" Path="FileExtension" MaxLength="0" Key="false" />
+    <Column Name="FirstPublishLocationId" DataType="String" Path="FirstPublishLocationId" MaxLength="0" Key="false" />
+    <Column Name="Origin" DataType="String" Path="Origin" MaxLength="0" Key="false" />
+    <Column Name="ContentLocation" DataType="String" Path="ContentLocation" MaxLength="0" Key="false" />
+    <Column Name="TextPreview" DataType="String" Path="TextPreview" MaxLength="0" Key="false" />
+    <Column Name="ExternalDocumentInfo1" DataType="String" Path="ExternalDocumentInfo1" MaxLength="0" Key="false" />
+    <Column Name="ExternalDocumentInfo2" DataType="String" Path="ExternalDocumentInfo2" MaxLength="0" Key="false" />
+    <Column Name="ExternalDataSourceId" DataType="String" Path="ExternalDataSourceId" MaxLength="0" Key="false" />
+    <Column Name="Checksum" DataType="String" Path="Checksum" MaxLength="0" Key="false" />
+    <Column Name="IsMajorVersion" DataType="Boolean" Path="IsMajorVersion" MaxLength="0" Key="false" />
+    <Column Name="IsAssetEnabled" DataType="Boolean" Path="IsAssetEnabled" MaxLength="0" Key="false" />
+    <Column Name="VersionDataUrl" DataType="String" Path="VersionDataUrl" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From ContentVersion LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

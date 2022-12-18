@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="WebLink" Description="Custom Button or Link" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="PageOrSobjectType" DataType="String" Path="PageOrSobjectType" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="IsProtected" DataType="Boolean" Path="IsProtected" MaxLength="0" Key="false" />
+    <Column Name="Url" DataType="String" Path="Url" MaxLength="0" Key="false" />
+    <Column Name="EncodingKey" DataType="String" Path="EncodingKey" MaxLength="0" Key="false" />
+    <Column Name="LinkType" DataType="String" Path="LinkType" MaxLength="0" Key="false" />
+    <Column Name="OpenType" DataType="String" Path="OpenType" MaxLength="0" Key="false" />
+    <Column Name="Height" DataType="String" Path="Height" MaxLength="0" Key="false" />
+    <Column Name="Width" DataType="String" Path="Width" MaxLength="0" Key="false" />
+    <Column Name="ShowsLocation" DataType="Boolean" Path="ShowsLocation" MaxLength="0" Key="false" />
+    <Column Name="HasScrollbars" DataType="Boolean" Path="HasScrollbars" MaxLength="0" Key="false" />
+    <Column Name="HasToolbar" DataType="Boolean" Path="HasToolbar" MaxLength="0" Key="false" />
+    <Column Name="HasMenubar" DataType="Boolean" Path="HasMenubar" MaxLength="0" Key="false" />
+    <Column Name="ShowsStatus" DataType="Boolean" Path="ShowsStatus" MaxLength="0" Key="false" />
+    <Column Name="IsResizable" DataType="Boolean" Path="IsResizable" MaxLength="0" Key="false" />
+    <Column Name="Position" DataType="String" Path="Position" MaxLength="0" Key="false" />
+    <Column Name="ScontrolId" DataType="String" Path="ScontrolId" MaxLength="0" Key="false" />
+    <Column Name="MasterLabel" DataType="String" Path="MasterLabel" MaxLength="0" Key="false" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Column Name="DisplayType" DataType="String" Path="DisplayType" MaxLength="0" Key="false" />
+    <Column Name="RequireRowSelection" DataType="Boolean" Path="RequireRowSelection" MaxLength="0" Key="false" />
+    <Column Name="NamespacePrefix" DataType="String" Path="NamespacePrefix" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From WebLink LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

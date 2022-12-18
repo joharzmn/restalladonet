@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="PromptVersion" Description="Prompt Version" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="ParentId" DataType="String" Path="ParentId" MaxLength="0" Key="false" />
+    <Column Name="MasterLabel" DataType="String" Path="MasterLabel" MaxLength="0" Key="false" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Column Name="DisplayType" DataType="String" Path="DisplayType" MaxLength="0" Key="false" />
+    <Column Name="DisplayPosition" DataType="String" Path="DisplayPosition" MaxLength="0" Key="false" />
+    <Column Name="TimesToDisplay" DataType="String" Path="TimesToDisplay" MaxLength="0" Key="false" />
+    <Column Name="DelayDays" DataType="String" Path="DelayDays" MaxLength="0" Key="false" />
+    <Column Name="StartDate" DataType="String" Path="StartDate" MaxLength="0" Key="false" />
+    <Column Name="EndDate" DataType="String" Path="EndDate" MaxLength="0" Key="false" />
+    <Column Name="UserAccess" DataType="String" Path="UserAccess" MaxLength="0" Key="false" />
+    <Column Name="IsPublished" DataType="Boolean" Path="IsPublished" MaxLength="0" Key="false" />
+    <Column Name="PublishedDate" DataType="String" Path="PublishedDate" MaxLength="0" Key="false" />
+    <Column Name="PublishedByUserId" DataType="String" Path="PublishedByUserId" MaxLength="0" Key="false" />
+    <Column Name="Header" DataType="String" Path="Header" MaxLength="0" Key="false" />
+    <Column Name="DismissButtonLabel" DataType="String" Path="DismissButtonLabel" MaxLength="0" Key="false" />
+    <Column Name="ShouldDisplayActionButton" DataType="Boolean" Path="ShouldDisplayActionButton" MaxLength="0" Key="false" />
+    <Column Name="ActionButtonLabel" DataType="String" Path="ActionButtonLabel" MaxLength="0" Key="false" />
+    <Column Name="ActionButtonLink" DataType="String" Path="ActionButtonLink" MaxLength="0" Key="false" />
+    <Column Name="Title" DataType="String" Path="Title" MaxLength="0" Key="false" />
+    <Column Name="VersionNumber" DataType="String" Path="VersionNumber" MaxLength="0" Key="false" />
+    <Column Name="TargetPageType" DataType="String" Path="TargetPageType" MaxLength="0" Key="false" />
+    <Column Name="TargetPageKey1" DataType="String" Path="TargetPageKey1" MaxLength="0" Key="false" />
+    <Column Name="TargetPageKey2" DataType="String" Path="TargetPageKey2" MaxLength="0" Key="false" />
+    <Column Name="TargetAppNamespacePrefix" DataType="String" Path="TargetAppNamespacePrefix" MaxLength="0" Key="false" />
+    <Column Name="TargetAppDeveloperName" DataType="String" Path="TargetAppDeveloperName" MaxLength="0" Key="false" />
+    <Column Name="Body" DataType="String" Path="Body" MaxLength="0" Key="false" />
+    <Column Name="ShouldIgnoreGlobalDelay" DataType="Boolean" Path="ShouldIgnoreGlobalDelay" MaxLength="0" Key="false" />
+    <Column Name="UserProfileAccess" DataType="String" Path="UserProfileAccess" MaxLength="0" Key="false" />
+    <Column Name="VideoLink" DataType="String" Path="VideoLink" MaxLength="0" Key="false" />
+    <Column Name="StepNumber" DataType="String" Path="StepNumber" MaxLength="0" Key="false" />
+    <Column Name="ThemeColor" DataType="String" Path="ThemeColor" MaxLength="0" Key="false" />
+    <Column Name="ThemeSaturation" DataType="String" Path="ThemeSaturation" MaxLength="0" Key="false" />
+    <Column Name="TargetPageKey1Ref" DataType="String" Path="TargetPageKey1Ref" MaxLength="0" Key="false" />
+    <Column Name="ImageAltText" DataType="String" Path="ImageAltText" MaxLength="0" Key="false" />
+    <Column Name="ImageId" DataType="String" Path="ImageId" MaxLength="0" Key="false" />
+    <Column Name="ImageLink" DataType="String" Path="ImageLink" MaxLength="0" Key="false" />
+    <Column Name="ImageLocation" DataType="String" Path="ImageLocation" MaxLength="0" Key="false" />
+    <Column Name="TargetPageKey3" DataType="String" Path="TargetPageKey3" MaxLength="0" Key="false" />
+    <Column Name="ElementRelativePosition" DataType="String" Path="ElementRelativePosition" MaxLength="0" Key="false" />
+    <Column Name="ReferenceElementContext" DataType="String" Path="ReferenceElementContext" MaxLength="0" Key="false" />
+    <Column Name="IndexWithIsPublished" DataType="String" Path="IndexWithIsPublished" MaxLength="0" Key="false" />
+    <Column Name="IndexWithoutIsPublished" DataType="String" Path="IndexWithoutIsPublished" MaxLength="0" Key="false" />
+    <Column Name="TargetPageKey4" DataType="String" Path="TargetPageKey4" MaxLength="0" Key="false" />
+    <Column Name="TargetRecordTypeId" DataType="String" Path="TargetRecordTypeId" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From PromptVersion LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

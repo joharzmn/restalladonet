@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="ContactCleanInfo" Description="Contact Clean Info" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="ContactId" DataType="String" Path="ContactId" MaxLength="0" Key="false" />
+    <Column Name="LastMatchedDate" DataType="DateTime" Path="LastMatchedDate" MaxLength="0" Key="false" />
+    <Column Name="LastStatusChangedDate" DataType="DateTime" Path="LastStatusChangedDate" MaxLength="0" Key="false" />
+    <Column Name="LastStatusChangedById" DataType="String" Path="LastStatusChangedById" MaxLength="0" Key="false" />
+    <Column Name="IsInactive" DataType="Boolean" Path="IsInactive" MaxLength="0" Key="false" />
+    <Column Name="FirstName" DataType="String" Path="FirstName" MaxLength="0" Key="false" />
+    <Column Name="LastName" DataType="String" Path="LastName" MaxLength="0" Key="false" />
+    <Column Name="Email" DataType="String" Path="Email" MaxLength="0" Key="false" />
+    <Column Name="Phone" DataType="String" Path="Phone" MaxLength="0" Key="false" />
+    <Column Name="Street" DataType="String" Path="Street" MaxLength="0" Key="false" />
+    <Column Name="City" DataType="String" Path="City" MaxLength="0" Key="false" />
+    <Column Name="State" DataType="String" Path="State" MaxLength="0" Key="false" />
+    <Column Name="PostalCode" DataType="String" Path="PostalCode" MaxLength="0" Key="false" />
+    <Column Name="Country" DataType="String" Path="Country" MaxLength="0" Key="false" />
+    <Column Name="Latitude" DataType="Double" Path="Latitude" MaxLength="0" Key="false" />
+    <Column Name="Longitude" DataType="Double" Path="Longitude" MaxLength="0" Key="false" />
+    <Column Name="GeocodeAccuracy" DataType="String" Path="GeocodeAccuracy" MaxLength="0" Key="false" />
+    <Column Name="Address" DataType="String" Path="Address" MaxLength="0" Key="false" />
+    <Column Name="Title" DataType="String" Path="Title" MaxLength="0" Key="false" />
+    <Column Name="ContactStatusDataDotCom" DataType="String" Path="ContactStatusDataDotCom" MaxLength="0" Key="false" />
+    <Column Name="IsReviewedName" DataType="Boolean" Path="IsReviewedName" MaxLength="0" Key="false" />
+    <Column Name="IsReviewedEmail" DataType="Boolean" Path="IsReviewedEmail" MaxLength="0" Key="false" />
+    <Column Name="IsReviewedPhone" DataType="Boolean" Path="IsReviewedPhone" MaxLength="0" Key="false" />
+    <Column Name="IsReviewedAddress" DataType="Boolean" Path="IsReviewedAddress" MaxLength="0" Key="false" />
+    <Column Name="IsReviewedTitle" DataType="Boolean" Path="IsReviewedTitle" MaxLength="0" Key="false" />
+    <Column Name="IsDifferentFirstName" DataType="Boolean" Path="IsDifferentFirstName" MaxLength="0" Key="false" />
+    <Column Name="IsDifferentLastName" DataType="Boolean" Path="IsDifferentLastName" MaxLength="0" Key="false" />
+    <Column Name="IsDifferentEmail" DataType="Boolean" Path="IsDifferentEmail" MaxLength="0" Key="false" />
+    <Column Name="IsDifferentPhone" DataType="Boolean" Path="IsDifferentPhone" MaxLength="0" Key="false" />
+    <Column Name="IsDifferentStreet" DataType="Boolean" Path="IsDifferentStreet" MaxLength="0" Key="false" />
+    <Column Name="IsDifferentCity" DataType="Boolean" Path="IsDifferentCity" MaxLength="0" Key="false" />
+    <Column Name="IsDifferentState" DataType="Boolean" Path="IsDifferentState" MaxLength="0" Key="false" />
+    <Column Name="IsDifferentPostalCode" DataType="Boolean" Path="IsDifferentPostalCode" MaxLength="0" Key="false" />
+    <Column Name="IsDifferentCountry" DataType="Boolean" Path="IsDifferentCountry" MaxLength="0" Key="false" />
+    <Column Name="IsDifferentTitle" DataType="Boolean" Path="IsDifferentTitle" MaxLength="0" Key="false" />
+    <Column Name="IsDifferentStateCode" DataType="Boolean" Path="IsDifferentStateCode" MaxLength="0" Key="false" />
+    <Column Name="IsDifferentCountryCode" DataType="Boolean" Path="IsDifferentCountryCode" MaxLength="0" Key="false" />
+    <Column Name="CleanedByJob" DataType="Boolean" Path="CleanedByJob" MaxLength="0" Key="false" />
+    <Column Name="CleanedByUser" DataType="Boolean" Path="CleanedByUser" MaxLength="0" Key="false" />
+    <Column Name="IsFlaggedWrongName" DataType="Boolean" Path="IsFlaggedWrongName" MaxLength="0" Key="false" />
+    <Column Name="IsFlaggedWrongEmail" DataType="Boolean" Path="IsFlaggedWrongEmail" MaxLength="0" Key="false" />
+    <Column Name="IsFlaggedWrongPhone" DataType="Boolean" Path="IsFlaggedWrongPhone" MaxLength="0" Key="false" />
+    <Column Name="IsFlaggedWrongAddress" DataType="Boolean" Path="IsFlaggedWrongAddress" MaxLength="0" Key="false" />
+    <Column Name="IsFlaggedWrongTitle" DataType="Boolean" Path="IsFlaggedWrongTitle" MaxLength="0" Key="false" />
+    <Column Name="DataDotComId" DataType="String" Path="DataDotComId" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From ContactCleanInfo LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

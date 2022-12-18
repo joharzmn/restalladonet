@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="CompanyInfo" Description="Quickbooks CompanyInfo Data" Schema="QBO">
+    <Column Name="Id" DataType="Int32" Path="Id" MaxLength="0" Key="true" />
+	<Column Name="SyncToken" DataType="Int16" Path="SyncToken" MaxLength="0" Key="false" />
+	<Column Name="CompanyName" DataType="String" Path="CompanyName" MaxLength="0" Key="false" />
+	<Column Name="LegalName" DataType="String" Path="LegalName" MaxLength="0" Key="false" />
+    <Column Name="Country" DataType="String" Path="Country" MaxLength="0" Key="false" />
+    <Column Name="FiscalYearStartMonth" DataType="String" Path="FiscalYearStartMonth" MaxLength="0" Key="false" />
+    <Column Name="Domain" DataType="String" Path="domain" MaxLength="0" Key="false" />
+	<Column Name="SupportedLanguages" DataType="String" Path="SupportedLanguages" MaxLength="0" Key="false" />
+	<Column Name="CompanyAddr" DataType="String" Path="CompanyAddr" MaxLength="0" Key="false" />
+	<Column Name="WebAddr" DataType="String" Path="WebAddr" MaxLength="0" Key="false" />
+	<Column Name="CustomerCommunicationAddr" DataType="String" Path="CustomerCommunicationAddr" MaxLength="0" Key="false" />
+	<Column Name="LegalAddr" DataType="String" Path="LegalAddr" MaxLength="0" Key="false" />
+	<Column Name="PrimaryPhone" DataType="String" Path="PrimaryPhone" MaxLength="0" Key="false" />
+	<Column Name="Email" DataType="String" Path="Email" MaxLength="0" Key="false" />
+	<Column Name="NameValue" DataType="String" Path="NameValue" MaxLength="0" Key="false" />
+	<Column Name="MetaData_CreateTime" DataType="DateTime" Path="MetaData.CreateTime" MaxLength="0" Key="false" />
+	<Column Name="MetaData_LastUpdatedTime" DataType="DateTime" Path="MetaData.LastUpdatedTime" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select">
+	<Url>^[Connection.URL]^/v3/company/^[Token.realmid]^/query?minorversion=65&amp;query=select * from CompanyInfo</Url>
+	</DataAction>
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.QueryResponse.CompanyInfo</RepeatElement>
+</EntityDescriptor>

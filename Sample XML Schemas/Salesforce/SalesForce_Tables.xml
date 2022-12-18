@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TableDefination TableName="Tables" Schema="SalesForce" Description="This is to Get Tables List From SalesForce" Filters="Id,Name">
+    <Column Name="Name" DataType="String" Path="name" MaxLength="0" Key="false" />
+    <Column Name="KeyPrefix" DataType="String" Path="keyPrefix" MaxLength="0" Key="false" />
+    <Column Name="Label" DataType="String" Path="label" MaxLength="0" Key="false" />
+    <Column Name="LabelPlural" DataType="String" Path="labelPlural" MaxLength="0" Key="false" />
+    <Column Name="Queryable" DataType="Boolean" Path="queryable" MaxLength="0" Key="false" />
+    <Column Name="Replicateable" DataType="Boolean" Path="replicateable" MaxLength="0" Key="false" />
+    <Column Name="Retrieveable" DataType="Boolean" Path="retrieveable" MaxLength="0" Key="false" />
+    <Column Name="RowTemplate" DataType="String" Path="urls.rowTemplate" MaxLength="0" Key="false" />
+    <Column Name="Sobject" DataType="String" Path="urls.sobject" MaxLength="0" Key="false" />
+    <Column Name="Describe" DataType="String" Path="urls.describe" MaxLength="0" Key="false" />
+    <Column Name="Custom" DataType="Boolean" Path="custom" MaxLength="0" Key="false" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.Url]*/services/data/v56.0/sobjects/" />
+  </Operations>
+  <Url>*[Connection.Url]*/services/data/v56.0/sobjects/</Url>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.sobjects</RepeatElement>
+</EntityDescriptor>

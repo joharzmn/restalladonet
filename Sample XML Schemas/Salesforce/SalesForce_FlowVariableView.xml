@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="FlowVariableView" Description="Flow Variable" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="DurableId" DataType="String" Path="DurableId" MaxLength="0" Key="false" />
+    <Column Name="FlowVersionViewId" DataType="String" Path="FlowVersionViewId" MaxLength="0" Key="false" />
+    <Column Name="ApiName" DataType="String" Path="ApiName" MaxLength="0" Key="false" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Column Name="DataType" DataType="String" Path="DataType" MaxLength="0" Key="false" />
+    <Column Name="IsInput" DataType="Boolean" Path="IsInput" MaxLength="0" Key="false" />
+    <Column Name="IsOutput" DataType="Boolean" Path="IsOutput" MaxLength="0" Key="false" />
+    <Column Name="IsCollection" DataType="Boolean" Path="IsCollection" MaxLength="0" Key="false" />
+    <Column Name="ObjectType" DataType="String" Path="ObjectType" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From FlowVariableView LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

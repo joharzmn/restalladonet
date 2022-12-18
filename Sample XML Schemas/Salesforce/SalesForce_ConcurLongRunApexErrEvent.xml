@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="ConcurLongRunApexErrEvent" Description="Concurrent Long Running Apex Error Event" Schema="SalesForce">
+    <Column Name="ReplayId" DataType="String" Path="ReplayId" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="EventUuid" DataType="String" Path="EventUuid" MaxLength="0" Key="false" />
+    <Column Name="EventIdentifier" DataType="String" Path="EventIdentifier" MaxLength="0" Key="false" />
+    <Column Name="UserId" DataType="String" Path="UserId" MaxLength="0" Key="false" />
+    <Column Name="Username" DataType="String" Path="Username" MaxLength="0" Key="false" />
+    <Column Name="EventDate" DataType="DateTime" Path="EventDate" MaxLength="0" Key="false" />
+    <Column Name="SessionKey" DataType="String" Path="SessionKey" MaxLength="0" Key="false" />
+    <Column Name="LoginKey" DataType="String" Path="LoginKey" MaxLength="0" Key="false" />
+    <Column Name="SessionLevel" DataType="String" Path="SessionLevel" MaxLength="0" Key="false" />
+    <Column Name="SourceIp" DataType="String" Path="SourceIp" MaxLength="0" Key="false" />
+    <Column Name="RequestId" DataType="String" Path="RequestId" MaxLength="0" Key="false" />
+    <Column Name="RequestUri" DataType="String" Path="RequestUri" MaxLength="0" Key="false" />
+    <Column Name="Quiddity" DataType="String" Path="Quiddity" MaxLength="0" Key="false" />
+    <Column Name="LimitValue" DataType="String" Path="LimitValue" MaxLength="0" Key="false" />
+    <Column Name="CurrentValue" DataType="String" Path="CurrentValue" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From ConcurLongRunApexErrEvent LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

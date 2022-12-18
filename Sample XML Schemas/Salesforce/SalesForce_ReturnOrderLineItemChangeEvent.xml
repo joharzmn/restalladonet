@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="ReturnOrderLineItemChangeEvent" Description="Return Order Line Item Change Event" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="ReplayId" DataType="String" Path="ReplayId" MaxLength="0" Key="false" />
+    <Column Name="ChangeEventHeader" DataType="String" Path="ChangeEventHeader" MaxLength="0" Key="false" />
+    <Column Name="ReturnOrderLineItemNumber" DataType="String" Path="ReturnOrderLineItemNumber" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="ReturnOrderId" DataType="String" Path="ReturnOrderId" MaxLength="0" Key="false" />
+    <Column Name="OrderItemId" DataType="String" Path="OrderItemId" MaxLength="0" Key="false" />
+    <Column Name="Product2Id" DataType="String" Path="Product2Id" MaxLength="0" Key="false" />
+    <Column Name="QuantityReturned" DataType="Double" Path="QuantityReturned" MaxLength="0" Key="false" />
+    <Column Name="QuantityUnitOfMeasure" DataType="String" Path="QuantityUnitOfMeasure" MaxLength="0" Key="false" />
+    <Column Name="SourceLocationId" DataType="String" Path="SourceLocationId" MaxLength="0" Key="false" />
+    <Column Name="DestinationLocationId" DataType="String" Path="DestinationLocationId" MaxLength="0" Key="false" />
+    <Column Name="AssetId" DataType="String" Path="AssetId" MaxLength="0" Key="false" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Column Name="ReasonForReturn" DataType="String" Path="ReasonForReturn" MaxLength="0" Key="false" />
+    <Column Name="ProcessingPlan" DataType="String" Path="ProcessingPlan" MaxLength="0" Key="false" />
+    <Column Name="RepaymentMethod" DataType="String" Path="RepaymentMethod" MaxLength="0" Key="false" />
+    <Column Name="ChangeOrderItemId" DataType="String" Path="ChangeOrderItemId" MaxLength="0" Key="false" />
+    <Column Name="Type" DataType="String" Path="Type" MaxLength="0" Key="false" />
+    <Column Name="TypeCode" DataType="String" Path="TypeCode" MaxLength="0" Key="false" />
+    <Column Name="QuantityReceived" DataType="Double" Path="QuantityReceived" MaxLength="0" Key="false" />
+    <Column Name="QuantityExpected" DataType="Double" Path="QuantityExpected" MaxLength="0" Key="false" />
+    <Column Name="QuantityRejected" DataType="Double" Path="QuantityRejected" MaxLength="0" Key="false" />
+    <Column Name="ReasonForRejection" DataType="String" Path="ReasonForRejection" MaxLength="0" Key="false" />
+    <Column Name="UnitPrice" DataType="String" Path="UnitPrice" MaxLength="0" Key="false" />
+    <Column Name="GrossUnitPrice" DataType="String" Path="GrossUnitPrice" MaxLength="0" Key="false" />
+    <Column Name="TotalLineAmount" DataType="String" Path="TotalLineAmount" MaxLength="0" Key="false" />
+    <Column Name="TotalLineTaxAmount" DataType="String" Path="TotalLineTaxAmount" MaxLength="0" Key="false" />
+    <Column Name="TotalAdjustmentTaxAmount" DataType="String" Path="TotalAdjustmentTaxAmount" MaxLength="0" Key="false" />
+    <Column Name="TotalAdjustmentAmount" DataType="String" Path="TotalAdjustmentAmount" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From ReturnOrderLineItemChangeEvent LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

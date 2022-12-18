@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="PendingOrderSummary" Description="Pending Order Summary" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="ExternalId" DataType="String" Path="ExternalId" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="OrderNumber" DataType="String" Path="OrderNumber" MaxLength="0" Key="false" />
+    <Column Name="AccountId" DataType="String" Path="AccountId" MaxLength="0" Key="false" />
+    <Column Name="BillToContactId" DataType="String" Path="BillToContactId" MaxLength="0" Key="false" />
+    <Column Name="SalesStoreId" DataType="String" Path="SalesStoreId" MaxLength="0" Key="false" />
+    <Column Name="ShopperName" DataType="String" Path="ShopperName" MaxLength="0" Key="false" />
+    <Column Name="BillingEmailAddress" DataType="String" Path="BillingEmailAddress" MaxLength="0" Key="false" />
+    <Column Name="BillingPhoneNumber" DataType="String" Path="BillingPhoneNumber" MaxLength="0" Key="false" />
+    <Column Name="OrderedDate" DataType="DateTime" Path="OrderedDate" MaxLength="0" Key="false" />
+    <Column Name="GrandTotalAmount" DataType="String" Path="GrandTotalAmount" MaxLength="0" Key="false" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Column Name="Payload" DataType="String" Path="Payload" MaxLength="0" Key="false" />
+    <Column Name="ExternalReferenceIdentifier" DataType="String" Path="ExternalReferenceIdentifier" MaxLength="0" Key="false" />
+    <Column Name="PayloadType" DataType="String" Path="PayloadType" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From PendingOrderSummary LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

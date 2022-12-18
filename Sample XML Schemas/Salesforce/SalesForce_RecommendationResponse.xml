@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="RecommendationResponse" Description="Recommendation Response" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="OnBehalfOf" DataType="String" Path="OnBehalfOf" MaxLength="0" Key="false" />
+    <Column Name="OnBehalfOfType" DataType="String" Path="OnBehalfOfType" MaxLength="0" Key="false" />
+    <Column Name="OnBehalfOfName" DataType="String" Path="OnBehalfOfName" MaxLength="0" Key="false" />
+    <Column Name="RecommendationKey" DataType="String" Path="RecommendationKey" MaxLength="0" Key="false" />
+    <Column Name="RecommendationType" DataType="String" Path="RecommendationType" MaxLength="0" Key="false" />
+    <Column Name="RecommendationName" DataType="String" Path="RecommendationName" MaxLength="0" Key="false" />
+    <Column Name="ActionReference" DataType="String" Path="ActionReference" MaxLength="0" Key="false" />
+    <Column Name="Response" DataType="String" Path="Response" MaxLength="0" Key="false" />
+    <Column Name="StrategyReference" DataType="String" Path="StrategyReference" MaxLength="0" Key="false" />
+    <Column Name="StrategyVersion" DataType="String" Path="StrategyVersion" MaxLength="0" Key="false" />
+    <Column Name="ContextRecord" DataType="String" Path="ContextRecord" MaxLength="0" Key="false" />
+    <Column Name="ContextRecordType" DataType="String" Path="ContextRecordType" MaxLength="0" Key="false" />
+    <Column Name="ContextRecordName" DataType="String" Path="ContextRecordName" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From RecommendationResponse LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

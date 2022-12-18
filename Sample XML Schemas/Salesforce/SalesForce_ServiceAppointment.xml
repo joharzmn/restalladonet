@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="ServiceAppointment" Description="Service Appointment" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="OwnerId" DataType="String" Path="OwnerId" MaxLength="0" Key="false" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="AppointmentNumber" DataType="String" Path="AppointmentNumber" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="LastViewedDate" DataType="DateTime" Path="LastViewedDate" MaxLength="0" Key="false" />
+    <Column Name="LastReferencedDate" DataType="DateTime" Path="LastReferencedDate" MaxLength="0" Key="false" />
+    <Column Name="ParentRecordId" DataType="String" Path="ParentRecordId" MaxLength="0" Key="false" />
+    <Column Name="ParentRecordType" DataType="String" Path="ParentRecordType" MaxLength="0" Key="false" />
+    <Column Name="AccountId" DataType="String" Path="AccountId" MaxLength="0" Key="false" />
+    <Column Name="WorkTypeId" DataType="String" Path="WorkTypeId" MaxLength="0" Key="false" />
+    <Column Name="ContactId" DataType="String" Path="ContactId" MaxLength="0" Key="false" />
+    <Column Name="Street" DataType="String" Path="Street" MaxLength="0" Key="false" />
+    <Column Name="City" DataType="String" Path="City" MaxLength="0" Key="false" />
+    <Column Name="State" DataType="String" Path="State" MaxLength="0" Key="false" />
+    <Column Name="PostalCode" DataType="String" Path="PostalCode" MaxLength="0" Key="false" />
+    <Column Name="Country" DataType="String" Path="Country" MaxLength="0" Key="false" />
+    <Column Name="Latitude" DataType="Double" Path="Latitude" MaxLength="0" Key="false" />
+    <Column Name="Longitude" DataType="Double" Path="Longitude" MaxLength="0" Key="false" />
+    <Column Name="GeocodeAccuracy" DataType="String" Path="GeocodeAccuracy" MaxLength="0" Key="false" />
+    <Column Name="Address" DataType="String" Path="Address" MaxLength="0" Key="false" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Column Name="EarliestStartTime" DataType="DateTime" Path="EarliestStartTime" MaxLength="0" Key="false" />
+    <Column Name="DueDate" DataType="DateTime" Path="DueDate" MaxLength="0" Key="false" />
+    <Column Name="Duration" DataType="Double" Path="Duration" MaxLength="0" Key="false" />
+    <Column Name="ArrivalWindowStartTime" DataType="DateTime" Path="ArrivalWindowStartTime" MaxLength="0" Key="false" />
+    <Column Name="ArrivalWindowEndTime" DataType="DateTime" Path="ArrivalWindowEndTime" MaxLength="0" Key="false" />
+    <Column Name="Status" DataType="String" Path="Status" MaxLength="0" Key="false" />
+    <Column Name="SchedStartTime" DataType="DateTime" Path="SchedStartTime" MaxLength="0" Key="false" />
+    <Column Name="SchedEndTime" DataType="DateTime" Path="SchedEndTime" MaxLength="0" Key="false" />
+    <Column Name="ActualStartTime" DataType="DateTime" Path="ActualStartTime" MaxLength="0" Key="false" />
+    <Column Name="ActualEndTime" DataType="DateTime" Path="ActualEndTime" MaxLength="0" Key="false" />
+    <Column Name="ActualDuration" DataType="Double" Path="ActualDuration" MaxLength="0" Key="false" />
+    <Column Name="DurationType" DataType="String" Path="DurationType" MaxLength="0" Key="false" />
+    <Column Name="DurationInMinutes" DataType="Double" Path="DurationInMinutes" MaxLength="0" Key="false" />
+    <Column Name="ServiceTerritoryId" DataType="String" Path="ServiceTerritoryId" MaxLength="0" Key="false" />
+    <Column Name="Subject" DataType="String" Path="Subject" MaxLength="0" Key="false" />
+    <Column Name="ParentRecordStatusCategory" DataType="String" Path="ParentRecordStatusCategory" MaxLength="0" Key="false" />
+    <Column Name="StatusCategory" DataType="String" Path="StatusCategory" MaxLength="0" Key="false" />
+    <Column Name="ServiceNote" DataType="String" Path="ServiceNote" MaxLength="0" Key="false" />
+    <Column Name="AppointmentType" DataType="String" Path="AppointmentType" MaxLength="0" Key="false" />
+    <Column Name="Email" DataType="String" Path="Email" MaxLength="0" Key="false" />
+    <Column Name="Phone" DataType="String" Path="Phone" MaxLength="0" Key="false" />
+    <Column Name="CancellationReason" DataType="String" Path="CancellationReason" MaxLength="0" Key="false" />
+    <Column Name="AdditionalInformation" DataType="String" Path="AdditionalInformation" MaxLength="0" Key="false" />
+    <Column Name="Comments" DataType="String" Path="Comments" MaxLength="0" Key="false" />
+    <Column Name="EngagementChannelTypeId" DataType="String" Path="EngagementChannelTypeId" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From ServiceAppointment LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

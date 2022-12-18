@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="Idea" Description="Idea" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="Title" DataType="String" Path="Title" MaxLength="0" Key="false" />
+    <Column Name="RecordTypeId" DataType="String" Path="RecordTypeId" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="LastViewedDate" DataType="DateTime" Path="LastViewedDate" MaxLength="0" Key="false" />
+    <Column Name="LastReferencedDate" DataType="DateTime" Path="LastReferencedDate" MaxLength="0" Key="false" />
+    <Column Name="CommunityId" DataType="String" Path="CommunityId" MaxLength="0" Key="false" />
+    <Column Name="Body" DataType="String" Path="Body" MaxLength="0" Key="false" />
+    <Column Name="NumComments" DataType="String" Path="NumComments" MaxLength="0" Key="false" />
+    <Column Name="VoteScore" DataType="Double" Path="VoteScore" MaxLength="0" Key="false" />
+    <Column Name="VoteTotal" DataType="Double" Path="VoteTotal" MaxLength="0" Key="false" />
+    <Column Name="Categories" DataType="String" Path="Categories" MaxLength="0" Key="false" />
+    <Column Name="Status" DataType="String" Path="Status" MaxLength="0" Key="false" />
+    <Column Name="LastCommentDate" DataType="DateTime" Path="LastCommentDate" MaxLength="0" Key="false" />
+    <Column Name="LastCommentId" DataType="String" Path="LastCommentId" MaxLength="0" Key="false" />
+    <Column Name="ParentIdeaId" DataType="String" Path="ParentIdeaId" MaxLength="0" Key="false" />
+    <Column Name="IsHtml" DataType="Boolean" Path="IsHtml" MaxLength="0" Key="false" />
+    <Column Name="IsMerged" DataType="Boolean" Path="IsMerged" MaxLength="0" Key="false" />
+    <Column Name="CreatorFullPhotoUrl" DataType="String" Path="CreatorFullPhotoUrl" MaxLength="0" Key="false" />
+    <Column Name="CreatorSmallPhotoUrl" DataType="String" Path="CreatorSmallPhotoUrl" MaxLength="0" Key="false" />
+    <Column Name="CreatorName" DataType="String" Path="CreatorName" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From Idea LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

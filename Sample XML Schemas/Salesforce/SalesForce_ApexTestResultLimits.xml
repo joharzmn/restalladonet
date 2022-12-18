@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="ApexTestResultLimits" Description="Apex Test Result Limit" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="ApexTestResultId" DataType="String" Path="ApexTestResultId" MaxLength="0" Key="false" />
+    <Column Name="Soql" DataType="String" Path="Soql" MaxLength="0" Key="false" />
+    <Column Name="QueryRows" DataType="String" Path="QueryRows" MaxLength="0" Key="false" />
+    <Column Name="Sosl" DataType="String" Path="Sosl" MaxLength="0" Key="false" />
+    <Column Name="Dml" DataType="String" Path="Dml" MaxLength="0" Key="false" />
+    <Column Name="DmlRows" DataType="String" Path="DmlRows" MaxLength="0" Key="false" />
+    <Column Name="Cpu" DataType="String" Path="Cpu" MaxLength="0" Key="false" />
+    <Column Name="Callouts" DataType="String" Path="Callouts" MaxLength="0" Key="false" />
+    <Column Name="Email" DataType="String" Path="Email" MaxLength="0" Key="false" />
+    <Column Name="AsyncCalls" DataType="String" Path="AsyncCalls" MaxLength="0" Key="false" />
+    <Column Name="MobilePush" DataType="String" Path="MobilePush" MaxLength="0" Key="false" />
+    <Column Name="LimitContext" DataType="String" Path="LimitContext" MaxLength="0" Key="false" />
+    <Column Name="LimitExceptions" DataType="String" Path="LimitExceptions" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From ApexTestResultLimits LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

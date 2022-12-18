@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="AuthProvider" Description="Auth. Provider" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="ProviderType" DataType="String" Path="ProviderType" MaxLength="0" Key="false" />
+    <Column Name="FriendlyName" DataType="String" Path="FriendlyName" MaxLength="0" Key="false" />
+    <Column Name="DeveloperName" DataType="String" Path="DeveloperName" MaxLength="0" Key="false" />
+    <Column Name="RegistrationHandlerId" DataType="String" Path="RegistrationHandlerId" MaxLength="0" Key="false" />
+    <Column Name="ExecutionUserId" DataType="String" Path="ExecutionUserId" MaxLength="0" Key="false" />
+    <Column Name="ConsumerKey" DataType="String" Path="ConsumerKey" MaxLength="0" Key="false" />
+    <Column Name="ConsumerSecret" DataType="String" Path="ConsumerSecret" MaxLength="0" Key="false" />
+    <Column Name="ErrorUrl" DataType="String" Path="ErrorUrl" MaxLength="0" Key="false" />
+    <Column Name="AuthorizeUrl" DataType="String" Path="AuthorizeUrl" MaxLength="0" Key="false" />
+    <Column Name="TokenUrl" DataType="String" Path="TokenUrl" MaxLength="0" Key="false" />
+    <Column Name="UserInfoUrl" DataType="String" Path="UserInfoUrl" MaxLength="0" Key="false" />
+    <Column Name="DefaultScopes" DataType="String" Path="DefaultScopes" MaxLength="0" Key="false" />
+    <Column Name="IdTokenIssuer" DataType="String" Path="IdTokenIssuer" MaxLength="0" Key="false" />
+    <Column Name="OptionsSendAccessTokenInHeader" DataType="Boolean" Path="OptionsSendAccessTokenInHeader" MaxLength="0" Key="false" />
+    <Column Name="OptionsSendClientCredentialsInHeader" DataType="Boolean" Path="OptionsSendClientCredentialsInHeader" MaxLength="0" Key="false" />
+    <Column Name="OptionsIncludeOrgIdInId" DataType="Boolean" Path="OptionsIncludeOrgIdInId" MaxLength="0" Key="false" />
+    <Column Name="OptionsSendSecretInApis" DataType="Boolean" Path="OptionsSendSecretInApis" MaxLength="0" Key="false" />
+    <Column Name="IconUrl" DataType="String" Path="IconUrl" MaxLength="0" Key="false" />
+    <Column Name="LogoutUrl" DataType="String" Path="LogoutUrl" MaxLength="0" Key="false" />
+    <Column Name="PluginId" DataType="String" Path="PluginId" MaxLength="0" Key="false" />
+    <Column Name="CustomMetadataTypeRecord" DataType="String" Path="CustomMetadataTypeRecord" MaxLength="0" Key="false" />
+    <Column Name="EcKey" DataType="String" Path="EcKey" MaxLength="0" Key="false" />
+    <Column Name="AppleTeam" DataType="String" Path="AppleTeam" MaxLength="0" Key="false" />
+    <Column Name="SsoKickoffUrl" DataType="String" Path="SsoKickoffUrl" MaxLength="0" Key="false" />
+    <Column Name="LinkKickoffUrl" DataType="String" Path="LinkKickoffUrl" MaxLength="0" Key="false" />
+    <Column Name="OauthKickoffUrl" DataType="String" Path="OauthKickoffUrl" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From AuthProvider LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

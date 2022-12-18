@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="OpportunityChangeEvent" Description="Opportunity Change Event" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="ReplayId" DataType="String" Path="ReplayId" MaxLength="0" Key="false" />
+    <Column Name="ChangeEventHeader" DataType="String" Path="ChangeEventHeader" MaxLength="0" Key="false" />
+    <Column Name="AccountId" DataType="String" Path="AccountId" MaxLength="0" Key="false" />
+    <Column Name="IsPrivate" DataType="Boolean" Path="IsPrivate" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Column Name="StageName" DataType="String" Path="StageName" MaxLength="0" Key="false" />
+    <Column Name="Amount" DataType="String" Path="Amount" MaxLength="0" Key="false" />
+    <Column Name="Probability" DataType="String" Path="Probability" MaxLength="0" Key="false" />
+    <Column Name="ExpectedRevenue" DataType="String" Path="ExpectedRevenue" MaxLength="0" Key="false" />
+    <Column Name="TotalOpportunityQuantity" DataType="Double" Path="TotalOpportunityQuantity" MaxLength="0" Key="false" />
+    <Column Name="CloseDate" DataType="String" Path="CloseDate" MaxLength="0" Key="false" />
+    <Column Name="Type" DataType="String" Path="Type" MaxLength="0" Key="false" />
+    <Column Name="NextStep" DataType="String" Path="NextStep" MaxLength="0" Key="false" />
+    <Column Name="LeadSource" DataType="String" Path="LeadSource" MaxLength="0" Key="false" />
+    <Column Name="IsClosed" DataType="Boolean" Path="IsClosed" MaxLength="0" Key="false" />
+    <Column Name="IsWon" DataType="Boolean" Path="IsWon" MaxLength="0" Key="false" />
+    <Column Name="ForecastCategory" DataType="String" Path="ForecastCategory" MaxLength="0" Key="false" />
+    <Column Name="ForecastCategoryName" DataType="String" Path="ForecastCategoryName" MaxLength="0" Key="false" />
+    <Column Name="CampaignId" DataType="String" Path="CampaignId" MaxLength="0" Key="false" />
+    <Column Name="HasOpportunityLineItem" DataType="Boolean" Path="HasOpportunityLineItem" MaxLength="0" Key="false" />
+    <Column Name="Pricebook2Id" DataType="String" Path="Pricebook2Id" MaxLength="0" Key="false" />
+    <Column Name="OwnerId" DataType="String" Path="OwnerId" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="LastStageChangeDate" DataType="DateTime" Path="LastStageChangeDate" MaxLength="0" Key="false" />
+    <Column Name="ContactId" DataType="String" Path="ContactId" MaxLength="0" Key="false" />
+    <Column Name="LastAmountChangedHistoryId" DataType="String" Path="LastAmountChangedHistoryId" MaxLength="0" Key="false" />
+    <Column Name="LastCloseDateChangedHistoryId" DataType="String" Path="LastCloseDateChangedHistoryId" MaxLength="0" Key="false" />
+    <Column Name="DeliveryInstallationStatus__c" DataType="String" Path="DeliveryInstallationStatus__c" MaxLength="0" Key="false" />
+    <Column Name="TrackingNumber__c" DataType="String" Path="TrackingNumber__c" MaxLength="0" Key="false" />
+    <Column Name="OrderNumber__c" DataType="String" Path="OrderNumber__c" MaxLength="0" Key="false" />
+    <Column Name="CurrentGenerators__c" DataType="String" Path="CurrentGenerators__c" MaxLength="0" Key="false" />
+    <Column Name="MainCompetitors__c" DataType="String" Path="MainCompetitors__c" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From OpportunityChangeEvent LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

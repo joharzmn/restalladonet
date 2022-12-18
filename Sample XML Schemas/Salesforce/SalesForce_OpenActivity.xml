@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="OpenActivity" Description="Open Activity" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="AccountId" DataType="String" Path="AccountId" MaxLength="0" Key="false" />
+    <Column Name="WhoId" DataType="String" Path="WhoId" MaxLength="0" Key="false" />
+    <Column Name="WhatId" DataType="String" Path="WhatId" MaxLength="0" Key="false" />
+    <Column Name="Subject" DataType="String" Path="Subject" MaxLength="0" Key="false" />
+    <Column Name="IsTask" DataType="Boolean" Path="IsTask" MaxLength="0" Key="false" />
+    <Column Name="ActivityDate" DataType="String" Path="ActivityDate" MaxLength="0" Key="false" />
+    <Column Name="ActivityDateTime" DataType="DateTime" Path="ActivityDateTime" MaxLength="0" Key="false" />
+    <Column Name="OwnerId" DataType="String" Path="OwnerId" MaxLength="0" Key="false" />
+    <Column Name="Status" DataType="String" Path="Status" MaxLength="0" Key="false" />
+    <Column Name="Priority" DataType="String" Path="Priority" MaxLength="0" Key="false" />
+    <Column Name="IsHighPriority" DataType="Boolean" Path="IsHighPriority" MaxLength="0" Key="false" />
+    <Column Name="ActivityType" DataType="String" Path="ActivityType" MaxLength="0" Key="false" />
+    <Column Name="IsClosed" DataType="Boolean" Path="IsClosed" MaxLength="0" Key="false" />
+    <Column Name="IsAllDayEvent" DataType="Boolean" Path="IsAllDayEvent" MaxLength="0" Key="false" />
+    <Column Name="IsVisibleInSelfService" DataType="Boolean" Path="IsVisibleInSelfService" MaxLength="0" Key="false" />
+    <Column Name="DurationInMinutes" DataType="String" Path="DurationInMinutes" MaxLength="0" Key="false" />
+    <Column Name="Location" DataType="String" Path="Location" MaxLength="0" Key="false" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="CallDurationInSeconds" DataType="String" Path="CallDurationInSeconds" MaxLength="0" Key="false" />
+    <Column Name="CallType" DataType="String" Path="CallType" MaxLength="0" Key="false" />
+    <Column Name="CallDisposition" DataType="String" Path="CallDisposition" MaxLength="0" Key="false" />
+    <Column Name="CallObject" DataType="String" Path="CallObject" MaxLength="0" Key="false" />
+    <Column Name="ReminderDateTime" DataType="DateTime" Path="ReminderDateTime" MaxLength="0" Key="false" />
+    <Column Name="IsReminderSet" DataType="Boolean" Path="IsReminderSet" MaxLength="0" Key="false" />
+    <Column Name="EndDateTime" DataType="DateTime" Path="EndDateTime" MaxLength="0" Key="false" />
+    <Column Name="StartDateTime" DataType="DateTime" Path="StartDateTime" MaxLength="0" Key="false" />
+    <Column Name="ActivitySubtype" DataType="String" Path="ActivitySubtype" MaxLength="0" Key="false" />
+    <Column Name="AlternateDetailId" DataType="String" Path="AlternateDetailId" MaxLength="0" Key="false" />
+    <Column Name="CompletedDateTime" DataType="DateTime" Path="CompletedDateTime" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From OpenActivity LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

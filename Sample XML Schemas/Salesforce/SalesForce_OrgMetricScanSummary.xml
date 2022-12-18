@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="OrgMetricScanSummary" Description="Org Metric Scan Summary" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="OrgMetricId" DataType="String" Path="OrgMetricId" MaxLength="0" Key="false" />
+    <Column Name="Status" DataType="String" Path="Status" MaxLength="0" Key="false" />
+    <Column Name="ImplementationEffort" DataType="String" Path="ImplementationEffort" MaxLength="0" Key="false" />
+    <Column Name="ErrorMessage" DataType="String" Path="ErrorMessage" MaxLength="0" Key="false" />
+    <Column Name="ItemCount" DataType="String" Path="ItemCount" MaxLength="0" Key="false" />
+    <Column Name="FeatureLimit" DataType="String" Path="FeatureLimit" MaxLength="0" Key="false" />
+    <Column Name="Unit" DataType="String" Path="Unit" MaxLength="0" Key="false" />
+    <Column Name="PercentUsage" DataType="String" Path="PercentUsage" MaxLength="0" Key="false" />
+    <Column Name="ScanDate" DataType="DateTime" Path="ScanDate" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From OrgMetricScanSummary LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

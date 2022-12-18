@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="AIInsightReason" Description="AI Insight Reason" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="AiInsightValueId" DataType="String" Path="AiInsightValueId" MaxLength="0" Key="false" />
+    <Column Name="Intensity" DataType="Double" Path="Intensity" MaxLength="0" Key="false" />
+    <Column Name="Contribution" DataType="Double" Path="Contribution" MaxLength="0" Key="false" />
+    <Column Name="Variance" DataType="Double" Path="Variance" MaxLength="0" Key="false" />
+    <Column Name="FieldName" DataType="String" Path="FieldName" MaxLength="0" Key="false" />
+    <Column Name="Operator" DataType="String" Path="Operator" MaxLength="0" Key="false" />
+    <Column Name="FieldValue" DataType="String" Path="FieldValue" MaxLength="0" Key="false" />
+    <Column Name="FeatureValue" DataType="String" Path="FeatureValue" MaxLength="0" Key="false" />
+    <Column Name="FeatureType" DataType="String" Path="FeatureType" MaxLength="0" Key="false" />
+    <Column Name="RelatedInsightReasonId" DataType="String" Path="RelatedInsightReasonId" MaxLength="0" Key="false" />
+    <Column Name="SortOrder" DataType="String" Path="SortOrder" MaxLength="0" Key="false" />
+    <Column Name="ReasonLabelKey" DataType="String" Path="ReasonLabelKey" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From AIInsightReason LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

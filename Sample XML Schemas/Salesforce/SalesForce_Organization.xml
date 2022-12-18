@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="Organization" Description="Organization" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="Division" DataType="String" Path="Division" MaxLength="0" Key="false" />
+    <Column Name="Street" DataType="String" Path="Street" MaxLength="0" Key="false" />
+    <Column Name="City" DataType="String" Path="City" MaxLength="0" Key="false" />
+    <Column Name="State" DataType="String" Path="State" MaxLength="0" Key="false" />
+    <Column Name="PostalCode" DataType="String" Path="PostalCode" MaxLength="0" Key="false" />
+    <Column Name="Country" DataType="String" Path="Country" MaxLength="0" Key="false" />
+    <Column Name="Latitude" DataType="Double" Path="Latitude" MaxLength="0" Key="false" />
+    <Column Name="Longitude" DataType="Double" Path="Longitude" MaxLength="0" Key="false" />
+    <Column Name="GeocodeAccuracy" DataType="String" Path="GeocodeAccuracy" MaxLength="0" Key="false" />
+    <Column Name="Address" DataType="String" Path="Address" MaxLength="0" Key="false" />
+    <Column Name="Phone" DataType="String" Path="Phone" MaxLength="0" Key="false" />
+    <Column Name="Fax" DataType="String" Path="Fax" MaxLength="0" Key="false" />
+    <Column Name="PrimaryContact" DataType="String" Path="PrimaryContact" MaxLength="0" Key="false" />
+    <Column Name="DefaultLocaleSidKey" DataType="String" Path="DefaultLocaleSidKey" MaxLength="0" Key="false" />
+    <Column Name="TimeZoneSidKey" DataType="String" Path="TimeZoneSidKey" MaxLength="0" Key="false" />
+    <Column Name="LanguageLocaleKey" DataType="String" Path="LanguageLocaleKey" MaxLength="0" Key="false" />
+    <Column Name="ReceivesInfoEmails" DataType="Boolean" Path="ReceivesInfoEmails" MaxLength="0" Key="false" />
+    <Column Name="ReceivesAdminInfoEmails" DataType="Boolean" Path="ReceivesAdminInfoEmails" MaxLength="0" Key="false" />
+    <Column Name="PreferencesRequireOpportunityProducts" DataType="Boolean" Path="PreferencesRequireOpportunityProducts" MaxLength="0" Key="false" />
+    <Column Name="PreferencesTransactionSecurityPolicy" DataType="Boolean" Path="PreferencesTransactionSecurityPolicy" MaxLength="0" Key="false" />
+    <Column Name="PreferencesTerminateOldestSession" DataType="Boolean" Path="PreferencesTerminateOldestSession" MaxLength="0" Key="false" />
+    <Column Name="PreferencesConsentManagementEnabled" DataType="Boolean" Path="PreferencesConsentManagementEnabled" MaxLength="0" Key="false" />
+    <Column Name="PreferencesAutoSelectIndividualOnMerge" DataType="Boolean" Path="PreferencesAutoSelectIndividualOnMerge" MaxLength="0" Key="false" />
+    <Column Name="PreferencesLightningLoginEnabled" DataType="Boolean" Path="PreferencesLightningLoginEnabled" MaxLength="0" Key="false" />
+    <Column Name="PreferencesOnlyLLPermUserAllowed" DataType="Boolean" Path="PreferencesOnlyLLPermUserAllowed" MaxLength="0" Key="false" />
+    <Column Name="FiscalYearStartMonth" DataType="String" Path="FiscalYearStartMonth" MaxLength="0" Key="false" />
+    <Column Name="UsesStartDateAsFiscalYearName" DataType="Boolean" Path="UsesStartDateAsFiscalYearName" MaxLength="0" Key="false" />
+    <Column Name="DefaultAccountAccess" DataType="String" Path="DefaultAccountAccess" MaxLength="0" Key="false" />
+    <Column Name="DefaultContactAccess" DataType="String" Path="DefaultContactAccess" MaxLength="0" Key="false" />
+    <Column Name="DefaultOpportunityAccess" DataType="String" Path="DefaultOpportunityAccess" MaxLength="0" Key="false" />
+    <Column Name="DefaultLeadAccess" DataType="String" Path="DefaultLeadAccess" MaxLength="0" Key="false" />
+    <Column Name="DefaultCaseAccess" DataType="String" Path="DefaultCaseAccess" MaxLength="0" Key="false" />
+    <Column Name="DefaultCalendarAccess" DataType="String" Path="DefaultCalendarAccess" MaxLength="0" Key="false" />
+    <Column Name="DefaultPricebookAccess" DataType="String" Path="DefaultPricebookAccess" MaxLength="0" Key="false" />
+    <Column Name="DefaultCampaignAccess" DataType="String" Path="DefaultCampaignAccess" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="ComplianceBccEmail" DataType="String" Path="ComplianceBccEmail" MaxLength="0" Key="false" />
+    <Column Name="UiSkin" DataType="String" Path="UiSkin" MaxLength="0" Key="false" />
+    <Column Name="SignupCountryIsoCode" DataType="String" Path="SignupCountryIsoCode" MaxLength="0" Key="false" />
+    <Column Name="TrialExpirationDate" DataType="DateTime" Path="TrialExpirationDate" MaxLength="0" Key="false" />
+    <Column Name="NumKnowledgeService" DataType="String" Path="NumKnowledgeService" MaxLength="0" Key="false" />
+    <Column Name="OrganizationType" DataType="String" Path="OrganizationType" MaxLength="0" Key="false" />
+    <Column Name="NamespacePrefix" DataType="String" Path="NamespacePrefix" MaxLength="0" Key="false" />
+    <Column Name="InstanceName" DataType="String" Path="InstanceName" MaxLength="0" Key="false" />
+    <Column Name="IsSandbox" DataType="Boolean" Path="IsSandbox" MaxLength="0" Key="false" />
+    <Column Name="WebToCaseDefaultOrigin" DataType="String" Path="WebToCaseDefaultOrigin" MaxLength="0" Key="false" />
+    <Column Name="MonthlyPageViewsUsed" DataType="String" Path="MonthlyPageViewsUsed" MaxLength="0" Key="false" />
+    <Column Name="MonthlyPageViewsEntitlement" DataType="String" Path="MonthlyPageViewsEntitlement" MaxLength="0" Key="false" />
+    <Column Name="IsReadOnly" DataType="Boolean" Path="IsReadOnly" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From Organization LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

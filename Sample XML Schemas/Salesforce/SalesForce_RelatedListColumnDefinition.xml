@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="RelatedListColumnDefinition" Description="Related List Column Definition" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="DurableId" DataType="String" Path="DurableId" MaxLength="0" Key="false" />
+    <Column Name="RelatedListDefinitionId" DataType="String" Path="RelatedListDefinitionId" MaxLength="0" Key="false" />
+    <Column Name="FieldDefinitionId" DataType="String" Path="FieldDefinitionId" MaxLength="0" Key="false" />
+    <Column Name="Label" DataType="String" Path="Label" MaxLength="0" Key="false" />
+    <Column Name="ColumnSoql" DataType="String" Path="ColumnSoql" MaxLength="0" Key="false" />
+    <Column Name="Alias" DataType="String" Path="Alias" MaxLength="0" Key="false" />
+    <Column Name="LookupId" DataType="String" Path="LookupId" MaxLength="0" Key="false" />
+    <Column Name="IsDescribable" DataType="Boolean" Path="IsDescribable" MaxLength="0" Key="false" />
+    <Column Name="IsDefault" DataType="Boolean" Path="IsDefault" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From RelatedListColumnDefinition LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

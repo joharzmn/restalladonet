@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="AuthorizationFormConsentChangeEvent" Description="Authorization Form Consent Change Event" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="ReplayId" DataType="String" Path="ReplayId" MaxLength="0" Key="false" />
+    <Column Name="ChangeEventHeader" DataType="String" Path="ChangeEventHeader" MaxLength="0" Key="false" />
+    <Column Name="OwnerId" DataType="String" Path="OwnerId" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="ConsentGiverId" DataType="String" Path="ConsentGiverId" MaxLength="0" Key="false" />
+    <Column Name="AuthorizationFormTextId" DataType="String" Path="AuthorizationFormTextId" MaxLength="0" Key="false" />
+    <Column Name="ConsentCapturedSource" DataType="String" Path="ConsentCapturedSource" MaxLength="0" Key="false" />
+    <Column Name="ConsentCapturedSourceType" DataType="String" Path="ConsentCapturedSourceType" MaxLength="0" Key="false" />
+    <Column Name="ConsentCapturedDateTime" DataType="DateTime" Path="ConsentCapturedDateTime" MaxLength="0" Key="false" />
+    <Column Name="Status" DataType="String" Path="Status" MaxLength="0" Key="false" />
+    <Column Name="DocumentVersionId" DataType="String" Path="DocumentVersionId" MaxLength="0" Key="false" />
+    <Column Name="RelatedRecordId" DataType="String" Path="RelatedRecordId" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From AuthorizationFormConsentChangeEvent LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

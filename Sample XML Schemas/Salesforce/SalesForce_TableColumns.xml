@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TableDefination TableName="TableColumns" Schema="SalesForce" Description="This is to Get Table Columns From SalesForce" Filters="TableName">
+    <Column Name="Name" DataType="String" Path="name" MaxLength="0" Key="false" />
+    <Column Name="Length" DataType="Int32" Path="length" MaxLength="0" Key="false" />
+    <Column Name="Label" DataType="String" Path="label" MaxLength="0" Key="false" />
+    <Column Name="NameField" DataType="String" Path="nameField" MaxLength="0" Key="false" />
+    <Column Name="Calculated" DataType="Boolean" Path="calculated" MaxLength="0" Key="false" />
+    <Column Name="custom" DataType="Boolean" Path="custom" MaxLength="0" Key="false" />
+    <Column Name="Digits" DataType="Int32" Path="digits" MaxLength="0" Key="false" />
+    <Column Name="Filterable" DataType="Boolean" Path="filterable" MaxLength="0" Key="false" />
+    <Column Name="IdLookup" DataType="Boolean" Path="idLookup" MaxLength="0" Key="false" />
+    <Column Name="Type" DataType="String" Path="type" MaxLength="0" Key="false" />
+    <Column Name="TableName" DataType="String" Path="TableName" MaxLength="0" Key="false" Reference="sys_Tables.Name" />
+    <Column Name="RelationshipName" DataType="String" Path="relationshipName" MaxLength="0" Key="false" />
+    <Column Name="PicklistValues" DataType="String" Path="picklistValues" MaxLength="0" Key="false" />
+    <Column Name="ReferenceTo" DataType="String" Path="referenceTo" MaxLength="0" Key="false" />
+    <Input Column="TableName" Reference="sys_Tables.Name" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.Url]*/services/data/v56.0/sobjects/{TableName}/describe" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.fields</RepeatElement>
+</EntityDescriptor>

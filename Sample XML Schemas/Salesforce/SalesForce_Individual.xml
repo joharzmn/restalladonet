@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="Individual" Description="Individual" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="OwnerId" DataType="String" Path="OwnerId" MaxLength="0" Key="false" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="LastName" DataType="String" Path="LastName" MaxLength="0" Key="false" />
+    <Column Name="FirstName" DataType="String" Path="FirstName" MaxLength="0" Key="false" />
+    <Column Name="Salutation" DataType="String" Path="Salutation" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="HasOptedOutTracking" DataType="Boolean" Path="HasOptedOutTracking" MaxLength="0" Key="false" />
+    <Column Name="HasOptedOutProfiling" DataType="Boolean" Path="HasOptedOutProfiling" MaxLength="0" Key="false" />
+    <Column Name="HasOptedOutProcessing" DataType="Boolean" Path="HasOptedOutProcessing" MaxLength="0" Key="false" />
+    <Column Name="HasOptedOutSolicit" DataType="Boolean" Path="HasOptedOutSolicit" MaxLength="0" Key="false" />
+    <Column Name="ShouldForget" DataType="Boolean" Path="ShouldForget" MaxLength="0" Key="false" />
+    <Column Name="SendIndividualData" DataType="Boolean" Path="SendIndividualData" MaxLength="0" Key="false" />
+    <Column Name="CanStorePiiElsewhere" DataType="Boolean" Path="CanStorePiiElsewhere" MaxLength="0" Key="false" />
+    <Column Name="HasOptedOutGeoTracking" DataType="Boolean" Path="HasOptedOutGeoTracking" MaxLength="0" Key="false" />
+    <Column Name="BirthDate" DataType="String" Path="BirthDate" MaxLength="0" Key="false" />
+    <Column Name="DeathDate" DataType="String" Path="DeathDate" MaxLength="0" Key="false" />
+    <Column Name="ConvictionsCount" DataType="String" Path="ConvictionsCount" MaxLength="0" Key="false" />
+    <Column Name="ChildrenCount" DataType="String" Path="ChildrenCount" MaxLength="0" Key="false" />
+    <Column Name="MilitaryService" DataType="String" Path="MilitaryService" MaxLength="0" Key="false" />
+    <Column Name="IsHomeOwner" DataType="Boolean" Path="IsHomeOwner" MaxLength="0" Key="false" />
+    <Column Name="Occupation" DataType="String" Path="Occupation" MaxLength="0" Key="false" />
+    <Column Name="Website" DataType="String" Path="Website" MaxLength="0" Key="false" />
+    <Column Name="IndividualsAge" DataType="String" Path="IndividualsAge" MaxLength="0" Key="false" />
+    <Column Name="LastViewedDate" DataType="DateTime" Path="LastViewedDate" MaxLength="0" Key="false" />
+    <Column Name="MasterRecordId" DataType="String" Path="MasterRecordId" MaxLength="0" Key="false" />
+    <Column Name="ConsumerCreditScore" DataType="String" Path="ConsumerCreditScore" MaxLength="0" Key="false" />
+    <Column Name="ConsumerCreditScoreProviderName" DataType="String" Path="ConsumerCreditScoreProviderName" MaxLength="0" Key="false" />
+    <Column Name="InfluencerRating" DataType="String" Path="InfluencerRating" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From Individual LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

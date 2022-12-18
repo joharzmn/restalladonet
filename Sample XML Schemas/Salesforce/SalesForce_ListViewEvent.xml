@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="ListViewEvent" Description="List View Event" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="EventIdentifier" DataType="String" Path="EventIdentifier" MaxLength="0" Key="false" />
+    <Column Name="UserId" DataType="String" Path="UserId" MaxLength="0" Key="false" />
+    <Column Name="Username" DataType="String" Path="Username" MaxLength="0" Key="false" />
+    <Column Name="EventDate" DataType="DateTime" Path="EventDate" MaxLength="0" Key="false" />
+    <Column Name="RelatedEventIdentifier" DataType="String" Path="RelatedEventIdentifier" MaxLength="0" Key="false" />
+    <Column Name="LoginHistoryId" DataType="String" Path="LoginHistoryId" MaxLength="0" Key="false" />
+    <Column Name="RowsProcessed" DataType="Double" Path="RowsProcessed" MaxLength="0" Key="false" />
+    <Column Name="QueriedEntities" DataType="String" Path="QueriedEntities" MaxLength="0" Key="false" />
+    <Column Name="PolicyId" DataType="String" Path="PolicyId" MaxLength="0" Key="false" />
+    <Column Name="PolicyOutcome" DataType="String" Path="PolicyOutcome" MaxLength="0" Key="false" />
+    <Column Name="EvaluationTime" DataType="Double" Path="EvaluationTime" MaxLength="0" Key="false" />
+    <Column Name="SessionKey" DataType="String" Path="SessionKey" MaxLength="0" Key="false" />
+    <Column Name="LoginKey" DataType="String" Path="LoginKey" MaxLength="0" Key="false" />
+    <Column Name="SessionLevel" DataType="String" Path="SessionLevel" MaxLength="0" Key="false" />
+    <Column Name="SourceIp" DataType="String" Path="SourceIp" MaxLength="0" Key="false" />
+    <Column Name="ListViewId" DataType="String" Path="ListViewId" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="DeveloperName" DataType="String" Path="DeveloperName" MaxLength="0" Key="false" />
+    <Column Name="EventSource" DataType="String" Path="EventSource" MaxLength="0" Key="false" />
+    <Column Name="OwnerId" DataType="String" Path="OwnerId" MaxLength="0" Key="false" />
+    <Column Name="Scope" DataType="String" Path="Scope" MaxLength="0" Key="false" />
+    <Column Name="OrderBy" DataType="String" Path="OrderBy" MaxLength="0" Key="false" />
+    <Column Name="ColumnHeaders" DataType="String" Path="ColumnHeaders" MaxLength="0" Key="false" />
+    <Column Name="NumberOfColumns" DataType="String" Path="NumberOfColumns" MaxLength="0" Key="false" />
+    <Column Name="FilterCriteria" DataType="String" Path="FilterCriteria" MaxLength="0" Key="false" />
+    <Column Name="Records" DataType="String" Path="Records" MaxLength="0" Key="false" />
+    <Column Name="AppName" DataType="String" Path="AppName" MaxLength="0" Key="false" />
+    <Column Name="ExecutionIdentifier" DataType="String" Path="ExecutionIdentifier" MaxLength="0" Key="false" />
+    <Column Name="Sequence" DataType="String" Path="Sequence" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From ListViewEvent LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="ActiveFeatureLicenseMetric" Description="Active Feature License Metric" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="MetricsDate" DataType="String" Path="MetricsDate" MaxLength="0" Key="false" />
+    <Column Name="FeatureType" DataType="String" Path="FeatureType" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="AssignedUserCount" DataType="String" Path="AssignedUserCount" MaxLength="0" Key="false" />
+    <Column Name="ActiveUserCount" DataType="String" Path="ActiveUserCount" MaxLength="0" Key="false" />
+    <Column Name="TotalLicenseCount" DataType="String" Path="TotalLicenseCount" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From ActiveFeatureLicenseMetric LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

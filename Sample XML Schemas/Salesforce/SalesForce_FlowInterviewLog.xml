@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="FlowInterviewLog" Description="Flow Interview Log" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="OwnerId" DataType="String" Path="OwnerId" MaxLength="0" Key="false" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="FlowDeveloperName" DataType="String" Path="FlowDeveloperName" MaxLength="0" Key="false" />
+    <Column Name="FlowInterviewGuid" DataType="String" Path="FlowInterviewGuid" MaxLength="0" Key="false" />
+    <Column Name="FlowVersionNumber" DataType="String" Path="FlowVersionNumber" MaxLength="0" Key="false" />
+    <Column Name="InterviewStartTimestamp" DataType="DateTime" Path="InterviewStartTimestamp" MaxLength="0" Key="false" />
+    <Column Name="InterviewEndTimestamp" DataType="DateTime" Path="InterviewEndTimestamp" MaxLength="0" Key="false" />
+    <Column Name="InterviewDurationInMinutes" DataType="Double" Path="InterviewDurationInMinutes" MaxLength="0" Key="false" />
+    <Column Name="InterviewStatus" DataType="String" Path="InterviewStatus" MaxLength="0" Key="false" />
+    <Column Name="FlowNamespace" DataType="String" Path="FlowNamespace" MaxLength="0" Key="false" />
+    <Column Name="FlowLabel" DataType="String" Path="FlowLabel" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From FlowInterviewLog LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

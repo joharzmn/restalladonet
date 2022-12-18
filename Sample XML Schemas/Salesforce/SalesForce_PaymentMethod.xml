@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="PaymentMethod" Description="Payment Method" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="ImplementorType" DataType="String" Path="ImplementorType" MaxLength="0" Key="false" />
+    <Column Name="AccountId" DataType="String" Path="AccountId" MaxLength="0" Key="false" />
+    <Column Name="NickName" DataType="String" Path="NickName" MaxLength="0" Key="false" />
+    <Column Name="CompanyName" DataType="String" Path="CompanyName" MaxLength="0" Key="false" />
+    <Column Name="Status" DataType="String" Path="Status" MaxLength="0" Key="false" />
+    <Column Name="Comments" DataType="String" Path="Comments" MaxLength="0" Key="false" />
+    <Column Name="IsAutoPayEnabled" DataType="Boolean" Path="IsAutoPayEnabled" MaxLength="0" Key="false" />
+    <Column Name="PaymentMethodStreet" DataType="String" Path="PaymentMethodStreet" MaxLength="0" Key="false" />
+    <Column Name="PaymentMethodCity" DataType="String" Path="PaymentMethodCity" MaxLength="0" Key="false" />
+    <Column Name="PaymentMethodState" DataType="String" Path="PaymentMethodState" MaxLength="0" Key="false" />
+    <Column Name="PaymentMethodPostalCode" DataType="String" Path="PaymentMethodPostalCode" MaxLength="0" Key="false" />
+    <Column Name="PaymentMethodCountry" DataType="String" Path="PaymentMethodCountry" MaxLength="0" Key="false" />
+    <Column Name="PaymentMethodLatitude" DataType="Double" Path="PaymentMethodLatitude" MaxLength="0" Key="false" />
+    <Column Name="PaymentMethodLongitude" DataType="Double" Path="PaymentMethodLongitude" MaxLength="0" Key="false" />
+    <Column Name="PaymentMethodGeocodeAccuracy" DataType="String" Path="PaymentMethodGeocodeAccuracy" MaxLength="0" Key="false" />
+    <Column Name="PaymentMethodAddress" DataType="String" Path="PaymentMethodAddress" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From PaymentMethod LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

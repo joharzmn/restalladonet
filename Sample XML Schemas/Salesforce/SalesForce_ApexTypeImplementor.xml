@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="ApexTypeImplementor" Description="Apex Type Implementor" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="DurableId" DataType="String" Path="DurableId" MaxLength="0" Key="false" />
+    <Column Name="ApexClassId" DataType="String" Path="ApexClassId" MaxLength="0" Key="false" />
+    <Column Name="ClassName" DataType="String" Path="ClassName" MaxLength="0" Key="false" />
+    <Column Name="ClassNamespacePrefix" DataType="String" Path="ClassNamespacePrefix" MaxLength="0" Key="false" />
+    <Column Name="IsConcrete" DataType="Boolean" Path="IsConcrete" MaxLength="0" Key="false" />
+    <Column Name="InterfaceApexClassId" DataType="String" Path="InterfaceApexClassId" MaxLength="0" Key="false" />
+    <Column Name="InterfaceName" DataType="String" Path="InterfaceName" MaxLength="0" Key="false" />
+    <Column Name="InterfaceNamespacePrefix" DataType="String" Path="InterfaceNamespacePrefix" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From ApexTypeImplementor LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

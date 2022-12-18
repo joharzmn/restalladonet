@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="ContentWorkspacePermission" Description="Library Permission" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="Type" DataType="String" Path="Type" MaxLength="0" Key="false" />
+    <Column Name="PermissionsManageWorkspace" DataType="Boolean" Path="PermissionsManageWorkspace" MaxLength="0" Key="false" />
+    <Column Name="PermissionsAddContent" DataType="Boolean" Path="PermissionsAddContent" MaxLength="0" Key="false" />
+    <Column Name="PermissionsAddContentOBO" DataType="Boolean" Path="PermissionsAddContentOBO" MaxLength="0" Key="false" />
+    <Column Name="PermissionsArchiveContent" DataType="Boolean" Path="PermissionsArchiveContent" MaxLength="0" Key="false" />
+    <Column Name="PermissionsDeleteContent" DataType="Boolean" Path="PermissionsDeleteContent" MaxLength="0" Key="false" />
+    <Column Name="PermissionsFeatureContent" DataType="Boolean" Path="PermissionsFeatureContent" MaxLength="0" Key="false" />
+    <Column Name="PermissionsViewComments" DataType="Boolean" Path="PermissionsViewComments" MaxLength="0" Key="false" />
+    <Column Name="PermissionsAddComment" DataType="Boolean" Path="PermissionsAddComment" MaxLength="0" Key="false" />
+    <Column Name="PermissionsModifyComments" DataType="Boolean" Path="PermissionsModifyComments" MaxLength="0" Key="false" />
+    <Column Name="PermissionsTagContent" DataType="Boolean" Path="PermissionsTagContent" MaxLength="0" Key="false" />
+    <Column Name="PermissionsDeliverContent" DataType="Boolean" Path="PermissionsDeliverContent" MaxLength="0" Key="false" />
+    <Column Name="PermissionsChatterSharing" DataType="Boolean" Path="PermissionsChatterSharing" MaxLength="0" Key="false" />
+    <Column Name="PermissionsOrganizeFileAndFolder" DataType="Boolean" Path="PermissionsOrganizeFileAndFolder" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From ContentWorkspacePermission LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

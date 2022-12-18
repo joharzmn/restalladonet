@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="ContentDistribution" Description="Content Delivery" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="OwnerId" DataType="String" Path="OwnerId" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="ContentVersionId" DataType="String" Path="ContentVersionId" MaxLength="0" Key="false" />
+    <Column Name="ContentDocumentId" DataType="String" Path="ContentDocumentId" MaxLength="0" Key="false" />
+    <Column Name="RelatedRecordId" DataType="String" Path="RelatedRecordId" MaxLength="0" Key="false" />
+    <Column Name="PreferencesAllowPDFDownload" DataType="Boolean" Path="PreferencesAllowPDFDownload" MaxLength="0" Key="false" />
+    <Column Name="PreferencesAllowOriginalDownload" DataType="Boolean" Path="PreferencesAllowOriginalDownload" MaxLength="0" Key="false" />
+    <Column Name="PreferencesPasswordRequired" DataType="Boolean" Path="PreferencesPasswordRequired" MaxLength="0" Key="false" />
+    <Column Name="PreferencesNotifyOnVisit" DataType="Boolean" Path="PreferencesNotifyOnVisit" MaxLength="0" Key="false" />
+    <Column Name="PreferencesLinkLatestVersion" DataType="Boolean" Path="PreferencesLinkLatestVersion" MaxLength="0" Key="false" />
+    <Column Name="PreferencesAllowViewInBrowser" DataType="Boolean" Path="PreferencesAllowViewInBrowser" MaxLength="0" Key="false" />
+    <Column Name="PreferencesExpires" DataType="Boolean" Path="PreferencesExpires" MaxLength="0" Key="false" />
+    <Column Name="PreferencesNotifyRndtnComplete" DataType="Boolean" Path="PreferencesNotifyRndtnComplete" MaxLength="0" Key="false" />
+    <Column Name="ExpiryDate" DataType="DateTime" Path="ExpiryDate" MaxLength="0" Key="false" />
+    <Column Name="Password" DataType="String" Path="Password" MaxLength="0" Key="false" />
+    <Column Name="ViewCount" DataType="String" Path="ViewCount" MaxLength="0" Key="false" />
+    <Column Name="FirstViewDate" DataType="DateTime" Path="FirstViewDate" MaxLength="0" Key="false" />
+    <Column Name="LastViewDate" DataType="DateTime" Path="LastViewDate" MaxLength="0" Key="false" />
+    <Column Name="DistributionPublicUrl" DataType="String" Path="DistributionPublicUrl" MaxLength="0" Key="false" />
+    <Column Name="ContentDownloadUrl" DataType="String" Path="ContentDownloadUrl" MaxLength="0" Key="false" />
+    <Column Name="PdfDownloadUrl" DataType="String" Path="PdfDownloadUrl" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From ContentDistribution LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

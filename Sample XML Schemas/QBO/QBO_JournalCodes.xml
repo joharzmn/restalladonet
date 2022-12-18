@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="JournalCodes" Description="QuickBooks JournalCodes" Schema="QBO">
+    <Column Name="SyncToken" DataType="Int64" Path="SyncToken" MaxLength="0" Key="false" />
+    <Column Name="domain" DataType="String" Path="domain" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="sparse" DataType="Boolean" Path="sparse" MaxLength="0" Key="false" />
+    <Column Name="Active" DataType="Boolean" Path="Active" MaxLength="0" Key="false" />
+    <Column Name="MetaData_CreateTime" DataType="DateTime" Path="MetaData.CreateTime" MaxLength="0" Key="false" />
+    <Column Name="MetaData_LastUpdatedTime" DataType="DateTime" Path="MetaData.LastUpdatedTime" MaxLength="0" Key="false" />
+    <Column Name="Type" DataType="String" Path="Type" MaxLength="0" Key="false" />
+    <Column Name="Id" DataType="Int64" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Method="POST" ContentType="application/text">
+      <Url>^[Connection.URL]^/v3/company/^[Token.realmid]^/query?minorversion=65</Url>
+      <Body>select * from journalcode</Body>
+    </DataAction>
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.QueryResponse.JournalCode</RepeatElement>
+</EntityDescriptor>

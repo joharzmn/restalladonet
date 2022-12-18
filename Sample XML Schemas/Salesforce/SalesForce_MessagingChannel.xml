@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="MessagingChannel" Description="Messaging Channel" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="DeveloperName" DataType="String" Path="DeveloperName" MaxLength="0" Key="false" />
+    <Column Name="Language" DataType="String" Path="Language" MaxLength="0" Key="false" />
+    <Column Name="MasterLabel" DataType="String" Path="MasterLabel" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Column Name="MessageType" DataType="String" Path="MessageType" MaxLength="0" Key="false" />
+    <Column Name="MessagingPlatformKey" DataType="String" Path="MessagingPlatformKey" MaxLength="0" Key="false" />
+    <Column Name="IsoCountryCode" DataType="String" Path="IsoCountryCode" MaxLength="0" Key="false" />
+    <Column Name="IsActive" DataType="Boolean" Path="IsActive" MaxLength="0" Key="false" />
+    <Column Name="RoutingType" DataType="String" Path="RoutingType" MaxLength="0" Key="false" />
+    <Column Name="TargetQueueId" DataType="String" Path="TargetQueueId" MaxLength="0" Key="false" />
+    <Column Name="ConsentType" DataType="String" Path="ConsentType" MaxLength="0" Key="false" />
+    <Column Name="OptInPrompt" DataType="String" Path="OptInPrompt" MaxLength="0" Key="false" />
+    <Column Name="DoubleOptInPrompt" DataType="String" Path="DoubleOptInPrompt" MaxLength="0" Key="false" />
+    <Column Name="IsRequireDoubleOptIn" DataType="Boolean" Path="IsRequireDoubleOptIn" MaxLength="0" Key="false" />
+    <Column Name="InitialResponse" DataType="String" Path="InitialResponse" MaxLength="0" Key="false" />
+    <Column Name="EngagedResponse" DataType="String" Path="EngagedResponse" MaxLength="0" Key="false" />
+    <Column Name="ConversationEndResponse" DataType="String" Path="ConversationEndResponse" MaxLength="0" Key="false" />
+    <Column Name="OfflineAgentsResponse" DataType="String" Path="OfflineAgentsResponse" MaxLength="0" Key="false" />
+    <Column Name="OutsideBusinessHoursResponse" DataType="String" Path="OutsideBusinessHoursResponse" MaxLength="0" Key="false" />
+    <Column Name="BusinessHoursId" DataType="String" Path="BusinessHoursId" MaxLength="0" Key="false" />
+    <Column Name="IsRestrictedToBusinessHours" DataType="Boolean" Path="IsRestrictedToBusinessHours" MaxLength="0" Key="false" />
+    <Column Name="LinkingPreference" DataType="String" Path="LinkingPreference" MaxLength="0" Key="false" />
+    <Column Name="IsLinkedRecordOpenedAsSubTab" DataType="Boolean" Path="IsLinkedRecordOpenedAsSubTab" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From MessagingChannel LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

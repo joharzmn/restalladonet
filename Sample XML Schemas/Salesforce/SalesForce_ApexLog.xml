@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="ApexLog" Description="Apex Debug Log" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="LogUserId" DataType="String" Path="LogUserId" MaxLength="0" Key="false" />
+    <Column Name="LogLength" DataType="String" Path="LogLength" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="Request" DataType="String" Path="Request" MaxLength="0" Key="false" />
+    <Column Name="Operation" DataType="String" Path="Operation" MaxLength="0" Key="false" />
+    <Column Name="Application" DataType="String" Path="Application" MaxLength="0" Key="false" />
+    <Column Name="Status" DataType="String" Path="Status" MaxLength="0" Key="false" />
+    <Column Name="DurationMilliseconds" DataType="String" Path="DurationMilliseconds" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="StartTime" DataType="DateTime" Path="StartTime" MaxLength="0" Key="false" />
+    <Column Name="Location" DataType="String" Path="Location" MaxLength="0" Key="false" />
+    <Column Name="RequestIdentifier" DataType="String" Path="RequestIdentifier" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From ApexLog LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

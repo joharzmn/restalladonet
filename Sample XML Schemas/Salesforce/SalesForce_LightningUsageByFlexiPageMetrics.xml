@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="LightningUsageByFlexiPageMetrics" Description="Lightning Usage By FlexiPage Metrics" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="MetricsDate" DataType="String" Path="MetricsDate" MaxLength="0" Key="false" />
+    <Column Name="FlexiPageType" DataType="String" Path="FlexiPageType" MaxLength="0" Key="false" />
+    <Column Name="FlexiPageNameOrId" DataType="String" Path="FlexiPageNameOrId" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="RecordCountEPT" DataType="String" Path="RecordCountEPT" MaxLength="0" Key="false" />
+    <Column Name="TotalCount" DataType="String" Path="TotalCount" MaxLength="0" Key="false" />
+    <Column Name="MedianEPT" DataType="String" Path="MedianEPT" MaxLength="0" Key="false" />
+    <Column Name="SumEPT" DataType="String" Path="SumEPT" MaxLength="0" Key="false" />
+    <Column Name="EptBinUnder3" DataType="String" Path="EptBinUnder3" MaxLength="0" Key="false" />
+    <Column Name="EptBin3To5" DataType="String" Path="EptBin3To5" MaxLength="0" Key="false" />
+    <Column Name="EptBin5To8" DataType="String" Path="EptBin5To8" MaxLength="0" Key="false" />
+    <Column Name="EptBin8To10" DataType="String" Path="EptBin8To10" MaxLength="0" Key="false" />
+    <Column Name="EptBinOver10" DataType="String" Path="EptBinOver10" MaxLength="0" Key="false" />
+    <Column Name="CoresBinUnder2" DataType="String" Path="CoresBinUnder2" MaxLength="0" Key="false" />
+    <Column Name="CoresBin2To4" DataType="String" Path="CoresBin2To4" MaxLength="0" Key="false" />
+    <Column Name="CoresBin4To8" DataType="String" Path="CoresBin4To8" MaxLength="0" Key="false" />
+    <Column Name="CoresBinOver8" DataType="String" Path="CoresBinOver8" MaxLength="0" Key="false" />
+    <Column Name="DownlinkBinUnder3" DataType="String" Path="DownlinkBinUnder3" MaxLength="0" Key="false" />
+    <Column Name="DownlinkBin3To5" DataType="String" Path="DownlinkBin3To5" MaxLength="0" Key="false" />
+    <Column Name="DownlinkBin5To8" DataType="String" Path="DownlinkBin5To8" MaxLength="0" Key="false" />
+    <Column Name="DownlinkBin8To10" DataType="String" Path="DownlinkBin8To10" MaxLength="0" Key="false" />
+    <Column Name="DownlinkBinOver10" DataType="String" Path="DownlinkBinOver10" MaxLength="0" Key="false" />
+    <Column Name="RttBinUnder50" DataType="String" Path="RttBinUnder50" MaxLength="0" Key="false" />
+    <Column Name="RttBin50To150" DataType="String" Path="RttBin50To150" MaxLength="0" Key="false" />
+    <Column Name="RttBinOver150" DataType="String" Path="RttBinOver150" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From LightningUsageByFlexiPageMetrics LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

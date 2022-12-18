@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="Employees" Description="QuickBooks Employees" Schema="QBO">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="SyncToken" DataType="String" Path="SyncToken" MaxLength="0" Key="false" />
+    <Column Name="domain" DataType="String" Path="domain" MaxLength="0" Key="false" />
+    <Column Name="DisplayName" DataType="String" Path="DisplayName" MaxLength="0" Key="false" />
+    <Column Name="MiddleName" DataType="String" Path="MiddleName" MaxLength="0" Key="false" />
+    <Column Name="FamilyName" DataType="String" Path="FamilyName" MaxLength="0" Key="false" />
+    <Column Name="Active" DataType="Boolean" Path="Active" MaxLength="0" Key="false" />
+    <Column Name="PrintOnCheckName" DataType="String" Path="PrintOnCheckName" MaxLength="0" Key="false" />
+    <Column Name="sparse" DataType="Boolean" Path="sparse" MaxLength="0" Key="false" />
+    <Column Name="BillableTime" DataType="Boolean" Path="BillableTime" MaxLength="0" Key="false" />
+    <Column Name="GivenName" DataType="String" Path="GivenName" MaxLength="0" Key="false" />
+    <Column Name="MetaData.CreateTime" DataType="DateTime" Path="MetaData.CreateTime" MaxLength="0" Key="false" />
+    <Column Name="MetaData.LastUpdatedTime" DataType="DateTime" Path="MetaData.LastUpdatedTime" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select">
+      <Url>^[Connection.URL]^/v3/company/^[Token.realmid]^/query?minorversion=65&amp;amp;query=select * from Employee</Url>
+    </DataAction>
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.QueryResponse.Employee</RepeatElement>
+</EntityDescriptor>

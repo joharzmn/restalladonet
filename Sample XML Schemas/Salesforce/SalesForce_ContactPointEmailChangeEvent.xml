@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="ContactPointEmailChangeEvent" Description="Contact Point Email Change Event" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="ReplayId" DataType="String" Path="ReplayId" MaxLength="0" Key="false" />
+    <Column Name="ChangeEventHeader" DataType="String" Path="ChangeEventHeader" MaxLength="0" Key="false" />
+    <Column Name="OwnerId" DataType="String" Path="OwnerId" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="ParentId" DataType="String" Path="ParentId" MaxLength="0" Key="false" />
+    <Column Name="ActiveFromDate" DataType="String" Path="ActiveFromDate" MaxLength="0" Key="false" />
+    <Column Name="ActiveToDate" DataType="String" Path="ActiveToDate" MaxLength="0" Key="false" />
+    <Column Name="BestTimeToContactEndTime" DataType="String" Path="BestTimeToContactEndTime" MaxLength="0" Key="false" />
+    <Column Name="BestTimeToContactStartTime" DataType="String" Path="BestTimeToContactStartTime" MaxLength="0" Key="false" />
+    <Column Name="BestTimeToContactTimezone" DataType="String" Path="BestTimeToContactTimezone" MaxLength="0" Key="false" />
+    <Column Name="IsPrimary" DataType="Boolean" Path="IsPrimary" MaxLength="0" Key="false" />
+    <Column Name="EmailAddress" DataType="String" Path="EmailAddress" MaxLength="0" Key="false" />
+    <Column Name="EmailMailBox" DataType="String" Path="EmailMailBox" MaxLength="0" Key="false" />
+    <Column Name="EmailDomain" DataType="String" Path="EmailDomain" MaxLength="0" Key="false" />
+    <Column Name="EmailLatestBounceDateTime" DataType="DateTime" Path="EmailLatestBounceDateTime" MaxLength="0" Key="false" />
+    <Column Name="EmailLatestBounceReasonText" DataType="String" Path="EmailLatestBounceReasonText" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From ContactPointEmailChangeEvent LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

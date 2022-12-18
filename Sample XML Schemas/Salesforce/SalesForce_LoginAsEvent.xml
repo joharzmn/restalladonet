@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="LoginAsEvent" Description="LoginAs Event" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="EventIdentifier" DataType="String" Path="EventIdentifier" MaxLength="0" Key="false" />
+    <Column Name="UserId" DataType="String" Path="UserId" MaxLength="0" Key="false" />
+    <Column Name="Username" DataType="String" Path="Username" MaxLength="0" Key="false" />
+    <Column Name="EventDate" DataType="DateTime" Path="EventDate" MaxLength="0" Key="false" />
+    <Column Name="SessionKey" DataType="String" Path="SessionKey" MaxLength="0" Key="false" />
+    <Column Name="LoginKey" DataType="String" Path="LoginKey" MaxLength="0" Key="false" />
+    <Column Name="SessionLevel" DataType="String" Path="SessionLevel" MaxLength="0" Key="false" />
+    <Column Name="SourceIp" DataType="String" Path="SourceIp" MaxLength="0" Key="false" />
+    <Column Name="UserType" DataType="String" Path="UserType" MaxLength="0" Key="false" />
+    <Column Name="LoginHistoryId" DataType="String" Path="LoginHistoryId" MaxLength="0" Key="false" />
+    <Column Name="Application" DataType="String" Path="Application" MaxLength="0" Key="false" />
+    <Column Name="Browser" DataType="String" Path="Browser" MaxLength="0" Key="false" />
+    <Column Name="LoginType" DataType="String" Path="LoginType" MaxLength="0" Key="false" />
+    <Column Name="Platform" DataType="String" Path="Platform" MaxLength="0" Key="false" />
+    <Column Name="DelegatedUsername" DataType="String" Path="DelegatedUsername" MaxLength="0" Key="false" />
+    <Column Name="DelegatedOrganizationId" DataType="String" Path="DelegatedOrganizationId" MaxLength="0" Key="false" />
+    <Column Name="TargetUrl" DataType="String" Path="TargetUrl" MaxLength="0" Key="false" />
+    <Column Name="LoginAsCategory" DataType="String" Path="LoginAsCategory" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From LoginAsEvent LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

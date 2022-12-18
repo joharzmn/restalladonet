@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="PaymentGatewayLog" Description="Payment Gateway Log" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="PaymentGatewayLogNumber" DataType="String" Path="PaymentGatewayLogNumber" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="ReferencedEntityId" DataType="String" Path="ReferencedEntityId" MaxLength="0" Key="false" />
+    <Column Name="InteractionType" DataType="String" Path="InteractionType" MaxLength="0" Key="false" />
+    <Column Name="SfRefNumber" DataType="String" Path="SfRefNumber" MaxLength="0" Key="false" />
+    <Column Name="InteractionStatus" DataType="String" Path="InteractionStatus" MaxLength="0" Key="false" />
+    <Column Name="GatewayAuthCode" DataType="String" Path="GatewayAuthCode" MaxLength="0" Key="false" />
+    <Column Name="GatewayRefNumber" DataType="String" Path="GatewayRefNumber" MaxLength="0" Key="false" />
+    <Column Name="SfResultCode" DataType="String" Path="SfResultCode" MaxLength="0" Key="false" />
+    <Column Name="GatewayResultCode" DataType="String" Path="GatewayResultCode" MaxLength="0" Key="false" />
+    <Column Name="GatewayResultCodeDescription" DataType="String" Path="GatewayResultCodeDescription" MaxLength="0" Key="false" />
+    <Column Name="GatewayDate" DataType="DateTime" Path="GatewayDate" MaxLength="0" Key="false" />
+    <Column Name="GatewayMessage" DataType="String" Path="GatewayMessage" MaxLength="0" Key="false" />
+    <Column Name="GatewayAvsCode" DataType="String" Path="GatewayAvsCode" MaxLength="0" Key="false" />
+    <Column Name="PaymentGatewayId" DataType="String" Path="PaymentGatewayId" MaxLength="0" Key="false" />
+    <Column Name="IsNotification" DataType="String" Path="IsNotification" MaxLength="0" Key="false" />
+    <Column Name="Request" DataType="String" Path="Request" MaxLength="0" Key="false" />
+    <Column Name="Response" DataType="String" Path="Response" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From PaymentGatewayLog LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

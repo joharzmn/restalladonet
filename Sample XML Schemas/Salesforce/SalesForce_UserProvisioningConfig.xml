@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="UserProvisioningConfig" Description="User Provisioning Config" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="DeveloperName" DataType="String" Path="DeveloperName" MaxLength="0" Key="false" />
+    <Column Name="Language" DataType="String" Path="Language" MaxLength="0" Key="false" />
+    <Column Name="MasterLabel" DataType="String" Path="MasterLabel" MaxLength="0" Key="false" />
+    <Column Name="NamespacePrefix" DataType="String" Path="NamespacePrefix" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="ConnectedAppId" DataType="String" Path="ConnectedAppId" MaxLength="0" Key="false" />
+    <Column Name="Notes" DataType="String" Path="Notes" MaxLength="0" Key="false" />
+    <Column Name="Enabled" DataType="Boolean" Path="Enabled" MaxLength="0" Key="false" />
+    <Column Name="ApprovalRequired" DataType="String" Path="ApprovalRequired" MaxLength="0" Key="false" />
+    <Column Name="UserAccountMapping" DataType="String" Path="UserAccountMapping" MaxLength="0" Key="false" />
+    <Column Name="EnabledOperations" DataType="String" Path="EnabledOperations" MaxLength="0" Key="false" />
+    <Column Name="OnUpdateAttributes" DataType="String" Path="OnUpdateAttributes" MaxLength="0" Key="false" />
+    <Column Name="LastReconDateTime" DataType="DateTime" Path="LastReconDateTime" MaxLength="0" Key="false" />
+    <Column Name="NamedCredentialId" DataType="String" Path="NamedCredentialId" MaxLength="0" Key="false" />
+    <Column Name="ReconFilter" DataType="String" Path="ReconFilter" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From UserProvisioningConfig LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

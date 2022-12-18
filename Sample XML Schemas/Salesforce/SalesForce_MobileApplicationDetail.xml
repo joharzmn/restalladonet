@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="MobileApplicationDetail" Description="Mobile Application Detail" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="DeveloperName" DataType="String" Path="DeveloperName" MaxLength="0" Key="false" />
+    <Column Name="Language" DataType="String" Path="Language" MaxLength="0" Key="false" />
+    <Column Name="MasterLabel" DataType="String" Path="MasterLabel" MaxLength="0" Key="false" />
+    <Column Name="NamespacePrefix" DataType="String" Path="NamespacePrefix" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedDate" DataType="DateTime" Path="LastModifiedDate" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="Version" DataType="String" Path="Version" MaxLength="0" Key="false" />
+    <Column Name="DevicePlatform" DataType="String" Path="DevicePlatform" MaxLength="0" Key="false" />
+    <Column Name="MinimumOsVersion" DataType="String" Path="MinimumOsVersion" MaxLength="0" Key="false" />
+    <Column Name="DeviceType" DataType="String" Path="DeviceType" MaxLength="0" Key="false" />
+    <Column Name="ApplicationFileLength" DataType="String" Path="ApplicationFileLength" MaxLength="0" Key="false" />
+    <Column Name="ApplicationIcon" DataType="String" Path="ApplicationIcon" MaxLength="0" Key="false" />
+    <Column Name="IsEnterpriseApp" DataType="Boolean" Path="IsEnterpriseApp" MaxLength="0" Key="false" />
+    <Column Name="AppInstallUrl" DataType="String" Path="AppInstallUrl" MaxLength="0" Key="false" />
+    <Column Name="ApplicationBundleIdentifier" DataType="String" Path="ApplicationBundleIdentifier" MaxLength="0" Key="false" />
+    <Column Name="ApplicationBinaryFileName" DataType="String" Path="ApplicationBinaryFileName" MaxLength="0" Key="false" />
+    <Column Name="ApplicationIconFileName" DataType="String" Path="ApplicationIconFileName" MaxLength="0" Key="false" />
+    <Column Name="ApplicationBinary" DataType="String" Path="ApplicationBinary" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From MobileApplicationDetail LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

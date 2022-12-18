@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="FeedRevision" Description="Feed Revision" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Column Name="IsDeleted" DataType="Boolean" Path="IsDeleted" MaxLength="0" Key="false" />
+    <Column Name="FeedEntityId" DataType="String" Path="FeedEntityId" MaxLength="0" Key="false" />
+    <Column Name="Revision" DataType="String" Path="Revision" MaxLength="0" Key="false" />
+    <Column Name="Action" DataType="String" Path="Action" MaxLength="0" Key="false" />
+    <Column Name="EditedAttribute" DataType="String" Path="EditedAttribute" MaxLength="0" Key="false" />
+    <Column Name="Value" DataType="String" Path="Value" MaxLength="0" Key="false" />
+    <Column Name="IsValueRichText" DataType="Boolean" Path="IsValueRichText" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From FeedRevision LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

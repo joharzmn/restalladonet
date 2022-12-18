@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="FiscalYearSettings" Description="Fiscal Year Settings" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="PeriodId" DataType="String" Path="PeriodId" MaxLength="0" Key="false" />
+    <Column Name="StartDate" DataType="String" Path="StartDate" MaxLength="0" Key="false" />
+    <Column Name="EndDate" DataType="String" Path="EndDate" MaxLength="0" Key="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
+    <Column Name="IsStandardYear" DataType="Boolean" Path="IsStandardYear" MaxLength="0" Key="false" />
+    <Column Name="YearType" DataType="String" Path="YearType" MaxLength="0" Key="false" />
+    <Column Name="QuarterLabelScheme" DataType="String" Path="QuarterLabelScheme" MaxLength="0" Key="false" />
+    <Column Name="PeriodLabelScheme" DataType="String" Path="PeriodLabelScheme" MaxLength="0" Key="false" />
+    <Column Name="WeekLabelScheme" DataType="String" Path="WeekLabelScheme" MaxLength="0" Key="false" />
+    <Column Name="QuarterPrefix" DataType="String" Path="QuarterPrefix" MaxLength="0" Key="false" />
+    <Column Name="PeriodPrefix" DataType="String" Path="PeriodPrefix" MaxLength="0" Key="false" />
+    <Column Name="WeekStartDay" DataType="String" Path="WeekStartDay" MaxLength="0" Key="false" />
+    <Column Name="Description" DataType="String" Path="Description" MaxLength="0" Key="false" />
+    <Column Name="SystemModstamp" DataType="DateTime" Path="SystemModstamp" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From FiscalYearSettings LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

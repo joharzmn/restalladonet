@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="CronTrigger" Description="Scheduled Jobs" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="CronJobDetailId" DataType="String" Path="CronJobDetailId" MaxLength="0" Key="false" />
+    <Column Name="NextFireTime" DataType="DateTime" Path="NextFireTime" MaxLength="0" Key="false" />
+    <Column Name="PreviousFireTime" DataType="DateTime" Path="PreviousFireTime" MaxLength="0" Key="false" />
+    <Column Name="State" DataType="String" Path="State" MaxLength="0" Key="false" />
+    <Column Name="StartTime" DataType="DateTime" Path="StartTime" MaxLength="0" Key="false" />
+    <Column Name="EndTime" DataType="DateTime" Path="EndTime" MaxLength="0" Key="false" />
+    <Column Name="CronExpression" DataType="String" Path="CronExpression" MaxLength="0" Key="false" />
+    <Column Name="TimeZoneSidKey" DataType="String" Path="TimeZoneSidKey" MaxLength="0" Key="false" />
+    <Column Name="OwnerId" DataType="String" Path="OwnerId" MaxLength="0" Key="false" />
+    <Column Name="LastModifiedById" DataType="String" Path="LastModifiedById" MaxLength="0" Key="false" />
+    <Column Name="CreatedById" DataType="String" Path="CreatedById" MaxLength="0" Key="false" />
+    <Column Name="CreatedDate" DataType="DateTime" Path="CreatedDate" MaxLength="0" Key="false" />
+    <Column Name="TimesTriggered" DataType="String" Path="TimesTriggered" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From CronTrigger LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="IdpEventLog" Description="Identity Provider Event Log" Schema="SalesForce">
+    <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
+    <Column Name="InitiatedBy" DataType="String" Path="InitiatedBy" MaxLength="0" Key="false" />
+    <Column Name="Timestamp" DataType="DateTime" Path="Timestamp" MaxLength="0" Key="false" />
+    <Column Name="ErrorCode" DataType="String" Path="ErrorCode" MaxLength="0" Key="false" />
+    <Column Name="SamlEntityUrl" DataType="String" Path="SamlEntityUrl" MaxLength="0" Key="false" />
+    <Column Name="UserId" DataType="String" Path="UserId" MaxLength="0" Key="false" />
+    <Column Name="AuthSessionId" DataType="String" Path="AuthSessionId" MaxLength="0" Key="false" />
+    <Column Name="SsoType" DataType="String" Path="SsoType" MaxLength="0" Key="false" />
+    <Column Name="AppId" DataType="String" Path="AppId" MaxLength="0" Key="false" />
+    <Column Name="IdentityUsed" DataType="String" Path="IdentityUsed" MaxLength="0" Key="false" />
+    <Column Name="OptionsHasLogoutUrl" DataType="Boolean" Path="OptionsHasLogoutUrl" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Url="*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From IdpEventLog LIMIT 200" />
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.records</RepeatElement>
+</EntityDescriptor>
