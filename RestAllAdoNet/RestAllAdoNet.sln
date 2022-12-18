@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestAll.ADONET", "RestAll.ADONET\RestAll.ADONET.csproj", "{CCCE62AA-9BD6-41F2-88CA-48B583FB9CDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAll.UnitTests", "RestAll.UnitTests\RestAll.UnitTests.csproj", "{60ECBAFD-05EB-4A4A-B102-24747AAE002D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CCCE62AA-9BD6-41F2-88CA-48B583FB9CDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCCE62AA-9BD6-41F2-88CA-48B583FB9CDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCCE62AA-9BD6-41F2-88CA-48B583FB9CDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCCE62AA-9BD6-41F2-88CA-48B583FB9CDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60ECBAFD-05EB-4A4A-B102-24747AAE002D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60ECBAFD-05EB-4A4A-B102-24747AAE002D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60ECBAFD-05EB-4A4A-B102-24747AAE002D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60ECBAFD-05EB-4A4A-B102-24747AAE002D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9E4DCB7C-23AA-48DA-AEDE-E664B3F392D9}
+	EndGlobalSection
+EndGlobal

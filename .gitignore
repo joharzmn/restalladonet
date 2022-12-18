@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/RestAllAdoNet/.vs/RestAllAdoNet
+/RestAllAdoNet/RestAll.ADONET/bin/Debug/net6.0
+/RestAllAdoNet/RestAll.ADONET/obj
+/RestAllAdoNet/RestAll.UnitTests
