@@ -5,5 +5,4 @@
 /RestAllAdoNet/.vs/RestAllAdoNet
 /RestAllAdoNet/RestAll.ADONET/bin/Debug/net6.0
 /RestAllAdoNet/RestAll.ADONET/obj
-/RestAllAdoNet/.vs/ProjectEvaluation
-/RestAllAdoNet/RestAll.UnitTests/obj
+/RestAllAdoNet/RestAll.UnitTests
