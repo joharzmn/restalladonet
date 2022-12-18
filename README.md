@@ -18,3 +18,6 @@ Code tested for Select Operations only
 * Cross Resource entities integrations with Single Database store to any target
 * for example we can write config for two Entities like Salesforce and Quickbooks online and Then Target Data Update or Insert into each other base on query like `Select Name Into [SF].Accounts From [QBO].Accounts`
 * Documentation for Code Usage
+
+## Code Example
+[Examples](https://github.com/shahidjaved/restalladonet/wiki/Code-Examples)
