@@ -24,3 +24,5 @@ Code tested for Select Operations only
 
 ## Documentation
 [Documentation](https://github.com/shahidjaved/restalladonet/wiki/Documentations)
+## Setup
+[Setup](https://github.com/shahidjaved/restalladonet/wiki/Setup)
