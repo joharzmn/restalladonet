@@ -16,7 +16,7 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RESTAll.Data.Models;
-
+#nullable disable
 namespace RESTAll.Data.Extensions
 {
     internal static class RestAllExtensions
@@ -40,7 +40,7 @@ namespace RESTAll.Data.Extensions
 
         public static string GetSqlDataTypeName(this TypeCode typeName)
         {
-            switch (Type.GetTypeCode(Type.GetType(typeName.ToString())))
+            switch (typeName)
             {
                 case TypeCode.Boolean: return "bit";
                 case TypeCode.String: return "nvarchar";
@@ -295,22 +295,22 @@ namespace RESTAll.Data.Extensions
 
         public static LogLevel ToLogLevel(this string logLevel)
         {
-            return (LogLevel)Enum.Parse(typeof(LogLevel), logLevel,true);
+            return (LogLevel)Enum.Parse(typeof(LogLevel), logLevel, true);
         }
 
         public static GrantType ToGrantType(this string grantType)
         {
-            return (GrantType)Enum.Parse(typeof(GrantType), grantType,true);
+            return (GrantType)Enum.Parse(typeof(GrantType), grantType, true);
         }
 
         public static AuthenticationStyle ToAuthenticationType(this string authType)
         {
-            return (AuthenticationStyle)Enum.Parse(typeof(AuthenticationStyle), authType,true);
+            return (AuthenticationStyle)Enum.Parse(typeof(AuthenticationStyle), authType, true);
         }
 
         public static RefreshTokenType ToRefreshTokenType(this string value)
         {
-            return (RefreshTokenType) Enum.Parse(typeof(RefreshTokenType), value, true);
+            return (RefreshTokenType)Enum.Parse(typeof(RefreshTokenType), value, true);
         }
 
         public static Dictionary<string, object> ToDictionary(this string value)
@@ -320,7 +320,7 @@ namespace RESTAll.Data.Extensions
 
         public static ProviderType ToProviderType(this string value)
         {
-            return (ProviderType) Enum.Parse(typeof(ProviderType), value, true);
+            return (ProviderType)Enum.Parse(typeof(ProviderType), value, true);
         }
 
 
@@ -363,11 +363,11 @@ namespace RESTAll.Data.Extensions
             return @this.Replace("&", "&amp;").Replace("<", "&lt;").Replace(">", "&gt;");
         }
 
-        public static void AddDictionary<T, T2>(this Dictionary<T, T2> dic,Dictionary<T,T2> elements)
+        public static void AddDictionary<T, T2>(this Dictionary<T, T2> dic, Dictionary<T, T2> elements)
         {
             foreach (var element in elements)
             {
-                dic.Add(element.Key,element.Value);
+                dic.Add(element.Key, element.Value);
             }
         }
 
@@ -382,9 +382,15 @@ namespace RESTAll.Data.Extensions
             else return source.ToString();
         }
 
+        public static string CleanStringLiteral(this string value)
+        {
+            return value.Remove(0, 1)
+                .Remove(value.Length - 2, 1);
+        }
+
         public static T ToXmlEntity<T>(this string input)
         {
-            
+
             using TextReader tr = new StringReader(input);
             var xmlSerializer = new XmlSerializer(typeof(T));
             var entity = (T)xmlSerializer.Deserialize(tr);

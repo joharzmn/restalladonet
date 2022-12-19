@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-
+#nullable disable
 namespace RESTAll.Data.Exceptions
 {
     public class RESTException : Exception

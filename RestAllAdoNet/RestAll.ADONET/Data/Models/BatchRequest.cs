@@ -27,6 +27,8 @@ namespace RESTAll.Data.Models
         public BatchErrorMap ErrorMapping { set; get; }
         [XmlElement("SuccessMapping")]
         public BatchSuccessMap SuccessMapping { set; get; }
+        [XmlAttribute("Operation")]
+        public StatementType Operation { set; get; }
     }
 
     [Serializable]

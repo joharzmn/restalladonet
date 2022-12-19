@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TSQL;
 using TSQL.Tokens;
-
+#nullable disable
 namespace RESTAll.Parser.Extensions
 {
     public static class TSQLExtentsions

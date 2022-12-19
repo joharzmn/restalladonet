@@ -5,7 +5,7 @@ using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+#nullable disable
 namespace RESTAll.Data.Common
 {
     public class RestAllParameter : DbParameter
@@ -42,7 +42,7 @@ namespace RESTAll.Data.Common
         public override bool IsNullable { get; set; }
         public override string ParameterName { get; set; }
         public override string SourceColumn { get; set; }
-        public override object? Value { get; set; }
+        public override object Value { get; set; }
         public override bool SourceColumnNullMapping { get; set; }
         public override int Size { get; set; }
 

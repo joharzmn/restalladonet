@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+#nullable disable
 namespace RESTAll.Data.Common
 {
     internal static class ADP

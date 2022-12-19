@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
-
+#nullable disable
 namespace RESTAll.Data.Common
 {
     public class RestAllParameterCollection : DbParameterCollection, IDataParameterCollection

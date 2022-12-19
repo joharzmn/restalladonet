@@ -126,15 +126,15 @@ namespace RESTAll.Data.Common
             else if (dataRows.Length > 0 && InsertCommand != null)
             {
                 var insertRows = dataRows.Where(x => x.RowState == DataRowState.Added);
-                var response = _DataUtility.ExecuteBatch(this.InsertCommand.CommandText, dataRows, this.UpdateBatchSize,
+                var response = _DataUtility.ExecuteBatch(this.InsertCommand.CommandText, Models.StatementType.Insert, dataRows, this.UpdateBatchSize,
                     this.InsertCommand.Parameters);
                 foreach (var item in response)
                 {
                     var rowUpdatedEvent =
                         new RestAllDataAdapterRowUpdatedEventArgs(item.DataRow, InsertCommand, StatementType.Insert, tableMapping)
-                            {
-                                RawResponse = item.RawResult
-                            };
+                        {
+                            RawResponse = item.RawResult
+                        };
 
                     if (item.BatchState == BatchState.Error)
                     {

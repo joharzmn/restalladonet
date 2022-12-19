@@ -52,7 +52,47 @@ namespace RESTAll.Data
                 }
             }
 
+            if (statement.Type == TSQLStatementType.Update)
+            {
+                _currentQuery.StatementType = StatementType.Update;
+                VisitUpdateStatement(statement.AsUpdate);
+            }
+
             return _currentQuery;
+        }
+
+        private void VisitUpdate(TSQLUpdateClause updateClause)
+        {
+            var tableName = updateClause.Tokens.FirstOrDefault(x => x.Type == TSQLTokenType.Identifier);
+            _currentQuery.TargetTable = tableName.Text;
+        }
+
+        private void VisitUpdateStatement(TSQLUpdateStatement updateStatement)
+        {
+            VisitUpdate(updateStatement.Update);
+            VisitSet(updateStatement.Set);
+            VisitWhere(updateStatement.Where);
+            _currentQuery.Parameters = _parameters;
+        }
+
+        private void VisitSet(TSQLSetClause setClause)
+        {
+            var filtered = setClause.Tokens.Where(x => !x.IsKeyword(TSQLKeywords.SET) && x.Type != TSQLTokenType.Operator && !x.IsCharacter(TSQLCharacters.Comma));
+            var parameter = new ParameterModel();
+            foreach (var tsqlToken in filtered)
+            {
+                if (tsqlToken.Type == TSQLTokenType.Identifier)
+                {
+                    parameter.DestinationColumn = tsqlToken.Text;
+                }
+                else
+                {
+                    parameter.Identifier = tsqlToken.Text;
+                    parameter.Type = tsqlToken.Type;
+                    _parameters.Add(parameter);
+                    parameter = new ParameterModel();
+                }
+            }
         }
 
         public void VisitInsert(TSQLInsertStatement insertStatement)

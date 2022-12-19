@@ -16,15 +16,14 @@ using RESTAll.Data.Exceptions;
 using RESTAll.Data.Extensions;
 using RESTAll.Data.Models;
 using RESTAll.Data.Providers;
-
+#nullable disable
 namespace RESTAll.Data.Utilities
 {
     public class AuthenticationClient : IAuthenticationClient
     {
         private const string UserAgent = "RESTALL-DataClient";
-        private string TokenRequestEndpointUrl = "";
+        private readonly string TokenRequestEndpointUrl;
         private HttpClient _httpClient;
-        private readonly bool _disposeHttpClient;
         private RestAllConnectionStringBuilder _Builder;
         public Dictionary<string, object> Token { set; get; }
         public bool IsAuthenticated { set; get; }
@@ -172,7 +171,7 @@ namespace RESTAll.Data.Utilities
                 RequestUri = new Uri(tokenRequestEndpointUrl),
                 Content = content
             };
-            request.Headers.UserAgent.ParseAdd("RESTAll-DataClient");
+            request.Headers.UserAgent.ParseAdd(UserAgent);
             HttpResponseMessage responseMessage = await _httpClient.SendAsync(request).ConfigureAwait(false);
             string response = await responseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);
             if (responseMessage.IsSuccessStatusCode)
@@ -238,7 +237,7 @@ namespace RESTAll.Data.Utilities
                 RequestUri = new Uri(tokenRequestEndpointUrl),
                 Content = content
             };
-            request.Headers.UserAgent.ParseAdd("RESTAll-DataClient");
+            request.Headers.UserAgent.ParseAdd(UserAgent);
             HttpResponseMessage responseMessage = await _httpClient.SendAsync(request).ConfigureAwait(false);
             string response = await responseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);
             if (responseMessage.IsSuccessStatusCode)
@@ -309,7 +308,7 @@ namespace RESTAll.Data.Utilities
                     Method = HttpMethod.Post,
                     RequestUri = new Uri(url)
                 };
-                request.Headers.UserAgent.ParseAdd("RESTAll-DataClient");
+                request.Headers.UserAgent.ParseAdd(UserAgent);
                 HttpResponseMessage responseMessage = await _httpClient.SendAsync(request);
                 response = await responseMessage.Content.ReadAsStringAsync();
                 if (!responseMessage.IsSuccessStatusCode)
@@ -371,8 +370,6 @@ namespace RESTAll.Data.Utilities
 
         public void Dispose()
         {
-            if (!_disposeHttpClient)
-                return;
             _httpClient.Dispose();
         }
     }

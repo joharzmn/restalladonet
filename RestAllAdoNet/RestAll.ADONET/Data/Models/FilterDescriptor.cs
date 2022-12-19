@@ -7,10 +7,3 @@ public class FilterDescriptor
     public object Value { set; get; }
     public QueryFilterType FilterType { set; get; }
 }
-
-public enum QueryFilterType
-{
-    Value,
-    Parameter,
-    SubQuery
-}

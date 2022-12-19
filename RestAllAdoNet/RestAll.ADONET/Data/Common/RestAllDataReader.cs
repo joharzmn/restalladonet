@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using RESTAll.Data.Extensions;
 using Convert = System.Convert;
-
+#nullable disable
 namespace RESTAll.Data.Common
 {
     public class RestAllDataReader : DbDataReader, IDataReader
@@ -24,7 +24,7 @@ namespace RESTAll.Data.Common
             _DbConnection = ServiceContainer.ServiceProvider.GetRequiredService<RestAllConnection>();
 
         }
-        private bool _IsOpen;
+
         private const int StartPosition = -1;
         private int _Position = StartPosition;
         public override bool GetBoolean(int ordinal)
@@ -37,7 +37,7 @@ namespace RESTAll.Data.Common
             return Convert.ToByte(_Data.Rows[_Position][ordinal]);
         }
 
-        public override long GetBytes(int ordinal, long dataOffset, byte[]? buffer, int bufferOffset, int length)
+        public override long GetBytes(int ordinal, long dataOffset, byte[] buffer, int bufferOffset, int length)
         {
             throw new NotImplementedException();
         }
@@ -47,7 +47,7 @@ namespace RESTAll.Data.Common
             return Convert.ToChar(_Data.Rows[_Position][ordinal]);
         }
 
-        public override long GetChars(int ordinal, long dataOffset, char[]? buffer, int bufferOffset, int length)
+        public override long GetChars(int ordinal, long dataOffset, char[] buffer, int bufferOffset, int length)
         {
             throw new NotImplementedException();
         }
@@ -165,7 +165,7 @@ namespace RESTAll.Data.Common
             return false;
         }
 
-        public override DataTable? GetSchemaTable()
+        public override DataTable GetSchemaTable()
         {
             var schema = _Data.GetSchemaTable();
 
@@ -197,7 +197,6 @@ namespace RESTAll.Data.Common
 
                 return true;
             }
-            return false;
         }
 
         public override int Depth { get; }

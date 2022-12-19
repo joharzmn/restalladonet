@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using RESTAll.Data.Utilities;
-
+#nullable disable
 namespace RESTAll.Data.Common
 {
     public class RestAllCommand : DbCommand, IDbCommand, IDisposable, ICloneable
@@ -32,7 +32,7 @@ namespace RESTAll.Data.Common
             return 0;
         }
 
-        public override object? ExecuteScalar()
+        public override object ExecuteScalar()
         {
             throw new NotImplementedException();
         }
@@ -46,9 +46,9 @@ namespace RESTAll.Data.Common
         public override int CommandTimeout { get; set; }
         public override CommandType CommandType { get; set; }
         public override UpdateRowSource UpdatedRowSource { get; set; }
-        protected override DbConnection? DbConnection { get; set; }
+        protected override DbConnection DbConnection { get; set; }
         protected override DbParameterCollection DbParameterCollection { get; }
-        protected override DbTransaction? DbTransaction { get; set; }
+        protected override DbTransaction DbTransaction { get; set; }
         public override bool DesignTimeVisible { get; set; }
 
 

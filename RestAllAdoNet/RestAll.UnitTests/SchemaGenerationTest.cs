@@ -9,6 +9,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RESTAll.Data.Common;
 using RESTAll.Data.Models;
 using RESTAll.Data.Providers;
+using StatementType = RESTAll.Data.Models.StatementType;
 
 namespace RestAll.UnitTests
 {
@@ -46,10 +47,29 @@ namespace RestAll.UnitTests
                 Schema = "QBO"
             };
             var metaProvider = new MetaDataProvider(builder, null, null);
-            metaProvider.GenerateBatchRequest(new BatchRequest()
+            var batchList = new List<BatchRequest>
             {
+                new BatchRequest()
+                {
+                    Endpoint = "^[Connection.URL]^/v3/company/^[Token.realmid]^/batch",
+                    RequestFormat = " {\r\n \"bId\":\"^[Input.BatchId]^\",\r\n \"^[Input.Entity]^\":^[Input.Data]^,\r\n \"operation\":\"create\"\r\n }",
+                    RootObject = "BatchItemRequest",
+                    SuccessMapping = new BatchSuccessMap()
+                    {
+                        RootElement = "$.BatchItemResponse",
+                        SuccessElement = "^[Input.Entity]^"
+                    },
+                    ErrorMapping = new BatchErrorMap()
+                    {
+                        RootElement = "$.BatchItemResponse",
+                        ErrorElement = "Fault"
+                    },
+                    Operation = StatementType.Insert
+                },
+                new BatchRequest()
+                {
                 Endpoint = "^[Connection.URL]^/v3/company/^[Token.realmid]^/batch",
-                RequestFormat = " {\r\n \"bId\":\"^[Input.BatchId]^\",\r\n \"^[Input.Entity]^\":^[Input.Data]^,\r\n \"operation\":\"create\"\r\n }",
+                RequestFormat = " {\r\n \"bId\":\"^[Input.BatchId]^\",\r\n \"^[Input.Entity]^\":^[Input.Data]^,\r\n \"operation\":\"update\"\r\n }",
                 RootObject = "BatchItemRequest",
                 SuccessMapping = new BatchSuccessMap()
                 {
@@ -60,8 +80,11 @@ namespace RestAll.UnitTests
                 {
                     RootElement = "$.BatchItemResponse",
                     ErrorElement = "Fault"
-                }
-            });
+                },
+                Operation = StatementType.Update
+            }
+            };
+            metaProvider.GenerateBatchRequest(batchList);
             if (File.Exists($"{builder.Profile}/{builder.Schema}/Config/BatchRequest.xml"))
             {
                 Assert.IsTrue(true);

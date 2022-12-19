@@ -2,6 +2,7 @@
 using System.Data;
 using Microsoft.Extensions.Configuration;
 using RESTAll.Data.Common;
+using RESTAll.Data.Utilities;
 
 class Program
 {
@@ -34,14 +35,19 @@ class Program
 
         DbConnection restConnection = new RestAllConnection(cb);
 
+        var queryParser = new QueryParser();
+        //queryParser.Parse("Update Items Set Name='Hello World Update' where Id=19");
+        
         restConnection.Open();
-        //var connectionSchema = restConnection.GetSchema("Tables");
+        //var connectionSchema = restConnection.GetSchema("Accounts");
         var cmd = restConnection.CreateCommand();
-        //cmd.AddParameter("@Name","Hello World 2");
-        //cmd.AddParameter("@AccountRef",30);
-        //cmd.AddParameter("@UnitPrice",45.3);
-        cmd.CommandText = @"Select * From [QBO].Accounts";
+        ////cmd.AddParameter("@Name","Hello World 2");
+        ////cmd.AddParameter("@AccountRef",30);
+        ////cmd.AddParameter("@UnitPrice",45.3);
+        cmd.CommandText = @"Select * From Items";
+        //cmd.CommandText = @"Update Items Set Name='Hello World New Update',SyncToken=0, ExpenseAccountRef_value=30 where Id=20";
         var dt = new DataTable();
+        //cmd.ExecuteNonQuery();
         dt.Load(cmd.ExecuteReader());
         Console.ReadLine();
         //dt.Columns.Add("Name");

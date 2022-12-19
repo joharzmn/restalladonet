@@ -12,7 +12,7 @@ using RESTAll.Data.Contracts;
 using RESTAll.Data.Extensions;
 using RESTAll.Data.Providers;
 using RESTAll.Data.Utilities;
-
+#nullable disable
 namespace RESTAll.Data.Common
 {
     public class RestAllConnection : DbConnection
@@ -154,7 +154,7 @@ namespace RESTAll.Data.Common
 
         }
 
-        protected override DbProviderFactory? DbProviderFactory => new RestAllDbProviderFactory();
+        protected override DbProviderFactory DbProviderFactory => new RestAllDbProviderFactory();
 
         public override void ChangeDatabase(string databaseName)
         {

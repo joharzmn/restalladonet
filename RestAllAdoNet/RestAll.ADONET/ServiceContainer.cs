@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
-
+#nullable disable
 namespace RESTAll
 {
     public class ServiceContainer

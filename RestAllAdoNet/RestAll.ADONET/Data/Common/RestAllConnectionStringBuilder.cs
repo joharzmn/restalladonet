@@ -10,7 +10,7 @@ using System.Runtime.Intrinsics.Arm;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
-
+#nullable disable
 namespace RESTAll.Data.Common
 {
     public class RestAllConnectionStringBuilder : DbConnectionStringBuilder

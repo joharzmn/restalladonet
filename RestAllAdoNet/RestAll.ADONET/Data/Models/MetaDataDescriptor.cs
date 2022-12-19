@@ -136,9 +136,7 @@ namespace RESTAll.Data.Models
         /// <returns></returns>
         public DataTable GetBaseDataTable()
         {
-            var tableName = "";
-            tableName = !string.IsNullOrEmpty(Table.Schema) ? $"{Table.Schema}.{Table.TableName}" : Table.TableName;
-            var dt = new DataTable(tableName);
+            var dt = new DataTable(Table.TableName);
             var dataColumns = new List<string>();
             foreach (var dataField in Table.Fields)
             {
@@ -177,12 +175,12 @@ namespace RESTAll.Data.Models
         /// </summary>
         [XmlAttribute("Description")]
         public string Description { set; get; }
-        /// <summary>
-        /// Schema of Table Usually it should be setup in connection in future it can be removed but
-        /// currently it is part of logic
-        /// </summary>
-        [XmlAttribute("Schema")]
-        public string Schema { set; get; }
+        ///// <summary>
+        ///// Schema of Table Usually it should be setup in connection in future it can be removed but
+        ///// currently it is part of logic
+        ///// </summary>
+        //[XmlAttribute("Schema")]
+        //public string Schema { set; get; }
         /// <summary>
         /// Filter columns separated by comma (,)
         /// It is definition of which fields can be direct filter to endpoint
@@ -221,6 +219,10 @@ namespace RESTAll.Data.Models
     [Serializable]
     public class DataAction
     {
+        public DataAction()
+        {
+            RequiredColumns = new();
+        }
         /// <summary>
         /// Operation can be Select,Delete,Update,Insert or Merge
         /// </summary>
@@ -234,11 +236,14 @@ namespace RESTAll.Data.Models
         /// </summary>
         [XmlElement("Url")]
         public string Url { set; get; }
+        
         /// <summary>
         /// Http Method like GET,PUT,POST,PATCH,DELETE
         /// </summary>
         [XmlAttribute("Method")]
         public string Method { set; get; }
+        [XmlAttribute("FilterAsElement")]
+        public bool FilterAsElement { set; get; }
         /// <summary>
         /// Request Body if Required
         /// </summary>
@@ -249,5 +254,7 @@ namespace RESTAll.Data.Models
         /// </summary>
         [XmlAttribute("ContentType")]
         public string ContentType { set; get; }
+        [XmlElement("RequiredColumn")]
+        public List<string> RequiredColumns { set; get; }
     }
 }

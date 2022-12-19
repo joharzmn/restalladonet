@@ -6,6 +6,7 @@ public class QueryDescriptor
     {
         Columns = new();
         Filters = new();
+        Parameters = new();
     }
     public string TableName { set; get; }
     public string Schema { set; get; }
@@ -17,14 +18,4 @@ public class QueryDescriptor
     public StatementType StatementType { set; get; }
     public List<ParameterModel> Parameters { set; get; }
     public string TargetTable { set; get; }
-}
-
-public enum StatementType
-{
-    Select,
-    Insert,
-    InsertWithSelect,
-    Update,
-    UpdateWithSelect,
-    Delete
 }

@@ -11,14 +11,14 @@ namespace RESTAll.Data.Logs
     {
 
         public class IgnoreScope
-            : System.IDisposable
+            : IDisposable
         {
-            void System.IDisposable.Dispose()
+            void IDisposable.Dispose()
             {
             }
         }
 
-        System.IDisposable Microsoft.Extensions.Logging.ILogger.BeginScope<TState>(TState state)
+        IDisposable Microsoft.Extensions.Logging.ILogger.BeginScope<TState>(TState state)
         {
             return new IgnoreScope();
         }
@@ -33,8 +33,8 @@ namespace RESTAll.Data.Logs
               Microsoft.Extensions.Logging.LogLevel logLevel
             , Microsoft.Extensions.Logging.EventId eventId
             , TState state
-            , System.Exception exception
-            , System.Func<TState, System.Exception, string> formatter)
+            , Exception exception
+            , Func<TState, Exception, string> formatter)
         { }
 
     }

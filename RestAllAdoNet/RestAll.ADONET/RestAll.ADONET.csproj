@@ -9,7 +9,6 @@
 
   <ItemGroup>
     <PackageReference Include="AntiCSRF" Version="2.0.0" />
-    <PackageReference Include="Argotic.Core" Version="3000.0.3" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />

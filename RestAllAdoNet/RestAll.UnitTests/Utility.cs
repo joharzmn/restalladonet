@@ -26,7 +26,7 @@ public class Utility
         var flatten = obj.Flatten();
         var metaProvider = new MetaDataProvider(_builder, null, null);
         var entityDescriptor = new EntityDescriptor();
-        entityDescriptor.Actions.Add(new DataAction() { Url = url, Operation = "Select",Body = body,Method = "POST",ContentType = "application/text"});
+        entityDescriptor.Actions.Add(new DataAction() { Url = url, Operation = "Select",Body = body,Method = "POST",ContentType = "application/text",RequiredColumns = new List<string>(){"Id", "SyncToken", "ExpenseAccountRef_value" } });
 
         entityDescriptor.Table.Input.Add(new DataInput() { Column = "Id" });
         entityDescriptor.RepeatElement = rootElement;

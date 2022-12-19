@@ -222,7 +222,7 @@ namespace RESTAll.Data.Providers
             var tableName = "";
             if (!string.IsNullOrEmpty(_Builder.Schema))
             {
-                if (queryDescriptor.StatementType == StatementType.Insert)
+                if (queryDescriptor.StatementType == StatementType.Insert || queryDescriptor.StatementType==StatementType.Update)
                 {
                     tableName = queryDescriptor.TargetTable.Replace("[", "").Replace("]", "");
                     xmlSchemaText = _schemaXmls[$"{tableName}".ToLower()];
@@ -282,14 +282,14 @@ namespace RESTAll.Data.Providers
             return templateText.ToXmlEntity<BatchRequest>();
         }
 
-        public BatchRequest GetBatchRequest()
+        public IEnumerable<BatchRequest> GetBatchRequest()
         {
-            return _batchXml.ToXmlEntity<BatchRequest>();
+            return _batchXml.ToXmlEntity<List<BatchRequest>>();
         }
 
-        public void GenerateBatchRequest(BatchRequest request)
+        public void GenerateBatchRequest(List<BatchRequest> request)
         {
-            var xmlSerializer = new XmlSerializer(typeof(BatchRequest));
+            var xmlSerializer = new XmlSerializer(typeof(List<BatchRequest>));
             if (!Directory.Exists($"{_Builder.Profile}/{_Builder.Schema}/Config"))
             {
                 Directory.CreateDirectory($"{_Builder.Profile}/{_Builder.Schema}/Config");
@@ -351,6 +351,7 @@ namespace RESTAll.Data.Providers
             dt.Columns.Add("SchemaName", typeof(string));
             dt.Columns.Add("ColumnName", typeof(string));
             dt.Columns.Add("DataType", typeof(string));
+            dt.Columns.Add("SqlDataType", typeof(string));
             dt.Columns.Add("Description", typeof(string));
             dt.Columns.Add("PathMap", typeof(string));
             dt.Columns.Add("PrimaryKey", typeof(bool));
@@ -360,9 +361,10 @@ namespace RESTAll.Data.Providers
             foreach (var tableField in entityDescriptor.Table.Fields)
             {
                 var row = dt.NewRow();
-                row["SchemaName"] = string.IsNullOrEmpty(schema) ? "Main" : schema;
+                row["SchemaName"] = _Builder.Schema;
                 row["ColumnName"] = tableField.Field;
-                row["DataType"] = tableField.DataType.GetSqlDataTypeName();
+                row["DataType"] = tableField.DataType.ToString();
+                row["SqlDataType"] = tableField.DataType.GetSqlDataTypeName();
                 row["Description"] = tableField.Description;
                 row["PathMap"] = tableField.Path;
                 row["PrimaryKey"] = tableField.Key;
@@ -387,7 +389,7 @@ namespace RESTAll.Data.Providers
             foreach (var entityDescriptor in Entities)
             {
                 var row = dt.NewRow();
-                row["Schema"] = entityDescriptor.Table.Schema;
+                row["Schema"] = _Builder.Schema;
                 row["TableName"] = entityDescriptor.Table.TableName;
                 row["TableType"] = "Table";
                 row["Description"] = entityDescriptor.Table.Description;

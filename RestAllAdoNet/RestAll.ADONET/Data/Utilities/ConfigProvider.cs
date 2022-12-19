@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 using RESTAll.Data.Common;
 using RESTAll.Data.Contracts;
 using RESTAll.Data.Models;
-
+#nullable disable
 namespace RESTAll.Data.Utilities
 {
     public class ConfigProvider:IConfigProvider

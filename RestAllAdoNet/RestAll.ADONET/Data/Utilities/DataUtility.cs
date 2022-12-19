@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RESTAll.Data.Contracts;
@@ -27,15 +28,23 @@ namespace RESTAll.Data.Utilities
         private readonly MetaDataProvider _MetaDataProvider;
         private readonly IQueryParser _QueryParser;
         private readonly IAuthenticationClient _AuthenticationClient;
+        private readonly ILogger<DataUtility> _logger;
         private BatchRequest _currentBatchRequest;
-        public DataUtility(RestAllConnectionStringBuilder builder, DataProvider dataProvider, SQLiteProvider sqLiteProvider, MetaDataProvider metaDataProvider, IQueryParser queryParser, IAuthenticationClient authenticationClient)
+        public DataUtility(RestAllConnectionStringBuilder builder,
+            DataProvider dataProvider,
+            SQLiteProvider sqLiteProvider,
+            MetaDataProvider metaDataProvider,
+            IQueryParser queryParser,
+            IAuthenticationClient authenticationClient,
+            ILogger<DataUtility> logger)
         {
-            this._builder = builder;
+            _builder = builder;
             _sqLiteProvider = sqLiteProvider;
             _DataProvider = dataProvider;
             _MetaDataProvider = metaDataProvider;
             _QueryParser = queryParser;
             _AuthenticationClient = authenticationClient;
+            _logger = logger;
 
         }
         public DataTable FetchData(string sql)
@@ -92,7 +101,7 @@ namespace RESTAll.Data.Utilities
             var bodyDic = new Dictionary<string, object>();
             foreach (var item in queries)
             {
-                if (item.StatementType == StatementType.Insert)
+                if (item.StatementType == StatementType.Insert || item.StatementType == StatementType.Update)
                 {
                     var entity = _MetaDataProvider.GetEntityDescriptor(item);
                     if (parameters != null)
@@ -106,12 +115,12 @@ namespace RESTAll.Data.Utilities
                         }
                     }
 
+
                     foreach (var parameterModel in item.Parameters.Where(x => x.Type != TSQLTokenType.Variable))
                     {
                         if (parameterModel.Type == TSQLTokenType.StringLiteral)
                         {
-                            var value = parameterModel.Identifier.Remove(0, 1)
-                                .Remove(parameterModel.Identifier.Length - 2, 1);
+                            var value = parameterModel.Identifier.CleanStringLiteral();
                             bodyDic.Add(parameterModel.DestinationColumn.Replace("_", "."), value);
                         }
                         else
@@ -121,14 +130,43 @@ namespace RESTAll.Data.Utilities
 
                     }
 
-                    var action = entity.Actions.FirstOrDefault(x => x.Operation.ToLower() == "insert");
+                    var action = entity.Actions.FirstOrDefault(x => x.Operation.ToLower() == item.StatementType.Description());
+                    if (action.FilterAsElement)
+                    {
+                        foreach (var filterDescriptor in item.Filters)
+                        {
+                            if (filterDescriptor.FilterType == QueryFilterType.Value)
+                            {
+                                bodyDic.Add(filterDescriptor.ColumnName.Replace("_", "."), filterDescriptor.Value);
+                            }
+
+                            if (filterDescriptor.FilterType == QueryFilterType.Parameter)
+                            {
+                                bodyDic.Add(filterDescriptor.ColumnName.Replace("_", "."), parameters[filterDescriptor.Value.ToString()].Value);
+                            }
+                        }
+                    }
+
+                    foreach (var actionRequiredColumn in action.RequiredColumns)
+                    {
+                        if (!bodyDic.ContainsKey(actionRequiredColumn.Replace("_", ".")))
+                        {
+                            _logger.LogError($"Required Parameter [{actionRequiredColumn}] Missing");
+                            throw new RESTException($"Required Parameter [{actionRequiredColumn}] Missing", HttpStatusCode.ExpectationFailed);
+                        }
+                    }
                     _DataProvider.PostDataAsync(action.Url, bodyDic, entity).Wait();
+                }
+
+                if (item.StatementType == StatementType.Update)
+                {
+
                 }
             }
             return 0;
         }
 
-        private string BatchRequestItems(string sql, string batchId, DbParameterCollection parameters, DataRow[] dataRows)
+        private string BatchRequestItems(string sql,StatementType operationType, string batchId, DbParameterCollection parameters, DataRow[] dataRows)
         {
             var queries = _QueryParser.Parse(sql);
             List<Dictionary<string, object>> bodyList = new List<Dictionary<string, object>>();
@@ -187,20 +225,20 @@ namespace RESTAll.Data.Utilities
                 }
             }
 
-            var batchRequest = _MetaDataProvider.GetBatchRequest();
+            var batchRequest = _MetaDataProvider.GetBatchRequest().FirstOrDefault(x=>x.Operation==operationType);
             var response = new Dictionary<string, object> { { batchRequest.RootObject, bodyList } };
             return JsonConvert.SerializeObject(response);
 
         }
 
-        internal List<BatchResult> ExecuteBatch(string sql, DataRow[] rows, int batchSize, DbParameterCollection parameterCollection)
+        internal List<BatchResult> ExecuteBatch(string sql,StatementType operationType, DataRow[] rows, int batchSize, DbParameterCollection parameterCollection)
         {
             var splits = rows.Split(batchSize);
             var responseDict = new List<BatchResult>();
             int i = 1;
             foreach (var split in splits)
             {
-                var batchRequestItem = BatchRequestItems(sql, i.ToString(), parameterCollection, split.ToArray());
+                var batchRequestItem = BatchRequestItems(sql, operationType,i.ToString(), parameterCollection, split.ToArray());
                 var response = _DataProvider.ExecuteBatchAsync(batchRequestItem).Result;
                 //responseDict.Add(i.ToString(), response);
                 var parsed = ParseResponse(split.ToArray(), response);

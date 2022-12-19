@@ -16,16 +16,15 @@ using RESTAll.Data.Exceptions;
 using RESTAll.Data.Extensions;
 using RESTAll.Data.Models;
 using RESTAll.Data.Utilities;
-
+#nullable disable
 namespace RESTAll.Data.Providers
 {
     public class DataProvider
     {
-        private bool IsAuthenticated { set; get; }
+        private const string UserAgent = "RESTALL-DataClient";
         private RestAllConnectionStringBuilder _Builder;
         private EntityDescriptor entity;
         private MetaDataProvider _metaDataProvider;
-        private string _entityName;
         private Dictionary<string, object> FilterValues = new Dictionary<string, object>();
         private IAuthenticationClient _authenticationClient;
         private ITemplateEngine _templateEngine;
@@ -35,10 +34,6 @@ namespace RESTAll.Data.Providers
         {
             _Builder = cb;
             _logger = logger;
-            if (!string.IsNullOrEmpty(cb.AccessToken))
-            {
-                IsAuthenticated = true;
-            }
             _metaDataProvider = metaDataProvider;
             _templateEngine = templateEngine;
             _authenticationClient = authClient;
@@ -244,9 +239,9 @@ namespace RESTAll.Data.Providers
         public async Task<string> PostDataAsync(string url, Dictionary<string, object> data, EntityDescriptor entityDescriptor)
         {
             entity = entityDescriptor;
-            var unflatten = data.Unflatten();
+            var unflattened = data.Unflatten();
             var action = entity.Actions.FirstOrDefault(x => x.Url == url);
-            action.Body = unflatten.ToString();
+            action.Body = unflattened.ToString();
             var request = new HttpRequestMessage()
             {
                 RequestUri = new Uri(url),

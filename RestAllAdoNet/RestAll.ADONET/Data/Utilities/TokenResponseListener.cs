@@ -5,7 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-
+#nullable disable
 namespace RESTAll.Data.Utilities
 {
     public class TokenResponseListener
@@ -19,7 +19,7 @@ namespace RESTAll.Data.Utilities
                 FileName = callUrl,
                 UseShellExecute = true
             };
-            System.Diagnostics.Process.Start(psi);
+            Process.Start(psi);
             var seprated = readParams.ToLower().Split(",").ToList();
             if (!seprated.Contains("code"))
             {
