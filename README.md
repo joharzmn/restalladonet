@@ -21,3 +21,6 @@ Code tested for Select Operations only
 
 ## Code Example
 [Examples](https://github.com/shahidjaved/restalladonet/wiki/Code-Examples)
+
+## Documentation
+[Documentation](https://github.com/shahidjaved/restalladonet/wiki/Documentations)
