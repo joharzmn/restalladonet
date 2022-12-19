@@ -18,7 +18,7 @@ using RESTAll.Data.Models;
 using static System.Net.Mime.MediaTypeNames;
 using StatementType = RESTAll.Data.Models.StatementType;
 using TypeCode = System.TypeCode;
-
+#nullable disable
 namespace RESTAll.Data.Providers
 {
     public class MetaDataProvider
@@ -41,17 +41,22 @@ namespace RESTAll.Data.Providers
             {
                 if (!Directory.Exists(builder.Profile))
                 {
-                    throw new DirectoryNotFoundException($"Directory not found at:{builder.Profile}");
+                    Directory.CreateDirectory(builder.Profile);
                 }
                 else
                 {
                     LoadSchemas();
                 }
 
-                _profileUrl = builder.Profile;
-                if (File.Exists($@"{builder.Profile}\Config\BatchRequest.xml"))
+                if (!Directory.Exists($@"{builder.Profile}\{_Builder.Schema}\Config"))
                 {
-                    _batchXml = File.ReadAllText($@"{builder.Profile}\Config\BatchRequest.xml");
+                    Directory.CreateDirectory($@"{builder.Profile}\{_Builder.Schema}\Config");
+                }
+
+                _profileUrl = builder.Profile;
+                if (File.Exists($@"{builder.Profile}\{_Builder.Schema}\Config\BatchRequest.xml"))
+                {
+                    _batchXml = File.ReadAllText($@"{builder.Profile}\{_Builder.Schema}\Config\BatchRequest.xml");
                 }
             }
         }
@@ -184,9 +189,9 @@ namespace RESTAll.Data.Providers
         {
             if (collectionName.Contains("."))
             {
-                var splitted = collectionName.Split('.');
-                var schema = splitted[0].Replace("[", "").Replace("]", "");
-                var table = splitted[1].Replace("[", "").Replace("]", "");
+                var splits = collectionName.Split('.');
+                var schema = splits[0].Replace("[", "").Replace("]", "");
+                var table = splits[1].Replace("[", "").Replace("]", "");
                 return LoadInfoTable(table, schema);
             }
 
@@ -195,15 +200,7 @@ namespace RESTAll.Data.Providers
 
         public EntityDescriptor GetEntityDescriptor(string tableName, object input, object token, string schema = "")
         {
-            var xmlSchemaText = "";
-            if (!string.IsNullOrEmpty(schema))
-            {
-                xmlSchemaText = _schemaXmls[$"{schema.Replace("[", "").Replace("]", "")}_{tableName.Replace("[", "").Replace("]", "")}".ToLower()];
-            }
-            else
-            {
-                xmlSchemaText = _schemaXmls[tableName.ToLower()];
-            }
+            var xmlSchemaText = _schemaXmls[$"{tableName.Replace("[", "").Replace("]", "")}".ToLower()];
 
             var text = _templateEngine.Parse(xmlSchemaText, _Builder, input, token);
             using TextReader tr = new StringReader(text);
@@ -228,13 +225,13 @@ namespace RESTAll.Data.Providers
                 if (queryDescriptor.StatementType == StatementType.Insert)
                 {
                     tableName = queryDescriptor.TargetTable.Replace("[", "").Replace("]", "");
-                    xmlSchemaText = _schemaXmls[$"{_Builder.Schema}_{tableName}".ToLower()];
+                    xmlSchemaText = _schemaXmls[$"{tableName}".ToLower()];
                 }
 
                 if (queryDescriptor.StatementType == StatementType.Select)
                 {
                     tableName = queryDescriptor.TableName.Replace("[", "").Replace("]", "");
-                    xmlSchemaText = _schemaXmls[$"{_Builder.Schema}_{tableName}".ToLower()];
+                    xmlSchemaText = _schemaXmls[$"{tableName}".ToLower()];
                 }
 
             }
@@ -244,8 +241,7 @@ namespace RESTAll.Data.Providers
             }
 
             var singleEntity = Entities.FirstOrDefault(x =>
-                x.Table.TableName.ToLower() == tableName.ToLower() && x.Table.Schema.ToLower() == _Builder.Schema.Replace("[", "").Replace("]", "").ToLower()
-                );
+                x.Table.TableName.ToLower() == tableName.ToLower());
             if (singleEntity != null)
             {
                 input.Fields = string.Join(",", singleEntity.Table.Fields.Select(x => x.Field));
@@ -265,15 +261,9 @@ namespace RESTAll.Data.Providers
         public void GenerateEntityDescriptor(EntityDescriptor descriptor)
         {
             var xmlSerializer = new XmlSerializer(typeof(EntityDescriptor));
-            var filePath = "";
-            if (!string.IsNullOrEmpty(descriptor.Table.Schema))
-            {
-                filePath = $"{_profileUrl}/{descriptor.Table.Schema}_{descriptor.Table.TableName}.xml";
-            }
-            else
-            {
-                filePath = $"{_profileUrl}/{descriptor.Table.TableName}.xml";
-            }
+
+            var filePath = $"{_Builder.Profile}/{_Builder.Schema}/{descriptor.Table.TableName}.xml";
+
             var reader = new StreamWriter(filePath);
             xmlSerializer.Serialize(reader, descriptor);
             reader.Close();
@@ -300,7 +290,11 @@ namespace RESTAll.Data.Providers
         public void GenerateBatchRequest(BatchRequest request)
         {
             var xmlSerializer = new XmlSerializer(typeof(BatchRequest));
-            var filePath = $"{_Builder.Profile}/BatchRequest.xml";
+            if (!Directory.Exists($"{_Builder.Profile}/{_Builder.Schema}/Config"))
+            {
+                Directory.CreateDirectory($"{_Builder.Profile}/{_Builder.Schema}/Config");
+            }
+            var filePath = $@"{_Builder.Profile}/{_Builder.Schema}/Config/BatchRequest.xml";
 
             var reader = new StreamWriter(filePath);
             xmlSerializer.Serialize(reader, request);
@@ -342,7 +336,7 @@ namespace RESTAll.Data.Providers
 
         private void LoadSchemas()
         {
-            var files = Directory.GetFiles(_Builder.Profile);
+            var files = Directory.GetFiles($@"{_Builder.Profile}\{_Builder.Schema}");
             foreach (var file in files.Where(x => Path.GetExtension(x) == ".xml"))
             {
                 var xmlText = File.ReadAllText(file);
@@ -366,7 +360,7 @@ namespace RESTAll.Data.Providers
             foreach (var tableField in entityDescriptor.Table.Fields)
             {
                 var row = dt.NewRow();
-                row["SchemaName"] = string.IsNullOrEmpty(schema) ? "NONE" : schema;
+                row["SchemaName"] = string.IsNullOrEmpty(schema) ? "Main" : schema;
                 row["ColumnName"] = tableField.Field;
                 row["DataType"] = tableField.DataType.GetSqlDataTypeName();
                 row["Description"] = tableField.Description;

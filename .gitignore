@@ -7,3 +7,6 @@
 /RestAllAdoNet/RestAll.ADONET/obj
 /RestAllAdoNet/.vs/ProjectEvaluation
 /RestAllAdoNet/RestAll.UnitTests/obj
+/RestAllAdoNet/RestAll.UnitTests/bin/Debug/net6.0
+/RestAllAdoNet/SampleConsole/bin/Debug/net6.0
+/RestAllAdoNet/SampleConsole/obj

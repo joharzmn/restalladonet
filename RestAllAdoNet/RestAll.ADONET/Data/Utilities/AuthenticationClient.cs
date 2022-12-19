@@ -220,7 +220,7 @@ namespace RESTAll.Data.Utilities
                 throw new FormatException(nameof(tokenRequestEndpointUrl));
             FormUrlEncodedContent content = new FormUrlEncodedContent((IEnumerable<KeyValuePair<string, string>>)new KeyValuePair<string, string>[5]
             {
-        new ("grant_type", _Builder.GrantType.ToGrantType().ToString()),
+        new ("grant_type", _Builder.GrantType.ToGrantType().Description()),
         new ("client_id", clientId),
         new ("client_secret", clientSecret),
         new ("redirect_uri", redirectUri),

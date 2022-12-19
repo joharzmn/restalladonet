@@ -5,7 +5,9 @@ VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestAll.ADONET", "RestAll.ADONET\RestAll.ADONET.csproj", "{CCCE62AA-9BD6-41F2-88CA-48B583FB9CDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAll.UnitTests", "RestAll.UnitTests\RestAll.UnitTests.csproj", "{60ECBAFD-05EB-4A4A-B102-24747AAE002D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestAll.UnitTests", "RestAll.UnitTests\RestAll.UnitTests.csproj", "{60ECBAFD-05EB-4A4A-B102-24747AAE002D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleConsole", "SampleConsole\SampleConsole.csproj", "{711E1378-41FD-4EB8-99E6-4A61FB36CA81}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{60ECBAFD-05EB-4A4A-B102-24747AAE002D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60ECBAFD-05EB-4A4A-B102-24747AAE002D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60ECBAFD-05EB-4A4A-B102-24747AAE002D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{711E1378-41FD-4EB8-99E6-4A61FB36CA81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{711E1378-41FD-4EB8-99E6-4A61FB36CA81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{711E1378-41FD-4EB8-99E6-4A61FB36CA81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{711E1378-41FD-4EB8-99E6-4A61FB36CA81}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

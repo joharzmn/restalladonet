@@ -30,25 +30,23 @@ namespace RESTAll.Data.Providers
 
         public void SetupDatabase()
         {
-            var schemas = _MetaData.Entities.Select(x => x.Table.Schema).Distinct().ToList();
             if (!Directory.Exists(_Builder.CacheLocation))
             {
                 Directory.CreateDirectory(_Builder.CacheLocation);
             }
-            foreach (var schema in schemas)
-            {
-                using var connection = new SQLiteConnection($@"DataSource={_Builder.CacheLocation}\{schema}.db;pragma journal_mode = memory");
+
+                using var connection = new SQLiteConnection($@"DataSource={_Builder.CacheLocation}\{_Builder.Schema}.db;pragma journal_mode = memory");
                 connection.Open();
-                using var cmd = connection.CreateCommand();
-                foreach (var entity in _MetaData.Entities.Where(x => x.Table.Schema == schema))
-                {
-                    var entityTable = entity.GetBaseDataTable();
-                    entityTable.TableName = entity.Table.TableName;
-                    cmd.CommandText = entityTable.CreateTableText();
-                    cmd.ExecuteNonQuery();
-                }
+                //using var cmd = connection.CreateCommand();
+                //foreach (var entity in _MetaData.Entities.Where(x => x.Table.Schema == schema))
+                //{
+                //    var entityTable = entity.GetBaseDataTable();
+                //    entityTable.TableName = entity.Table.TableName;
+                //    cmd.CommandText = entityTable.CreateTableText();
+                //    cmd.ExecuteNonQuery();
+                //}
                 connection.Close();
-            }
+
 
             _isSetup = true;
         }
@@ -57,11 +55,11 @@ namespace RESTAll.Data.Providers
         {
             var connection = new SQLiteConnection($@"Data Source={_Builder.CacheLocation}\Main.db;pragma journal_mode = memory");
             connection.Open();
-            var schemas = _MetaData.Entities.Select(x => x.Table.Schema).Distinct().ToList();
+            var files = Directory.GetFiles(_Builder.CacheLocation);
             using var cmd = connection.CreateCommand();
-            foreach (var schema in schemas)
+            foreach (var schema in files.Where(x=>Path.GetFileNameWithoutExtension(x)!="Main"))
             {
-                cmd.CommandText = $@"Attach DATABASE '{_Builder.CacheLocation}\{schema}.db' as {schema}";
+                cmd.CommandText = $@"Attach DATABASE '{schema}' as {Path.GetFileNameWithoutExtension(schema)}";
                 cmd.ExecuteNonQuery();
             }
 
@@ -74,21 +72,7 @@ namespace RESTAll.Data.Providers
 
             if (dt.Columns.Count > 0)
             {
-                var dbName = "";
-                if (dt.TableName.Contains("."))
-                {
-                    var entity =
-                        _MetaData.Entities.FirstOrDefault(x => $"{x.Table.Schema}.{x.Table.TableName}" == dt.TableName);
-                    if (entity != null)
-                    {
-                        dt.TableName = entity.Table.TableName;
-                        dbName = entity.Table.Schema;
-                    }
-                }
-                else
-                {
-                    dbName = "Main";
-                }
+                var dbName = _Builder.Schema;
 
                 using var connection = new SQLiteConnection($@"DataSource={_Builder.CacheLocation}\{dbName}.db");
                 connection.Open();

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.Common;
 using System.Diagnostics.CodeAnalysis;
@@ -13,7 +14,7 @@ using System.Xml;
 using System.Xml.Serialization;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using RESTAll.Data.Common;
+using Newtonsoft.Json.Linq;
 using RESTAll.Data.Models;
 
 namespace RESTAll.Data.Extensions
@@ -368,6 +369,17 @@ namespace RESTAll.Data.Extensions
             {
                 dic.Add(element.Key,element.Value);
             }
+        }
+
+        public static string Description(this Enum source)
+        {
+            FieldInfo fi = source.GetType().GetField(source.ToString());
+
+            DescriptionAttribute[] attributes = (DescriptionAttribute[])fi.GetCustomAttributes(
+                typeof(DescriptionAttribute), false);
+
+            if (attributes != null && attributes.Length > 0) return attributes[0].Description;
+            else return source.ToString();
         }
 
         public static T ToXmlEntity<T>(this string input)

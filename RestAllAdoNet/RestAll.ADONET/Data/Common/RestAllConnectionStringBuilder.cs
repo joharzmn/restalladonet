@@ -13,11 +13,6 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace RESTAll.Data.Common
 {
-    internal enum ProviderType
-    {
-        File,
-        Rest
-    }
     public class RestAllConnectionStringBuilder : DbConnectionStringBuilder
     {
         public RestAllConnectionStringBuilder() : base()
@@ -193,13 +188,22 @@ namespace RESTAll.Data.Common
         }
 
         [Category("Configuration")]
-        [DefaultValue("")]
+        [DefaultValue("Main")]
         [Description("Schema")]
         [DisplayName("Schema")]
         [RefreshProperties(RefreshProperties.All)]
         public string Schema
         {
-            get => this.GetPropertyValue<string>("Schema");
+            get
+            {
+                var value = this.GetPropertyValue<string>("Schema");
+                if (string.IsNullOrEmpty(value))
+                {
+                    return "Main";
+                }
+
+                return value;
+            }
             set
             {
                 if (value.ToLower() == "sys" || value.ToLower() == "response")
@@ -241,18 +245,6 @@ namespace RESTAll.Data.Common
             get => this.GetPropertyValue<string>("LogFilePath");
             set => this.SetProperty("LogFilePath", value);
         }
-
-        [Category("Configuration")]
-        [DefaultValue("")]
-        [Description("LogType")]
-        [DisplayName("LogType")]
-        [RefreshProperties(RefreshProperties.All)]
-        public string LogType
-        {
-            get => this.GetPropertyValue<string>("LogType");
-            set => this.SetProperty("LogType", value);
-        }
-
 
         [Category("Configuration")]
         [DefaultValue("")]
