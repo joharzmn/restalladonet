@@ -2,6 +2,7 @@
 using System.Data;
 using Microsoft.Extensions.Configuration;
 using RESTAll.Data.Common;
+using RESTAll.Data.Extensions;
 using RESTAll.Data.Utilities;
 
 class Program
@@ -9,8 +10,8 @@ class Program
     static void Main(string[] args)
     {
         //Place your Secret Id from Project after configuring secrets for your project
-       var configuration = new ConfigurationBuilder()
-            .AddUserSecrets("c56d9a64-5dc7-4a47-bcaa-5c0600baea79").Build();
+        var configuration = new ConfigurationBuilder()
+             .AddUserSecrets("c56d9a64-5dc7-4a47-bcaa-5c0600baea79").Build();
         var cb = new RestAllConnectionStringBuilder
         {
             AuthType = "OAuth2",
@@ -35,18 +36,17 @@ class Program
 
         DbConnection restConnection = new RestAllConnection(cb);
 
-        var queryParser = new QueryParser();
-        //queryParser.Parse("Update Items Set Name='Hello World Update' where Id=19");
-        
+        //var queryParser = new QueryParser();
+        //queryParser.Parse("Delete From Items Where Id=20 AND SyncToken=0");
+
         restConnection.Open();
         //var connectionSchema = restConnection.GetSchema("Accounts");
         var cmd = restConnection.CreateCommand();
-        ////cmd.AddParameter("@Name","Hello World 2");
-        ////cmd.AddParameter("@AccountRef",30);
-        ////cmd.AddParameter("@UnitPrice",45.3);
-        cmd.CommandText = @"Select * From Items";
+        cmd.CommandText = "Select * From Items";
+        //cmd.CommandText = @"Select * From Items";
         //cmd.CommandText = @"Update Items Set Name='Hello World New Update',SyncToken=0, ExpenseAccountRef_value=30 where Id=20";
         var dt = new DataTable();
+        //cmd.AddParameter("@id",20);
         //cmd.ExecuteNonQuery();
         dt.Load(cmd.ExecuteReader());
         Console.ReadLine();
@@ -91,7 +91,7 @@ class Program
         //{
 
         //    var entityDescriptor = new EntityDescriptor();
-        //    entityDescriptor.Actions.Add(new DataAction() { Url = $@"*[Connection.URL]*/services/data/v56.0/query/?q=Select FIELDS(ALL) From {dr["Name"]} LIMIT 200", Operation = "Select" });
+        //    entityDescriptor.Actions.Add(new DataAction() { Url = $@"^[Connection.URL]^/services/data/v56.0/query/?q=Select FIELDS(ALL) From {dr["Name"]} LIMIT 200", Operation = "Select" });
 
         //    entityDescriptor.Table.Input.Add(new DataInput() { Column = "Id" });
         //    entityDescriptor.RepeatElement = "$.records";

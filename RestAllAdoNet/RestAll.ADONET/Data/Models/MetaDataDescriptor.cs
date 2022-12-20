@@ -120,6 +120,15 @@ namespace RESTAll.Data.Models
         [XmlElement]
         public string EntityElement { set; get; }
         /// <summary>
+        /// A column to setup incremental cache
+        /// </summary>
+        [XmlElement]
+        public string IncrementalCacheColumn { set; get; }
+        [XmlElement]
+        public bool IsIncrementalCache { set; get; }
+        [XmlElement]
+        internal DataMethod DataMethod { set; get; }
+        /// <summary>
         /// If you dont want to define fields and want to fetch first level elements then you can set it to true so it will
         /// build schema automatically
         /// </summary>
@@ -227,7 +236,7 @@ namespace RESTAll.Data.Models
         /// Operation can be Select,Delete,Update,Insert or Merge
         /// </summary>
         [XmlAttribute("Operation")]
-        public string Operation { set; get; }
+        public StatementType Operation { set; get; }
 
         [XmlAttribute("Input")]
         public string Input { set; get; }

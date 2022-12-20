@@ -6,16 +6,21 @@ using System.Data.Common;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
+using System.Net;
 using System.Reflection;
 using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
+using Antlr.Runtime.Misc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using RESTAll.Data.Common;
+using RESTAll.Data.Exceptions;
 using RESTAll.Data.Models;
+using TSQL.Tokens;
 #nullable disable
 namespace RESTAll.Data.Extensions
 {
@@ -396,6 +401,68 @@ namespace RESTAll.Data.Extensions
             var entity = (T)xmlSerializer.Deserialize(tr);
             tr.Close();
             return entity;
+        }
+
+        public static void MapParameters(this Dictionary<string, object> body, DbParameterCollection parameters,List<ParameterModel> queryParameters)
+        {
+            if (parameters != null)
+            {
+                for (int i = 0; i <= parameters.Count - 1; i++)
+                {
+                    var parameter = queryParameters.FirstOrDefault(x =>
+                        x.Type == TSQLTokenType.Variable &&
+                        x.Identifier.ToLower() == parameters[i].ParameterName.ToLower());
+                    body.Add(parameter.DestinationColumn.Replace("_", "."), parameters[i].Value);
+                }
+            }
+        }
+
+        public static void MapFilterAsElement(this Dictionary<string, object> body,List<FilterDescriptor> filters,DbParameterCollection parameters)
+        {
+            foreach (var filterDescriptor in filters)
+            {
+                if (filterDescriptor.FilterType == QueryFilterType.Value)
+                {
+                    body.Add(filterDescriptor.ColumnName.Replace("_", "."), filterDescriptor.Value);
+                }
+
+                if (filterDescriptor.FilterType == QueryFilterType.Parameter)
+                {
+                    if (!parameters.Cast<RestAllParameter>().Any(x=>x.ParameterName.ToLower()==filterDescriptor.Value.ToString().ToLower()))
+                    {
+                        throw new RESTException($"Parameter {filterDescriptor.Value} Value not Provided", HttpStatusCode.FailedDependency);
+                    }
+                    body.Add(filterDescriptor.ColumnName.Replace("_", "."), parameters.Cast<RestAllParameter>().FirstOrDefault(x=>x.ParameterName.ToLower()==filterDescriptor.Value.ToString().ToLower()).Value);
+                }
+            }
+        }
+
+        public static void MapValues(this Dictionary<string, object> body, List<ParameterModel> queryParameters)
+        {
+            foreach (var parameterModel in queryParameters.Where(x => x.Type != TSQLTokenType.Variable))
+            {
+                if (parameterModel.Type == TSQLTokenType.StringLiteral)
+                {
+                    var value = parameterModel.Identifier.CleanStringLiteral();
+                    body.Add(parameterModel.DestinationColumn.Replace("_", "."), value);
+                }
+                else
+                {
+                    body.Add(parameterModel.DestinationColumn.Replace("_", "."), parameterModel.Identifier);
+                }
+
+            }
+        }
+
+        public static void ValidateRequiredColumns(this Dictionary<string, object> body, List<string> requiredColumns)
+        {
+            foreach (var actionRequiredColumn in requiredColumns)
+            {
+                if (!body.ContainsKey(actionRequiredColumn.Replace("_", ".")))
+                {
+                    throw new RESTException($"Required Parameter [{actionRequiredColumn}] Missing", HttpStatusCode.ExpectationFailed);
+                }
+            }
         }
     }
 }

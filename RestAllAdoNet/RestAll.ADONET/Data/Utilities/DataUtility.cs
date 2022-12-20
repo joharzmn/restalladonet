@@ -59,7 +59,7 @@ namespace RESTAll.Data.Utilities
             var queryDescriptor = tableName.FirstOrDefault();
 
             var entity = _MetaDataProvider.GetEntityDescriptor(queryDescriptor);
-            var action = entity.Actions.FirstOrDefault(x => x.Operation.ToLower() == "select");
+            var action = entity.Actions.FirstOrDefault(x => x.Operation == StatementType.Select);
             if (action != null)
             {
 
@@ -75,7 +75,7 @@ namespace RESTAll.Data.Utilities
                     //}
                 }
 
-                var data = _DataProvider.GetAsync(action.Url, queryDescriptor.TableName, queryDescriptor.Schema).Result;
+                var data = _DataProvider.GetAsync(action.Operation, queryDescriptor.TableName, queryDescriptor.Schema).Result;
                 _sqLiteProvider.ParkData(data.Data);
                 var dt = new DataTable();
                 if (!string.IsNullOrEmpty(entity.ViewSql))
@@ -101,72 +101,48 @@ namespace RESTAll.Data.Utilities
             var bodyDic = new Dictionary<string, object>();
             foreach (var item in queries)
             {
+                var entity = _MetaDataProvider.GetEntityDescriptor(item);
                 if (item.StatementType == StatementType.Insert || item.StatementType == StatementType.Update)
                 {
-                    var entity = _MetaDataProvider.GetEntityDescriptor(item);
-                    if (parameters != null)
+                    bodyDic.MapParameters(parameters, item.Parameters);
+                    bodyDic.MapValues(item.Parameters);
+
+                    var action = entity.Actions.FirstOrDefault(x => x.Operation == item.StatementType);
+                    if (action == null)
                     {
-                        for (int i = 0; i <= parameters.Count - 1; i++)
-                        {
-                            var parameter = item.Parameters.FirstOrDefault(x =>
-                                x.Type == TSQLTokenType.Variable &&
-                                x.Identifier.ToLower() == parameters[i].ParameterName.ToLower());
-                            bodyDic.Add(parameter.DestinationColumn.Replace("_", "."), parameters[i].Value);
-                        }
+                        throw new RESTException($"{item.StatementType} Action not defined for Entity `{entity.Table.TableName}`",
+                            HttpStatusCode.FailedDependency);
                     }
-
-
-                    foreach (var parameterModel in item.Parameters.Where(x => x.Type != TSQLTokenType.Variable))
-                    {
-                        if (parameterModel.Type == TSQLTokenType.StringLiteral)
-                        {
-                            var value = parameterModel.Identifier.CleanStringLiteral();
-                            bodyDic.Add(parameterModel.DestinationColumn.Replace("_", "."), value);
-                        }
-                        else
-                        {
-                            bodyDic.Add(parameterModel.DestinationColumn.Replace("_", "."), parameterModel.Identifier);
-                        }
-
-                    }
-
-                    var action = entity.Actions.FirstOrDefault(x => x.Operation.ToLower() == item.StatementType.Description());
                     if (action.FilterAsElement)
                     {
-                        foreach (var filterDescriptor in item.Filters)
-                        {
-                            if (filterDescriptor.FilterType == QueryFilterType.Value)
-                            {
-                                bodyDic.Add(filterDescriptor.ColumnName.Replace("_", "."), filterDescriptor.Value);
-                            }
-
-                            if (filterDescriptor.FilterType == QueryFilterType.Parameter)
-                            {
-                                bodyDic.Add(filterDescriptor.ColumnName.Replace("_", "."), parameters[filterDescriptor.Value.ToString()].Value);
-                            }
-                        }
+                        bodyDic.MapFilterAsElement(item.Filters, parameters);
                     }
 
-                    foreach (var actionRequiredColumn in action.RequiredColumns)
-                    {
-                        if (!bodyDic.ContainsKey(actionRequiredColumn.Replace("_", ".")))
-                        {
-                            _logger.LogError($"Required Parameter [{actionRequiredColumn}] Missing");
-                            throw new RESTException($"Required Parameter [{actionRequiredColumn}] Missing", HttpStatusCode.ExpectationFailed);
-                        }
-                    }
+                    bodyDic.ValidateRequiredColumns(action.RequiredColumns);
                     _DataProvider.PostDataAsync(action.Url, bodyDic, entity).Wait();
                 }
 
-                if (item.StatementType == StatementType.Update)
+                if (item.StatementType == StatementType.Delete)
                 {
+                    var action = entity.Actions.FirstOrDefault(x => x.Operation == item.StatementType);
+                    if (action == null)
+                    {
+                        throw new RESTException(
+                            $"{item.StatementType} Action not defined for Entity `{entity.Table.TableName}`",
+                            HttpStatusCode.FailedDependency);
+                    }
 
+                    if (action.FilterAsElement)
+                    {
+                        bodyDic.MapFilterAsElement(item.Filters, parameters);
+                        _DataProvider.PostDataAsync(action.Url, bodyDic, entity).Wait();
+                    }
                 }
             }
             return 0;
         }
 
-        private string BatchRequestItems(string sql,StatementType operationType, string batchId, DbParameterCollection parameters, DataRow[] dataRows)
+        private string BatchRequestItems(string sql, StatementType operationType, string batchId, DbParameterCollection parameters, DataRow[] dataRows)
         {
             var queries = _QueryParser.Parse(sql);
             List<Dictionary<string, object>> bodyList = new List<Dictionary<string, object>>();
@@ -209,13 +185,10 @@ namespace RESTAll.Data.Utilities
 
                         }
 
-                        var unflattend = bodyDic.Unflatten();
-                        var batch = _MetaDataProvider.GetBatch(batchId.ToString(), unflattend.ToString(),
-                            entity.EntityElement, _AuthenticationClient.Token);
-                        if (_currentBatchRequest == null)
-                        {
-                            _currentBatchRequest = batch;
-                        }
+                        var normalizedBody = bodyDic.Unflatten();
+                        var batch = _MetaDataProvider.GetBatches(batchId.ToString(), normalizedBody.ToString(),
+                            entity.EntityElement, _AuthenticationClient.Token).FirstOrDefault(x => x.Operation == item.StatementType);
+                        _currentBatchRequest ??= batch;
                         bodyList.Add(JsonConvert.DeserializeObject<Dictionary<string, object>>(batch.RequestFormat));
                     }
 
@@ -225,22 +198,21 @@ namespace RESTAll.Data.Utilities
                 }
             }
 
-            var batchRequest = _MetaDataProvider.GetBatchRequest().FirstOrDefault(x=>x.Operation==operationType);
+            var batchRequest = _MetaDataProvider.GetBatchRequest().FirstOrDefault(x => x.Operation == operationType);
             var response = new Dictionary<string, object> { { batchRequest.RootObject, bodyList } };
             return JsonConvert.SerializeObject(response);
 
         }
 
-        internal List<BatchResult> ExecuteBatch(string sql,StatementType operationType, DataRow[] rows, int batchSize, DbParameterCollection parameterCollection)
+        internal List<BatchResult> ExecuteBatch(string sql, StatementType operationType, DataRow[] rows, int batchSize, DbParameterCollection parameterCollection)
         {
             var splits = rows.Split(batchSize);
             var responseDict = new List<BatchResult>();
             int i = 1;
             foreach (var split in splits)
             {
-                var batchRequestItem = BatchRequestItems(sql, operationType,i.ToString(), parameterCollection, split.ToArray());
-                var response = _DataProvider.ExecuteBatchAsync(batchRequestItem).Result;
-                //responseDict.Add(i.ToString(), response);
+                var batchRequestItem = BatchRequestItems(sql, operationType, i.ToString(), parameterCollection, split.ToArray());
+                var response = _DataProvider.ExecuteBatchAsync(batchRequestItem, operationType).Result;
                 var parsed = ParseResponse(split.ToArray(), response);
                 responseDict.AddRange(parsed);
                 i++;
@@ -251,8 +223,8 @@ namespace RESTAll.Data.Utilities
         private List<BatchResult> ParseResponse(DataRow[] rows, string response)
         {
 
-            var jobject = JObject.Parse(response);
-            var errorMappings = jobject.SelectTokens(_currentBatchRequest.ErrorMapping.RootElement);
+            var responseObject = JObject.Parse(response);
+            var errorMappings = responseObject.SelectTokens(_currentBatchRequest.ErrorMapping.RootElement);
             var rowDict = new List<BatchResult>();
             foreach (var item in errorMappings)
             {
@@ -282,7 +254,7 @@ namespace RESTAll.Data.Utilities
                 }
 
             }
-            var successMappings = jobject.SelectTokens(_currentBatchRequest.SuccessMapping.RootElement);
+            var successMappings = responseObject.SelectTokens(_currentBatchRequest.SuccessMapping.RootElement);
             foreach (var item in successMappings)
             {
                 if (item is JArray)

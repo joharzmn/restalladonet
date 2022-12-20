@@ -35,17 +35,17 @@ namespace RESTAll.Data.Providers
                 Directory.CreateDirectory(_Builder.CacheLocation);
             }
 
-                using var connection = new SQLiteConnection($@"DataSource={_Builder.CacheLocation}\{_Builder.Schema}.db;pragma journal_mode = memory");
-                connection.Open();
-                //using var cmd = connection.CreateCommand();
-                //foreach (var entity in _MetaData.Entities.Where(x => x.Table.Schema == schema))
-                //{
-                //    var entityTable = entity.GetBaseDataTable();
-                //    entityTable.TableName = entity.Table.TableName;
-                //    cmd.CommandText = entityTable.CreateTableText();
-                //    cmd.ExecuteNonQuery();
-                //}
-                connection.Close();
+            using var connection = new SQLiteConnection($@"DataSource={_Builder.CacheLocation}\{_Builder.Schema}.db;pragma journal_mode = memory");
+            connection.Open();
+            //using var cmd = connection.CreateCommand();
+            //foreach (var entity in _MetaData.Entities.Where(x => x.Table.Schema == schema))
+            //{
+            //    var entityTable = entity.GetBaseDataTable();
+            //    entityTable.TableName = entity.Table.TableName;
+            //    cmd.CommandText = entityTable.CreateTableText();
+            //    cmd.ExecuteNonQuery();
+            //}
+            connection.Close();
 
 
             _isSetup = true;
@@ -57,7 +57,7 @@ namespace RESTAll.Data.Providers
             connection.Open();
             var files = Directory.GetFiles(_Builder.CacheLocation);
             using var cmd = connection.CreateCommand();
-            foreach (var schema in files.Where(x=>Path.GetFileNameWithoutExtension(x)!="Main"))
+            foreach (var schema in files.Where(x => Path.GetFileNameWithoutExtension(x) != "Main"))
             {
                 cmd.CommandText = $@"Attach DATABASE '{schema}' as {Path.GetFileNameWithoutExtension(schema)}";
                 cmd.ExecuteNonQuery();
@@ -68,13 +68,11 @@ namespace RESTAll.Data.Providers
         }
         public void ParkData(DataTable dt)
         {
-
-
             if (dt.Columns.Count > 0)
             {
                 var dbName = _Builder.Schema;
 
-                using var connection = new SQLiteConnection($@"DataSource={_Builder.CacheLocation}\{dbName}.db");
+                using var connection = new SQLiteConnection($@"DataSource={_Builder.CacheLocation}\{dbName}.db;pragma journal_mode = memory");
                 connection.Open();
                 using (var transaction = connection.BeginTransaction())
                 {
@@ -140,6 +138,18 @@ namespace RESTAll.Data.Providers
             }
             connection.Close();
             return dt;
+        }
+
+        public object GetMax(string entity, string columnName)
+        {
+            Object value;
+            using var connection = new SQLiteConnection($"Data Source={_Builder.CacheLocation}/{_Builder.Schema}.db;Version=3;Read Only=True;");
+            connection.Open();
+            using var cmd = connection.CreateCommand();
+            cmd.CommandText = $"Select Max([{columnName}]) From [{entity}]";
+            value = cmd.ExecuteScalar();
+            connection.Close();
+            return value;
         }
     }
 }

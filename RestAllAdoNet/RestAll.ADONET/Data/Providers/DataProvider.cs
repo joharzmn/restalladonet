@@ -16,6 +16,8 @@ using RESTAll.Data.Exceptions;
 using RESTAll.Data.Extensions;
 using RESTAll.Data.Models;
 using RESTAll.Data.Utilities;
+using StatementType = RESTAll.Data.Models.StatementType;
+
 #nullable disable
 namespace RESTAll.Data.Providers
 {
@@ -30,7 +32,14 @@ namespace RESTAll.Data.Providers
         private ITemplateEngine _templateEngine;
         private ILogger<DataProvider> _logger;
         private HttpClient _httpClient;
-        public DataProvider(RestAllConnectionStringBuilder cb, MetaDataProvider metaDataProvider, ITemplateEngine templateEngine, IAuthenticationClient authClient, ILogger<DataProvider> logger, HttpClient httpClient)
+        private SQLiteProvider _sqLiteProvider;
+        public DataProvider(RestAllConnectionStringBuilder cb,
+            MetaDataProvider metaDataProvider,
+            ITemplateEngine templateEngine,
+            IAuthenticationClient authClient,
+            ILogger<DataProvider> logger,
+            HttpClient httpClient,
+            SQLiteProvider sqLiteProvider)
         {
             _Builder = cb;
             _logger = logger;
@@ -38,6 +47,7 @@ namespace RESTAll.Data.Providers
             _templateEngine = templateEngine;
             _authenticationClient = authClient;
             _httpClient = httpClient;
+            _sqLiteProvider = sqLiteProvider;
         }
 
         public void SetFilterValue(string filter, object value)
@@ -46,22 +56,23 @@ namespace RESTAll.Data.Providers
         }
 
 
-        public async Task<EntityResultSet> GetAsync(string url, string entityName, string schema = "", int resultCount = 100)
+        public async Task<EntityResultSet> GetAsync(StatementType statementType, string entityName, string schema = "", int resultCount = 100)
         {
             LoadEntityDescriptor(entityName, new { }, _authenticationClient.Token, schema);
             if (_Builder.Provider.ToProviderType() == ProviderType.File)
             {
-                var data = await ReadFile(url);
+                var action = entity.Actions.FirstOrDefault(x => x.Operation == statementType);
+                var data = await ReadFile(action.Url);
                 var dt = ParseJson(entity, data.ToString());
                 return new EntityResultSet(dt);
             }
-            if (!string.IsNullOrEmpty(url))
+            else
             {
-                var data = await GetDataAsync(url);
+                var data = await GetDataAsync(statementType);
                 var dt = ParseJson(entity, data);
                 return new EntityResultSet(dt);
             }
-            return new EntityResultSet(new DataTable());
+
         }
 
         public async Task<JObject> ReadFile(string fileName)
@@ -163,15 +174,29 @@ namespace RESTAll.Data.Providers
             entity = _metaDataProvider.GetEntityDescriptor(entityName, new { }, token, schema);
         }
 
-        private async Task<string> GetDataAsync(string url, bool repeat = false)
+        private async Task<string> GetDataAsync(StatementType statementType, bool repeat = false)
         {
-            var action = entity.Actions.FirstOrDefault(x => x.Url == url);
+
+            var action = entity.Actions.FirstOrDefault(x => x.Operation == statementType);
+            if (entity.IsIncrementalCache && !string.IsNullOrEmpty(entity.IncrementalCacheColumn))
+            {
+                var max = _sqLiteProvider.GetMax(entity.Table.TableName, entity.IncrementalCacheColumn);
+                if (entity.DataMethod == DataMethod.Query)
+                {
+                    if (!string.IsNullOrEmpty(action.Body))
+                    {
+                        action.Body =
+                            $"{action.Body} Where {entity.Table.Fields.FirstOrDefault(x => x.Field.ToLower() == entity.IncrementalCacheColumn.ToLower())?.Path} > '{JsonConvert.SerializeObject(Convert.ToDateTime(max)).Replace("\"", "")}'";
+                    }
+                }
+            }
             var request = new HttpRequestMessage()
             {
-                RequestUri = new Uri(url),
+                RequestUri = new Uri(action.Url),
                 Method = new HttpMethod(string.IsNullOrEmpty(action.Method) ? "GET" : action.Method),
                 Content = string.IsNullOrEmpty(action.Body) ? null : new StringContent(action.Body, Encoding.UTF8, string.IsNullOrEmpty(action.ContentType) ? "application/json" : action.ContentType),
             };
+            request.Headers.UserAgent.ParseAdd(UserAgent);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             request.Headers.Add("ContentType", "application/json");
             request.Headers.Authorization = _authenticationClient.GetAuthenticationHeader();
@@ -186,7 +211,7 @@ namespace RESTAll.Data.Providers
                 {
                     if (GetAuthenticated())
                     {
-                        return await GetDataAsync(url);
+                        return await GetDataAsync(statementType);
                     }
                     else
                     {
@@ -202,7 +227,7 @@ namespace RESTAll.Data.Providers
 
                     await _authenticationClient.TokenRefreshAsync();
 
-                    return await GetDataAsync(url, true);
+                    return await GetDataAsync(statementType, true);
                 }
 
                 throw new RESTException(await result.Content.ReadAsStringAsync(), result.StatusCode);
@@ -210,10 +235,10 @@ namespace RESTAll.Data.Providers
             }
         }
 
-        public async Task<string> ExecuteBatchAsync(string data)
+        public async Task<string> ExecuteBatchAsync(string data, StatementType statementType)
         {
 
-            var batch = _metaDataProvider.GetBatch("", "", "", _authenticationClient.Token);
+            var batch = _metaDataProvider.GetBatches("", "", "", _authenticationClient.Token).FirstOrDefault(x => x.Operation == statementType);
 
             var request = new HttpRequestMessage()
             {

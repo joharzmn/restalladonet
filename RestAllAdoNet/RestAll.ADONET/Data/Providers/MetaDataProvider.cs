@@ -222,12 +222,12 @@ namespace RESTAll.Data.Providers
             var tableName = "";
             if (!string.IsNullOrEmpty(_Builder.Schema))
             {
-                if (queryDescriptor.StatementType == StatementType.Insert || queryDescriptor.StatementType==StatementType.Update)
+                if (queryDescriptor.StatementType == StatementType.Insert || queryDescriptor.StatementType==StatementType.Update || queryDescriptor.StatementType==StatementType.Delete)
                 {
                     tableName = queryDescriptor.TargetTable.Replace("[", "").Replace("]", "");
                     xmlSchemaText = _schemaXmls[$"{tableName}".ToLower()];
                 }
-
+                
                 if (queryDescriptor.StatementType == StatementType.Select)
                 {
                     tableName = queryDescriptor.TableName.Replace("[", "").Replace("]", "");
@@ -270,7 +270,7 @@ namespace RESTAll.Data.Providers
 
         }
 
-        public BatchRequest GetBatch(string batchId, string body, string entity, object token)
+        public List<BatchRequest> GetBatches(string batchId, string body, string entity, object token)
         {
             var templateText = _templateEngine.Parse(_batchXml, _Builder, new
             {
@@ -279,7 +279,7 @@ namespace RESTAll.Data.Providers
                 Data = body.EscapeXml()
 
             }, token);
-            return templateText.ToXmlEntity<BatchRequest>();
+            return templateText.ToXmlEntity<List<BatchRequest>>();
         }
 
         public IEnumerable<BatchRequest> GetBatchRequest()

@@ -11,14 +11,17 @@ namespace RESTAll.Data.Exceptions
     {
         public HttpStatusCode StatusCode { get; set; }
         public string Reason { set; get; }
+        public string ResponseMessage { set; get; }
         public RESTException(string message, HttpStatusCode code) : base(message)
         {
             StatusCode = code;
+            ResponseMessage = message;
         }
 
-        public RESTException(string message, string reason):base(message)
+        public RESTException(string message, string reason) : base(message)
         {
             Reason = reason;
+            ResponseMessage = message;
         }
     }
 }

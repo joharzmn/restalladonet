@@ -58,7 +58,21 @@ namespace RESTAll.Data
                 VisitUpdateStatement(statement.AsUpdate);
             }
 
+            if (statement.Type == TSQLStatementType.Delete)
+            {
+                _currentQuery.StatementType = StatementType.Delete;
+                VisitDeleteStatement(statement.AsDelete);
+            }
+
             return _currentQuery;
+        }
+
+        private void VisitDeleteStatement(TSQLDeleteStatement deleteStatement)
+        {
+            _currentQuery.TargetTable =
+                deleteStatement.From.Tokens.FirstOrDefault(x => x.Type == TSQLTokenType.Identifier)?.Text;
+            VisitWhere(deleteStatement.Where);
+
         }
 
         private void VisitUpdate(TSQLUpdateClause updateClause)
@@ -221,7 +235,11 @@ namespace RESTAll.Data
                     var firstToken = item.Value.FirstOrDefault();
                     while (firstToken != null)
                     {
-                        firstToken = item.Value.NextToken(firstToken);
+                        if (firstToken.IsKeyword(TSQLKeywords.WHERE))
+                        {
+                            firstToken = item.Value.NextToken(firstToken);
+                        }
+                       
                         if (firstToken != null)
                         {
                             SetFilter(firstToken);
@@ -251,6 +269,8 @@ namespace RESTAll.Data
                                 //_currentFilter = new();
 
                             }
+
+                            firstToken = item.Value.NextToken(firstToken);
                         }
                     }
                 }
