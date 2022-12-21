@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using SampleConsole;
 using Microsoft.SqlServer.TransactSql.ScriptDom;
 using RESTAll.Data.Common;
+using RESTAll.Data.Extensions;
 using RESTAll.Data.Parser;
 
 class Program
@@ -47,10 +48,12 @@ class Program
         //queryParser.Parse("Select * From Items as a Inner Join Accounts as c on c.Id=a.AccountId");
 
         restConnection.Open();
-        var connectionSchema = restConnection.GetSchema("Accounts");
+        //var connectionSchema = restConnection.GetSchema("Accounts");
         var cmd = restConnection.CreateCommand();
-        cmd.CommandText = "Select * From RefundReceipts";
-        //cmd.CommandText = @"Select * From Items";
+        //cmd.CommandText = "Insert Into Items (Name,ExpenseAccountRef_value) values(@Name,@ExpenseAccountRef_value)";
+        //cmd.AddParameter("@Name","Test Item15");
+        //cmd.AddParameter("@ExpenseAccountRef_value",30);
+        cmd.CommandText = @"Select * From BillLines";
         //cmd.CommandText = @"Update Items Set Name='Hello World New Update',SyncToken=0, ExpenseAccountRef_value=30 where Id=20";
         var dt = new DataTable();
         //cmd.AddParameter("@id",20);

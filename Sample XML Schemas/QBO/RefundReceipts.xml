@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="RefundReceipts" Description="QuickBooks RefundReceipts">
+    <Column Name="Id" DataType="Int64" Path="Id" MaxLength="0" Key="true" IsRaw="false" />
+    <Column Name="DocNumber" DataType="String" Path="DocNumber" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="SyncToken" DataType="Int16" Path="SyncToken" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="domain" DataType="String" Path="domain" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="Balance" DataType="Double" Path="Balance" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="PaymentMethodRef_name" DataType="String" Path="PaymentMethodRef.name" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="PaymentMethodRef_value" DataType="String" Path="PaymentMethodRef.value" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="BillAddr_Line4" DataType="String" Path="BillAddr.Line4" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="BillAddr_Line3" DataType="String" Path="BillAddr.Line3" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="BillAddr_Line2" DataType="String" Path="BillAddr.Line2" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="BillAddr_Line1" DataType="String" Path="BillAddr.Line1" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="BillAddr_Long" DataType="String" Path="BillAddr.Long" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="BillAddr_Lat" DataType="String" Path="BillAddr.Lat" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="BillAddr_Id" DataType="String" Path="BillAddr.Id" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="DepositToAccountRef_name" DataType="String" Path="DepositToAccountRef.name" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="DepositToAccountRef_value" DataType="String" Path="DepositToAccountRef.value" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="TxnDate" DataType="String" Path="TxnDate" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="TotalAmt" DataType="Double" Path="TotalAmt" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="CustomerRef_name" DataType="String" Path="CustomerRef.name" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="CustomerRef_value" DataType="String" Path="CustomerRef.value" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="CustomerMemo_value" DataType="String" Path="CustomerMemo.value" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="PrintStatus" DataType="String" Path="PrintStatus" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="BillEmail_Address" DataType="String" Path="BillEmail.Address" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="sparse" DataType="Boolean" Path="sparse" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="Line" DataType="String" Path="Line" MaxLength="0" Key="false" IsRaw="true" />
+    <Column Name="ApplyTaxAfterDiscount" DataType="Boolean" Path="ApplyTaxAfterDiscount" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="CustomField" DataType="String" Path="CustomField" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="TxnTaxDetail_TotalTax" DataType="Int64" Path="TxnTaxDetail.TotalTax" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="MetaData_CreateTime" DataType="DateTime" Path="MetaData.CreateTime" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="MetaData_LastUpdatedTime" DataType="DateTime" Path="MetaData.LastUpdatedTime" MaxLength="0" Key="false" IsRaw="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Method="POST" FilterAsElement="false" ContentType="application/text">
+      <Url>^[Connection.URL]^/v3/company/^[Token.realmid]^/query?minorversion=65</Url>
+      <Body>select * from RefundReceipt</Body>
+    </DataAction>
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.QueryResponse.RefundReceipt</RepeatElement>
+  <IncrementalCacheColumn>MetaData_LastUpdatedTime</IncrementalCacheColumn>
+  <IsIncrementalCache>true</IsIncrementalCache>
+  <DataMethod>Query</DataMethod>
+</EntityDescriptor>

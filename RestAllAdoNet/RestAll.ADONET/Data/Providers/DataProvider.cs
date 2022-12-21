@@ -169,6 +169,26 @@ namespace RESTAll.Data.Providers
             return dt;
         }
 
+        private DataTable BuildEntity(JObject data)
+        {
+            var flatDict = data.Flatten();
+            var dt = new DataTable();
+            var row = dt.NewRow();
+            foreach (var key in flatDict)
+            {
+                if (!dt.Columns.Contains(key.Key))
+                {
+                    dt.Columns.Add(key.Key);
+                }
+
+                row[key.Key] = key.Value;
+            }
+            dt.Rows.Add(row);
+
+            dt.AcceptChanges();
+            return dt;
+        }
+
         public void LoadEntityDescriptor(string entityName, object input, object token, string schema)
         {
             entity = _metaDataProvider.GetEntityDescriptor(entityName, new { }, token, schema);
@@ -194,7 +214,7 @@ namespace RESTAll.Data.Providers
                 }
                 catch
                 {
-                    
+
                 }
             }
             var request = new HttpRequestMessage()
@@ -268,7 +288,7 @@ namespace RESTAll.Data.Providers
 
         }
 
-        public async Task<string> PostDataAsync(string url, Dictionary<string, object> data, EntityDescriptor entityDescriptor)
+        public async Task<DataTable> PostDataAsync(string url, Dictionary<string, object> data, EntityDescriptor entityDescriptor)
         {
             entity = entityDescriptor;
             var unflattened = data.Unflatten();
@@ -288,7 +308,7 @@ namespace RESTAll.Data.Providers
             {
                 _logger.LogTrace("Response");
                 _logger.LogTrace(responseData);
-                return responseData;
+                return BuildEntity(JObject.Parse(responseData));
             }
 
             throw new RESTException(responseData, result.StatusCode);

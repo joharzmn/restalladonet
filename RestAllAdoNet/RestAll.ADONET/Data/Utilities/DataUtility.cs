@@ -88,21 +88,11 @@ namespace RESTAll.Data.Utilities
 
 
             }
-            var dt = new DataTable();
-            //if (!string.IsNullOrEmpty(entity.ViewSql))
-            //{
-            //    dt = _sqLiteProvider.GetData(entity.ViewSql);
-            //}
-            //else
-            //{
-            dt = _sqLiteProvider.GetData(sql);
-            //}
 
-            return dt;
-
+            return _sqLiteProvider.GetData(sql);
         }
 
-        public int ExecuteQuery(string sql, DbParameterCollection parameters)
+        public DataTable ExecuteQuery(string sql, DbParameterCollection parameters)
         {
             var queries = _QueryParser.Parse(sql);
             var bodyDic = new Dictionary<string, object>();
@@ -127,7 +117,7 @@ namespace RESTAll.Data.Utilities
                     }
 
                     bodyDic.ValidateRequiredColumns(action.RequiredColumns);
-                    _DataProvider.PostDataAsync(action.Url, bodyDic, entity).Wait();
+                    return _DataProvider.PostDataAsync(action.Url, bodyDic, entity).Result;
                 }
 
                 if (item.Operation == StatementType.Delete)
@@ -143,11 +133,44 @@ namespace RESTAll.Data.Utilities
                     if (action.FilterAsElement)
                     {
                         bodyDic.MapFilterAsElement(item.Filters, parameters);
-                        _DataProvider.PostDataAsync(action.Url, bodyDic, entity).Wait();
+                        return _DataProvider.PostDataAsync(action.Url, bodyDic, entity).Result;
+                    }
+                }
+
+                if (item.Operation == StatementType.Select)
+                {
+                    var action = entity.Actions.FirstOrDefault(x => x.Operation == item.Operation);
+                    if (action == null)
+                    {
+                        throw new RESTException(
+                            $"{item.Operation} Action not defined for Entity `{entity.Table.TableName}`",
+                            HttpStatusCode.FailedDependency);
+                    }
+
+                    if (action.FilterAsElement)
+                    {
+                        bodyDic.MapFilterAsElement(item.Filters, parameters);
+                       
+                        var data = _DataProvider.GetAsync(action.Operation, item.Name, item.Schema).Result;
+                        _sqLiteProvider.ParkData(data.Data);
+                        if (entity.IsView)
+                        {
+                            _sqLiteProvider.CreateView(entity.ViewSql, item.Name);
+                        }
+                    }
+                    else
+                    {
+                        
+                        var data = _DataProvider.GetAsync(action.Operation, item.Name, item.Schema).Result;
+                        _sqLiteProvider.ParkData(data.Data);
+                        if (entity.IsView)
+                        {
+                            _sqLiteProvider.CreateView(entity.ViewSql, item.Name);
+                        }
                     }
                 }
             }
-            return 0;
+            return _sqLiteProvider.GetData(sql);
         }
 
         private string BatchRequestItems(string sql, StatementType operationType, string batchId, DbParameterCollection parameters, DataRow[] dataRows)

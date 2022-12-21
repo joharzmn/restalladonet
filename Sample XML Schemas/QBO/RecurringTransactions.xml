@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="RecurringTransactions" Description="QuickBooks RecurringTransactions">
+    <Column Name="Id" DataType="Int64" Path="Id" MaxLength="0" Key="true" IsRaw="false" />
+    <Column Name="Bill_SyncToken" DataType="String" Path="Bill.SyncToken" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="Bill_domain" DataType="String" Path="Bill.domain" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="Bill_RecurringInfo_Active" DataType="Boolean" Path="Bill.RecurringInfo.Active" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="Bill_RecurringInfo_RecurType" DataType="String" Path="Bill.RecurringInfo.RecurType" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="Bill_RecurringInfo_ScheduleInfo_NumInterval" DataType="Int64" Path="Bill.RecurringInfo.ScheduleInfo.NumInterval" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="Bill_RecurringInfo_ScheduleInfo_NextDate" DataType="String" Path="Bill.RecurringInfo.ScheduleInfo.NextDate" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="Bill_RecurringInfo_ScheduleInfo_DayOfMonth" DataType="Int64" Path="Bill.RecurringInfo.ScheduleInfo.DayOfMonth" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="Bill_RecurringInfo_ScheduleInfo_PreviousDate" DataType="String" Path="Bill.RecurringInfo.ScheduleInfo.PreviousDate" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="Bill_RecurringInfo_ScheduleInfo_IntervalType" DataType="String" Path="Bill.RecurringInfo.ScheduleInfo.IntervalType" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="Bill_RecurringInfo_Name" DataType="String" Path="Bill.RecurringInfo.Name" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="Bill_RecurDataRef_value" DataType="String" Path="Bill.RecurDataRef.value" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="Bill_CurrencyRef_name" DataType="String" Path="Bill.CurrencyRef.name" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="Bill_CurrencyRef_value" DataType="String" Path="Bill.CurrencyRef.value" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="Bill_TotalAmt" DataType="Double" Path="Bill.TotalAmt" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="Bill_APAccountRef_name" DataType="String" Path="Bill.APAccountRef.name" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="Bill_APAccountRef_value" DataType="String" Path="Bill.APAccountRef.value" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="Bill_sparse" DataType="Boolean" Path="Bill.sparse" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="Bill_VendorRef_name" DataType="String" Path="Bill.VendorRef.name" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="Bill_VendorRef_value" DataType="String" Path="Bill.VendorRef.value" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="Bill_Line" DataType="String" Path="Bill.Line" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="Bill_Balance" DataType="Double" Path="Bill.Balance" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="Bill_SalesTermRef_value" DataType="String" Path="Bill.SalesTermRef.value" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="Bill_MetaData_CreateTime" DataType="DateTime" Path="Bill.MetaData.CreateTime" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="Bill_MetaData_LastUpdatedTime" DataType="DateTime" Path="Bill.MetaData.LastUpdatedTime" MaxLength="0" Key="false" IsRaw="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Method="POST" FilterAsElement="false" ContentType="application/text">
+      <Url>^[Connection.URL]^/v3/company/^[Token.realmid]^/query?minorversion=65</Url>
+      <Body>select * from RecurringTransaction</Body>
+    </DataAction>
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.QueryResponse.RecurringTransaction</RepeatElement>
+  <IsIncrementalCache>false</IsIncrementalCache>
+</EntityDescriptor>

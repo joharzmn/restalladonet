@@ -66,6 +66,19 @@ namespace RESTAll.Data.Providers
             return connection;
 
         }
+
+        public void CreateView(string sql, string name)
+        {
+            var dbName = _Builder.Schema;
+
+            using var connection = new SQLiteConnection($@"DataSource={_Builder.CacheLocation}\{dbName}.db;pragma journal_mode = memory");
+            connection.Open();
+            using var command = connection.CreateCommand();
+            command.CommandText = $"Create View IF NOT EXISTS [{name}] as {sql}";
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
+
         public void ParkData(DataTable dt)
         {
             if (dt.Columns.Count > 0)
@@ -126,7 +139,9 @@ namespace RESTAll.Data.Providers
             cmd.CommandText = commandText;
             try
             {
-                dt.Load(cmd.ExecuteReader());
+                var da = new SQLiteDataAdapter();
+                da.SelectCommand = cmd;
+                da.Fill(dt);
             }
             catch (Exception e)
             {

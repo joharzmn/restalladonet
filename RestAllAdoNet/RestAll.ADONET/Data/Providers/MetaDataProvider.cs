@@ -224,7 +224,7 @@ namespace RESTAll.Data.Providers
             {
                 if (queryDescriptor.Operation == StatementType.Insert || queryDescriptor.Operation == StatementType.Update || queryDescriptor.Operation==StatementType.Delete)
                 {
-                    tableName = queryDescriptor.ActionTable;
+                    tableName = queryDescriptor.Name;
                     xmlSchemaText = _schemaXmls[$"{tableName}".ToLower()];
                 }
                 

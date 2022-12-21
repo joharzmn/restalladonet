@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false" IsView="true">
+  <TableDefination TableName="BillPayments" Description="Quickbooks Bill Payments Data" Schema="QBO">
+    <Column Name="Id" DataType="Int32" Path="Id" MaxLength="0" Key="true" />
+	<Column Name="SyncToken" DataType="Int16" Path="SyncToken" MaxLength="0" Key="false" />
+    <Column Name="DocNumber" DataType="String" Path="DocNumber" MaxLength="0" Key="false" />
+    <Column Name="VendorRef_Name" DataType="String" Path="VendorRef.name" MaxLength="0" Key="false" />
+	<Column Name="VendorRef_Value" DataType="String" Path="VendorRef.value" MaxLength="0" Key="false" />
+    <Column Name="TxnDate" DataType="String" Path="TxnDate" MaxLength="0" Key="false" />
+    <Column Name="TotalAmt" DataType="Double" Path="TotalAmt" MaxLength="0" Key="false" />
+    <Column Name="CurrencyRef_Name" DataType="String" Path="CurrencyRef.name" MaxLength="0" Key="false" />
+    <Column Name="CurrencyRef_Value" DataType="String" Path="CurrencyRef.value" MaxLength="0" Key="false" />
+    <Column Name="Domain" DataType="String" Path="domain" MaxLength="0" Key="false" />
+	<Column Name="PayType" DataType="String" Path="PayType" MaxLength="0" Key="false" />
+	<Column Name="PrivateNote" DataType="String" Path="PrivateNote" MaxLength="0" Key="false" />
+	<Column Name="CreditCardPayment_CCAccountRef_Name" DataType="String" Path="CreditCardPayment.CCAccountRef.name" MaxLength="0" Key="false" />
+	<Column Name="CreditCardPayment_CCAccountRef_Value" DataType="String" Path="CreditCardPayment.CCAccountRef.value" MaxLength="0" Key="false" />
+	<Column Name="CheckPayment_BankAccountRef_Name" DataType="String" Path="CheckPayment.BankAccountRef.name" MaxLength="0" Key="false" />
+	<Column Name="CheckPayment_BankAccountRef_Value" DataType="String" Path="CheckPayment.BankAccountRef.value" MaxLength="0" Key="false" />
+	<Column Name="Line" DataType="String" Path="Line" MaxLength="0" Key="false" />
+	<Column Name="MetaData_CreateTime" DataType="DateTime" Path="MetaData.CreateTime" MaxLength="0" Key="false" />
+	<Column Name="MetaData_LastUpdatedTime" DataType="DateTime" Path="MetaData.LastUpdatedTime" MaxLength="0" Key="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select">
+	<Url>^[Connection.URL]^/v3/company/^[Token.realmid]^/query?minorversion=65&amp;query=select * from billpayment</Url>
+	</DataAction>
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.QueryResponse.BillPayment</RepeatElement>
+  <ViewSql>
+   SELECT t.Id as BillPaymentId,
+json_extract(j.value,'$.Amount') as Amount,
+json_extract(j.value,'$.LinkedTxn[0].TxnId') as LinkedTxn_TxnId,
+json_extract(j.value,'$.LinkedTxn[0].TxnType') as LinkedTxn_TxnTyp
+FROM BillPayments t JOIN json_each(t.Line, "$") j
+  </ViewSql>
+</EntityDescriptor>
