@@ -21,6 +21,7 @@ using RESTAll.Data.Common;
 using RESTAll.Data.Exceptions;
 using RESTAll.Data.Models;
 using TSQL.Tokens;
+
 #nullable disable
 namespace RESTAll.Data.Extensions
 {
@@ -403,30 +404,30 @@ namespace RESTAll.Data.Extensions
             return entity;
         }
 
-        public static void MapParameters(this Dictionary<string, object> body, DbParameterCollection parameters,List<ParameterModel> queryParameters)
+        public static void MapParameters(this Dictionary<string, object> body, DbParameterCollection parameters,List<ValuesDefinitionModel> queryParameters)
         {
             if (parameters != null)
             {
                 for (int i = 0; i <= parameters.Count - 1; i++)
                 {
                     var parameter = queryParameters.FirstOrDefault(x =>
-                        x.Type == TSQLTokenType.Variable &&
-                        x.Identifier.ToLower() == parameters[i].ParameterName.ToLower());
-                    body.Add(parameter.DestinationColumn.Replace("_", "."), parameters[i].Value);
+                        x.ValueTypes == ValueTypes.Variable &&
+                        x.Value.ToString().ToLower() == parameters[i].ParameterName.ToLower());
+                    body.Add(parameter.Name.Replace("_", "."), parameters[i].Value);
                 }
             }
         }
 
-        public static void MapFilterAsElement(this Dictionary<string, object> body,List<FilterDescriptor> filters,DbParameterCollection parameters)
+        public static void MapFilterAsElement(this Dictionary<string, object> body,List<WhereFilterModel> filters,DbParameterCollection parameters)
         {
             foreach (var filterDescriptor in filters)
             {
-                if (filterDescriptor.FilterType == QueryFilterType.Value)
+                if (filterDescriptor.ValueTypes != ValueTypes.Variable)
                 {
                     body.Add(filterDescriptor.ColumnName.Replace("_", "."), filterDescriptor.Value);
                 }
 
-                if (filterDescriptor.FilterType == QueryFilterType.Parameter)
+                if (filterDescriptor.ValueTypes == ValueTypes.Variable)
                 {
                     if (!parameters.Cast<RestAllParameter>().Any(x=>x.ParameterName.ToLower()==filterDescriptor.Value.ToString().ToLower()))
                     {
@@ -437,18 +438,18 @@ namespace RESTAll.Data.Extensions
             }
         }
 
-        public static void MapValues(this Dictionary<string, object> body, List<ParameterModel> queryParameters)
+        public static void MapValues(this Dictionary<string, object> body, List<ValuesDefinitionModel> queryParameters)
         {
-            foreach (var parameterModel in queryParameters.Where(x => x.Type != TSQLTokenType.Variable))
+            foreach (var parameterModel in queryParameters.Where(x => x.ValueTypes != ValueTypes.Variable))
             {
-                if (parameterModel.Type == TSQLTokenType.StringLiteral)
+                if (parameterModel.ValueTypes == ValueTypes.String)
                 {
-                    var value = parameterModel.Identifier.CleanStringLiteral();
-                    body.Add(parameterModel.DestinationColumn.Replace("_", "."), value);
+                    var value = parameterModel.Value.ToString().CleanStringLiteral();
+                    body.Add(parameterModel.Name.Replace("_", "."), value);
                 }
                 else
                 {
-                    body.Add(parameterModel.DestinationColumn.Replace("_", "."), parameterModel.Identifier);
+                    body.Add(parameterModel.Name.Replace("_", "."), parameterModel.Value);
                 }
 
             }

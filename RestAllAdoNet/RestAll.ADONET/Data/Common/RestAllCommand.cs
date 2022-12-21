@@ -60,7 +60,7 @@ namespace RESTAll.Data.Common
         protected override DbDataReader ExecuteDbDataReader(CommandBehavior behavior)
         {
 
-            var dt = _DataUtility.FetchData(this.CommandText);
+            var dt = _DataUtility.ExecuteQuery(this.CommandText,this.DbParameterCollection);
             return new RestAllDataReader(dt);
 
         }

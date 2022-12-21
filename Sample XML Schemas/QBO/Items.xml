@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
-  <TableDefination TableName="Items" Description="QuickBooks Item ItemCategories" Schema="QBO">
+  <TableDefination TableName="Items" Description="QuickBooks Item ItemCategories" >
     <Column Name="Id" DataType="Int64" Path="Id" MaxLength="0" Key="true" />
     <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />
     <Column Name="FullyQualifiedName" DataType="String" Path="FullyQualifiedName" MaxLength="0" Key="false" />
@@ -29,12 +29,24 @@
       <Url>^[Connection.URL]^/v3/company/^[Token.realmid]^/item</Url>
       <Body></Body>
     </DataAction>
-	<DataAction Operation="Update" Method="POST" ContentType="application/json">
+	<DataAction Operation="Update" Method="POST" ContentType="application/json" FilterAsElement="true">
       <Url>^[Connection.URL]^/v3/company/^[Token.realmid]^/item</Url>
       <Body></Body>
+	  <RequiredColumn>Id</RequiredColumn>
+      <RequiredColumn>SyncToken</RequiredColumn>
+      <RequiredColumn>ExpenseAccountRef_value</RequiredColumn>
+    </DataAction>
+	<DataAction Operation="Delete" Method="POST" ContentType="application/json" FilterAsElement="true">
+      <Url>^[Connection.URL]^/v3/company/^[Token.realmid]^/item?operation=delete</Url>
+      <Body></Body>
+	  <RequiredColumn>Id</RequiredColumn>
+      <RequiredColumn>SyncToken</RequiredColumn>
     </DataAction>
   </Operations>
   <PageSize>0</PageSize>
+  <IncrementalCacheColumn>MetaData_LastUpdatedTime</IncrementalCacheColumn>
+  <IsIncrementalCache>true</IsIncrementalCache>
+  <DataMethod>Query</DataMethod>
   <RepeatElement>$.QueryResponse.Item</RepeatElement>
   <EntityElement>Item</EntityElement>
 </EntityDescriptor>

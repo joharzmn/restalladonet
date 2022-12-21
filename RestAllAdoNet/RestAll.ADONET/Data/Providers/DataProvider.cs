@@ -169,6 +169,26 @@ namespace RESTAll.Data.Providers
             return dt;
         }
 
+        private DataTable BuildEntity(JObject data)
+        {
+            var flatDict = data.Flatten();
+            var dt = new DataTable();
+            var row = dt.NewRow();
+            foreach (var key in flatDict)
+            {
+                if (!dt.Columns.Contains(key.Key))
+                {
+                    dt.Columns.Add(key.Key);
+                }
+
+                row[key.Key] = key.Value;
+            }
+            dt.Rows.Add(row);
+
+            dt.AcceptChanges();
+            return dt;
+        }
+
         public void LoadEntityDescriptor(string entityName, object input, object token, string schema)
         {
             entity = _metaDataProvider.GetEntityDescriptor(entityName, new { }, token, schema);
@@ -180,14 +200,21 @@ namespace RESTAll.Data.Providers
             var action = entity.Actions.FirstOrDefault(x => x.Operation == statementType);
             if (entity.IsIncrementalCache && !string.IsNullOrEmpty(entity.IncrementalCacheColumn))
             {
-                var max = _sqLiteProvider.GetMax(entity.Table.TableName, entity.IncrementalCacheColumn);
-                if (entity.DataMethod == DataMethod.Query)
+                try
                 {
-                    if (!string.IsNullOrEmpty(action.Body))
+                    var max = _sqLiteProvider.GetMax(entity.Table.TableName, entity.IncrementalCacheColumn);
+                    if (entity.DataMethod == DataMethod.Query)
                     {
-                        action.Body =
-                            $"{action.Body} Where {entity.Table.Fields.FirstOrDefault(x => x.Field.ToLower() == entity.IncrementalCacheColumn.ToLower())?.Path} > '{JsonConvert.SerializeObject(Convert.ToDateTime(max)).Replace("\"", "")}'";
+                        if (!string.IsNullOrEmpty(action.Body))
+                        {
+                            action.Body =
+                                $"{action.Body} Where {entity.Table.Fields.FirstOrDefault(x => x.Field.ToLower() == entity.IncrementalCacheColumn.ToLower())?.Path} > '{JsonConvert.SerializeObject(Convert.ToDateTime(max)).Replace("\"", "")}'";
+                        }
                     }
+                }
+                catch
+                {
+
                 }
             }
             var request = new HttpRequestMessage()
@@ -261,7 +288,7 @@ namespace RESTAll.Data.Providers
 
         }
 
-        public async Task<string> PostDataAsync(string url, Dictionary<string, object> data, EntityDescriptor entityDescriptor)
+        public async Task<DataTable> PostDataAsync(string url, Dictionary<string, object> data, EntityDescriptor entityDescriptor)
         {
             entity = entityDescriptor;
             var unflattened = data.Unflatten();
@@ -281,7 +308,7 @@ namespace RESTAll.Data.Providers
             {
                 _logger.LogTrace("Response");
                 _logger.LogTrace(responseData);
-                return responseData;
+                return BuildEntity(JObject.Parse(responseData));
             }
 
             throw new RESTException(responseData, result.StatusCode);

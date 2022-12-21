@@ -9,6 +9,6 @@ namespace RESTAll.Data.Contracts
 {
     public interface IQueryParser
     {
-        List<QueryDescriptor> Parse(string query);
+        List<TableDefinitionModel> Parse(string queryText);
     }
 }

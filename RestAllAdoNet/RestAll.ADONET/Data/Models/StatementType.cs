@@ -9,11 +9,11 @@ public enum StatementType
     [Description("insert")]
     Insert,
     [Description("insert")]
-    InsertWithSelect,
+    InsertSelect,
     [Description("update")]
     Update,
     [Description("update")]
-    UpdateWithSelect,
+    UpdateSelect,
     [Description("delete")]
     Delete
 }

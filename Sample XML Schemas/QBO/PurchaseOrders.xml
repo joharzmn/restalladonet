@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="PurchaseOrders" Description="QuickBooks PurchaseOrders">
+    <Column Name="Id" DataType="Int64" Path="Id" MaxLength="0" Key="true" IsRaw="false" />
+    <Column Name="DocNumber" DataType="String" Path="DocNumber" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="SyncToken" DataType="Int64" Path="SyncToken" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="domain" DataType="String" Path="domain" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="VendorRef_name" DataType="String" Path="VendorRef.name" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="VendorRef_value" DataType="String" Path="VendorRef.value" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="TxnDate" DataType="String" Path="TxnDate" MaxLength="0" Key="false" IsRaw="false" />
+	<Column Name="Line" DataType="String" Path="Line" MaxLength="0" Key="false" IsRaw="true" />
+    <Column Name="TotalAmt" DataType="Double" Path="TotalAmt" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="APAccountRef_name" DataType="String" Path="APAccountRef.name" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="APAccountRef_value" DataType="String" Path="APAccountRef.value" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="sparse" DataType="Boolean" Path="sparse" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="CustomField" DataType="String" Path="CustomField" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="MetaData_CreateTime" DataType="DateTime" Path="MetaData.CreateTime" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="MetaData_LastUpdatedTime" DataType="DateTime" Path="MetaData.LastUpdatedTime" MaxLength="0" Key="false" IsRaw="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Method="POST" FilterAsElement="false" ContentType="application/text">
+      <Url>^[Connection.URL]^/v3/company/^[Token.realmid]^/query?minorversion=65</Url>
+      <Body>select * from PurchaseOrder</Body>
+    </DataAction>
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.QueryResponse.PurchaseOrder</RepeatElement>
+  <IncrementalCacheColumn>MetaData_LastUpdatedTime</IncrementalCacheColumn>
+  <IsIncrementalCache>true</IsIncrementalCache>
+  <DataMethod>Query</DataMethod>
+</EntityDescriptor>

@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using RESTAll.Data.Contracts;
 using RESTAll.Data.Extensions;
+using RESTAll.Data.Parser;
 using RESTAll.Data.Providers;
 using RESTAll.Data.Utilities;
 #nullable disable

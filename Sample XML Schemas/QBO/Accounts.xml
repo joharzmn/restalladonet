@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
-  <TableDefination TableName="Accounts" Description="Quickbooks Accounts Data" Schema="QBO">
+  <TableDefination TableName="Accounts" Description="Quickbooks Accounts Data">
     <Column Name="Id" DataType="Int32" Path="Id" MaxLength="0" Key="true" />
 	<Column Name="SyncToken" DataType="Int16" Path="SyncToken" MaxLength="0" Key="false" />
     <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" />

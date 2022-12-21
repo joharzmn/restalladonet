@@ -109,6 +109,9 @@ namespace RESTAll.Data.Models
         /// </summary>
         [XmlAttribute("EnablePaging")]
         public bool EnablePaging { set; get; }
+
+        [XmlAttribute("IsView")]
+        public bool IsView { set; get; }
         /// <summary>
         /// Root Element of Json Response
         /// </summary>
@@ -265,5 +268,7 @@ namespace RESTAll.Data.Models
         public string ContentType { set; get; }
         [XmlElement("RequiredColumn")]
         public List<string> RequiredColumns { set; get; }
+        [XmlElement("ResponseElement")]
+        public string ResponseElement { set; get; }
     }
 }

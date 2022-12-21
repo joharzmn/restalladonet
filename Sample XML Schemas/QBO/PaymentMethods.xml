@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+  <TableDefination TableName="PaymentMethods" Description="QuickBooks PaymentMethod">
+    <Column Name="Id" DataType="Int32" Path="Id" MaxLength="0" Key="true" IsRaw="false" />
+    <Column Name="SyncToken" DataType="Int16" Path="SyncToken" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="domain" DataType="String" Path="domain" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="Name" DataType="String" Path="Name" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="sparse" DataType="Boolean" Path="sparse" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="Active" DataType="Boolean" Path="Active" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="Type" DataType="String" Path="Type" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="MetaData_CreateTime" DataType="DateTime" Path="MetaData.CreateTime" MaxLength="0" Key="false" IsRaw="false" />
+    <Column Name="MetaData_LastUpdatedTime" DataType="DateTime" Path="MetaData.LastUpdatedTime" MaxLength="0" Key="false" IsRaw="false" />
+    <Input Column="Id" />
+  </TableDefination>
+  <Operations>
+    <DataAction Operation="Select" Method="POST" FilterAsElement="false" ContentType="application/text">
+      <Url>^[Connection.URL]^/v3/company/^[Token.realmid]^/query?minorversion=65</Url>
+      <Body>select * from PaymentMethod</Body>
+    </DataAction>
+  </Operations>
+  <PageSize>0</PageSize>
+  <RepeatElement>$.QueryResponse.PaymentMethod</RepeatElement>
+  <IsIncrementalCache>false</IsIncrementalCache>
+</EntityDescriptor>

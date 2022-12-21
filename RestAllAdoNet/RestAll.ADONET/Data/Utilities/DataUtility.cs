@@ -17,6 +17,7 @@ using RESTAll.Data.Models;
 using TSQL.Tokens;
 using StatementType = RESTAll.Data.Models.StatementType;
 using RESTAll.Data.Providers;
+
 #nullable disable
 namespace RESTAll.Data.Utilities
 {
@@ -51,66 +52,63 @@ namespace RESTAll.Data.Utilities
         {
 
 
-            var tableName = _QueryParser.Parse(sql);
-            if (tableName.Count == 0)
+            var tables = _QueryParser.Parse(sql);
+            if (tables.Count == 0)
             {
                 throw new RESTException("Table Not Found or sql is not well formed", "SQL");
             }
-            var queryDescriptor = tableName.FirstOrDefault();
 
-            var entity = _MetaDataProvider.GetEntityDescriptor(queryDescriptor);
-            var action = entity.Actions.FirstOrDefault(x => x.Operation == StatementType.Select);
-            if (action != null)
+            foreach (var table in tables)
             {
-
-                foreach (var dataInput in entity.Table.Input)
+                var entity = _MetaDataProvider.GetEntityDescriptor(table);
+                var action = entity.Actions.FirstOrDefault(x => x.Operation == StatementType.Select);
+                if (action != null)
                 {
-                    //if (action.Url != null && action.Url.Contains(dataInput.Column))
-                    //{
-                    //    var filter =
-                    //        queryDescriptor.Filters.FirstOrDefault(x => x.ColumnName.ToLower() == dataInput.Column.ToLower());
-                    //    var old = "{" + $"{dataInput.Column}" + "}";
-                    //    action.Url = action.Url.Replace(old, filter.Value.ToString().Replace("'", ""));
-                    //    _DataProvider.SetFilterValue(filter.ColumnName, filter.Value.ToString().Replace("'", ""));
-                    //}
-                }
 
-                var data = _DataProvider.GetAsync(action.Operation, queryDescriptor.TableName, queryDescriptor.Schema).Result;
-                _sqLiteProvider.ParkData(data.Data);
-                var dt = new DataTable();
-                if (!string.IsNullOrEmpty(entity.ViewSql))
-                {
-                    dt = _sqLiteProvider.GetData(entity.ViewSql);
+                    foreach (var dataInput in entity.Table.Input)
+                    {
+                        //if (action.Url != null && action.Url.Contains(dataInput.Column))
+                        //{
+                        //    var filter =
+                        //        queryDescriptor.Filters.FirstOrDefault(x => x.ColumnName.ToLower() == dataInput.Column.ToLower());
+                        //    var old = "{" + $"{dataInput.Column}" + "}";
+                        //    action.Url = action.Url.Replace(old, filter.Value.ToString().Replace("'", ""));
+                        //    _DataProvider.SetFilterValue(filter.ColumnName, filter.Value.ToString().Replace("'", ""));
+                        //}
+                    }
+
+                    var data = _DataProvider.GetAsync(action.Operation, table.Name, table.Schema).Result;
+                    _sqLiteProvider.ParkData(data.Data);
                 }
                 else
                 {
-                    dt = _sqLiteProvider.GetData(sql);
+                    throw new RESTException("No Action Defined in the schema", "SchemaDefinition");
                 }
 
-                return dt;
+
+
             }
-            else
-            {
-                throw new RESTException("No Action Defined in the schema", "SchemaDefinition");
-            }
+
+            return _sqLiteProvider.GetData(sql);
         }
 
-        public int ExecuteQuery(string sql, DbParameterCollection parameters)
+        public DataTable ExecuteQuery(string sql, DbParameterCollection parameters)
         {
             var queries = _QueryParser.Parse(sql);
             var bodyDic = new Dictionary<string, object>();
             foreach (var item in queries)
             {
                 var entity = _MetaDataProvider.GetEntityDescriptor(item);
-                if (item.StatementType == StatementType.Insert || item.StatementType == StatementType.Update)
+                if (item.Operation == StatementType.Insert || item.Operation == StatementType.Update)
                 {
-                    bodyDic.MapParameters(parameters, item.Parameters);
-                    bodyDic.MapValues(item.Parameters);
 
-                    var action = entity.Actions.FirstOrDefault(x => x.Operation == item.StatementType);
+                    bodyDic.MapParameters(parameters, item.Values);
+                    bodyDic.MapValues(item.Values);
+
+                    var action = entity.Actions.FirstOrDefault(x => x.Operation == item.Operation);
                     if (action == null)
                     {
-                        throw new RESTException($"{item.StatementType} Action not defined for Entity `{entity.Table.TableName}`",
+                        throw new RESTException($"{item.Operation} Action not defined for Entity `{entity.Table.TableName}`",
                             HttpStatusCode.FailedDependency);
                     }
                     if (action.FilterAsElement)
@@ -119,27 +117,60 @@ namespace RESTAll.Data.Utilities
                     }
 
                     bodyDic.ValidateRequiredColumns(action.RequiredColumns);
-                    _DataProvider.PostDataAsync(action.Url, bodyDic, entity).Wait();
+                    return _DataProvider.PostDataAsync(action.Url, bodyDic, entity).Result;
                 }
 
-                if (item.StatementType == StatementType.Delete)
+                if (item.Operation == StatementType.Delete)
                 {
-                    var action = entity.Actions.FirstOrDefault(x => x.Operation == item.StatementType);
+                    var action = entity.Actions.FirstOrDefault(x => x.Operation == item.Operation);
                     if (action == null)
                     {
                         throw new RESTException(
-                            $"{item.StatementType} Action not defined for Entity `{entity.Table.TableName}`",
+                            $"{item.Operation} Action not defined for Entity `{entity.Table.TableName}`",
                             HttpStatusCode.FailedDependency);
                     }
 
                     if (action.FilterAsElement)
                     {
                         bodyDic.MapFilterAsElement(item.Filters, parameters);
-                        _DataProvider.PostDataAsync(action.Url, bodyDic, entity).Wait();
+                        return _DataProvider.PostDataAsync(action.Url, bodyDic, entity).Result;
+                    }
+                }
+
+                if (item.Operation == StatementType.Select)
+                {
+                    var action = entity.Actions.FirstOrDefault(x => x.Operation == item.Operation);
+                    if (action == null)
+                    {
+                        throw new RESTException(
+                            $"{item.Operation} Action not defined for Entity `{entity.Table.TableName}`",
+                            HttpStatusCode.FailedDependency);
+                    }
+
+                    if (action.FilterAsElement)
+                    {
+                        bodyDic.MapFilterAsElement(item.Filters, parameters);
+                       
+                        var data = _DataProvider.GetAsync(action.Operation, item.Name, item.Schema).Result;
+                        _sqLiteProvider.ParkData(data.Data);
+                        if (entity.IsView)
+                        {
+                            _sqLiteProvider.CreateView(entity.ViewSql, item.Name);
+                        }
+                    }
+                    else
+                    {
+                        
+                        var data = _DataProvider.GetAsync(action.Operation, item.Name, item.Schema).Result;
+                        _sqLiteProvider.ParkData(data.Data);
+                        if (entity.IsView)
+                        {
+                            _sqLiteProvider.CreateView(entity.ViewSql, item.Name);
+                        }
                     }
                 }
             }
-            return 0;
+            return _sqLiteProvider.GetData(sql);
         }
 
         private string BatchRequestItems(string sql, StatementType operationType, string batchId, DbParameterCollection parameters, DataRow[] dataRows)
@@ -149,7 +180,7 @@ namespace RESTAll.Data.Utilities
 
             foreach (var item in queries)
             {
-                if (item.StatementType == StatementType.Insert)
+                if (item.Operation == StatementType.Insert)
                 {
                     var entity = _MetaDataProvider.GetEntityDescriptor(item);
                     foreach (DataRow dr in dataRows)
@@ -159,35 +190,34 @@ namespace RESTAll.Data.Utilities
                         {
                             for (int i = 0; i <= parameters.Count - 1; i++)
                             {
-                                var parameter = item.Parameters.FirstOrDefault(x =>
-                                    x.Type == TSQLTokenType.Variable &&
-                                    x.Identifier.ToLower() == parameters[i].ParameterName.ToLower());
+                                var parameter = item.Values.FirstOrDefault(x =>
+                                    x.ValueTypes == ValueTypes.Variable &&
+                                    x.Name.ToLower() == parameters[i].ParameterName.ToLower());
                                 if (!string.IsNullOrEmpty(parameters[i].SourceColumn))
                                 {
-                                    bodyDic.Add(parameter.DestinationColumn.Replace("_", "."), dr[parameters[i].SourceColumn]);
+                                    bodyDic.Add(parameter.Name.Replace("_", "."), dr[parameters[i].SourceColumn]);
                                 }
 
                             }
                         }
 
-                        foreach (var parameterModel in item.Parameters.Where(x => x.Type != TSQLTokenType.Variable))
+                        foreach (var parameterModel in item.Values.Where(x => x.ValueTypes != ValueTypes.Variable))
                         {
-                            if (parameterModel.Type == TSQLTokenType.StringLiteral)
+                            if (parameterModel.ValueTypes == ValueTypes.String)
                             {
-                                var value = parameterModel.Identifier.Remove(0, 1)
-                                    .Remove(parameterModel.Identifier.Length - 2, 1);
-                                bodyDic.Add(parameterModel.DestinationColumn.Replace("_", "."), value);
+                                var value = parameterModel.Value.ToString().CleanStringLiteral();
+                                bodyDic.Add(parameterModel.Name.Replace("_", "."), value);
                             }
                             else
                             {
-                                bodyDic.Add(parameterModel.DestinationColumn.Replace("_", "."), parameterModel.Identifier);
+                                bodyDic.Add(parameterModel.Name.Replace("_", "."), parameterModel.Value);
                             }
 
                         }
 
                         var normalizedBody = bodyDic.Unflatten();
                         var batch = _MetaDataProvider.GetBatches(batchId.ToString(), normalizedBody.ToString(),
-                            entity.EntityElement, _AuthenticationClient.Token).FirstOrDefault(x => x.Operation == item.StatementType);
+                            entity.EntityElement, _AuthenticationClient.Token).FirstOrDefault(x => x.Operation == item.Operation);
                         _currentBatchRequest ??= batch;
                         bodyList.Add(JsonConvert.DeserializeObject<Dictionary<string, object>>(batch.RequestFormat));
                     }

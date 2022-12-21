@@ -19,7 +19,7 @@ namespace RESTAll.Data.Extensions
             cmd.Parameters.Add(parameter);
         }
 
-        public static void AddParameter(this DbCommand cmd, string name, string sourceColumn)
+        public static void AddBatchParameter(this DbCommand cmd, string name, string sourceColumn)
         {
             DbParameter parameter = cmd.CreateParameter();
             parameter.ParameterName = name;

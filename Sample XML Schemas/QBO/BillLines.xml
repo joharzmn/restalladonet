@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false" IsView="true">
   <TableDefination TableName="Bills" Description="Quickbooks Bills Data" Schema="QBO">
     <Column Name="Id" DataType="Int32" Path="Id" MaxLength="0" Key="true" />
 	<Column Name="SyncToken" DataType="Int16" Path="SyncToken" MaxLength="0" Key="false" />
@@ -13,6 +13,7 @@
     <Column Name="CurrencyRef_Value" DataType="String" Path="CurrencyRef.value" MaxLength="0" Key="false" />
     <Column Name="Domain" DataType="String" Path="domain" MaxLength="0" Key="false" />
 	<Column Name="DueDate" DataType="String" Path="DueDate" MaxLength="0" Key="false" />
+	<Column Name="Line" DataType="String" Path="Line" MaxLength="0" Key="false" />
 	<Column Name="Balance" DataType="Double" Path="Balance" MaxLength="0" Key="false" />
 	<Column Name="MetaData_CreateTime" DataType="DateTime" Path="MetaData.CreateTime" MaxLength="0" Key="false" />
 	<Column Name="MetaData_LastUpdatedTime" DataType="DateTime" Path="MetaData.LastUpdatedTime" MaxLength="0" Key="false" />
@@ -25,4 +26,22 @@
   </Operations>
   <PageSize>0</PageSize>
   <RepeatElement>$.QueryResponse.Bill</RepeatElement>
+  <ViewSql>
+    SELECT t.Id as BillId,json_extract(j.value, '$.Id') as LineId,
+json_extract(j.value,'$.LineNum') as LineNum,
+json_extract(j.value,'$.Description') as Description,
+json_extract(j.value,'$.Amount') as LineAmount,
+json_extract(j.value,'$.DetailType') as DetailType,
+json_extract(j.value,'$.AccountBasedExpenseLineDetail.AccountRef.value') as AccountBasedExpenseLineDetail_AccountRef_Value,
+json_extract(j.value,'$.AccountBasedExpenseLineDetail.AccountRef.name') as AccountBasedExpenseLineDetail_AccountRef_Name,
+json_extract(j.value,'$.AccountBasedExpenseLineDetail.BillableStatus') as AccountBasedExpenseLineDetail_BillStatus,
+json_extract(j.value,'$.AccountBasedExpenseLineDetail.TaxCodeRef.value') as AccountBasedExpenseLineDetail_TaxCodeRef_Value,
+json_extract(j.value,'$.ItemBasedExpenseLineDetail.TaxCodeRef.value') as ItemBasedExpenseLineDetail_TaxCodeRef_Value,
+json_extract(j.value,'$.ItemBasedExpenseLineDetail.BillableStatus') as ItemBasedExpenseLineDetaill_BillStatus,
+json_extract(j.value,'$.ItemBasedExpenseLineDetail.UnitPrice') as ItemBasedExpenseLineDetaill_UnitPrice,
+json_extract(j.value,'$.ItemBasedExpenseLineDetail.Qty') as ItemBasedExpenseLineDetaill_Qty,
+json_extract(j.value,'$.ItemBasedExpenseLineDetail.ItemRef.name') as ItemBasedExpenseLineDetaill_ItemRef_Name,
+json_extract(j.value,'$.ItemBasedExpenseLineDetail.ItemRef.value') as ItemBasedExpenseLineDetaill_ItemRef_Value
+FROM Bills t JOIN json_each(t.Line, "$") j
+  </ViewSql>
 </EntityDescriptor>

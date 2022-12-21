@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false">
-  <TableDefination TableName="Invoices" Description="QuickBooks Invoices" Schema="QBO">
+<EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EnablePaging="false" AutoBuild="false" IsView="true">
+  <TableDefination TableName="Invoices" Description="QuickBooks InvoiceLines" Schema="QBO">
     <Column Name="Id" DataType="String" Path="Id" MaxLength="0" Key="true" />
     <Column Name="DocNumber" DataType="String" Path="DocNumber" MaxLength="0" Key="false" />
     <Column Name="SyncToken" DataType="Int16" Path="SyncToken" MaxLength="0" Key="false" />

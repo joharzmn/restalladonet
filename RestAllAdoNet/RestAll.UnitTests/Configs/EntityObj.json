@@ -1,24 +1,48 @@
-
-      {
-		  "Id": 161,
-        "SyncToken": 0, 
-        "domain": "QBO", 
-        "DepositToAccountRef": {
-          "value": "4"
-        }, 
-        "UnappliedAmt": 55.0, 
-        "TxnDate": "2015-01-16", 
-        "TotalAmt": 55.0, 
-        "ProcessPayment": false, 
-        "sparse": false, 
-        "Line": "", 
-        "CustomerRef": {
-          "name": "Red Rock Diner", 
-          "value": "20"
-        }, 
-         
-        "MetaData": {
-          "CreateTime": "2015-01-16T14:58:32-08:00", 
-          "LastUpdatedTime": "2015-01-16T14:58:32-08:00"
-        }
-      }
+{
+  "Id": 66,
+  "DocNumber": "1020",
+  "SyncToken": "0",
+  "domain": "QBO",
+  "Balance": 0.0,
+  "PaymentMethodRef": {
+    "name": "Check",
+    "value": "2"
+  },
+  "BillAddr": {
+    "Line4": "South Orange, NJ  07079",
+    "Line3": "350 Mountain View Dr.",
+    "Line2": "Pye's Cakes",
+    "Line1": "Karen Pye",
+    "Long": "-74.2609903",
+    "Lat": "40.7489277",
+    "Id": "73"
+  },
+  "DepositToAccountRef": {
+    "name": "Checking",
+    "value": "35"
+  },
+  "TxnDate": "2014-09-17",
+  "TotalAmt": 87.5,
+  "CustomerRef": {
+    "name": "Pye's Cakes",
+    "value": "15"
+  },
+  "CustomerMemo": {
+    "value": "Thank you for your business and have a great day!"
+  },
+  "PrintStatus": "NotSet",
+  "BillEmail": {
+    "Address": "pyescakes@intuit.com"
+  },
+  "sparse": false,
+  "Line": "",
+  "ApplyTaxAfterDiscount": false,
+  "CustomField": "",
+  "TxnTaxDetail": {
+    "TotalTax": 0
+  },
+  "MetaData": {
+    "CreateTime": "2014-09-17T15:35:07-07:00",
+    "LastUpdatedTime": "2014-09-17T15:35:07-07:00"
+  }
+}
