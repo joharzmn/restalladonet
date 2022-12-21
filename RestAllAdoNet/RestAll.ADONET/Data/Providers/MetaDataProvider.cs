@@ -211,7 +211,7 @@ namespace RESTAll.Data.Providers
 
         }
 
-        public EntityDescriptor GetEntityDescriptor(QueryDescriptor queryDescriptor)
+        public EntityDescriptor GetEntityDescriptor(TableDefinitionModel queryDescriptor)
         {
             if (_schemaXmls.Count == 0)
             {
@@ -222,22 +222,22 @@ namespace RESTAll.Data.Providers
             var tableName = "";
             if (!string.IsNullOrEmpty(_Builder.Schema))
             {
-                if (queryDescriptor.StatementType == StatementType.Insert || queryDescriptor.StatementType==StatementType.Update || queryDescriptor.StatementType==StatementType.Delete)
+                if (queryDescriptor.Operation == StatementType.Insert || queryDescriptor.Operation == StatementType.Update || queryDescriptor.Operation==StatementType.Delete)
                 {
-                    tableName = queryDescriptor.TargetTable.Replace("[", "").Replace("]", "");
+                    tableName = queryDescriptor.ActionTable;
                     xmlSchemaText = _schemaXmls[$"{tableName}".ToLower()];
                 }
                 
-                if (queryDescriptor.StatementType == StatementType.Select)
+                if (queryDescriptor.Operation == StatementType.Select)
                 {
-                    tableName = queryDescriptor.TableName.Replace("[", "").Replace("]", "");
+                    tableName = queryDescriptor.Name;
                     xmlSchemaText = _schemaXmls[$"{tableName}".ToLower()];
                 }
 
             }
             else
             {
-                xmlSchemaText = _schemaXmls[queryDescriptor.TableName.Replace("[", "").Replace("]", "").ToLower()];
+                xmlSchemaText = _schemaXmls[queryDescriptor.Name.ToLower()];
             }
 
             var singleEntity = Entities.FirstOrDefault(x =>

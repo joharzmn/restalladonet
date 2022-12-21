@@ -26,7 +26,7 @@ public class Utility
         var flatten = obj.Flatten();
         var metaProvider = new MetaDataProvider(_builder, null, null);
         var entityDescriptor = new EntityDescriptor();
-        entityDescriptor.Actions.Add(new DataAction() { Url = url, Operation = "Select",Body = body,Method = "POST",ContentType = "application/text",RequiredColumns = new List<string>(){"Id", "SyncToken", "ExpenseAccountRef_value" } });
+        entityDescriptor.Actions.Add(new DataAction() { Url = url, Operation = StatementType.Select,Body = body,Method = "POST",ContentType = "application/text",RequiredColumns = new List<string>(){"Id", "SyncToken", "ExpenseAccountRef_value" } });
 
         entityDescriptor.Table.Input.Add(new DataInput() { Column = "Id" });
         entityDescriptor.RepeatElement = rootElement;
@@ -44,7 +44,17 @@ public class Utility
                     Key = false
                 });
             }
-            else if (o.Key.StartsWith("Line")) { }
+            else if (o.Key.StartsWith("Line"))
+            {
+                entityDescriptor.Table.Fields.Add(new DataField()
+                {
+                    DataType = Type.GetTypeCode(o.Value.GetType()),
+                    Field = o.Key.Replace(".", "_"),
+                    Path = o.Key,
+                    Key = o.Key.ToLower() == "id",
+                    IsRaw = true
+                });
+            }
             else
             {
                 entityDescriptor.Table.Fields.Add(new DataField()

@@ -35,7 +35,7 @@ namespace RestAll.UnitTests
                 Schema = "QBO",
                 Url = "https://sandbox-quickbooks.api.intuit.com",//base URL of endpoint
             };
-            Utility.GenerateEntity($@"{AppDomain.CurrentDomain.BaseDirectory}\Configs\EntityObj.json", "select * from Payment", "$.QueryResponse.Payment", "Payments", "^[Connection.URL]^/v3/company/^[Token.realmid]^/query?minorversion=65", "QuickBooks Payment", connectionStringBuilder);
+            Utility.GenerateEntity($@"{AppDomain.CurrentDomain.BaseDirectory}\Configs\EntityObj.json", "select * from RefundReceipt", "$.QueryResponse.RefundReceipt", "RefundReceipts", "^[Connection.URL]^/v3/company/^[Token.realmid]^/query?minorversion=65", "QuickBooks RefundReceipts", connectionStringBuilder);
         }
 
         [TestMethod]

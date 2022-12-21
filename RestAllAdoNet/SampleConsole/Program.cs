@@ -1,9 +1,13 @@
 ﻿using System.Data.Common;
 using System.Data;
 using Microsoft.Extensions.Configuration;
+//using RESTAll.Data.Common;
+//using RESTAll.Data.Extensions;
+//using RESTAll.Data.Utilities;
+using SampleConsole;
+using Microsoft.SqlServer.TransactSql.ScriptDom;
 using RESTAll.Data.Common;
-using RESTAll.Data.Extensions;
-using RESTAll.Data.Utilities;
+using RESTAll.Data.Parser;
 
 class Program
 {
@@ -35,14 +39,17 @@ class Program
         };
 
         DbConnection restConnection = new RestAllConnection(cb);
+        //var processed = ParseSql("Select a.* From Accounts as a Where Id=1");
+        //var visitor = new StatementVisitor();
+        //processed.sqlTree.Accept(visitor);
 
         //var queryParser = new QueryParser();
-        //queryParser.Parse("Delete From Items Where Id=20 AND SyncToken=0");
+        //queryParser.Parse("Select * From Items as a Inner Join Accounts as c on c.Id=a.AccountId");
 
         restConnection.Open();
-        //var connectionSchema = restConnection.GetSchema("Accounts");
+        var connectionSchema = restConnection.GetSchema("Accounts");
         var cmd = restConnection.CreateCommand();
-        cmd.CommandText = "Select * From Items";
+        cmd.CommandText = "Select * From RefundReceipts";
         //cmd.CommandText = @"Select * From Items";
         //cmd.CommandText = @"Update Items Set Name='Hello World New Update',SyncToken=0, ExpenseAccountRef_value=30 where Id=20";
         var dt = new DataTable();
@@ -118,9 +125,19 @@ class Program
 
 
     }
-
-    private static void Adapter_RowUpdated(object sender, RestAllDataAdapterRowUpdatedEventArgs e)
+    private static (TSqlFragment sqlTree, IList<ParseError> errors) ParseSql(string procText)
     {
+        var parser = new TSql150Parser(true, SqlEngineType.All);
+        using (var textReader = new StringReader(procText))
+        {
+            var sqlTree = parser.Parse(textReader, out var errors);
 
+            return (sqlTree, errors);
+        }
     }
+
+    //private static void Adapter_RowUpdated(object sender, RestAllDataAdapterRowUpdatedEventArgs e)
+    //{
+
+    //}
 }

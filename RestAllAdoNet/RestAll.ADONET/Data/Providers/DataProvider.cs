@@ -180,14 +180,21 @@ namespace RESTAll.Data.Providers
             var action = entity.Actions.FirstOrDefault(x => x.Operation == statementType);
             if (entity.IsIncrementalCache && !string.IsNullOrEmpty(entity.IncrementalCacheColumn))
             {
-                var max = _sqLiteProvider.GetMax(entity.Table.TableName, entity.IncrementalCacheColumn);
-                if (entity.DataMethod == DataMethod.Query)
+                try
                 {
-                    if (!string.IsNullOrEmpty(action.Body))
+                    var max = _sqLiteProvider.GetMax(entity.Table.TableName, entity.IncrementalCacheColumn);
+                    if (entity.DataMethod == DataMethod.Query)
                     {
-                        action.Body =
-                            $"{action.Body} Where {entity.Table.Fields.FirstOrDefault(x => x.Field.ToLower() == entity.IncrementalCacheColumn.ToLower())?.Path} > '{JsonConvert.SerializeObject(Convert.ToDateTime(max)).Replace("\"", "")}'";
+                        if (!string.IsNullOrEmpty(action.Body))
+                        {
+                            action.Body =
+                                $"{action.Body} Where {entity.Table.Fields.FirstOrDefault(x => x.Field.ToLower() == entity.IncrementalCacheColumn.ToLower())?.Path} > '{JsonConvert.SerializeObject(Convert.ToDateTime(max)).Replace("\"", "")}'";
+                        }
                     }
+                }
+                catch
+                {
+                    
                 }
             }
             var request = new HttpRequestMessage()
